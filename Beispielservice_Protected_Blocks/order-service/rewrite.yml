@@ -1,0 +1,16 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: app.ChangeMethod
+displayName: Change method name example
+recipeList:
+  - org.openrewrite.java.ChangeMethodName:
+      methodPattern: app..* createOrder()
+      newMethodName: createBetterOrder
+
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: app.order
+recipeList:
+  - org.openrewrite.java.ChangePackage:
+      oldPackageName: app.order
+      newPackageName: app.ordernew

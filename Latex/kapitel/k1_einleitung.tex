@@ -1,0 +1,31 @@
+\chapter{Abstract}
+
+Diese Arbeit erforscht die modellgetriebene Softwareentwicklung von Microservice-Architekturen. Im Fokus steht die Konzeption eines Metamodells für diese. Ziel ist es, lauffähige und in einer Cloud-Infrastruktur ausführbare Anwendungen zu modellieren und zu generieren. Hierbei sollen die Designprinzipien des Domain-Driven Designs angewendet werden. Die zentralen Beiträge dieser Arbeit umfassen die Analyse der Vor- und Nachteile verschiedener Entwurfsentscheidungen sowie die Überprüfung der Ausdrucksfähigkeit des Metamodells mittels konkreter Syntax und Visualisierung. Ein besonderer Schwerpunkt liegt auf der Untersuchung, wie sich mit diesem Modell Anwendungen für reale Problemdomänen abbilden lassen.
+
+Ein wesentliches Ergebnis ist die erfolgreiche Generierung von Java-Spring-Applikationen, womit die grundlegende Machbarkeit bewiesen wird. Weiterhin werden dabei auftretende Probleme und mögliche Lösungsansätze im Kontext der Codegenerierung beleuchtet. Zudem wird erforscht, inwiefern sich dieser modellgetriebene Ansatz für Refaktorisierungen einsetzen lässt. Theoretische Grundlagen und eine umfassende State-of-the-Art-Recherche bilden das Fundament dieser Arbeit. Methodisch wurde ein schichtbasiertes Konzept für die Abstraktion entwickelt, das iterativ verfeinert und durch anwendungsfokussierte Entwurfsentscheidungen ergänzt wurde.
+
+Neben der Realisierbarkeit der Metamodellierung verschiedener Aspekte von Microservice-Architekturen konnte auch die variierende Komplexität der einzelnen Aspekte und Ansätze zu deren Lösung aufgezeigt werden. Darüber hinaus werfen die Herausforderungen und Grenzen des aktuellen Ansatzes neue Fragestellungen auf. Insbesondere wird diskutiert, inwiefern eine vertiefende Modellierung dieser Domäne, ergänzend zur breiten Perspektive, nützlich sein könnte. Diese Erkenntnisse bieten wichtige Impulse für zukünftige Forschungen in der modellgetriebenen Entwicklung von Microservices.
+
+\newpage
+
+This work explores the model-driven software development of microservice architectures. The focus is on the conception of a metamodel for these. The goal is to model and generate applications that are runnable and executable in a cloud infrastructure. In this process, the design principles of Domain-Driven Design are to be applied. The central contributions of this work include the analysis of the advantages and disadvantages of various design decisions, as well as the examination of the expressiveness of the metamodel through concrete syntax and visualization. A particular emphasis is placed on investigating how this model can represent applications for real problem domains.
+
+A key result is the successful generation of Java-Spring applications, proving the fundamental feasibility. Furthermore, problems that arise and potential solutions in the context of code generation are illuminated. Additionally, it explores to what extent this model-driven approach can be used for refactorings. Theoretical foundations and a comprehensive state-of-the-art research form the basis of this work. Methodologically, a layer-based concept for abstraction was developed, which was iteratively refined and supplemented by application-focused design decisions.
+
+Besides the realizability of the metamodeling of various aspects of microservice architectures, the varying complexity of the individual aspects and approaches to their solutions was also demonstrated. Moreover, the challenges and limitations of the current approach raise new questions. In particular, it discusses to what extent a more in-depth modeling of this domain, in addition to the broad perspective, could be useful. These insights provide important impulses for future research in the model-driven development of microservices.
+
+\newpage
+
+\chapter{Einleitung}
+
+\section{Motivation}
+
+In einer dieser vorangegangenen Seminararbeit wurde bereits aufgezeigt, dass Webdienste mittels modellgetriebener Softwareentwicklung umgesetzt werden können. Auf dieser Grundlage strebt diese Arbeit an, einen verfeinerten Ansatz zu entwickeln, der sich spezifisch auf die Microservice-Architektur von Webdiensten fokussiert. Die Entwicklung von Microservices – kleinen, skalierbaren Anwendungen, die oft in verteilten Systemen Verwendung finden – könnte von Vorteilen wie gesteigerter Wiederverwendbarkeit, vereinfachter Wartung und generell beschleunigter Entwicklungszeit profitieren. Besonders interessant ist dabei das mögliche Potenzial welches im Kontext von abhängigkeitsbezogenen Migrationen im Softwarelebenszyklus existieren könnte. Es stellt sich jedoch die Frage, ob Microservice-Anwendungen in ihrer gesamten konzeptionellen Breite durch ein Metamodell adäquat erfasst werden können. Zudem sind die domänenspezifischen Herausforderungen, die sich hierbei ergeben, von besonderem Interesse \cite{loeffler}.
+
+\section{Zielstellung}
+
+Ziel der Arbeit ist es, Anwendungen, die das Microservice-Paradigma verwenden, mit Werkzeugen und Methoden der modellgetriebenen Softwareentwicklung zu entwickeln. Dazu wird eine Domänenspezifische Sprache in Form eines Metamodell konzipiert, welches die grundlegenden Eigenschaften des Paradigmas abstrahiert. Dies wird ergänzt durch die Berücksichtigung von Konzepten des Domain-Driven Design zur Modellierung der Geschäftslogik.
+
+Anwendungen, die mit diesem Metamodell entwickelt werden, sollen Abhängigkeiten, wie Frameworks und Bibliotheken, integrieren. Weiterhin soll untersucht werden, wie diese Anwendungen effektiv migriert werden können. Dabei soll erforscht werden, ob sich ein modellgetriebener Ansatz für die Durchführung von Refaktorisierungen eignet, insbesondere im Kontext von Versionsaktualisierungen bei Abhängigkeiten.
+
+Außerdem wird untersucht, inwiefern die der Anwendung zugrundeliegende IT-Infrastruktur in einem solchen Metamodell berücksichtigt werden kann und ob es möglich ist, Deployment-fähige Anwendungen mithilfe eines Metamodells zu generieren.

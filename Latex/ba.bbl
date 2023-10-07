@@ -1,0 +1,282 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{BGO{\etalchar{+}}16}
+
+\bibitem[BBHE23]{burns1}
+Brendan Burns, Joe Beda, Kelsey Hightower, and Lachlan Evenson.
+\newblock {\em Kubernetes: eine kompakte Einf{\"u}hrung}.
+\newblock dpunkt.verlag, Heidelberg, 3., aktualisierte und erweiterte auflage
+  edition, 2023.
+\newblock Brendan Burns, Joe Beda, Kelsey Hightower, Lachlan Evenson.
+
+\bibitem[BD10]{brugge}
+Bernd Br{\"u}gge and Allen~Henry Dutoit.
+\newblock {\em Object-oriented software engineering: using UML, patterns, and
+  Java}.
+\newblock Pearson, Boston, 3. ed., international ed. edition, 2010.
+\newblock Bernd Bruegge {\&} Allen H. Dutoit.
+
+\bibitem[BGO{\etalchar{+}}16]{burns3}
+Brendan Burns, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes.
+\newblock Borg, omega, and kubernetes: Lessons learned from three
+  container-management systems over a decade.
+\newblock {\em Queue}, 14(1):70–93, jan 2016.
+\newblock \url{https://doi.org/10.1145/2898442.2898444}.
+
+\bibitem[{Clo}]{kubernetes}
+{Cloud Native Computing Foundation}.
+\newblock {Installieren und konfigurieren von kubectl}.
+\newblock \url{https://kubernetes.io/de/docs/tasks/tools/install-kubectl/},
+  Zugriff am 22.01.2024.
+
+\bibitem[Das17]{daschner}
+Sebastian Daschner.
+\newblock {\em Architecting modern Java EE applications: designing lightweight,
+  business-oriented enterprise applications in the age of cloud, containers,
+  and Java EE 8}.
+\newblock Packt, Birmingham, 2017.
+\newblock Sebastian Daschner ; Foreword by: David Blevins, Founder and CEO,
+  Tomitribe.
+
+\bibitem[{Doc}]{docker}
+{Docker, Inc.}
+\newblock {Install Docker Desktop on Linux}.
+\newblock \url{https://docs.docker.com/desktop/install/linux-install/}, Zugriff
+  am 22.01.2024.
+
+\bibitem[Dow18]{dowalil}
+Herbert Dowalil.
+\newblock {\em Grundlagen des modularen Softwareentwurfs: der Bau langlebiger
+  Mikro- und Makro-Architekturen wie Microservices und SOA 2.0}.
+\newblock Hanser, M{\"u}nchen, 2018.
+\newblock Herbert Dowalil.
+
+\bibitem[EPM16]{edmonds}
+OCCI-WG~Andy Edmonds, Alexander Papaspyrou, and Thijs Metsch.
+\newblock Open cloud computing interface-core.
+\newblock {\em Update}, page~6, 2016.
+
+\bibitem[Erl17]{erl}
+Thomas Erl.
+\newblock {\em Service-oriented architecture: analysis and design for services
+  and microservices}.
+\newblock The Prentice Hall service technology series from Thomas Erl. Prentice
+  Hall ; Service Tech Press, Boston, second edition edition, 2017.
+\newblock Thomas Erl ; with contributions by Paulo Merson and Roger Stoffers.
+
+\bibitem[Eva07]{evans}
+Eric Evans.
+\newblock {\em Domain-driven design: tackling complexity in the heart of
+  software}.
+\newblock Addison-Wesley, Upper Saddle River, NJ [u.a.], 11. printing edition,
+  2007.
+\newblock Eric Evans.
+
+\bibitem[Fow17]{fowlersusan}
+Susan~J. Fowler.
+\newblock {\em Production-ready microservices: building standardized systems
+  across an engineering organization}.
+\newblock O{\textasciiacute}Reilly, Beijing, first edition edition, 2017.
+\newblock Susan J. Fowler.
+
+\bibitem[FR14]{http}
+Roy~T. Fielding and Julian Reschke.
+\newblock {Hypertext Transfer Protocol (HTTP/1.1): Authentication}.
+\newblock RFC 7235, June 2014.
+
+\bibitem[{Goo}a]{gcloudsdk}
+{Google LLC}.
+\newblock {Google Cloud CLI installieren}.
+\newblock \url{https://cloud.google.com/sdk/docs/install-sdk?hl=de#linux},
+  Zugriff am 22.01.2024.
+
+\bibitem[{Goo}b]{gcpdocs}
+{Google LLC}.
+\newblock {Google Cloud-Dokumentation}.
+\newblock \url{https://cloud.google.com/docs?hl=de}, Zugriff am 22.01.2024.
+
+\bibitem[{Goo}c]{kubernetesauth}
+{Google LLC}.
+\newblock {Here's what to know about changes to kubectl authentication coming
+  in GKE v1.26}.
+\newblock
+  \url{https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke?hl=en},
+  Zugriff am 22.01.2024.
+
+\bibitem[{Gra}]{gradle}
+{Gradle Inc.}
+\newblock {Installing Gradle}.
+\newblock \url{https://docs.gradle.org/current/userguide/installation.html},
+  Zugriff am 22.01.2024.
+
+\bibitem[Kho]{oreillymap}
+Vladik Khononov.
+\newblock {What Is Domain-Driven Design?}
+\newblock
+  \url{https://www.oreilly.com/library/view/what-is-domain-driven/9781492057802/ch04.html},
+  Zugriff am 22.01.2024.
+
+\bibitem[KZ20]{mapper}
+Stefan Kapferer and Olaf Zimmermann.
+\newblock Domain-specific language and tools for strategic domain-driven
+  design, context mapping and bounded context modeling.
+\newblock pages 299--306, 01 2020.
+\newblock \url{https://www.scitepress.org/Papers/2020/89105/89105.pdf}.
+
+\bibitem[LF14]{fowlerlewis}
+James Lewis and Martin Fowler.
+\newblock Microservices - a definition of this new architectural term, 2014.
+\newblock \url{https://martinfowler.com/articles/microservices.html}, Zugriff
+  am 01.11.2023.
+
+\bibitem[Löa]{github}
+Patrik Löffler.
+\newblock {GitHub-Repo}.
+\newblock \url{https://github.com/Tinkerbell0807/ba/}, Zugriff am 30.01.2024.
+
+\bibitem[Löb]{mustermodell}
+Patrik Löffler.
+\newblock {Microservice-Metamodell EMF Modellvorlage}.
+\newblock \url{https://github.com/Tinkerbell0807/ba/tree/main/TemplateModel},
+  Zugriff am 29.01.2024.
+
+\bibitem[Löc]{bspprojekt}
+Patrik Löffler.
+\newblock {Microservice-Metamodell Migrations-Beispielprojekt}.
+\newblock
+  \url{https://github.com/Tinkerbell0807/ba/tree/main/Beispielservice_Protected_Blocks/order-service},
+  Zugriff am 29.01.2024.
+
+\bibitem[Lö23]{loeffler}
+Patrik Löffler.
+\newblock {Entwicklung einer Domänenspezifischen Sprache für Webdienste}.
+\newblock 2023.
+
+\bibitem[{Mod}]{rewrite}
+{Moderne}.
+\newblock {OpenRewrite Webpage}.
+\newblock \url{https://docs.openrewrite.org/}, Zugriff am 29.01.2024.
+
+\bibitem[{Nat}]{nist}
+{National Institute of Standards and Technology}.
+\newblock {The NIST Definition of Cloud Computing}.
+\newblock
+  \url{https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf},
+  Zugriff am 22.01.2024.
+
+\bibitem[New15]{newman}
+Sam Newman.
+\newblock {\em Microservices: Konzeption und Design}.
+\newblock mitp-Verl., [Frechen], 1. aufl. edition, 2015.
+\newblock Sam Newman. {\"U}bers. aus dem Amerikan. von Knut Lorenzen.
+
+\bibitem[PBG11]{posch}
+Torsten Posch, Klaus Birken, and Michael Gerdom.
+\newblock {\em Basiswissen Softwarearchitektur: verstehen, entwerfen,
+  wiederverwenden}.
+\newblock dpunkt-Verl., Heidelberg, 3., aktualisierte und erw. aufl. edition,
+  2011.
+\newblock Torsten Posch; Klaus Birken; Michael Gerdom.
+
+\bibitem[rem11]{rempp}
+{\em Model Driven SOA: anwendungsorientierte Methodik und Vorgehen in der
+  Praxis}.
+\newblock Xpert.press. Springer, Berlin, 2011.
+\newblock Gerhard Rempp; Mark Akermann; Martin L{\"o}ffler; Jens Lehmann. Mit
+  Ill. von Martin Starzmann.
+
+\bibitem[RF21]{richards}
+Mark Richards and Neal Ford.
+\newblock {\em Handbuch moderner Softwarearchitektur: Architekturstile,
+  Patterns und Best Practices}.
+\newblock O'Reilly, Heidelberg, 1. auflage edition, 2021.
+\newblock Mark Richards und Neal Ford ; deutsche {\"U}bersetzung von J{\o}rgen
+  W. Lang.
+
+\bibitem[Rit18]{riti}
+Pierluigi Riti.
+\newblock {\em Pro DevOps with Google Cloud Platform: with Docker, Jenkins, and
+  Kubernetes}.
+\newblock For professionals by professionals. Apress, [Berkeley, California],
+  2018.
+\newblock Pierluigi Riti.
+
+\bibitem[Rit23]{ritter}
+Rafael Ritter.
+\newblock Domain event: The missing building block.
+\newblock
+  \url{https://ilegra.com/blog/domain-event-the-missing-building-block/}, 2023.
+\newblock Zugriff am 19.11.2023.
+
+\bibitem[RSS]{ajilGithub}
+Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.
+\newblock Ajil tool suite repository.
+\newblock \url{https://github.com/SeelabFhdo/AjiL}, Zugriff am 17.01.2024.
+
+\bibitem[RSS18]{rademacher}
+Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.
+\newblock Challenges of domain-driven microservice design: A model-driven
+  perspective.
+\newblock {\em IEEE Software}, 35(3):36--43, 2018.
+\newblock \url{https://ieeexplore.ieee.org/document/8354426}.
+
+\bibitem[SIA19]{argon}
+Julio Sandobalin, Emilio Insfran, and Silvia Abrahão.
+\newblock Argon: A model-driven infrastructure provisioning tool.
+\newblock pages 738--742, 2019.
+\newblock \url{https://ieeexplore.ieee.org/abstract/document/8904494}.
+
+\bibitem[Sim18]{simons}
+Michael Simons.
+\newblock {\em Spring Boot 2: moderne Softwareentwicklung mit Spring 5}.
+\newblock dpunkt.verlag, Heidelberg, 1. auflage edition, 2018.
+\newblock Michael Simons.
+
+\bibitem[Som20]{sommerville}
+Ian Sommerville.
+\newblock {\em Engineering software products: an introduction to modern
+  software engineering}.
+\newblock Pearson, Hoboken, NJ, 2020.
+\newblock Ian Sommerville.
+
+\bibitem[Ste20]{stender}
+Daniel Stender.
+\newblock {\em Cloud-Infrastrukturen: das Handbuch f{\"u}r DevOps-Teams und
+  Administratoren}.
+\newblock Rheinwerk computing. Rheinwerk Computing, Bonn, 1. auflage edition,
+  2020.
+\newblock Daniel Stender.
+
+\bibitem[SWLH21]{sun}
+Chang-ai Sun, Jing Wang, Zhenxian Liu, and Yanbo Han.
+\newblock A variability-enabling and model-driven approach to adaptive
+  microservice-based systems.
+\newblock pages 968--973, 2021.
+\newblock \url{https://ieeexplore.ieee.org/abstract/document/9529482}.
+
+\bibitem[VMwa]{springboot}
+VMware.
+\newblock Spring boot reference documentation.
+\newblock
+  \url{https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/},
+  Zugriff am 22.01.2024.
+
+\bibitem[VMwb]{spring}
+VMware.
+\newblock Spring framework documentation.
+\newblock \url{https://docs.spring.io/spring-framework/reference/index.html},
+  Zugriff am 22.01.2024.
+
+\bibitem[Wol16]{wolff}
+Eberhard Wolff.
+\newblock {\em Microservices: Grundlagen flexibler Softwarearchitekturen}.
+\newblock dpunkt.verlag, Heidelberg, 1., korrigierter nachdruck edition, 2016.
+\newblock Eberhard Wolff.
+
+\bibitem[ZCM19]{zalila}
+Faiez Zalila, Stéphanie Challita, and Philippe Merle.
+\newblock Model-driven cloud resource management with occiware.
+\newblock {\em Future Generation Computer Systems}, 99:260--277, 2019.
+\newblock
+  \url{https://www.sciencedirect.com/science/article/pii/S0167739X18306071}.
+
+\end{thebibliography}

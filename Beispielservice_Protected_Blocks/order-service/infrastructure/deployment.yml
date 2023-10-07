@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service-app
+  template:
+    metadata:
+      labels:
+        app: order-service-app
+    spec:
+      containers:
+        - name: order-service-container
+          image: europe-west1-docker.pkg.dev/private-gcp-409308/quickstart-docker-repo/order-service-image
+          ports:
+            - containerPort: 8084
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: order-service-k8service
+spec:
+  selector:
+    app: order-service-app
+  ports:
+    - protocol: TCP
+      port: 8084
+      nodePort: 30004
+  type: NodePort

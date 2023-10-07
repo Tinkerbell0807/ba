@@ -1,0 +1,104 @@
+\documentclass[ngerman,11pt,twoside]{scrbook}
+\usepackage[breaklinks,colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue,filecolor=blue]{hyperref}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{graphicx,color}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{latexsym}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{underscore}
+\usepackage[automark]{scrlayer-scrpage}
+\usepackage[ngerman]{babel}
+\usepackage{blindtext}
+
+\raggedbottom
+
+\onehalfspacing 
+
+% Kopf- und Fußzeile
+\cleardoublepage
+\clearpairofpagestyles
+\ofoot[\pagemark]{\pagemark}
+\pagestyle{scrheadings}
+
+% Seitendefinitionen
+
+\setlength{\topmargin}{1.5cm}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{20pt}
+\setlength{\topskip}{12pt}
+\setlength{\evensidemargin}{11pt}
+\setlength{\oddsidemargin}{-11pt}
+\setlength{\textheight}{240mm}
+\setlength{\textwidth}{160mm}
+\setlength{\voffset}{-2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Code
+\usepackage{listings}
+\usepackage{xcolor}
+
+\renewcommand{\lstlistingname}{Quellcode}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	language=Java, 
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\input{kapitel/profile.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\input{kapitel/title}
+\cleardoublepage
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+\pagenumbering{arabic}
+
+% Kapitel
+
+\input{kapitel/k1_einleitung}
+\input{kapitel/k2_grundlagen}
+\input{kapitel/k3_modellierung}
+\input{kapitel/k4_generierung}
+\input{kapitel/k5_anwendung}
+\input{kapitel/k6_diskussion}
+
+% Literaturverzeichniss
+\newpage
+\bibliographystyle{alpha}
+\bibliography{bibs/litDB}
+
+\end{document}

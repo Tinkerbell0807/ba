@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:microserviceMetamodell="microserviceMetamodell" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_adWOsOp1Ee2Sw-K1-aIt1w" selectedViews="_fryCcOp1Ee2Sw-K1-aIt1w" version="15.0.0.202209061200">
+    <semanticResources>My.microservicemetamodell</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_fryCcOp1Ee2Sw-K1-aIt1w">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_f_K4gOp1Ee2Sw-K1-aIt1w" name="new SystemModelDescription" repPath="#_f-9dIOp1Ee2Sw-K1-aIt1w" changeId="4175b2c6-d525-4a02-8b26-4fed58c9a77b">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']"/>
+        <target xmi:type="microserviceMetamodell:SystemModel" href="My.microservicemetamodell#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_f-9dIOp1Ee2Sw-K1-aIt1w">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_f_V3oOp1Ee2Sw-K1-aIt1w" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_f_V3oep1Ee2Sw-K1-aIt1w" type="Sirius" element="_f-9dIOp1Ee2Sw-K1-aIt1w" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_nUvX4Op1Ee2Sw-K1-aIt1w" type="2002" element="_nQUx8Op1Ee2Sw-K1-aIt1w">
+          <children xmi:type="notation:Node" xmi:id="_nUzpUOp1Ee2Sw-K1-aIt1w" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_nU1egOp1Ee2Sw-K1-aIt1w" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_nU1egep1Ee2Sw-K1-aIt1w"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_nU1egup1Ee2Sw-K1-aIt1w"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_wO_9IOp1Ee2Sw-K1-aIt1w" type="3012" element="_wJl4sOp1Ee2Sw-K1-aIt1w">
+            <children xmi:type="notation:Node" xmi:id="_wPDAcOp1Ee2Sw-K1-aIt1w" type="5010">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_wPDAcep1Ee2Sw-K1-aIt1w" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_wPQb0Op1Ee2Sw-K1-aIt1w" type="3003" element="_wJnG0Op1Ee2Sw-K1-aIt1w">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_wPQb0ep1Ee2Sw-K1-aIt1w" fontName="Ubuntu"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wPQb0up1Ee2Sw-K1-aIt1w"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_wO_9Iep1Ee2Sw-K1-aIt1w" fontName="Ubuntu" fontHeight="12"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wO_9Iup1Ee2Sw-K1-aIt1w" x="-192" width="200" height="40"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nUvX4ep1Ee2Sw-K1-aIt1w" fontName="Ubuntu" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nUvX4up1Ee2Sw-K1-aIt1w" x="435" y="215" width="503" height="198"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_f_WesOp1Ee2Sw-K1-aIt1w"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_f_dMYOp1Ee2Sw-K1-aIt1w" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_f_dzcOp1Ee2Sw-K1-aIt1w"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_nQUx8Op1Ee2Sw-K1-aIt1w" name="Kontaktdaten">
+      <target xmi:type="microserviceMetamodell:DomainWebservice" href="My.microservicemetamodell#//@webservices.0"/>
+      <semanticElements xmi:type="microserviceMetamodell:DomainWebservice" href="My.microservicemetamodell#//@webservices.0"/>
+      <ownedBorderedNodes xmi:type="diagram:DNode" uid="_wJl4sOp1Ee2Sw-K1-aIt1w" name="http://contact-service.tu-ilmenau.de" width="20" height="4" resizeKind="NSEW">
+        <target xmi:type="microserviceMetamodell:DomainWebservice" href="My.microservicemetamodell#//@webservices.0"/>
+        <semanticElements xmi:type="microserviceMetamodell:DomainWebservice" href="My.microservicemetamodell#//@webservices.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:Square" uid="_wJnG0Op1Ee2Sw-K1-aIt1w" labelSize="12" labelPosition="node" width="20" height="4" color="204,242,166">
+          <description xmi:type="style:SquareDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@borderedNodeMappings[name='hostUrl']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@borderedNodeMappings[name='hostUrl']"/>
+      </ownedBorderedNodes>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_nQa4kOp1Ee2Sw-K1-aIt1w" labelSize="12" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_f_DjwOp1Ee2Sw-K1-aIt1w"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer"/>
+    <target xmi:type="microserviceMetamodell:SystemModel" href="My.microservicemetamodell#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

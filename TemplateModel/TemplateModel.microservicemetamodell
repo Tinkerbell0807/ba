@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
+  <domainModelLayer>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="defaultContextName" correspodingMicroservices="//@technicalLayer/@microservices.0" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.1 //@domainModelLayer/@boundedContextRelationships.0"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="otherDefaultContextName" correspodingMicroservices="//@technicalLayer/@microservices.1" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.1 //@domainModelLayer/@boundedContextRelationships.0"/>
+    <domainModels boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="otherDefaultContextNameDomainModel">
+      <modules moduleName="defaultModuleName"/>
+    </domainModels>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0 //@domainModelLayer/@domainEvents.1" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="defaultContextNameDomainModel">
+      <modules moduleName="defaultModuleName">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="defaultEntityName"/>
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="defaultServiceName" referencedElements="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.3" sendsRequestTo="//@technicalLayer/@microservices.1/@interfaces.1/@restEndpoints.0">
+          <behaviours behaviourName="defaultBehaviourName"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="defaultRepositoryName" repositoryFor="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.0"/>
+        <modelElements xsi:type="microserviceMetamodell:Factory" elementName="defaultFactoryName" factoryFor="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.0"/>
+        <modelElements xsi:type="microserviceMetamodell:Aggregate" elementName="defaultAggregateName" referencedInterfaces="//@technicalLayer/@microservices.0/@interfaces.0">
+          <aggregateRoot elementName="defaultAggregateRootEntity">
+            <valueObjectNodes elementName="defaultValueObjectName"/>
+          </aggregateRoot>
+          <aggregateNode xsi:type="microserviceMetamodell:EntityNode" elementName="defaultEntityNodeName">
+            <valueObjectNodes elementName="defaultValueObjectName" referencedEntities="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.4/@aggregateNode.1">
+              <valueObjectNodes elementName="defaultValueObjectName"/>
+            </valueObjectNodes>
+          </aggregateNode>
+          <aggregateNode xsi:type="microserviceMetamodell:EntityNode" elementName="defaultEntityNodeName">
+            <behaviours behaviourName="defaultBehaviourName"/>
+          </aggregateNode>
+          <aggregateNode xsi:type="microserviceMetamodell:ValueObjectNode" elementName="defaultValueObjectNodeName"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:ValueObject" elementName="defaultValueObjectName"/>
+      </modules>
+    </domainModels>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="defaultEventName"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="defaultEventName"/>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="defaultSharedKernelName" relatedContexts="//@domainModelLayer/@boundedContexts.0 //@domainModelLayer/@boundedContexts.1" implementingLib="//@infrastructureLayer/@externalDependencies.0"/>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="defaultContextName/otherDefaultContextName">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.1"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.0"/>
+    </boundedContextRelationships>
+  </domainModelLayer>
+  <technicalLayer>
+    <microservices serviceName="defaultcontextname-service" correspodingContext="//@domainModelLayer/@boundedContexts.0" deploymentConfiguration="//@infrastructureLayer/@deploymentConfigurations.0" buildConfiguration="//@infrastructureLayer/@buildConfigurations.0" calledEndpoints="//@technicalLayer/@microservices.1/@interfaces.1/@restEndpoints.0">
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="defaultAsyncInterfaceName" referencedElements="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.4" domainEvents="//@domainModelLayer/@domainEvents.1" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
+      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface" interfaceName="defaultSyncInterfaceName">
+        <restEndpoints path="/getSomething"/>
+      </interfaces>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="defaultAsyncInterfaceName" interfaceRole="CONSUMER" domainEvents="//@domainModelLayer/@domainEvents.0"/>
+    </microservices>
+    <microservices serviceName="otherdefaultcontextname-service" correspodingContext="//@domainModelLayer/@boundedContexts.1" deploymentConfiguration="//@infrastructureLayer/@deploymentConfigurations.1" buildConfiguration="//@infrastructureLayer/@buildConfigurations.1">
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="defaultAsyncInterfaceName" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
+      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface" interfaceName="defaultSyncInterfaceName">
+        <restEndpoints path="/getSomething" httpMethod="POST"/>
+      </interfaces>
+    </microservices>
+  </technicalLayer>
+  <infrastructureLayer>
+    <cloudConfiguration xsi:type="microserviceMetamodell:GCloudConfiguration" artifactRepositoryName="defaultArtifactRepositoryName" projectId="defaultProjectId">
+      <kubernetesClusterConfiguration clusterName="defaultClusterName" deployments="//@infrastructureLayer/@deploymentConfigurations.0 //@infrastructureLayer/@deploymentConfigurations.1"/>
+    </cloudConfiguration>
+    <deploymentConfigurations microservice="//@technicalLayer/@microservices.0" port="8080" nodePort="30002"/>
+    <deploymentConfigurations microservice="//@technicalLayer/@microservices.1" port="8080" nodePort="30001"/>
+    <buildConfigurations microservice="//@technicalLayer/@microservices.0" externalDependencies="//@infrastructureLayer/@externalDependencies.0"/>
+    <buildConfigurations microservice="//@technicalLayer/@microservices.1" externalDependencies="//@infrastructureLayer/@externalDependencies.0"/>
+    <externalDependencies sharedKernel="//@domainModelLayer/@boundedContextRelationships.0" artifactId="defaultArtifactId"/>
+    <kafkaConfiguration bootstrapServerPort="9092">
+      <topics topicName="default-topic-name" asynchronousInterfaces="//@technicalLayer/@microservices.0/@interfaces.0 //@technicalLayer/@microservices.1/@interfaces.0"/>
+    </kafkaConfiguration>
+  </infrastructureLayer>
+</microserviceMetamodell:SystemModel>

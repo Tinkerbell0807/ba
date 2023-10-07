@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Place this file in the target project and call it with "External Tools > Run As > Ant Build" -->
+<!-- You have to change the MODEL and the TARGET values -->
+
+<project basedir="." default="generate_with_protectetionSample" name="org.eclipse.acceleo.module.foobarSample">
+	<import file="../../org.eclipse.acceleo.module.foobar/tasks/generate_with_protectetion.xml"/>
+
+    <!-- Change the values of MODEL and TARGET to point to your model and output folder -->
+	<property name="MODEL" value="${basedir}/model/file.xmi"/>
+	<property name="TARGET" value="${basedir}/src-gen"/>
+
+	<target name="generate_with_protectetionSample" description="Generate files in 'TARGET'">
+		<antcall target="generate_with_protectetion" >
+			<param name="model" value="${MODEL}"/>
+			<param name="target" value="${TARGET}"/>
+		</antcall>
+	</target>
+</project>

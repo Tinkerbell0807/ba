@@ -1,0 +1,115 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/CVE-2023-32700 patched)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ba.aux
+The style file: alpha.bst
+Database file #1: bibs/litDB.bib
+Warning--I'm ignoring brugge's extra "note" field
+--line 12 of file bibs/litDB.bib
+Warning--I'm ignoring posch's extra "note" field
+--line 28 of file bibs/litDB.bib
+Warning--I'm ignoring posch's extra "note" field
+--line 29 of file bibs/litDB.bib
+Warning--I'm ignoring evans's extra "note" field
+--line 44 of file bibs/litDB.bib
+Warning--I'm ignoring dowalil's extra "note" field
+--line 69 of file bibs/litDB.bib
+Warning--I'm ignoring dowalil's extra "note" field
+--line 70 of file bibs/litDB.bib
+Warning--entry type for "ritter" isn't style-file defined
+--line 87 of file bibs/litDB.bib
+Warning--I'm ignoring wolff's extra "note" field
+--line 104 of file bibs/litDB.bib
+Warning--entry type for "fowlerlewis" isn't style-file defined
+--line 153 of file bibs/litDB.bib
+Warning--entry type for "ajilGithub" isn't style-file defined
+--line 170 of file bibs/litDB.bib
+Warning--I'm ignoring sommerville's extra "note" field
+--line 199 of file bibs/litDB.bib
+Warning--I'm ignoring sommerville's extra "note" field
+--line 200 of file bibs/litDB.bib
+Warning--I'm ignoring riti's extra "note" field
+--line 233 of file bibs/litDB.bib
+Warning--I'm ignoring burns1's extra "note" field
+--line 248 of file bibs/litDB.bib
+Warning--I'm ignoring rempp's extra "note" field
+--line 298 of file bibs/litDB.bib
+Warning--I'm ignoring rempp's extra "note" field
+--line 299 of file bibs/litDB.bib
+Warning--entry type for "gcloudsdk" isn't style-file defined
+--line 403 of file bibs/litDB.bib
+Warning--entry type for "kubernetes" isn't style-file defined
+--line 409 of file bibs/litDB.bib
+Warning--entry type for "kubernetesauth" isn't style-file defined
+--line 415 of file bibs/litDB.bib
+Warning--entry type for "docker" isn't style-file defined
+--line 421 of file bibs/litDB.bib
+Warning--entry type for "gradle" isn't style-file defined
+--line 427 of file bibs/litDB.bib
+Warning--entry type for "oreillymap" isn't style-file defined
+--line 440 of file bibs/litDB.bib
+Warning--entry type for "springboot" isn't style-file defined
+--line 461 of file bibs/litDB.bib
+Warning--entry type for "spring" isn't style-file defined
+--line 467 of file bibs/litDB.bib
+Warning--I'm ignoring simons's extra "note" field
+--line 481 of file bibs/litDB.bib
+Warning--entry type for "nist" isn't style-file defined
+--line 486 of file bibs/litDB.bib
+Warning--entry type for "gcpdocs" isn't style-file defined
+--line 492 of file bibs/litDB.bib
+Warning--entry type for "mustermodell" isn't style-file defined
+--line 498 of file bibs/litDB.bib
+Warning--entry type for "bspprojekt" isn't style-file defined
+--line 504 of file bibs/litDB.bib
+Warning--entry type for "rewrite" isn't style-file defined
+--line 510 of file bibs/litDB.bib
+Warning--entry type for "github" isn't style-file defined
+--line 516 of file bibs/litDB.bib
+Warning--to sort, need author, editor, or key in rempp
+Warning--empty journal in mapper
+Warning--empty journal in loeffler
+Warning--empty author and editor in rempp
+Warning--empty journal in argon
+Warning--empty journal in sun
+You've used 42 entries,
+            2543 wiz_defined-function locations,
+            799 strings with 12213 characters,
+and the built_in function-call counts, 13604 in all, are:
+= -- 1316
+> -- 559
+< -- 31
++ -- 181
+- -- 175
+* -- 772
+:= -- 2233
+add.period$ -- 152
+call.type$ -- 42
+change.case$ -- 231
+chr.to.int$ -- 37
+cite$ -- 49
+duplicate$ -- 589
+empty$ -- 1091
+format.name$ -- 242
+if$ -- 2827
+int.to.chr$ -- 6
+int.to.str$ -- 0
+missing$ -- 39
+newline$ -- 236
+num.names$ -- 123
+pop$ -- 379
+preamble$ -- 1
+purify$ -- 278
+quote$ -- 0
+skip$ -- 451
+stack$ -- 0
+substring$ -- 439
+swap$ -- 68
+text.length$ -- 31
+text.prefix$ -- 27
+top$ -- 0
+type$ -- 272
+warning$ -- 6
+while$ -- 106
+width$ -- 45
+write$ -- 570
+(There were 37 warnings)

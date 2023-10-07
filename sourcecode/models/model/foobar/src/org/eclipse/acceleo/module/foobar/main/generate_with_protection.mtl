@@ -1,0 +1,1245 @@
+[comment encoding = UTF-8 /]
+[module generate_with_protection('http://microservice.com/microserviceMetamodell')]
+[template public generateElement(systemModel : SystemModel)]
+[comment @main/]
+[comment]
+###########################################################################################################################################################################################
+
+	BASIC INFRASTRUCTURE
+
+###########################################################################################################################################################################################
+[/comment]
+[let kubeConfig : KubernetesClusterConfiguration = systemModel.infrastructureLayer.cloudConfiguration.oclAsType(microserviceMetamodell::GCloudConfiguration).kubernetesClusterConfiguration]
+[let gcpConfig : GCloudConfiguration = systemModel.infrastructureLayer.cloudConfiguration.oclAsType(microserviceMetamodell::GCloudConfiguration)]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	SETUP KUBERNETES CLUSTER
+[/comment]
+[file ('/bash_scripts/setup/setup_kubernetes_cluster.sh', false, 'UTF-8')]
+#!/bin/bash
+
+gcloud container clusters create [kubeConfig.clusterName/] --zone [gcpConfig.clusterZone/] --machine-type [kubeConfig.machineType/] --num-nodes [kubeConfig.nodes/]
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	SETUP DOCKER REGISTRY
+[/comment]
+[file ('/bash_scripts/setup/setup_docker_registry.sh', false, 'UTF-8')]
+#!/bin/bash
+
+gcloud artifacts repositories create [gcpConfig.artifactRepositoryName/] --repository-format=docker --location=[gcpConfig.artifactRepositoryZone/] --description="Docker repository"
+gcloud auth configure-docker [gcpConfig.artifactRepositoryZone/]-docker.pkg.dev
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	CHECK GCP AND K8 AVAILABILTY
+[/comment]
+[file ('/bash_scripts/setup/check_gcp_and_cluster.sh', false, 'UTF-8')] 
+#!/bin/bash
+
+gcloud container clusters list
+kubectl cluster-info
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DEPLOY KAFKA
+[/comment]
+[file ('/bash_scripts/kafka/setup_kafka.sh', false, 'UTF-8')] 
+#!/bin/bash
+
+kubectl apply -f deployment.yml
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	UNDEPLOY KAFKA
+[/comment]
+[file ('/bash_scripts/kafka/delete_kafka.sh', false, 'UTF-8')] 
+#!/bin/bash
+
+kubectl delete -f deployment.yml
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	CREATE TOPICS
+[/comment]
+[file ('/bash_scripts/kafka/create_topics.sh', false, 'UTF-8')] 
+#!/bin/bash
+
+
+PODNAME=$(kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep 'my-kafka' | head -n 1)
+
+if['['/] -z "$PODNAME" [']'/]; then
+    echo "No Kafka pod found. Exiting."
+    exit 1
+fi
+
+echo "Using Kafka pod: $PODNAME"
+
+[for (topic: Topic | systemModel.infrastructureLayer.kafkaConfiguration.topics)]
+kubectl exec $PODNAME -- kafka-topics.sh --create --topic [topic.topicName/] --partitions [topic.partitions/] --replication-factor [topic.replicationFactor/] --bootstrap-server [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]:[systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/]
+[/for]
+
+# List all topics
+echo "Listing all Topics:"
+kubectl exec $PODNAME -- kafka-topics.sh --list --bootstrap-server [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]:[systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/]
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DEPLOYMENT KAFKA YML
+[/comment]
+[file ('/bash_scripts/kafka/deployment.yml', false, 'UTF-8')] 
+#!/bin/bash
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-kafka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]
+  template:
+    metadata:
+      labels:
+        app: [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]
+    spec:
+      containers:
+        - name: [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]
+          image: bitnami/kafka:latest
+          env:
+            - name: KAFKA_CFG_ADVERTISED_LISTENERS
+              value: "PLAINTEXT://[systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]:[systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/]"
+            - name: KAFKA_CFG_NODE_ID
+              value: "0"
+            - name: KAFKA_CFG_PROCESS_ROLES
+              value: "controller,broker"
+            - name: KAFKA_CFG_LISTENERS
+              value: "PLAINTEXT://:[systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/],CONTROLLER://:9093"
+            - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+              value: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+            - name: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
+              value: "0@[systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]:9093"
+            - name: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
+              value: "CONTROLLER"
+          ports:
+            - containerPort: [systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/]
+            - containerPort: 9093
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]
+spec:
+  ports:
+    - name: kafka-server
+      port: [systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/]
+      targetPort: [systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/]
+    - name: kafka-controller
+      port: 9093
+      targetPort: 9093
+  selector:
+    app: [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	WHITELIST IP
+[/comment]
+[file ('/bash_scripts/deploy/whitelist_ip.sh', false, 'UTF-8')]
+#!/bin/bash
+
+ipAddress=$(curl -4 ifconfig.co)
+gcloud container clusters update [kubeConfig.clusterName/] \
+  --zone [gcpConfig.clusterZone/] \
+  --enable-master-authorized-networks \
+  --master-authorized-networks "${ipAddress}/32"
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DEPLOY SERVICES AND FIREWALL
+[/comment]
+[file ('/bash_scripts/deploy/deploy_services.sh', false, 'UTF-8')]
+#!/bin/bash
+
+ROOT_DIR=~/Dokumente/Bachelorarbeit/Beispielprojekt_Cloud/
+cd $ROOT_DIR || { echo "Failed to change directory to $ROOT_DIR"; exit 1; }
+echo "Applying Kubernetes deployment configurations..."
+
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+kubectl apply -f ./[deployment.microservice.serviceName/]/deployment.yml
+echo "[deployment.microservice.serviceName/] deployment applied."
+[/for]
+
+echo "Configuring GCP firewall rules..."
+
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+gcloud compute firewall-rules create [deployment.microservice.serviceName/]-nodeport --allow tcp:[deployment.nodePort/]
+echo "Firewall rule created for [deployment.microservice.serviceName/]."
+[/for]
+
+echo "Deploy script executed."
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	UNDEPLOY SERVICES AND FIREWALL
+[/comment]
+[file ('/bash_scripts/deploy/undeploy_services.sh', false, 'UTF-8')]
+#!/bin/bash
+
+ROOT_DIR=~/Dokumente/Bachelorarbeit/Beispielprojekt_Lokal/
+cd $ROOT_DIR || { echo "Failed to change directory to $ROOT_DIR"; exit 1; }
+
+echo "Deleting Kubernetes deployments..."
+
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+kubectl delete -f ./[deployment.microservice.serviceName/]/deployment.yml
+echo "[deployment.microservice.serviceName/] deployment deleted."
+[/for]
+
+echo "Deleting GCP firewall rules..."
+
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+gcloud compute firewall-rules delete [deployment.microservice.serviceName/]-nodeport -q
+echo "Firewall rule for [deployment.microservice.serviceName/] deleted."
+[/for]
+
+echo "Undeploy script executed."
+
+[/file]
+
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ADD WRAPPER
+[/comment]
+[file ('/bash_scripts/deploy/add_wrapper.sh', false, 'UTF-8')]
+#!/bin/bash
+
+ROOT_DIR=~/Dokumente/Bachelorarbeit/Beispielprojekt_Cloud/
+cd $ROOT_DIR || { echo "Failed to change directory to $ROOT_DIR"; exit 1; }
+
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+echo Adding Wrapper to [deployment.microservice.serviceName/]
+cd $ROOT_DIR/[deployment.microservice.serviceName/]
+gradle wrapper
+[/for]
+
+echo "Script completed."
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	BUILD IMAGES
+[/comment]
+[file ('/bash_scripts/deploy/build_images.sh', false, 'UTF-8')]
+#!/bin/bash
+
+ROOT_DIR=~/Dokumente/Bachelorarbeit/Beispielprojekt_Cloud/
+cd $ROOT_DIR || { echo "Failed to change directory to $ROOT_DIR"; exit 1; }
+
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+chmod +x ./[deployment.microservice.serviceName/]/build_and_push.sh
+./[deployment.microservice.serviceName/]/build_and_push.sh
+echo "Executed build and push for [deployment.microservice.serviceName/]."
+[/for]
+
+echo "Script completed."
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	HEALTHCHECK
+[/comment]
+[file ('/bash_scripts/debug/healthcheck.sh', false, 'UTF-8')]
+#!/bin/bash
+
+#!/bin/bash
+
+NODE_EXTERNAL_IP=$(kubectl get nodes -o jsonpath='{.items['['/]0[']'/].status.addresses['['/]?(@.type=="ExternalIP")[']'/].address}')
+TIMEOUT=3
+
+if ['['/] -z "$NODE_EXTERNAL_IP" [']'/]; then
+    echo "No external IP found for any node. Exiting."
+    exit 1
+fi
+
+echo "Using Node External IP: $NODE_EXTERNAL_IP"
+
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+curl --max-time $TIMEOUT $NODE_EXTERNAL_IP:[deployment.nodePort/]/health
+echo
+[/for]
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	GET CLUSTER INFO
+[/comment]
+[file ('/bash_scripts/debug/get_cluster_info.sh', false, 'UTF-8')]
+#!/bin/bash
+echo -e "=============NODE=============="
+kubectl get node --output=wide
+echo -e "=============DEPLOYMENTS=============="
+kubectl get deployments --output=wide
+echo -e "=============PODS=============="
+kubectl get pods --output=wide
+echo -e "=============SERVICES=============="
+kubectl get services --output=wide
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	SCALE CLUSTER NODES DOWN
+[/comment]
+[file ('/bash_scripts/cleanup/scale_down_cluster.sh', false, 'UTF-8')]
+#!/bin/bash
+
+gcloud container clusters resize [kubeConfig.clusterName/] --zone [gcpConfig.clusterZone/] --num-nodes=0
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	SCALE CLUSTER NODES DOWN
+[/comment]
+[file ('/bash_scripts/cleanup/scale_up_cluster.sh', false, 'UTF-8')]
+#!/bin/bash
+
+gcloud container clusters resize [kubeConfig.clusterName/] --zone [gcpConfig.clusterZone/] --num-nodes=1
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	CLEANUP REGISTRY
+[/comment]
+[file ('/bash_scripts/cleanup/cleanup_registry.sh', false, 'UTF-8')]
+#!/bin/bash
+
+REPO_LOCATION="[gcpConfig.artifactRepositoryZone/]"
+REPO_NAME="[gcpConfig.projectId/]/[gcpConfig.artifactRepositoryName/]"
+
+IMAGES=$(gcloud artifacts docker images list ${REPO_LOCATION}-docker.pkg.dev/${REPO_NAME} --format="get(IMAGE)")
+
+for IMAGE in $IMAGES; do
+    gcloud artifacts docker images delete ${IMAGE} -q
+    echo "Deleted ${IMAGE}"
+done
+
+echo "All images in the repository have been deleted."
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DELETE CLUSTER
+[/comment]
+[file ('/bash_scripts/cleanup/delete_cluster.sh', false, 'UTF-8')]
+#!/bin/bash
+
+gcloud container clusters delete [kubeConfig.clusterName/] --zone [gcpConfig.clusterZone/]
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DELETE REGISTRY
+[/comment]
+[file ('/bash_scripts/cleanup/delete_registry.sh', false, 'UTF-8')]
+#!/bin/bash
+
+gcloud artifacts repositories delete [gcpConfig.artifactRepositoryName/] --location=[gcpConfig.artifactRepositoryZone/]
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	LOCAL EXEC
+[/comment]
+[file ('/bash_scripts/local/execute_local.sh', false, 'UTF-8')]
+#!/bin/bash
+
+parentPath="/path/to/your/parent/directory"  # Replace with your actual directory path
+[for (deployment: DeploymentConfiguration | systemModel.infrastructureLayer.deploymentConfigurations)]
+# Customer service
+cd "$parentPath/[deployment.microservice.serviceName/]" || exit
+gradle bootRun > [deployment.microservice.serviceName/].log 2>&1 &
+echo "[deployment.microservice.serviceName/] executed"
+[/for]
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	LOCAL CANCEL_EXEC
+[/comment]
+[file ('/bash_scripts/local/cancel_execute_local.sh', false, 'UTF-8')]
+#!/bin/bash
+
+pkill -f 'bootRun'
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	LOCAL KAFKA
+[/comment]
+[file ('/bash_scripts/local/kafka_local.sh', false, 'UTF-8')]
+#!/bin/bash
+echo Starting Kafka Docker Container ...
+docker run -d --name my_kafka \
+-p 9092:9092 \
+-e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 \
+-e KAFKA_CFG_NODE_ID=0 \
+-e KAFKA_CFG_PROCESS_ROLES=controller,broker \
+-e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093 \
+-e KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT \
+-e KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@localhost:9093 \
+-e KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER \
+bitnami/kafka:latest
+sleep 5
+echo Kafka started succesfully.
+echo Creating Topics ...
+[for (topic: Topic | infrastructureLayer.kafkaConfiguration.topics)]
+docker exec -it my_kafka kafka-topics.sh --create --topic [topic.topicName/] --partitions [topic.partitions/] --replication-factor [topic.replicationFactor/] --bootstrap-server localhost:9092
+[/for]
+[/file]
+[/let][/let]
+[comment]
+###########################################################################################################################################################################################
+
+	BEGIN ITERATION OVER SERVICES
+
+###########################################################################################################################################################################################
+[/comment]
+[for (boundedContext: BoundedContext | systemModel.domainModelLayer.boundedContexts)] [for (microservice: Microservice | boundedContext.correspodingMicroservices)]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	APPLICATION STARTER
+[/comment]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' +'ApplicationStarter.java', false, 'UTF-8')]
+package app;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+
+@SpringBootApplication()
+public class ApplicationStarter {
+   public static void main(String['[]'/] args) {
+      SpringApplication.run(ApplicationStarter.class, args);
+   }
+}
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	APPLICATION.YML
+[/comment]
+[file ('/' + microservice.serviceName + '/src/main/resources/' +'application.yml', false, 'UTF-8')]
+service-properties:
+  service-name: "[microservice.serviceName/]"
+
+[let allMicroservices : Set(Microservice) = microservice.calledEndpoints->collect(restEndpoint | restEndpoint.ancestors(microserviceMetamodell::Microservice))->asSet()]
+external-services:
+[for (microserviceTarget : Microservice | allMicroservices)]
+  [microserviceTarget.serviceName/]:
+    base-url: http:// [microserviceTarget.serviceName/]-k8service:[microserviceTarget.deploymentConfiguration.port/]
+[/for]
+[/let]
+
+spring:
+  kafka:
+    bootstrap-servers: [systemModel.infrastructureLayer.kafkaConfiguration.kafkaServiceName/]:[systemModel.infrastructureLayer.kafkaConfiguration.bootstrapServerPort/]
+  datasource:
+    url: jdbc:h2:mem:db_[microservice.serviceName/]
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+server:
+  port: [microservice.deploymentConfiguration.port/]
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	BUILD CONFIG
+[/comment]
+[if not microservice.buildConfiguration.oclIsUndefined()]
+[if microservice.buildConfiguration.buildTool = microserviceMetamodell::BuildTool::GRADLE]
+[file ('/' + microservice.serviceName + '/' +'build.gradle', false, 'UTF-8')] 
+plugins {
+    id 'org.springframework.boot' version '3.2.0'
+    id 'java'
+    id 'application'
+}
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //Spring
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:3.2.0'
+
+    //Java EE
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+
+    //Kafka
+	implementation 'org.springframework.kafka:spring-kafka:3.1.1'
+
+    //DB
+    implementation 'com.h2database:h2:2.2.224'
+
+	//libs
+	[for (dependency: ExternalDependency | microservice.buildConfiguration.externalDependencies)]
+	implementation '[dependency.artifactId/]:[dependency.groupId/]:[dependency.version/]'
+	[/for]
+}
+
+application {
+    mainClass = 'app.ApplicationStarter'
+}
+
+bootJar {
+    mainClass.set(application.mainClass)
+}
+[/file]
+[/if][/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DEPLOYMENT.YML
+[/comment]
+[let kubeConfig : KubernetesClusterConfiguration = systemModel.infrastructureLayer.cloudConfiguration.oclAsType(microserviceMetamodell::GCloudConfiguration).kubernetesClusterConfiguration]
+[let gcpConfig : GCloudConfiguration = systemModel.infrastructureLayer.cloudConfiguration.oclAsType(microserviceMetamodell::GCloudConfiguration)]
+[file ('/' + microservice.serviceName + '/deployment.yml', false, 'UTF-8')] 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: [microservice.serviceName/]-deployment
+spec:
+  replicas: [microservice.deploymentConfiguration.replicas/]
+  selector:
+    matchLabels:
+      app: [microservice.serviceName/]-app
+  template:
+    metadata:
+      labels:
+        app: [microservice.serviceName/]-app
+    spec:
+      containers:
+        - name: [microservice.serviceName/]-container
+          image: [gcpConfig.artifactRepositoryZone/]-docker.pkg.dev/[gcpConfig.projectId/]/[gcpConfig.artifactRepositoryName/]/[microservice.serviceName/]-image
+          ports:
+            - containerPort: [microservice.deploymentConfiguration.port/]
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: [microservice.serviceName/]-k8service
+spec:
+  selector:
+    app: [microservice.serviceName/]-app
+  ports:
+    - protocol: TCP
+      port: [microservice.deploymentConfiguration.port/]
+      nodePort: [microservice.deploymentConfiguration.nodePort/]
+  type: NodePort
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	IMAGE-BUILD-SCRIPT
+[/comment]
+[file ('/' + microservice.serviceName + '/build_and_push.sh', false, 'UTF-8')] 
+#!/bin/bash
+
+cd "$(dirname "$0")"
+
+IMAGE_NAME="[microservice.serviceName/]-image"
+GCP_PROJECT_ID="[gcpConfig.projectId/]"
+GCP_ARTIFACT_REPO="[gcpConfig.artifactRepositoryZone/]-docker.pkg.dev/$GCP_PROJECT_ID/[gcpConfig.artifactRepositoryName/]/$IMAGE_NAME"
+
+docker build -t $IMAGE_NAME .
+docker tag $IMAGE_NAME $GCP_ARTIFACT_REPO
+docker push $GCP_ARTIFACT_REPO
+
+echo "Build und Push für das Image $IMAGE_NAME abgeschlossen."
+[/file]
+[/let]
+[/let]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DOCKERFILE
+[/comment]
+[file ('/' + microservice.serviceName + '/Dockerfile', false, 'UTF-8')] 
+FROM eclipse-temurin:17.0.9_9-jdk as build
+WORKDIR /workspace/app
+
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+COPY src src
+
+RUN ./gradlew build -x test
+
+FROM eclipse-temurin:17.0.9_9-jdk
+WORKDIR /app
+COPY --from=build /workspace/app/build/libs/*.jar app.jar
+EXPOSE [microservice.deploymentConfiguration.port/]
+ENTRYPOINT ['['/]"java", "-jar", "app.jar"[']'/]
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	HEALTH CHECK
+[/comment]
+[file ('/' + microservice.serviceName + '/src/main/java/app/controller/HealthCheckController.java', false, 'UTF-8')] 
+package app.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.PostConstruct;
+import java.time.Duration;
+import java.time.Instant;
+
+@RestController
+public class HealthCheckController {
+
+    private Instant startTime;
+
+    @Value("${service-properties.service-name}")
+    private String serviceName;
+
+
+    @PostConstruct
+    public void init() {
+        startTime = Instant.now();
+    }
+
+    @GetMapping("/health")
+    public ResponseEntity<HealthCheckResponse> healthCheck() {
+        HealthCheckResponse response = new HealthCheckResponse();
+        response.setStatus("OK");
+        response.setServiceName(serviceName);
+        Duration uptimeDuration = Duration.between(startTime, Instant.now());
+        response.setUptime(uptimeDuration.toString());
+
+        return ResponseEntity.ok(response);
+    }
+
+    static class HealthCheckResponse {
+        private String status;
+        private String serviceName;
+        private String uptime;
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getServiceName() {
+            return serviceName;
+        }
+
+        public void setServiceName(String serviceName) {
+            this.serviceName = serviceName;
+        }
+
+        public String getUptime() {
+            return uptime;
+        }
+
+        public void setUptime(String uptime) {
+            this.uptime = uptime;
+        }
+    }
+}
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	SECURITY CONFIG
+[/comment]
+[file ('/' + microservice.serviceName + '/src/main/java/app/config/' + 'WebSecurityConfiguration.java', false, 'UTF-8')]
+package app.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfiguration {
+
+    @Bean
+    public SecurityFilterChain configureHttpSecurity(HttpSecurity http) throws Exception {
+        http.cors().disable()
+                .csrf().disable()
+                .authorizeHttpRequests(request -> request.anyRequest().permitAll());
+        return http.build();
+    }
+}
+
+[/file]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	WEB CLIENT CONFIG
+[/comment]
+[file ('/' + microservice.serviceName + '/src/main/java/app/config/' + 'WebClientConfig.java', false, 'UTF-8')] 
+package app.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@Configuration
+public class WebClientConfig {
+    @Bean
+    public WebClient webClient(WebClient.Builder builder) {
+        return builder.build();
+    }
+}
+[/file]
+[comment]
+###########################################################################################################################################################################################
+
+	BEGINN ITERATION OVER MODEL ELEMENTS AND MODULES
+
+###########################################################################################################################################################################################
+[/comment]
+[for (module: Module | boundedContext.domainModel.modules)]
+[for (modelElement: ModelElement | module.modelElements)]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ENTITY
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Entity)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')]
+// [protected ('Entity')]
+package app.[module.moduleName/];
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.util.UUID;
+
+@Entity
+public class [modelElement.elementName/] {
+
+    @Id
+    private UUID id;
+
+	//TODO: Implement the entities fields, getters and setters
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Entity).behaviours)]
+	private void [behaviour.behaviourName/](){
+		logger.info("[behaviour.behaviourName/] executed");
+		//TODO: Implement Behaviour
+	}
+[/for]
+}
+// [/protected]
+[/file]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	VALUE OBJECT
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::ValueObject)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
+
+/*
+* references [modelElement.oclAsType(microserviceMetamodell::ValueObject).referencedEntities/]
+*/
+public class [modelElement.elementName/] {
+
+	//TODO: Implement the objects fields, getters and setters
+	[modelElement.elementName/](){}
+	
+}
+[/file]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	AGGREGATE
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Aggregate)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.util.UUID;
+
+@Entity
+public class [modelElement.elementName/] {
+
+    @Id
+    private UUID id;
+
+	public [modelElement.oclAsType(microserviceMetamodell::Aggregate).aggregateRoot.elementName.toLowerFirst()/] [modelElement.oclAsType(microserviceMetamodell::Aggregate).aggregateRoot.elementName.toLowerFirst()/]
+
+[for( node: AggregateNode | modelElement.oclAsType(microserviceMetamodell::Aggregate).aggregateNode)]
+	[if not modelElement.oclAsType(microserviceMetamodell::Aggregate).aggregateRoot.elementName.equalsIgnoreCase(node.elementName)]
+	private [node.elementName/] [node.elementName.toLowerFirst()/];
+	[/if]
+[/for]
+
+	//TODO: Implement the remaining aggregates fields, getters and setters
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+}
+[/file]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ENTITY NODE (PART OF AGGREGATE)
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Aggregate)]
+[for( node: AggregateNode | modelElement.oclAsType(microserviceMetamodell::Aggregate).aggregateNode)]
+[if node.oclIsTypeOf(microserviceMetamodell::EntityNode)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + node.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.util.UUID;
+
+@Entity
+public class [node.elementName/] {
+
+    @Id
+    private UUID id;
+
+	//TODO: Implement the entities fields, getters and setters
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Aggregate).aggregateRoot.behaviours)]
+	private void [behaviour.behaviourName/](){
+		logger.info("[behaviour.behaviourName/] executed");
+		//TODO: Implement Behaviour
+	}
+[/for]
+}
+[/file]
+[/if]
+[/for]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	VALUE OBJECT NODE (PART OF AGGREGATE)
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Aggregate)]
+[for( node: AggregateNode | modelElement.oclAsType(microserviceMetamodell::Aggregate).aggregateNode)]
+[if node.oclIsTypeOf(microserviceMetamodell::ValueObjectNode)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + node.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
+
+/*
+* references [node.oclAsType(microserviceMetamodell::ValueObjectNode).referencedEntities/]
+*/
+public class [node.elementName/] {
+
+	//TODO: Implement the objects fields, getters and setters
+	[node.elementName/](){}
+	
+}
+[/file]
+[/if]
+[/for]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	SERVICE
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Service)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
+
+// [protected ('Imports')]
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+[for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
+import app.[element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
+[/for]
+
+[if modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->notEmpty()]
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+import org.springframework.beans.factory.annotation.Value;
+[/if]
+
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
+	[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+		[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+import app.kafka.[interface.interfaceName/];
+		[/if]
+	[/if]
+[/for]
+
+// [/protected]
+
+@Service
+public class [modelElement.elementName/] {
+
+// [protected ('Members')]
+
+    Logger logger = LoggerFactory.getLogger([modelElement.elementName/].class);
+
+[for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
+	[if not element.oclIsKindOf(microserviceMetamodell::Factorizeable)]
+	private final [element.elementName/] [element.elementName.toLowerFirst()/];
+	[/if]
+[/for]
+
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
+	[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+		[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+	private final [interface.interfaceName/] [interface.interfaceName.toLowerFirst()/];
+		[/if]
+	[/if]
+[/for]
+
+[comment]Using the Correct Urls - As communication targets must be distinct, a more compley approach is needed here[/comment]
+[if (modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->notEmpty())]
+    private final WebClient webClient;
+
+    [let allServiceNames : Set(String) = modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->collect(restEndpoint | restEndpoint.ancestors(microserviceMetamodell::Microservice)->first().serviceName.toString())->asSet()]
+        [for (service : String | allServiceNames)]
+            @Value("${external-services.[service/].base-url}")
+            private String [service.replace('-service', '')/]BaseUrl;
+        [/for]
+    [/let]
+
+[/if]
+
+// [/protected]
+
+[comment]The Constructor Parameters for a Service Class - The correct placement of the comma in all cases makes this complex[/comment]
+// [protected ('Constructor')]
+	[modelElement.elementName/](
+[for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
+	[if not element.oclIsKindOf(microserviceMetamodell::Factorizeable)]
+	[element.elementName/] [element.elementName.toLowerFirst()/]
+		[if not modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->last().elementName.equalsIgnoreCase(element.elementName)]
+	,
+		[/if]
+	[/if]
+[/for]
+
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
+	[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+		[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+			[if modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->notEmpty()]
+				[if not modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->exists(e | e.oclIsKindOf(microserviceMetamodell::Factorizeable))]
+					[if modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces->first().interfaceName.equalsIgnoreCase(interface.interfaceName)]
+		,
+					[/if]
+				[/if]
+			[/if]
+		[interface.interfaceName/] [interface.interfaceName.toLowerFirst()/]
+			[if not modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces->last().interfaceName.equalsIgnoreCase(interface.interfaceName)]
+		,
+			[/if]
+		[/if]
+	[/if]
+[/for]
+
+[if modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->notEmpty()]
+	[if modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->notEmpty()]
+		[if modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces->select(interface | interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface))->notEmpty()]
+		,
+		[/if]
+	[/if]
+		WebClient webClient
+[/if]
+)
+
+
+
+[comment]Constructor Values[/comment]
+{
+[for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
+		this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
+[/for]
+
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
+	[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+		[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+		this.[interface.interfaceName.toLowerFirst()/] = [interface.interfaceName.toLowerFirst()/];
+		[/if]
+	[/if]
+[/for]
+
+[if modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->notEmpty()]
+    	this.webClient = webClient;
+[/if]
+}
+// [/protected]
+
+[comment]Behaviours[/comment]
+[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Service).behaviours)]
+// [protected (behaviour.behaviourName)]
+	public void [behaviour.behaviourName/](){
+		logger.info("[behaviour.behaviourName/] executed");
+		//TODO: Implement Behaviour
+	}
+// [/protected]
+
+[/for]
+
+[comment]Calls to other Microservices[/comment]
+[for (restEndpoint : RestEndpoint | modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo)]
+    [let serviceName : String = restEndpoint.ancestors(microserviceMetamodell::Microservice)->first().serviceName.toString()]
+// [protected (restEndpoint.path)]
+        private Mono<String> request[restEndpoint.path.toString().substring(2).toUpperFirst()/]() {
+            logger.info("request[restEndpoint.path.toString().substring(2).toUpperFirst()/] executed");
+            return webClient.[restEndpoint.httpMethod.toString().toLowerCase()/]()
+                    .uri([serviceName.replace('-service', '')/]BaseUrl + "[restEndpoint.path/]")
+					.retrieve()
+					.bodyToMono(String.class);
+		}
+// [/protected]
+	[/let]
+[/for]
+
+// [protected ('additional protected methods')]
+// [/protected]
+}
+[/file]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	FACTORY
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Factory)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class [modelElement.elementName/] {
+		public [modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/] create[modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/](){
+			//TODO: Map Data (Parameters) to Object
+			return new [modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/]();
+		}
+
+		[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Factory).behaviours)]
+		private void [behaviour.behaviourName/](){
+			//TODO:Implement
+		}
+        [/for]
+}
+[/file]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	REPOSITORY
+[/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Repository)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+// [protected ('Repository')]
+package app.[module.moduleName/];
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface [modelElement.elementName/] extends JpaRepository<[modelElement.oclAsType(microserviceMetamodell::Repository).repositoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/], String> {
+
+[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Repository).behaviours)]
+	[modelElement.oclAsType(microserviceMetamodell::Repository).repositoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/] [behaviour.behaviourName/]()
+[/for]
+}
+// [/protected]
+[/file]
+[/if]
+[comment]
+###########################################################################################################################################################################################
+
+	END ITERATION OVER MODEL ELEMENTS AND MODULE
+
+###########################################################################################################################################################################################
+[/comment]
+[/for][/for]
+[comment]
+###########################################################################################################################################################################################
+
+	BEGINN ITERATION OVER INTERFACES
+
+###########################################################################################################################################################################################
+[/comment]
+[comment]
+	CONTROLLER
+[/comment]
+[for ( interface: Interface | microservice.interfaces)]
+[if interface.oclIsKindOf(microserviceMetamodell::SynchronousInterface)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/controller/' + interface.interfaceName + '.java', false, 'UTF-8')] 
+package app.controller;
+
+import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+[for( element: ModelElement | interface.referencedElements)]
+import app.[element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
+[/for]
+
+@RestController
+public class [interface.interfaceName/] {
+
+    Logger logger = LoggerFactory.getLogger([interface.interfaceName/].class);
+[for( element: ModelElement | interface.referencedElements)]
+	private final [element.elementName/] [element.elementName.toLowerFirst()/];
+[/for]
+
+	[interface.interfaceName/]([for( element: ModelElement | interface.referencedElements)]
+[element.elementName/] [element.elementName.toLowerFirst()/][if not interface.referencedElements->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]){
+[for( element: ModelElement | interface.referencedElements)]
+	this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
+[/for]
+	}
+
+[for ( restEndpoint: RestEndpoint| interface.oclAsType(microserviceMetamodell::SynchronousInterface).restEndpoints)]
+    @[restEndpoint.httpMethod.toString().toLowerCase().toUpperFirst()/]Mapping("[restEndpoint.path/]")
+    public String [restEndpoint.path.toString().substring(2)/]() {
+		logger.info("[restEndpoint.path.toString().substring(2)/] executed");
+        // TODO: Implement Endpoint
+        return "200 OK from [restEndpoint.path.toString().substring(2)/]";
+    }
+[/for]
+}
+[/file]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	KAFKA PRODUCER
+[/comment]
+[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
+package app.kafka;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+@Service
+public class [interface.interfaceName/] {
+
+    private static final Logger logger = LoggerFactory.getLogger([interface.interfaceName/].class);
+    private static final String TOPIC_NAME = "[interface.oclAsType(microserviceMetamodell::AsynchronousInterface).topic.topicName/]";
+	private final KafkaTemplate<String, String> kafkaTemplate;
+
+
+	[interface.interfaceName/](KafkaTemplate<String,String> kafkaTemplate){
+		this.kafkaTemplate = kafkaTemplate;
+	}
+
+    public void sendMessage(String message) {
+        kafkaTemplate.send(TOPIC_NAME, message);
+        logger.info("Message sent to topic {}: {}", TOPIC_NAME, message);
+    }
+}
+[/file]
+[/if]
+[/if]
+[comment]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	KAFKA CONSUMER
+[/comment]
+[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::CONSUMER)]
+[file ('/' + microservice.serviceName + '/src/main/java/app/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
+package app.kafka;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+[for( element: ModelElement | interface.referencedElements)]
+import app.[element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
+[/for]
+
+@Service
+public class [interface.interfaceName/] {
+
+    Logger logger = LoggerFactory.getLogger([interface.interfaceName/].class);
+[for( element: ModelElement | interface.referencedElements)]
+	private final [element.elementName/] [element.elementName.toLowerFirst()/];
+[/for]
+
+	[interface.interfaceName/]([for( element: ModelElement | interface.referencedElements)]
+[element.elementName/] [element.elementName.toLowerFirst()/][if not interface.referencedElements->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]){
+[for( element: ModelElement | interface.referencedElements)]
+	this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
+[/for]
+	}
+
+    @KafkaListener(topics = "[interface.oclAsType(microserviceMetamodell::AsynchronousInterface).topic.topicName/]",groupId = "[microservice.serviceName/]-[interface.oclAsType(microserviceMetamodell::AsynchronousInterface).topic.topicName/]-consumer")
+    public void listen(String message) {
+		logger.info("Received message from {}: {}","[interface.oclAsType(microserviceMetamodell::AsynchronousInterface).topic.topicName/]", message);
+    }
+}
+[/file]
+[/if]
+[/if]
+[/for]
+[comment]
+###########################################################################################################################################################################################
+
+	END ITERATION OVER INTERFACES
+
+###########################################################################################################################################################################################
+[/comment]
+[/for]
+[comment]
+###########################################################################################################################################################################################
+
+	END ITERATION OVER SERVICES
+
+###########################################################################################################################################################################################
+[/comment]
+[/for]
+[/template]

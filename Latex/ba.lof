@@ -1,0 +1,48 @@
+\babel@toc {ngerman}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Bausteine des Model-Driven Design}}{6}{figure.caption.4}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Darstellung von Bounded Contexts und ihre Rollen in der Context Map}}{11}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Eigenschaften von Microservices}}{13}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Darstellung einer Broker-Topologie in der EDA}}{16}{figure.caption.63}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Darstellung einer Mediator-Topologie in der EDA}}{17}{figure.caption.64}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Das AjiL Metamodell}}{26}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Das Context Mapper Metamodell}}{27}{figure.caption.83}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Das OCCI Metamodell}}{28}{figure.caption.86}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces OCCIware Anwendungsumgebung}}{29}{figure.caption.87}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Architekturkonzept von ARGON}}{30}{figure.caption.90}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Erkennbare Schichten in einem Modell einer Microservice-Architektur}}{31}{figure.caption.93}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Metamodell - Fokus: Fachliche Schicht, Domänenmodelle und Pakete}}{32}{figure.caption.94}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Metamodell - Fokus: Entitiy, Value Object und Aggregate\relax }}{33}{figure.caption.95}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Metamodell - Fokus: Service, Repository, Factory und Behaviour\relax }}{34}{figure.caption.96}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Metamodell - Fokus: Strategic Design\relax }}{35}{figure.caption.97}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Metamodell - Fokus: Technische Schicht\relax }}{36}{figure.caption.98}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Metamodell - Fokus: Infrastrukturschicht\relax }}{37}{figure.caption.99}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Ein abstrakter Modellierungsworkflow für das Microservice-Metamodell\relax }}{39}{figure.caption.100}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Umsetzen von rekursiven Aufrufen durch das importieren von Nodes mit Sirius\relax }}{41}{figure.caption.101}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Eine kognitiv anspruchsvolle Aggregate Visualisierung}}{41}{figure.caption.102}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Editoransicht der ContextRelationshipDescription\relax }}{42}{figure.caption.103}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Editoransicht der DomainModelDescription\relax }}{43}{figure.caption.105}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Editoransicht der AggregateStructureDescription\relax }}{44}{figure.caption.107}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Editoransicht der MicroserviceCommunicationDescription\relax }}{45}{figure.caption.109}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Editoransicht der MicroserviceInterfaceDescription\relax }}{46}{figure.caption.111}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Editoransicht der InfrastructureOverviewDescription\relax }}{47}{figure.caption.113}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Abbildung des abstrakten Modellierungsworkflows auf einem für diesen Editor angepassten Workflow\relax }}{48}{figure.caption.115}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Generierter Code mit geschützten Bereichen\relax }}{58}{figure.caption.117}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Use-Case Diagramm für den Webshop-Anwendungsfall\relax }}{61}{figure.caption.118}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Modellierung der Bounded Contexts für den Anwendungsfall\relax }}{62}{figure.caption.119}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Modellierung des OrderDomainModel für den Anwendungsfall\relax }}{63}{figure.caption.120}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Konzeptionell symetrische Modellierung des CustomerDomainModel\relax }}{63}{figure.caption.121}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Modellierung der Kommunikation zwichen Microservices für den Anwendungsfall\relax }}{64}{figure.caption.122}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Modellierung des Schnittstellen auf Serviceebene für den Anwendungsfall\relax }}{64}{figure.caption.123}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Modellierung der Infrastruktur für den Anwendungsfall\relax }}{65}{figure.caption.124}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Implementieren von fehlenden Methoden vor der Inbetriebnahme\relax }}{66}{figure.caption.125}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Implementieren von fehlenden Klassenattributen vor der Inbetriebnahme\relax }}{66}{figure.caption.126}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Abschließende Code-Formatierung für bessere Lesbarkeit\relax }}{67}{figure.caption.127}%
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

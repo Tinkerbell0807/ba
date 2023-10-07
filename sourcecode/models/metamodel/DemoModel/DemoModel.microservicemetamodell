@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
+  <domainModelLayer/>
+  <technicalLayer/>
+  <infrastructureLayer>
+    <cloudConfiguration xsi:type="microserviceMetamodell:GCloudConfiguration" artifactRepositoryName="defaultArtifactRepositoryName" projectId="defaultProjectId"/>
+    <kafkaConfiguration bootstrapServerPort="9092"/>
+  </infrastructureLayer>
+</microserviceMetamodell:SystemModel>

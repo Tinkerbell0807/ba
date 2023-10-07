@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="568df6af-b75b-475d-b0da-f0eeff4c5620" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/cleanup/cleanup_registry.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/cleanup/cleanup_registry.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/cleanup/scale_down_deployments.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/debug/healthcheck.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/debug/healthcheck.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/deploy/build_images.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/deploy/build_images.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/deploy/deploy_services.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/deploy/deploy_services.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/deploy/undeploy_services.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Beispielprojekt_Cloud/bash_scripts/deploy/undeploy_services.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Latex/ba.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Latex/ba.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Latex/ba.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Latex/ba.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Latex/ba.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Latex/ba.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Latex/ba.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Latex/ba.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Latex/ba.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Latex/ba.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../bash_scripts/ba.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../bash_scripts/ba.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bin/org/eclipse/acceleo/module/foobar/main/generate.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/org/eclipse/acceleo/module/foobar/main/generate.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backoffice-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backoffice-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_scripts/cleanup/cleanup_registry.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/cleanup/cleanup_registry.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_scripts/cleanup/scale_down_cluster.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/cleanup/scale_down_cluster.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_scripts/deploy/deploy_services.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/deploy/deploy_services.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_scripts/kafka/create_topics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/kafka/create_topics.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash_scripts/kafka/setup_kafka.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bash_scripts/kafka/setup_kafka.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkout-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/checkout-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-service/deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/deployment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/customer-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marketing-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/marketing-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="2b7gR97PR1GcDEbaK5ce0s8yguf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/home/patrik/Dokumente/Bachelorarbeit/sourcecode/models/model/foobar/gen",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="568df6af-b75b-475d-b0da-f0eeff4c5620" name="Changes" comment="" />
+      <created>1705571519563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705571519563</updated>
+      <workItem from="1705571521286" duration="665000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

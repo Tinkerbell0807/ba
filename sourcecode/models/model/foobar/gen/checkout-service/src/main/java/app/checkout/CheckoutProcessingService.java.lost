@@ -1,0 +1,16 @@
+
+Tue Jan 23 00:06:46 CET 2024
+================================================================================
+Start of user code createCheckoutInformation
+		logger.info("createCheckoutInformation executed");
+		//TODO: Implement Behaviour
+// End of user code
+Start of user code checkoutOrder
+		logger.info("checkoutOrder executed");
+		//TODO: Implement Behaviour
+// End of user code
+
+Tue Jan 23 00:35:30 CET 2024
+================================================================================
+Start of user code method annotations
+// End of user code

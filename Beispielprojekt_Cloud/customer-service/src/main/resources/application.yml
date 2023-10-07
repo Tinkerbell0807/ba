@@ -1,0 +1,27 @@
+service-properties:
+  service-name: "customer-service"
+
+external-services:
+  marketing-service:
+
+  backoffice-service:
+    base-url: http://backoffice-service-k8service:8081
+
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+  datasource:
+    url: jdbc:h2:mem:db_customer-service
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

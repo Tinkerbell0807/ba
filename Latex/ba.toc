@@ -1,0 +1,95 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\numberline {1}Abstract}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Einleitung}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Motivation}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Zielstellung}{3}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Grundlagen}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Domain-Driven Design}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Definition}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Bausteine des Model-Driven Design}{6}{subsection.3.1.2}%
+\contentsline {subsubsection}{\nonumberline Schichtenarchitektur}{6}{subsubsection*.6}%
+\contentsline {subsubsection}{\nonumberline Packages}{7}{subsubsection*.8}%
+\contentsline {subsubsection}{\nonumberline Entities}{7}{subsubsection*.10}%
+\contentsline {subsubsection}{\nonumberline Value Objects}{7}{subsubsection*.12}%
+\contentsline {subsubsection}{\nonumberline Services}{7}{subsubsection*.14}%
+\contentsline {subsubsection}{\nonumberline Aggregates}{7}{subsubsection*.16}%
+\contentsline {subsubsection}{\nonumberline Factories}{8}{subsubsection*.18}%
+\contentsline {subsubsection}{\nonumberline Repositories}{8}{subsubsection*.20}%
+\contentsline {subsubsection}{\nonumberline Domain Event}{8}{subsubsection*.22}%
+\contentsline {subsection}{\numberline {3.1.3}Strategic Design}{9}{subsection.3.1.3}%
+\contentsline {subsubsection}{\nonumberline Bounded Context}{9}{subsubsection*.24}%
+\contentsline {subsubsection}{\nonumberline Shared Kernel}{9}{subsubsection*.26}%
+\contentsline {subsubsection}{\nonumberline Customer/Supplier}{9}{subsubsection*.28}%
+\contentsline {subsubsection}{\nonumberline Conformist}{10}{subsubsection*.30}%
+\contentsline {subsubsection}{\nonumberline Anticorruption Layer}{10}{subsubsection*.32}%
+\contentsline {subsubsection}{\nonumberline Separate Ways}{10}{subsubsection*.34}%
+\contentsline {subsubsection}{\nonumberline Open Host Service}{10}{subsubsection*.36}%
+\contentsline {subsubsection}{\nonumberline Published Language}{11}{subsubsection*.38}%
+\contentsline {subsubsection}{\nonumberline Context Map}{11}{subsubsection*.40}%
+\contentsline {section}{\numberline {3.2}Microservices}{12}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Geschichte und Definition}{12}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Eigenschaften von Microservices}{13}{subsection.3.2.2}%
+\contentsline {subsubsection}{\nonumberline Technologisch Uneingeschränkt}{13}{subsubsection*.44}%
+\contentsline {subsubsection}{\nonumberline Unabhängigkeit}{13}{subsubsection*.46}%
+\contentsline {subsubsection}{\nonumberline Isolierte Daten}{13}{subsubsection*.48}%
+\contentsline {subsubsection}{\nonumberline Eigene Prozesse}{14}{subsubsection*.50}%
+\contentsline {subsubsection}{\nonumberline Verteilte Netzwerkkommunikation}{14}{subsubsection*.52}%
+\contentsline {subsubsection}{\nonumberline Einschränkungen bei Transaktionen}{14}{subsubsection*.54}%
+\contentsline {subsubsection}{\nonumberline API-Schicht}{14}{subsubsection*.56}%
+\contentsline {subsection}{\numberline {3.2.3}Architektur von Microservice-Systemen}{15}{subsection.3.2.3}%
+\contentsline {subsubsection}{\nonumberline DDD-Prinzipien}{15}{subsubsection*.58}%
+\contentsline {subsubsection}{\nonumberline Kopplung und Kohäsion}{15}{subsubsection*.60}%
+\contentsline {subsubsection}{\nonumberline Ereignisgetriebene Architektur in Microservices}{16}{subsubsection*.62}%
+\contentsline {subsection}{\numberline {3.2.4}Kommunikation}{18}{subsection.3.2.4}%
+\contentsline {subsubsection}{\nonumberline REST}{18}{subsubsection*.66}%
+\contentsline {subsubsection}{\nonumberline Messaging}{18}{subsubsection*.68}%
+\contentsline {subsection}{\numberline {3.2.5}Betrieb}{19}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Microservices mit Spring Boot}{19}{subsection.3.2.6}%
+\contentsline {section}{\numberline {3.3}Cloud-Computing}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Docker}{20}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Kubernetes}{21}{subsection.3.3.2}%
+\contentsline {subsubsection}{\nonumberline Deployment}{21}{subsubsection*.70}%
+\contentsline {subsubsection}{\nonumberline Pods}{21}{subsubsection*.72}%
+\contentsline {subsubsection}{\nonumberline Service}{22}{subsubsection*.74}%
+\contentsline {subsubsection}{\nonumberline Replica Set}{22}{subsubsection*.76}%
+\contentsline {subsection}{\numberline {3.3.3}Google Cloud Plattform}{22}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Modellgetriebene Entwicklung von Microservices}{23}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Verfahren}{23}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Werkzeuge}{24}{subsection.3.4.2}%
+\contentsline {chapter}{\numberline {4}Konzeption des Metamodells}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Konzeptionelle Rahmenbedingungen}{25}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Einleitende Überlegungen}{25}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Einbindung aktueller Technologien}{26}{subsection.4.1.2}%
+\contentsline {subsubsection}{\nonumberline AjiL}{26}{subsubsection*.79}%
+\contentsline {subsubsection}{\nonumberline Context Mapper}{27}{subsubsection*.82}%
+\contentsline {subsubsection}{\nonumberline OCCI}{28}{subsubsection*.85}%
+\contentsline {subsubsection}{\nonumberline ARGON}{29}{subsubsection*.89}%
+\contentsline {subsection}{\numberline {4.1.3}Auswahl der Technologie}{30}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Entwicklung der eigenen DSL}{31}{section.4.2}%
+\contentsline {subsubsection}{\nonumberline Grundkonzept - Definition verschiedener Modellschichten}{31}{subsubsection*.92}%
+\contentsline {subsection}{\numberline {4.2.1}Modellierung des Model-Driven Designs}{32}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Modellierung des Strategic Designs}{35}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Modellierung der technischen Modellebene}{36}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Modellierung der Infrastrukturellen Umgebung}{37}{subsection.4.2.4}%
+\contentsline {chapter}{\numberline {5}Entwicklung einer konkreten Syntax}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Entwurf des Editors}{40}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Beschreibung der Diagramme}{42}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}ContextRelationshipDescription}{42}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}DomainModelDescription}{43}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}AggregateStructureDescription}{44}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}MicroserviceCommunicationDescription}{45}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}MicroserviceInterfaceDescription}{46}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.6}InfrastructureOverviewDescription}{47}{subsection.5.2.6}%
+\contentsline {section}{\numberline {5.3}Konkretisierung des Modellierungsworkflows}{48}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Konzeption und Umsetzung der Codegenerierung}{49}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Generierungstemplate}{49}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Migration von Diensten durch Generierung}{57}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Acceleo Protected Areas}{57}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Open Rewrite}{59}{subsection.6.2.2}%
+\contentsline {chapter}{\numberline {7}Anwendung}{61}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Modellierung einer Microservice-Architektur für einen Anwendungsfall}{61}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Vorstellung des Anwendungsfalles}{61}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Ablauf der Modellierung mit Editor}{62}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Inbetriebnahme}{66}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Fazit und Ausblick}{69}{chapter.8}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
