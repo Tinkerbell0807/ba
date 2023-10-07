@@ -1,0 +1,67 @@
+\documentclass[ngerman,11pt]{scrbook}
+
+\usepackage[breaklinks,colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue,filecolor=blue]{hyperref}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{graphicx,color}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{latexsym}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage[automark]{scrlayer-scrpage}
+
+
+
+\usepackage[ngerman]{babel}
+\usepackage{blindtext}
+\usepackage[automark]{scrlayer-scrpage}
+% \pagestyle{scrheadings}
+
+
+\onehalfspacing 
+
+% Kopf- und Fußzeile
+\cleardoublepage
+\clearpairofpagestyles
+\ofoot[\pagemark]{\pagemark}
+\pagestyle{scrheadings}
+
+% Seitendefinitionen
+
+\setlength{\topmargin}{1.5cm}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{20pt}
+\setlength{\topskip}{12pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\textheight}{240mm}
+\setlength{\textwidth}{160mm}
+\setlength{\voffset}{-2cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\input{inc/profile.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\input{inc/title}
+
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+% Kapitel
+
+\input{inc/k1_einleitung}
+\input{inc/k2_grundlagen}
+\input{inc/k3_modellierung}
+
+% Literaturverzeichniss
+\newpage
+\bibliographystyle{alpha}
+\bibliography{bibs/litDB}
+
+\end{document}

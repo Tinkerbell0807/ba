@@ -1,0 +1,9 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Zielstellung}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Grundlagen}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Microservices}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Cloud-Infrastruktur}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Domänenspezifische Sprachen}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Modellierung}{3}{section.2.4}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
