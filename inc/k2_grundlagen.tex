@@ -1,7 +1,65 @@
 \chapter{Grundlagen}
 
+\section{Domain-Driven Design}
+
+\subsection{Definition}
+
+Definition DDD
+\cite[S. 31-37]{evans}
+
 \section{Microservices}
 
-\section{Cloud-Infrastruktur}
+\subsection{Definition}
 
-\section{Domänenspezifische Sprachen}
+Microservices sind ein Ansatz zur Modularisierung von Software.
+Sie können unabh. voneinander verändert und deployt werden.
+Keine techn. Einschränkung.
+Eigener Datenhaushalt.
+Eigenst. Prozesse.
+Netzwerkkommunikation.
+\cite[S. 2]{wolff}
+
+Modularisierung.
+Verteilte Kommunikation.
+Unabhängig Deployet werden können.
+Build und Deployement sollten automatisiert sein.
+Einfach zu ersetzen.
+
+Transaktionen haben die ACID Eigenschaft (Atomizizäz, Consistency, Isolation, Durability.
+Daten sollen konsistent sein
+Daher keine Transaktion über mehrere Services.
+Kompensationstransaktionen
+\cite[S. 31-37]{wolff}
+
+\subsection{Architektur von Microservice-Systemen}
+
+Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten ist, dass für Änderungen oder neue Features nur ein Microservice geändert werden muss.
+Ubiquituos Language: Software verwendet dieselben Begriffe wie die Domänenexperten.
+Bounded Context: Jedes Domänenmodell ist nur in bestimmten Grenzen sinnvoll. (Stategic Design)
+Verschiedene Arten von Kollaboration zwischen Bounded Contexts: Shared Kernel, Customer/Supplier, Conformists, Anti Corruption Layer, Seperate Ways, Open Host Service, Published Language
+Es sollte vermieden werden, dass Microservices mehrere Bounded Contexts enthalten.
+Large-Scale Strukturen: System Methapor, Responsibility Layer, Evolving Order.
+\cite[S. 44-53]{wolff}
+
+Jeder Microservice benötigt eine eigene Continous-Delivery-Pipeline.
+Jeder muss außerdem ein Monitoring haben
+Unabhängige Versionskontrolle
+\cite[S. 80-81]{wolff}
+
+Fachichliche Abhängigkeiten (Änderungen am Datenmdell z.B.)
+Lose Kopplung.
+Hohe Kohäsion
+Zyklische Abhängigkeiten vermeiden
+\cite[S. 101-105]{wolff}
+
+Context Maps zu Visualisierung von Bounded Contexts
+\cite[S. 109-111]{wolff}
+
+Änderung der Gesamtarchitektur: Gemeinsame Bibliothek,Code übertragen, Gemeinsamer Service, Neuer Service, Neu schreiben
+\cite[S. 112-120]{wolff}
+
+\subsection{Kommunikation}
+
+\subsection{Architektur eines Microservices}
+
+\subsection{Betrieb und Continious Delivery}
