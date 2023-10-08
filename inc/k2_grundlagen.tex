@@ -16,17 +16,16 @@ Im Domain-Driven Design (DDD) gewährleistet das Model-Driven Design eine enge A
 
 \subsection{Building Blocks}
 
+-Navigation Map
+\cite[S. 65]{evans}
+
 Um die Komplexität von Software zu beherrschen, werden unter anderem Schichtenarchitekturen verwendet. In dieser hängt jedes Element einer Schicht nur von anderen Elementen in der gleichen oder den darunterliegenden Schichten ab. Im Kontext des DDD ist hier die Trennung der Geschäftslogik in eine eigene Domain Layer entscheidend.
 \cite[S. 69, 70]{evans}
 
-Three Patterns of Model Elements:
-- Entities
-- Value Objects
-- Services
-
 \subsubsection{Associations}
-Associations:
-Making A. more tractable:
+
+As. can  differ strongly between model and implementation
+Making Associations more tractable:
 1. Imposing a traversal direction
 2. Adding a qualifier, effectively reducing multiplicity
 3. Eliminating nonessetnial assoociations.
@@ -34,17 +33,17 @@ Making A. more tractable:
 \cite[S. 81-89]{evans}
 
 \subsubsection{Entities}
-Entites (Reference Objects):
+
 The fundamental Concept of an Entity is an abstract continuity threading trough a life cycle and even passing trough multiple forms. An Obj. defined primarly by its identiy is called an entity. They are not primarily defined by its attributes.
 Class Definitions, responsibilities, attri. and associations should revolve around who they are, rather than the partic. att. they carry.
 
 Most basic responsib. of entities is  to sestablish continuity. keep them spare. addonly behaviour that is essential. Beyond that, remove behav. and  attrib. to other objects associated.
 
 Design Identity with ID
-
 \cite[S. 89-96]{evans}
 
 \subsubsection{Value Objects}
+
 Value Objects:
 An Object that represents a descriptive aspect of the domain with no conceptual identity is called a value Object.
 Value Objects can reference Entities
@@ -54,41 +53,156 @@ etc ...
 \cite[S. 97-103]{evans}
 
 \subsubsection{Services}
-Services:
 
-
+-Description
 \cite[S. 104 - 108]{evans}
 
 \subsubsection{Modules/Packages}
-Modules/Packages:
 
+-Description
 \cite[S. 109 - 116]{evans}
 
-\subsection{Life Cycle}
-
 \subsubsection{Aggregates}
-Aggregates:
 
+-Description
 \cite[S. 123 - 135]{evans}
 
 \subsubsection{Factories}
-Factories:
 
+-Description
 \cite[S. 136 - 146]{evans}
 
 \subsubsection{Repositories}
-Repositories:
 
+-Description
 \cite[S. 147 - 161]{evans}
 
-\subsection{Making Implicit Concepts Explicit}
-
 \subsubsection{Specification}
-Specification:
 
+-Description
 \cite[S. 224 - 241]{evans}
 
+\subsection{Supple Design}
 
+-Map
+\cite[S. 245]{evans}
+
+\subsubsection{Intention-Revealing Interfaces}
+
+-Description
+\cite[S. 246 - 249]{evans}
+
+\subsubsection{Side Effect Free Functions}
+
+-Description
+\cite[S. 250 - 254]{evans}
+
+\subsubsection{Assertions}
+
+-Description
+\cite[S. 255 - 259]{evans}
+
+\subsubsection{Conceptual Contours}
+
+-Description
+\cite[S. 260 - 264]{evans}
+
+\subsubsection{Standalone Classes}
+
+-Description
+\cite[S. 265 - 267]{evans}
+
+\subsubsection{Closure of Operations}
+
+-Description
+\cite[S. 268 - 270]{evans}
+
+\subsubsection{Declarative Design}
+
+-Description
+\cite[S. 270 - 282]{evans}
+
+\subsubsection{Angles of Attack}
+
+-Description
+\cite[S. 282 - 292]{evans}
+
+\subsection{Strategic Design}
+
+- Map
+\cite[S. 334]{evans}
+
+\subsubsection{Bounded Context}
+
+-Description
+\cite[S. 335 - 340]{evans}
+
+\subsubsection{Continous Integration}
+
+-Description
+\cite[S. 341 - 343]{evans}
+
+\subsubsection{Context Map}
+
+-Description
+\cite[S. 344 - 353]{evans}
+
+\subsubsection{Shared Kernel}
+
+-Description
+\cite[S. 354 - 355]{evans}
+
+\subsubsection{Customer/Supplier}
+
+-Description
+\cite[S. 356 - 360]{evans}
+
+\subsubsection{Conformist}
+
+-Description
+\cite[S. 361 - 363]{evans}
+
+\subsubsection{Anticorruption Layer}
+
+-Description
+\cite[S. 364 - 370]{evans}
+
+\subsubsection{Seperate Ways}
+
+-Description
+\cite[S. 371 - 373]{evans}
+
+\subsubsection{Open Host Service}
+
+-Description
+\cite[S. 374]{evans}
+
+\subsubsection{Published Language}
+
+-Description
+\cite[S. 375-378]{evans}
+
+\subsubsection{Model Context Strategy}
+
+-Description
+\cite[S. 381-389]{evans}
+
+\subsection{Large-Scale Structure}
+
+\subsubsection{Evolving Order}
+
+-Description
+\cite[S. 444-446]{evans}
+
+\subsubsection{System Methapor}
+
+-Description
+\cite[S. 447-449]{evans}
+
+\subsubsection{Responsibility Layer}
+
+-Description
+\cite[S. 450-464]{evans}
 
 \section{Microservices}
 
@@ -199,3 +313,59 @@ Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten
 
 \section{Modellgetriebene Entwicklung von Microservices}
 
+\subsection{AjiL - an Eclipse tool for MSA modeling with a code generator}
+
+AjiL is an Eclipse-based tool for graphical MSA modeling. It features a diagram editor for modeling rudimentary domain models, functional and infrastructure microservices, and provided and required interfaces. Thus, AjiL facilitates creating intermediate models for service interfaces (see the section “Intermediate Models”). AjiL ships with a code generator that produces microservice implementations from AjiL models. The generated Java code is based on Spring Boot and Spring Cloud. It is directly runnable and comprises interface implementations, stubs for implementing services' business logic, and configuration files for infrastructure components. However, AjiL currently does not support round-trip engineering.4 The tool is available at github.com/SeelabFhdo/AjiL.
+
+https://ieeexplore.ieee.org/abstract/document/8354426
+https://github.com/SeelabFhdo/AjiL
+
+\subsection{OCCIware - a unified framework for managing diverse cloud resources and services}
+
+Cloud computing has emerged as the main paradigm for hosting and delivering computing resources as services over Internet. It provides a delivery model for computing resources at infrastructure, platform, and software levels. However, there is a plethora of cloud providers offering different resource management interfaces. Due to this diversity, the consumption, provisioning, management, and supervision of cloud resources are subjected to four key issues, i.e., heterogeneity, interoperability, integration, and portability. To cope with these issues, Open Cloud Computing Interface (OCCI) is proposed as a community-based and open recommendation standard for managing any kind of cloud resources. Currently, only runtime implementations exist for OCCI, and each one targets a specific cloud service model such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Software as a Service (SaaS). Thus, OCCI lacks an approach to model and execute different OCCI artifacts. Our approach provides a generic modeling framework coupled with a generic runtime implementation. In this article, we propose the OCCIware approach, which represents the first approach to design, validate, generate, implement, deploy, execute, and supervise everything as a service with OCCI. This approach provides OCCIware Studio, the first model-driven tool chain for OCCI. It is built around OCCIware Metamodel, which defines the static semantics for the OCCI standard in Ecore and OCL. In addition, it proposes OCCIware Runtime, the first generic OCCI runtime implementation targeting all the cloud service models (IaaS, PaaS, and SaaS). OCCIware provides a unique and unified framework to manage OCCI artifacts and, at the same time, it represents a factory to build cloud domain-specific modeling frameworks where each framework targets a specific cloud domain. OCCIware has been applied in various cloud domains and use-cases, which validate its applicability.
+
+https://www.sciencedirect.com/science/article/pii/S0167739X18306071\# sec5
+
+\subsection{ARGON - automated cloud infrastructure provisioning using a domain-specific language}
+
+Infrastructure as Code (IaC) is an approach to infrastructure automation based on practices from software development. IaC tools use scripts to specify the creation, update, and execution of cloud infrastructures. As each cloud provider offers a different type of infrastructure, the definition of an infrastructure element implies to write several lines of code that strongly depend on the target cloud provider. As a result, managing IaC scripts has become a time-consuming and error-prone activity. In previous work, we have presented ARGON, which is a model-driven infrastructure provisioning tool. ARGON implements a domain-specific language (DSL) for modeling the characteristics of the cloud infrastructure and provides transformation engines to automate the infrastructure provisioning for different cloud providers. In this demonstration, we show the use of ARGON for modeling and provisioning a load balancer in Amazon Web Services and Microsoft Azure. The load balancer distributes incoming application traffic across multiple virtual machines.
+
+https://ieeexplore.ieee.org/abstract/document/8904494
+
+\subsection{model-driven approach for adaptive microservice-based systems using VxBPMN4MS}
+
+A microservice-based system is composed of numerous independently deployed and executed microservices, among which normally exist the complex dependencies. Traditional service composition approaches usually expect the business process predefined at design time. As a result, it is difficult for the microservice-based system to quickly adapt to the frequently changing operation environments and business requirements. To address the above limitations, we propose a variability-enabling and model-driven approach to developing adaptive microservice-based systems. Our approach first models the business process with variability using VxBPMN4MS, an extension of Business Process Model and Notation (BPMN) with support for variability, then transforms the business process model to variability supported microservice composition frameworks, and finally derives business process instances at run-time according to the predefined process configuration. We have developed a platform to automate the proposed approach as much as possible, and conducted a case study to evaluate the effectiveness of the proposed approach and platform.
+
+https://ieeexplore.ieee.org/abstract/document/9529482
+
+
+\subsection{Context Mapper, a tool for DDD and microservice design.}
+
+Service-oriented architectures and microservices have gained much attention in recent years; companies adopt
+these concepts and supporting technologies in order to increase agility, scalability, and maintainability of their
+systems. Decomposing an application into multiple independently deployable, appropriately sized services
+and then integrating such services is challenging. With strategic patterns such as Bounded Context and Context
+Map, Domain-driven Design (DDD) can support business analysts, (enterprise) architects, and microservice
+adopters. However, existing architecture description languages do not support the strategic DDD patterns
+sufficiently; modeling tools for DDD primarily focus on its tactical patterns. As a consequence, different
+opinions on how to apply strategic DDD exist, and it is not clear how to combine its patterns. Aiming for
+a clear and concise interpretation of the patterns and their combinations, this paper distills a meta-model of
+selected strategic DDD patterns from the literature. It then introduces Context Mapper, an open source project
+that a) defines a Domain-specific Language (DSL) expressing the strategic DDD patterns and b) provides
+editing, validation, and transformation tools for this DSL. As a machine-readable description of DDD, the DSL
+provides a modeling foundation for (micro-)service design and integration. The models can be refactored and
+transformed within an envisioned tool chain supporting the continuous specification and evolution of Context
+Maps. Our validation activities (prototyping, action research, and case studies) suggest that the DDD pattern
+clarification in our meta-model and the Context Mapper tool indeed can benefit the target audience.
+
+https://www.scitepress.org/Papers/2020/89105/89105.pdf
+
+\subsection{DOML simplifies infrastructure deployments by unifying multiple IaC languages}
+
+One of the main DevOps practices is the automation of resource provisioning and deployment of complex software. This automation is enabled by the explicit definition of Infrastructure-as-Code (IaC), i.e., a set of scripts, often written in different modelling languages, which defines the infrastructure and applications to be deployed.
+
+We introduce the DevOps Modelling Language (DOML), a new Cloud modelling language for infrastructure deployments. DOML is a modelling approach that can be mapped into multiple IaC languages, addressing infrastructure provisioning, application deployment and configuration at once. The idea behind DOML is to use a single modelling paradigm which can help to reduce the need of deep technical expertise in using different specialised IaC languages.
+
+We present the DOML’s principles and discuss the related work on IaC languages. We demonstrate the DOML advantages for the end-user in comparison with state-of-the-art IaC languages such as Ansible, Terraform, and Cloudify, and show its effectiveness through an example.
+
+%https://link.springer.com/chapter/10.1007/978-3-031-34560-9_18\# Abs1
