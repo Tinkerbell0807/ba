@@ -1,5 +1,13 @@
 \begin{thebibliography}{Wol16}
 
+\bibitem[Eva07]{evans}
+Eric Evans.
+\newblock {\em Domain-driven design: tackling complexity in the heart of
+  software}.
+\newblock Addison-Wesley, Upper Saddle River, NJ [u.a.], 11. printing edition,
+  2007.
+\newblock Eric Evans.
+
 \bibitem[Wol16]{wolff}
 Eberhard Wolff.
 \newblock {\em Microservices: Grundlagen flexibler Softwarearchitekturen}.

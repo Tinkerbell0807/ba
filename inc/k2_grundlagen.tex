@@ -4,41 +4,111 @@
 
 \subsection{Definition}
 
-Definition DDD
-\cite[S. 31-37]{evans}
+Modelle sind bewusst simplifizierte und strukturierte Darstellungen von Wissen.
+Die Methodik des Domain-Driven Design (DDD) stellt drei Regeln auf, welche bei der Wahl eines Modells zu berücksichtigen sind: Modell und Implementierung beeinflussen sich gegenseitig. Das Modell ist die Grundlage der im Entwicklungsprozess verwendeten Terminologie. Das Modell beinhaltet Wissen in einer nutzbaren, aufgearbeiteten Form.
+\cite[S. 3-4]{evans}
+
+Fachlichkeiten aus einer Domäne werden mit einer Unbiquitous Language, einer dem Model-basieten Sprache welche Entwickler und Domänen-Experten eine gemeinsame Terminologie vorgibt, ausgedrückt.
+\cite[S. 25-27]{evans}
+
+Im Domain-Driven Design (DDD) gewährleistet das Model-Driven Design eine enge Abstimmung zwischen Software-Design und konzeptionellem Domänenmodell. Um eine hohe Übereinstimmung zwischen Modell und Design zu erreichen, ist es fast unerlässlich, innerhalb eines von Software-Werkzeugen unterstützten Modellierungsparadigmas zu arbeiten. Ein ideales Werkzeug sind objektorientierte Programmiersprachen, da Modellkonzepte sich recht gut in objektorientierte Konzepte übersetzen lassen.
+\cite[S. 49-51]{evans}
+
+\subsection{Building Blocks}
+
+Um die Komplexität von Software zu beherrschen, werden unter anderem Schichtenarchitekturen verwendet. In dieser hängt jedes Element einer Schicht nur von anderen Elementen in der gleichen oder den darunterliegenden Schichten ab. Im Kontext des DDD ist hier die Trennung der Geschäftslogik in eine eigene Domain Layer entscheidend.
+\cite[S. 69, 70]{evans}
+
+Three Patterns of Model Elements:
+- Entities
+- Value Objects
+- Services
+
+\subsubsection{Associations}
+Associations:
+Making A. more tractable:
+1. Imposing a traversal direction
+2. Adding a qualifier, effectively reducing multiplicity
+3. Eliminating nonessetnial assoociations.
+
+\cite[S. 81-89]{evans}
+
+\subsubsection{Entities}
+Entites (Reference Objects):
+The fundamental Concept of an Entity is an abstract continuity threading trough a life cycle and even passing trough multiple forms. An Obj. defined primarly by its identiy is called an entity. They are not primarily defined by its attributes.
+Class Definitions, responsibilities, attri. and associations should revolve around who they are, rather than the partic. att. they carry.
+
+Most basic responsib. of entities is  to sestablish continuity. keep them spare. addonly behaviour that is essential. Beyond that, remove behav. and  attrib. to other objects associated.
+
+Design Identity with ID
+
+\cite[S. 89-96]{evans}
+
+\subsubsection{Value Objects}
+Value Objects:
+An Object that represents a descriptive aspect of the domain with no conceptual identity is called a value Object.
+Value Objects can reference Entities
+Value Objects can be an assemblage of other Objects
+etc ...
+
+\cite[S. 97-103]{evans}
+
+\subsubsection{Services}
+Services:
+
+
+\cite[S. 104 - 108]{evans}
+
+\subsubsection{Modules/Packages}
+Modules/Packages:
+
+\cite[S. 109 - 116]{evans}
+
+\subsection{Life Cycle}
+
+\subsubsection{Aggregates}
+Aggregates:
+
+\cite[S. 123 - 135]{evans}
+
+\subsubsection{Factories}
+Factories:
+
+\cite[S. 136 - 146]{evans}
+
+\subsubsection{Repositories}
+Repositories:
+
+\cite[S. 147 - 161]{evans}
+
+\subsection{Making Implicit Concepts Explicit}
+
+\subsubsection{Specification}
+Specification:
+
+\cite[S. 224 - 241]{evans}
+
+
 
 \section{Microservices}
 
 \subsection{Definition}
 
-Microservices sind ein Ansatz zur Modularisierung von Software.
-Sie können unabh. voneinander verändert und deployt werden.
-Keine techn. Einschränkung.
-Eigener Datenhaushalt.
-Eigenst. Prozesse.
-Netzwerkkommunikation.
+Der zur Modularisierung eingesetzte Ansatz der Microservices erfüllt verschiedene Grundlegende Vorraussetzungen:
+In ihrer Implementierung gibt es keine technologischen Einschränkungen. Die Dienste können unabhängig voneinander überarbeitet und auf ein Zielsystem ausgerollt werden. Weiterhin sollen Build und Deployement automatisiert sein. Sie besitzen einen eigenen Datenhaushalt sowie eigenständige Prozesse auf der ausführenden Infrastruktureinheit. Microservices nutzen verteilte Netzwerkkommunikation, um sich mit anderen Diensten zu verständigen. Transaktionen zeichnen sich durch die ACID-Eigenschaften aus, zu denen Atomizität, Konsistenz, Isolation und Dauerhaftigkeit gehören. Es ist wichtig, dass Daten konsistent bleiben. Deshalb sollten keine Transaktionen über mehrere Services hinweg durchgeführt werden. Um diese Konsistenz zu gewährleisten, können Kompensationstransaktionen eingesetzt werden.
 \cite[S. 2]{wolff}
-
-Modularisierung.
-Verteilte Kommunikation.
-Unabhängig Deployet werden können.
-Build und Deployement sollten automatisiert sein.
-Einfach zu ersetzen.
-
-Transaktionen haben die ACID Eigenschaft (Atomizizäz, Consistency, Isolation, Durability.
-Daten sollen konsistent sein
-Daher keine Transaktion über mehrere Services.
-Kompensationstransaktionen
 \cite[S. 31-37]{wolff}
 
 \subsection{Architektur von Microservice-Systemen}
 
 Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten ist, dass für Änderungen oder neue Features nur ein Microservice geändert werden muss.
-Ubiquituos Language: Software verwendet dieselben Begriffe wie die Domänenexperten.
+Weiterhin sollen die aus dem DDD bekannten Konzepte der Unbiquitous Language und des Bounded Context verwendet werden.
+
 Bounded Context: Jedes Domänenmodell ist nur in bestimmten Grenzen sinnvoll. (Stategic Design)
 Verschiedene Arten von Kollaboration zwischen Bounded Contexts: Shared Kernel, Customer/Supplier, Conformists, Anti Corruption Layer, Seperate Ways, Open Host Service, Published Language
 Es sollte vermieden werden, dass Microservices mehrere Bounded Contexts enthalten.
 Large-Scale Strukturen: System Methapor, Responsibility Layer, Evolving Order.
+
 \cite[S. 44-53]{wolff}
 
 Jeder Microservice benötigt eine eigene Continous-Delivery-Pipeline.
@@ -63,3 +133,5 @@ Context Maps zu Visualisierung von Bounded Contexts
 \subsection{Architektur eines Microservices}
 
 \subsection{Betrieb und Continious Delivery}
+
+\section{Cloud-Infrastruktur}
