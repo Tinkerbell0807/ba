@@ -21,7 +21,9 @@
 \contentsline {subsection}{\numberline {2.2.2}Architektur von Microservice-Systemen}{5}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Kommunikation}{6}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Architektur eines Microservices}{6}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Betrieb und Continious Delivery}{6}{subsection.2.2.5}%
-\contentsline {section}{\numberline {2.3}Cloud-Infrastruktur}{6}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Modellierung}{7}{chapter.3}%
+\contentsline {subsection}{\numberline {2.2.5}Betrieb und Continious Delivery}{7}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Cloud-Infrastruktur}{7}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Definition}{7}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.4}Modellgetriebene Entwicklung von Microservices}{7}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Modellierung}{9}{chapter.3}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
