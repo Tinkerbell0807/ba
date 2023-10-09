@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  8 OCT 2023 20:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  9 OCT 2023 13:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,7 +616,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.5 \chapter
+l.3 \chapter
             {Einleitung} [1
 
 
@@ -631,31 +631,77 @@ chapter 2.
 ]
 chapter 3.
 
-Overfull \hbox (7.55112pt too wide) in paragraph at lines 14--16
-\OT1/phv/m/n/10.95 (-20) zwi-schen Software-Design und kon-zep-tio-nel-lem Dom[
-]anenmodell. Um ei-ne ho-he []Ubereinstimmung
+Overfull \hbox (3.63448pt too wide) in paragraph at lines 14--16
+\OT1/phv/m/n/10.95 (-20) die m[]oglichst en-ge Ab-stim-mung zwi-schen Software-
+Design und kon-zep-tio-nel-lem Dom[]anenmodell.
  []
 
-[5] [6] [7] [8] [9]
-Overfull \hbox (42.90535pt too wide) in paragraph at lines 228--230
+<pics/PatternsDDD.png, id=94, 1124.2pt x 708.6475pt>
+File: pics/PatternsDDD.png Graphic file (type png)
+<use pics/PatternsDDD.png>
+Package pdftex.def Info: pics/PatternsDDD.png  used on input line 22.
+(pdftex.def)             Requested size: 406.23839pt x 256.0748pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 23.
+See the caption package documentation for explanation.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Underfull \vbox (badness 4556) has occurred while \output is active []
+
+ [6 <./pics/PatternsDDD.png>] [7]
+Overfull \hbox (9.85196pt too wide) in paragraph at lines 65--67
+\OT1/phv/m/n/10.95 (-20) Ein Ag-gre-gat ist ein Clus-ter von as-so-zi-ier-ten O
+b-jek-ten, die wir zu dem Zweck von Da-ten[]anderungen
+ []
+
+
+Underfull \vbox (badness 4492) has occurred while \output is active []
+
+ [8]
+<pics/supple.jpg, id=144, 746.01291pt x 559.50967pt>
+File: pics/supple.jpg Graphic file (type jpg)
+<use pics/supple.jpg>
+Package pdftex.def Info: pics/supple.jpg  used on input line 98.
+(pdftex.def)             Requested size: 341.42847pt x 256.0748pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 99.
+See the caption package documentation for explanation.
+
+[9 <./pics/supple.jpg>]
+<pics/Strategic.png, id=165, 853.1875pt x 443.6575pt>
+File: pics/Strategic.png Graphic file (type png)
+<use pics/Strategic.png>
+Package pdftex.def Info: pics/Strategic.png  used on input line 149.
+(pdftex.def)             Requested size: 492.44066pt x 256.0748pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 150.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (37.19658pt too wide) in paragraph at lines 149--150
+ [] 
+ []
+
+[10] [11 <./pics/Strategic.png (PNG copy)>] [12]
+Overfull \hbox (42.90535pt too wide) in paragraph at lines 248--250
 []\OT1/phv/m/n/10.95 (-20) - Fach-ich-li-che Abh[]angigkeiten ([]Anderungen am 
 Da-tenm-dell z.B.):Lose Kopp-lung,Hohe Koh[]asion,Zyklische
  []
 
-[10]
-Underfull \vbox (badness 5431) has occurred while \output is active []
-
- [11]
-[12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13])
-(./inc/k3_modellierung.tex [14]
+[13] [14] [15] [16]) (./inc/k3_modellierung.tex [17] [18]
 chapter 4.
-) [15
+) [19
 
 
-] (./ba.bbl [16
+] (./ba.bbl [20
 
 
 ]
@@ -668,26 +714,26 @@ r-vices: Grund-la-gen fle-xibler Soft-wa-rear-chi-tek-tu-ren\OT1/phv/m/n/10.95
 (+20) .
  []
 
-) [17] (./ba.aux)
+) [21] (./ba.aux)
 Package rerunfilecheck Info: File `ba.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18079 strings out of 476175
- 350137 string characters out of 5796271
+ 18122 strings out of 476175
+ 350841 string characters out of 5796271
  1865793 words of memory out of 6000000
- 37854 multiletter control sequences out of 15000+600000
- 537369 words of font info for 180 fonts, out of 8000000 for 9000
+ 37878 multiletter control sequences out of 15000+600000
+ 537595 words of font info for 184 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 108i,20n,106p,10597b,501s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,106p,10597b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/helvetic/uhvro8a.pfb>
-Output written on ba.pdf (19 pages, 71547 bytes).
+Output written on ba.pdf (23 pages, 307513 bytes).
 PDF statistics:
- 406 PDF objects out of 1000 (max. 8388607)
- 373 compressed objects within 4 object streams
- 113 named destinations out of 1000 (max. 500000)
- 43230 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 434 PDF objects out of 1000 (max. 8388607)
+ 393 compressed objects within 4 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 43245 words of extra memory for PDF output out of 51595 (max. 10000000)
 

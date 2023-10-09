@@ -11,70 +11,78 @@ Die Methodik des Domain-Driven Design (DDD) stellt drei Regeln auf, welche bei d
 Fachlichkeiten aus einer Domäne werden mit einer Unbiquitous Language, einer dem Model-basieten Sprache welche Entwickler und Domänen-Experten eine gemeinsame Terminologie vorgibt, ausgedrückt.
 \cite[S. 25-27]{evans}
 
-Im Domain-Driven Design (DDD) gewährleistet das Model-Driven Design eine enge Abstimmung zwischen Software-Design und konzeptionellem Domänenmodell. Um eine hohe Übereinstimmung zwischen Modell und Design zu erreichen, ist es fast unerlässlich, innerhalb eines von Software-Werkzeugen unterstützten Modellierungsparadigmas zu arbeiten. Ein ideales Werkzeug sind objektorientierte Programmiersprachen, da Modellkonzepte sich recht gut in objektorientierte Konzepte übersetzen lassen.
+Im Domain-Driven Design (DDD) bezeichnet und gewährleistet das Model-Driven Design(MDD) die möglichst enge Abstimmung zwischen Software-Design und konzeptionellem Domänenmodell. Um eine hohe Übereinstimmung zwischen Modell und Design zu erreichen, ist es fast unerlässlich, innerhalb eines von Software-Werkzeugen unterstützten Modellierungsparadigmas zu arbeiten. Ein ideales Werkzeug sind objektorientierte Programmiersprachen, da Modellkonzepte sich recht gut in objektorientierte Konzepte übersetzen lassen.
 \cite[S. 49-51]{evans}
 
-\subsection{Building Blocks}
+\subsection{Bausteine des Model-Driven Design}
 
--Navigation Map
+Folgende abstrakten Bausteine existieren im MDD:
+
+\begin{center}
+\includegraphics[height=9cm]{pics/PatternsDDD.png}
+\captionof{figure}{Bausteine des Model-Driven Design}
+\end{center}
+
 \cite[S. 65]{evans}
 
-Um die Komplexität von Software zu beherrschen, werden unter anderem Schichtenarchitekturen verwendet. In dieser hängt jedes Element einer Schicht nur von anderen Elementen in der gleichen oder den darunterliegenden Schichten ab. Im Kontext des DDD ist hier die Trennung der Geschäftslogik in eine eigene Domain Layer entscheidend.
-\cite[S. 69, 70]{evans}
+\subsubsection{Schichtenarchitektur}
+
+Um die Komplexität von Software zu beherrschen, werden unter anderem Schichtenarchitekturen verwendet. In dieser hängt jedes Element einer Schicht nur von anderen Elementen in der gleichen oder den darunterliegenden Schichten ab. Im Kontext des DDD ist hier die Trennung der Geschäftslogik in eine eigene Domain Layer entscheidend. Dies erzeugt eine starke Kohäsion zum Modell im Sinne des MDD. Mit Entwurfsmustern wie dem Model-View Controller kann  auf diese Domain Layer wieder zugegriffen werden.
+\cite[S. 69 - 73]{evans}
 
 \subsubsection{Associations}
-
-As. can  differ strongly between model and implementation
-Making Associations more tractable:
-1. Imposing a traversal direction
-2. Adding a qualifier, effectively reducing multiplicity
-3. Eliminating nonessetnial assoociations.
-
-\cite[S. 81-89]{evans}
+Die Umsetzung von Assoziationen kann zwischen Modell und Implementierung stark variieren. Um die Assoziationen eines Modells besser handhabbar zu machen, gibt es verschiedene Ansätze: Das Festlegen einer Durchlaufrichtung verineinfacht beispielsweiße das Design und Reduziert Abhäbgigkeiten. Auch das Hinzufügen eines Qualifikators der effektiv die Multiplizität reduziert vereinfacht Modell und Implementierung. Das Entfernen von nicht essenziellen Assoziationen ist schließlich ebenso möglich.
+\cite[S. 81-85]{evans}
 
 \subsubsection{Entities}
+Ein Objekt, das hauptsächlich durch seine Identität definiert wird, wird als Entität bezeichnet. Dessen Attribute sind dabei nebensächlich.
+Eine Entität stellt eine abstrakte Kontinuität eines Objektes dar, die sich durch einen Lebenszyklus zieht.
+Klassendefinitionen, Verantwortlichkeiten, Attribute und Assoziationen sollten die Identität der Entität repräsentieren.
 
-The fundamental Concept of an Entity is an abstract continuity threading trough a life cycle and even passing trough multiple forms. An Obj. defined primarly by its identiy is called an entity. They are not primarily defined by its attributes.
-Class Definitions, responsibilities, attri. and associations should revolve around who they are, rather than the partic. att. they carry.
-
-Most basic responsib. of entities is  to sestablish continuity. keep them spare. addonly behaviour that is essential. Beyond that, remove behav. and  attrib. to other objects associated.
-
-Design Identity with ID
+Bei einer Modellierung ist die grundlegendsten Verantwortlichkeit von Entitäten, Kontinuität herzustellen. Sie sollten sparsam verwendet werden. Nur das Verhalten das unerlässlich ist sollte ihnen angefügt werden. Darüber hinaus sollten zusätzliche Verhalten und Attribute zu anderen damit verbundenen Objekten verschoben werden. Die Identität soll mit einem einzigartigen Identifikationswert, welcher beispielsweiße automatisch generiert werden kann, sichergestellt werden.
 \cite[S. 89-96]{evans}
 
 \subsubsection{Value Objects}
+Ein Objekt, das einen beschreibenden Aspekt des Domänenbereichs darstellt und keine konzeptionelle Identität besitzt, wird als Wertobjekt (Value Object) bezeichnet. Wertobjekte können eine Zusammenstellung von anderen Objekten sein. Sie können Entitäten referenzieren. Wertobjekte werden häufig als Parameter in Nachrichten zwischen Objekten übergeben. Sie werden als Attribute von Entitäten (oder anderen Werten) verwendet. Die Felder eines Werteobjekts sollen ein konzeptionelles Ganzes formen.
 
-Value Objects:
-An Object that represents a descriptive aspect of the domain with no conceptual identity is called a value Object.
-Value Objects can reference Entities
-Value Objects can be an assemblage of other Objects
-etc ...
-
+Beim Design sollte das Verhalten beim kopieren, teilen und der Veränderlichkeit von Value Objekten berücksichtigt werden.
+Damit Value Objects sicher geteilt werden können müssen sie unveränderlich sein. Alternativ müssen Value Objekte als Kopien übergeben werden.
+Weiterhin sind bidirektionale Assoziationen zwischen Value Objekten aufgrund der fehlenden Identität bedeutungslos und sollten entfernt werden.
 \cite[S. 97-103]{evans}
 
 \subsubsection{Services}
 
--Description
+Einige Konzepte aus dem Domänenbereich sind nicht natürlich als Objekte zu modellieren. Daher wird ein neues Konzept eingeführt: Ein Service ist eine als Schnittstelle angebotene Operation, die im Modell eigenständig steht, ohne einen Zustand zu kapseln. Er wird rein nach dem definiert, was er für einen Client tun kann. Meist wird er nach einer Aktivität benannt und nicht nach einer Entität. Sie sollten bedacht eingesetzt werden und es sollte nicht zugelassen werden, dass sie den Entitäten und Wertobjekten all ihr Verhalten entziehen. Ein guter Service hat drei Eigenschaften: Die Operation bezieht sich auf ein Domänenkonzept, das kein natürlicher Teil einer Entität oder eines Wertobjekts ist. Die Schnittstelle ist in Bezug auf andere Elemente des Domänenmodells definiert. Die Operation ist zustandslos. Da Services auch außerhalb der Domain Layer auftreten können ist eine präzise fachliche Betrachtung nötig.
 \cite[S. 104 - 108]{evans}
 
 \subsubsection{Modules/Packages}
 
--Description
+Modules strukturieren Teile des Modells, sodass in ihnen eine möglichst hohe Kohäsion herrschst und zwischen ihnen eine möglichst lose Kopplung. Daher bündeln sie konzeptionell zusammengehörige Elemente.
 \cite[S. 109 - 116]{evans}
 
 \subsubsection{Aggregates}
 
--Description
+Ein Aggregat ist ein Cluster von assoziierten Objekten, die wir zu dem Zweck von Datenänderungen als eine Einheit behandeln. Jedes Aggregat hat eine Wurzel und eine Grenze. Die Grenze definiert, was sich innerhalb des Aggregats befindet. Die Wurzel ist eine einzelne, spezifische Entität innerhalb des Aggregats. Die Wurzel ist das einzige Mitglied des Aggregats, auf das Außenobjekte Referenzen halten dürfen, obwohl Objekte innerhalb der Grenze Referenzen untereinander halten dürfen. Entitäten, die nicht die Wurzel sind, haben eine lokale Identität, aber diese Identität muss nur innerhalb des Aggregats unterscheidbar sein, da kein Außenobjekt sie außerhalb des Kontexts der Wurzel-Entität sehen kann.
 \cite[S. 123 - 135]{evans}
 
 \subsubsection{Factories}
 
--Description
+Die Erstellung komplexer Objekte ist eine Verantwortung der Domänenschicht, dennoch gehört diese Aufgabe nicht zu den Objekten, die das Modell ausdrücken. Ein Programmelement, dessen Verantwortung die Erstellung anderer Objekte ist, wird als Fabrik (Factory) bezeichnet. Eine Fabrik kapselt das Wissen ein, das zur Erstellung eines komplexen Objekts oder Aggregats benötigt wird. Zwei grundlegende Anforderungen sind:
+
+Jede Erstellungsmethode ist atomar und erzwingt alle Invarianten des erstellten Objekts oder Aggregats. Eine Fabrik sollte nur in der Lage sein, ein Objekt in einem konsistenten Zustand zu produzieren.
+
+Die Fabrik sollte abstrakt auf den gewünschten Typ ausgerichtet sein, anstatt auf die konkrete(n) erstellte(n) Klasse(n).
+
+Obwohl eine Fabrik dafür verantwortlich ist sicherzustellen, dass alle Invarianten erfüllt sind, kann sie die Überprüfung von Invarianten delegieren, was oft am besten ist. Eine Fabrik kann für die Erstellung oder Rekonstitution verwendet werden. Die zweite hat zwei wesentliche Unterschiede:
+
+Eine Entitäten-Fabrik, die zur Rekonstitution verwendet wird, weist keine neue Tracking-ID zu.
+
+Eine Fabrik, die ein Objekt rekonstituiert, wird Verstöße gegen eine Invariante anders behandeln, da ein reines Ignorieren möglicherweise nicht ausreicht.
 \cite[S. 136 - 146]{evans}
 
 \subsubsection{Repositories}
 
--Description
+Ein Repository stellt alle Objekte eines bestimmten Typs als ein konzeptuelles Set dar. Es verhält sich wie eine Sammlung, jedoch mit einer ausgefeilteren Abfragefähigkeit. Objekte des entsprechenden Typs werden hinzugefügt und entfernt, und die Maschinerie hinter dem Repository fügt sie in die Datenbank ein oder löscht sie daraus. Clients fordern Objekte aus Repositories an, indem sie Abfragemethoden verwenden, die Objekte basierend auf vom Client angegebenen Kriterien auswählen, wie zum Beispiel Werte bestimmter Attribute. Diese Abfragen können in ihrer Komplexität stark variieren.
 \cite[S. 147 - 161]{evans}
 
 \subsubsection{Specification}
@@ -82,9 +90,15 @@ etc ...
 -Description
 \cite[S. 224 - 241]{evans}
 
-\subsection{Supple Design}
+\subsection{Flexibilität des Designs}
 
--Map
+Verschiedene Muster existieren um im MDD Flexibilität zu ermöglichen:
+
+\begin{center}
+\includegraphics[height=9cm]{pics/supple.jpg}
+\captionof{figure}{Supple Design}
+\end{center}
+
 \cite[S. 245]{evans}
 
 \subsubsection{Intention-Revealing Interfaces}
@@ -129,7 +143,13 @@ etc ...
 
 \subsection{Strategic Design}
 
-- Map
+Strategien im MDD:
+
+\begin{center}
+\includegraphics[height=9cm]{pics/Strategic.png}
+\captionof{figure}{Supple Design}
+\end{center}
+
 \cite[S. 334]{evans}
 
 \subsubsection{Bounded Context}
