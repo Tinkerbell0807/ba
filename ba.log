@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  9 OCT 2023 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  19 OCT 2023 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -448,7 +448,7 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \c@blind@pangrammax=\count296
 ) (./inc/profile.tex)
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 4
-9.
+3.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
@@ -460,25 +460,25 @@ File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 (./ba.aux)
 \openout1 = `ba.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-Package hyperref Info: Link coloring ON on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+Package hyperref Info: Link coloring ON on input line 43.
  (./ba.out) (./ba.out)
 \@outlinefile=\write3
 \openout3 = `ba.out'.
@@ -490,7 +490,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 49.
+(scrbook)           before \begin{document} on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
@@ -523,13 +523,13 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 49.
-Package microtype Info: Applying patch `item' on input line 49.
-Package microtype Info: Applying patch `toc' on input line 49.
-Package microtype Info: Applying patch `eqnum' on input line 49.
+LaTeX Info: Redefining \microtypecontext on input line 43.
+Package microtype Info: Applying patch `item' on input line 43.
+Package microtype Info: Applying patch `toc' on input line 43.
+Package microtype Info: Applying patch `eqnum' on input line 43.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 49.
+Package microtype Warning: Unable to apply patch `footnote' on input line 43.
 
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -537,7 +537,7 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 49.
+LaTeX Info: Redefining \showhyphens on input line 43.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -568,7 +568,7 @@ Package pdftex.def Info: pics/logo.png  used on input line 4.
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./pics/logo.png>])
-Package tocbasic Info: character protrusion at toc deactivated on input line 53
+Package tocbasic Info: character protrusion at toc deactivated on input line 47
 .
  (./ba.toc
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
@@ -576,12 +576,12 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 4.
+(Font)              <10.95> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 4.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 4.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 4.
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 3.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
@@ -599,8 +599,8 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=16.49675pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 5
-4.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 4
+8.
 
 
 Overfull \vbox (4.49675pt too high) has occurred while \output is active []
@@ -611,13 +611,13 @@ Overfull \vbox (4.49675pt too high) has occurred while \output is active []
 
 ] (./inc/k1_einleitung.tex
 chapter 1.
-
+) (./inc/k2_grundlagen.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3 \chapter
-            {Einleitung} [1
+l.1 \chapter
+            {Grundlagen} [1
 
 
 ] [2
@@ -625,83 +625,51 @@ l.3 \chapter
 
 ]
 chapter 2.
-) (./inc/k2_grundlagen.tex [3] [4
-
-
-]
-chapter 3.
 
 Overfull \hbox (3.63448pt too wide) in paragraph at lines 14--16
 \OT1/phv/m/n/10.95 (-20) die m[]oglichst en-ge Ab-stim-mung zwi-schen Software-
 Design und kon-zep-tio-nel-lem Dom[]anenmodell.
  []
 
-<pics/PatternsDDD.png, id=94, 1124.2pt x 708.6475pt>
+[3]
+<pics/PatternsDDD.png, id=83, 1124.2pt x 708.6475pt>
 File: pics/PatternsDDD.png Graphic file (type png)
 <use pics/PatternsDDD.png>
-Package pdftex.def Info: pics/PatternsDDD.png  used on input line 22.
+Package pdftex.def Info: pics/PatternsDDD.png  used on input line 23.
 (pdftex.def)             Requested size: 406.23839pt x 256.0748pt.
 
+
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 23.
+(caption)                particular \caption on input line 24.
 See the caption package documentation for explanation.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-Underfull \vbox (badness 4556) has occurred while \output is active []
-
- [6 <./pics/PatternsDDD.png>] [7]
-Overfull \hbox (9.85196pt too wide) in paragraph at lines 65--67
+[4 <./pics/PatternsDDD.png>] [5]
+Overfull \hbox (9.85196pt too wide) in paragraph at lines 66--68
 \OT1/phv/m/n/10.95 (-20) Ein Ag-gre-gat ist ein Clus-ter von as-so-zi-ier-ten O
 b-jek-ten, die wir zu dem Zweck von Da-ten[]anderungen
  []
 
-
-Underfull \vbox (badness 4492) has occurred while \output is active []
-
- [8]
-<pics/supple.jpg, id=144, 746.01291pt x 559.50967pt>
-File: pics/supple.jpg Graphic file (type jpg)
-<use pics/supple.jpg>
-Package pdftex.def Info: pics/supple.jpg  used on input line 98.
-(pdftex.def)             Requested size: 341.42847pt x 256.0748pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 99.
-See the caption package documentation for explanation.
-
-[9 <./pics/supple.jpg>]
-<pics/Strategic.png, id=165, 853.1875pt x 443.6575pt>
+[6] [7]
+<pics/Strategic.png, id=134, 853.1875pt x 443.6575pt>
 File: pics/Strategic.png Graphic file (type png)
 <use pics/Strategic.png>
-Package pdftex.def Info: pics/Strategic.png  used on input line 149.
+Package pdftex.def Info: pics/Strategic.png  used on input line 99.
 (pdftex.def)             Requested size: 492.44066pt x 256.0748pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 150.
+(caption)                particular \caption on input line 100.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (37.19658pt too wide) in paragraph at lines 149--150
+Overfull \hbox (37.19658pt too wide) in paragraph at lines 99--100
  [] 
  []
 
-[10] [11 <./pics/Strategic.png (PNG copy)>] [12]
-Overfull \hbox (42.90535pt too wide) in paragraph at lines 248--250
-[]\OT1/phv/m/n/10.95 (-20) - Fach-ich-li-che Abh[]angigkeiten ([]Anderungen am 
-Da-tenm-dell z.B.):Lose Kopp-lung,Hohe Koh[]asion,Zyklische
- []
-
-[13] [14] [15] [16]) (./inc/k3_modellierung.tex [17] [18]
-chapter 4.
-) [19
-
-
-] (./ba.bbl [20
+[8 <./pics/Strategic.png (PNG copy)>] [9] [10] [11] [12] [13] [14] [15]
+[16] [17] [18] [19] [20]) (./inc/k3_modellierung.tex) (./inc/k4_generierung.tex
+) (./inc/k5_anwendung.tex) (./inc/k6_diskussion.tex) (./inc/k7_schluss.tex)
+[21] (./ba.bbl [22
 
 
 ]
@@ -714,26 +682,26 @@ r-vices: Grund-la-gen fle-xibler Soft-wa-rear-chi-tek-tu-ren\OT1/phv/m/n/10.95
 (+20) .
  []
 
-) [21] (./ba.aux)
+) [23] (./ba.aux)
 Package rerunfilecheck Info: File `ba.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18122 strings out of 476175
- 350841 string characters out of 5796271
- 1865793 words of memory out of 6000000
- 37878 multiletter control sequences out of 15000+600000
- 537595 words of font info for 184 fonts, out of 8000000 for 9000
+ 18109 strings out of 476175
+ 350837 string characters out of 5796271
+ 1864793 words of memory out of 6000000
+ 37880 multiletter control sequences out of 15000+600000
+ 537821 words of font info for 188 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 108i,20n,106p,10597b,699s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,19n,106p,10597b,501s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/helvetic/uhvro8a.pfb>
-Output written on ba.pdf (23 pages, 307513 bytes).
+Output written on ba.pdf (25 pages, 273193 bytes).
 PDF statistics:
- 434 PDF objects out of 1000 (max. 8388607)
- 393 compressed objects within 4 object streams
- 122 named destinations out of 1000 (max. 500000)
- 43245 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 381 PDF objects out of 1000 (max. 8388607)
+ 339 compressed objects within 4 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 43208 words of extra memory for PDF output out of 51595 (max. 10000000)
 

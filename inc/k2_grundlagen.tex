@@ -14,6 +14,7 @@ Fachlichkeiten aus einer Domäne werden mit einer Unbiquitous Language, einer de
 Im Domain-Driven Design (DDD) bezeichnet und gewährleistet das Model-Driven Design(MDD) die möglichst enge Abstimmung zwischen Software-Design und konzeptionellem Domänenmodell. Um eine hohe Übereinstimmung zwischen Modell und Design zu erreichen, ist es fast unerlässlich, innerhalb eines von Software-Werkzeugen unterstützten Modellierungsparadigmas zu arbeiten. Ein ideales Werkzeug sind objektorientierte Programmiersprachen, da Modellkonzepte sich recht gut in objektorientierte Konzepte übersetzen lassen.
 \cite[S. 49-51]{evans}
 
+\pagebreak 
 \subsection{Bausteine des Model-Driven Design}
 
 Folgende abstrakten Bausteine existieren im MDD:
@@ -85,145 +86,96 @@ Eine Fabrik, die ein Objekt rekonstituiert, wird Verstöße gegen eine Invariant
 Ein Repository stellt alle Objekte eines bestimmten Typs als ein konzeptuelles Set dar. Es verhält sich wie eine Sammlung, jedoch mit einer ausgefeilteren Abfragefähigkeit. Objekte des entsprechenden Typs werden hinzugefügt und entfernt, und die Maschinerie hinter dem Repository fügt sie in die Datenbank ein oder löscht sie daraus. Clients fordern Objekte aus Repositories an, indem sie Abfragemethoden verwenden, die Objekte basierend auf vom Client angegebenen Kriterien auswählen, wie zum Beispiel Werte bestimmter Attribute. Diese Abfragen können in ihrer Komplexität stark variieren.
 \cite[S. 147 - 161]{evans}
 
-\subsubsection{Specification}
-
--Description
-\cite[S. 224 - 241]{evans}
-
-\subsection{Flexibilität des Designs}
-
-Verschiedene Muster existieren um im MDD Flexibilität zu ermöglichen:
-
-\begin{center}
-\includegraphics[height=9cm]{pics/supple.jpg}
-\captionof{figure}{Supple Design}
-\end{center}
-
-\cite[S. 245]{evans}
-
-\subsubsection{Intention-Revealing Interfaces}
-
--Description
-\cite[S. 246 - 249]{evans}
-
-\subsubsection{Side Effect Free Functions}
-
--Description
-\cite[S. 250 - 254]{evans}
-
-\subsubsection{Assertions}
-
--Description
-\cite[S. 255 - 259]{evans}
-
-\subsubsection{Conceptual Contours}
-
--Description
-\cite[S. 260 - 264]{evans}
-
-\subsubsection{Standalone Classes}
-
--Description
-\cite[S. 265 - 267]{evans}
-
-\subsubsection{Closure of Operations}
-
--Description
-\cite[S. 268 - 270]{evans}
-
-\subsubsection{Declarative Design}
-
--Description
-\cite[S. 270 - 282]{evans}
-
-\subsubsection{Angles of Attack}
-
--Description
-\cite[S. 282 - 292]{evans}
-
+\pagebreak 
 \subsection{Strategic Design}
 
-Strategien im MDD:
+Die strategischen Designprinzipien müssen Designentscheidungen leiten, um die Abhängigkeit der Teile zu verringern und die Klarheit zu verbessern, ohne dabei die kritische Interoperabilität und Synergie zu verlieren.
+\cite[S. 334]{evans}
+
+Strateic Design bezeichnet wie verschiedene Domänenmodelle miteinander interagieren können.
+\cite[S. 45]{wolff}
 
 \begin{center}
 \includegraphics[height=9cm]{pics/Strategic.png}
 \captionof{figure}{Supple Design}
 \end{center}
 
-\cite[S. 334]{evans}
 
 \subsubsection{Bounded Context}
 
--Description
+Ein Modell findet in einem Kontext Anwendung. Der Kontext kann ein bestimmter Teil des Codes oder die Arbeit eines bestimmten Teams sein. Der Modellkontext sind alle Bedingungen, die erfüllt sein müssen, damit man sagen kann, dass die Begriffe in einem Modell eine spezifische Bedeutung haben.
+
+Ein abgegrenzter Kontext begrenzt die Anwendbarkeit eines bestimmten Modells, sodass Teammitglieder ein klares und gemeinsames Verständnis davon haben, was konsistent sein muss und wie es sich zu anderen Kontexten verhält. Innerhalb dieses Kontexts sollte daran gearbeitet werden, das Modell logisch einheitlich zu halten, aber man sollte sich keine Gedanken über die Anwendbarkeit außerhalb dieser Grenzen machen.
 \cite[S. 335 - 340]{evans}
-
-\subsubsection{Continous Integration}
-
--Description
-\cite[S. 341 - 343]{evans}
+\cite[S. 45]{wolff}
 
 \subsubsection{Context Map}
 
--Description
+Eine Kontextkarte befindet sich in der Überschneidung zwischen Projektmanagement und Softwareentwurf. Es handelt sich um eine Karte des bestehenden Geländes von Modellen mit Schwerpunkt auf den Berührungspunkten, die eine explizite Übersetzung für jegliche Kommunikation skizziert und jegliches Teilen hervorhebt.
 \cite[S. 344 - 353]{evans}
+\cite[S. 45]{wolff}
 
 \subsubsection{Shared Kernel}
 
--Description
+Ein Teilbereich des Domänenmodells kann dafür vorgesehen werden, unter Teams geteilt zu werden. Dies umfasst die Codebasis und die Datenbank, die möglicherweise mit dem Modell verbunden sind. Dieser geteilte Kern (Shared Kernel) sollte sorgfältig behandelt werden, da daran mehr Entwickler beteiligt sind. Der Shared Kernel ist oft die Kern-Domäne (Core Domain), eine Reihe von generischen Teil-Domänen (Subdomains) oder beides. Das Ziel ist es, Duplikationen zu reduzieren.
 \cite[S. 354 - 355]{evans}
+\cite[S. 45]{wolff}
 
 \subsubsection{Customer/Supplier}
 
--Description
+Zwischen Parteien, die zwei unterschiedliche begrenzte Kontexte aufrechterhalten, kann eine Beziehung in Form einer nachgelagerten (downstream) und vorgelagerten (upstream) Komponente entstehen. Daher führt das Domain-Driven Design eine klare Kunden-/Lieferantenbeziehung zwischen solchen Kontexten ein. Daher erfüllt ein nachgelagertes Fragment eine kundenähnliche Rolle mit eigenen Bedürfnissen, die das vorgelagerte Fragment berücksichtigen muss. Automatisiertes Testen und Überwachen müssen implementiert werden, um zu verhindern, dass der nachgelagerte Bereich beschädigt wird.
 \cite[S. 356 - 360]{evans}
+\cite[S. 45-47]{wolff}
 
 \subsubsection{Conformist}
 
--Description
+Wenn die Bedürfnisse eines solchen nachgelagerten, abhängigen Subsystems durch den vorgelagerten Teil erfüllt werden können, ist eine mögliche Lösung, die Rolle des Konformisten der nachgelagerten Komponente zuzuweisen. Dadurch wird die Komplexität der Übersetzung zwischen den abgegrenzten Kontexten beseitigt, indem man sich an das Modell des vorgelagerten Fragments hält.
 \cite[S. 361 - 363]{evans}
+\cite[S. 47]{wolff}
 
 \subsubsection{Anticorruption Layer}
 
--Description
+Wenn Systeme, die auf unterschiedlichen Modellen basieren, kombiniert werden, kann die Notwendigkeit, dass das neue System sich an die Semantik des anderen Systems anpasst, zu einer Korruption des eigenen Modells des neuen Systems führen. Eine Antikorruptionsschicht kann erstellt werden, um eine isolierende Schicht zu schaffen, die den Clients Funktionalität im Sinne ihres eigenen Domänenmodells bietet. Die Schicht kommuniziert über die bestehende Schnittstelle mit dem anderen System, wobei wenig oder keine Änderungen am anderen System erforderlich sind. Intern übersetzt die Schicht bei Bedarf in beide Richtungen zwischen den beiden Modellen.
 \cite[S. 364 - 370]{evans}
+\cite[S. 47]{wolff}
 
 \subsubsection{Seperate Ways}
 
--Description
+Wenn der Nutzen im Vergleich zu den Integrationskosten zu gering ist, kann es eine gültige Lösung sein, zu erklären, dass ein abgegrenzter Kontext überhaupt keine Verbindung zu anderen hat. Anstatt Lösungen für Probleme im Bereich zu teilen, müssen diese in einem einfachen, spezialisierten Weg innerhalb dieses kleinen Rahmens implementiert werden.
 \cite[S. 371 - 373]{evans}
+\cite[S. 47]{wolff}
 
 \subsubsection{Open Host Service}
 
--Description
+Wenn ein Teilsystem mit vielen anderen integriert werden muss, kann die Anpassung eines Übersetzers für jedes einzelne problematisch skalieren. In diesem Fall ist die Definition eines offenen Protokolls von Diensten, das Zugang zum Teilsystem bietet, die bevorzugte Gestaltung.
 \cite[S. 374]{evans}
+\cite[S. 48]{wolff}
 
 \subsubsection{Published Language}
 
--Description
+Das direkte Übersetzen der Sprache von Modellen kann zu übermäßig komplexen Strukturen führen. Auch wenn eine Sprache als Datenaustauschsprache verwendet wird, wird sie festgelegt und kann nicht mehr an die Bedürfnisse der Entwicklung angepasst werden. Daher kann eine gut dokumentierte gemeinsame Sprache als allgemeines Kommunikationsmedium veröffentlicht werden.
 \cite[S. 375-378]{evans}
+\cite[S. 48]{wolff}
 
-\subsubsection{Model Context Strategy}
-
--Description
-\cite[S. 381-389]{evans}
-
-\subsection{Large-Scale Structure}
-
-\subsubsection{Evolving Order}
-
--Description
-\cite[S. 444-446]{evans}
-
-\subsubsection{System Methapor}
-
--Description
-\cite[S. 447-449]{evans}
-
-\subsubsection{Responsibility Layer}
-
--Description
-\cite[S. 450-464]{evans}
-
+\pagebreak
+%\subsection{Large-Scale Structure}
+%
+%\subsubsection{Evolving Order}
+%
+%-Description
+%\cite[S. 444-446]{evans}
+%
+%\subsubsection{System Methapor}
+%
+%-Description
+%\cite[S. 447-449]{evans}
+%
+%\subsubsection{Responsibility Layer}
+%
+%-Description
+%\cite[S. 450-464]{evans}
+%
+%\pagebreak 
 \section{Microservices}
 
 \subsection{Definition}
@@ -233,58 +185,53 @@ In ihrer Implementierung gibt es keine technologischen Einschränkungen. Die Die
 \cite[S. 2]{wolff}
 \cite[S. 31-37]{wolff}
 
-\subsection{Architektur von Microservice-Systemen}
+Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten ist, dass für Änderungen oder neue Features nur ein Microservice geändert werden muss. Weiterhin sollen die aus dem DDD bekannten Konzepte des Strategic Design verwendet werden. Micorservices sollen jeweils eine fachliche Domäne modellieren, sodass neue Features oder Änderungen nur in einem Microservice umgesetzt werden müssen. Ein Bounded Context kann in mehrere Microservices aufgeteilt werden, wenn das sinnvoll erscheint.
+\cite[S. 48-51]{wolff}
 
-Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten ist, dass für Änderungen oder neue Features nur ein Microservice geändert werden muss. Weiterhin sollen die aus dem DDD bekannten Konzepte der Unbiquitous Language und des Bounded Context verwendet werden.
-
--DDD: Bounded Context: Jedes Domänenmodell ist nur in bestimmten Grenzen sinnvoll. (Stategic Design) Verschiedene Arten von Kollaboration zwischen Bounded Contexts: Shared Kernel, Customer/Supplier, Conformists, Anti Corruption Layer, Seperate Ways, Open Host Service, Published Language. Es sollte vermieden werden, dass Microservices mehrere Bounded Contexts enthalten.
-
-- Large-Scale Strukturen: System Methapor, Responsibility Layer, Evolving Order.
-\cite[S. 44-53]{wolff}
-
-- ???: Jeder Microservice benötigt eine eigene Continous-Delivery-Pipeline. Jeder muss außerdem ein Monitoring haben. Unabhängige Versionskontrolle
+Damit Microservices unabhängig voneinander in Produktion gebracht werden können, ist eine gekapselte Hardware nötig, welche durch Virtualisierung umgesetzt werden kann. Dies setzt eine passende Infrastruktur voraus, die automatisiert eine große Anzahl virtueller Maschinen erzeugen kann. Weiterhin benötigt jeder Microservice, als Folgerung aus der Voraussetzung, unabhängig deployen zu können, eine eigene Continuous-Delivery-Pipeline. Zudem muss es ein umfassendes Monitoring geben, da durch die Vielzahl an Anwendungen sonst Probleme nicht erkannt werden können. Dieses sollte neben technischen Metriken auch Anwendungsmetriken erfassen, um eine umfassendere Problemübersicht zu bekommen. Auch eine unabhängige Versionskontrolle der Dienste ist notwendig, da aus der unabhängigen Deploybarkeit auch verschiedene Versionierungen möglich sind.
 \cite[S. 80-81]{wolff}
 
-- Fachichliche Abhängigkeiten (Änderungen am Datenmdell z.B.):Lose Kopplung,Hohe Kohäsion,Zyklische Abhängigkeiten vermeiden
+\pagebreak 
+\subsection{Architektur von Microservice-Systemen}
+
+Gemäß den DDD-Prinzipien kann eine fachliche Architektur erfolgen. Dabei soll es zwischen den Microservices eine lose Kopplung geben, wodurch sie isoliert und leichter abänderbar sind. Innerhalb eines Dienstes sollen die Bestandteile eng zusammenarbeiten, was einer hohen Kohäsion entspricht. Weiterhin sind zyklische fachliche Abhängigkeiten in der Architektur problematisch, da dadurch die isolierte Änderbarkeit nicht mehr gewährleistet ist.
 \cite[S. 101-105]{wolff}
 
-- Context Maps zu Visualisierung von Bounded Contexts
-\cite[S. 109-111]{wolff}
-
-- Änderung der Gesamtarchitektur: Gemeinsame Bibliothek,Code übertragen, Gemeinsamer Service, Neuer Service, Neu schreiben
+Verschiedene etablierte Methoden existieren im Zusammenhang mit Änderungen der Gesamtarchitektur, die durch neue Erkenntnisse aus der Domäne notwendig sein können. So kann in mehreren Diensten gemeinsam verwendeter Code in Bibliotheken ausgelagert werden. Dabei muss jedoch auf die dadurch entstehende Abhängigkeit geachtet werden, da durch unkoordinierte Änderungen Fehler in Teilen des Microservice-Systems einschleichen können. Weiterhin kann Code eines Dienstes in einen anderen übertragen werden, um Verbesserungen im Hinblick auf die Kohäsion in einem Dienst zu erreichen. Eine Alternative zur Bibliothek ist es, Code in einen gemeinsamen, neuen Dienst zu übertragen, was bei vorausgesetzter passender Schnittstellendefinition dem Ziel der entkoppelten Dienste zuträglich ist. Es ist auch möglich, alten Code in einen neuen Service zu migrieren oder die notwendige Änderung der Architektur mit einem vollständig neu entwickelten Microservice umzusetzen.
 \cite[S. 112-120]{wolff}
 
-- Microservice-Chassis
-
-- Event-Driven Architecture; Emmiter/Consumer, lose Kopplung, impl durch Messaging
+Damit Microservices ihre gemeinsame Logik implementieren können, müssen sie sich gegenseitig aufrufen. Dabei kann eine ereignisgetriebene Architektur (Event-Driven Architecture, EDA) verwendet werden, bei der ein Dienst bei einem Ereignis aus der Anwendungslogik, einem Event, dieses versendet. Dieser Dienst, der Event-Emitter, signalisiert damit allen interessierten Microservices (Event-Consumern), dass etwas passiert ist. Dieses Vorgehen kapselt die Anwendungslogik und entkoppelt die Bearbeitung der Events zeitlich, was dem Ziel einer losen Kopplung beiträgt.
 \cite[S. 137 - 138]{wolff}
 
-- Microservice Konfiguration
+Die Konfiguration eines Microservice-Systems wird mit steigender Anzahl von Services entsprechend aufwendig. Mit Werkzeugen wie Zookeeper, etcd oder Spring Cloud Config werden Key-Value-Stores bereitgestellt, die dies vereinfachen. Jedoch gilt es zu beachten, dass dadurch eine Abhängigkeit zu einem Konfigurationsserver entsteht. Alternativ kann eine Konfiguration auf dem Server des Microservices selbst vorliegen. Dies vermeidet die Notwendigkeit eines zentralen Konfigurationsservers, kann aber auch Herausforderungen in Bezug auf die Synchronisation und Verwaltung der Konfigurationen über mehrere Instanzen hinweg mit sich bringen.
 \cite[S. 141 - 142]{wolff}
 
-- Service Discovery
+Service Discovery stellt sicher, dass Microservices sich gegenseitig finden können. Dazu muss diese dynamisch sein um gehende und kommende Microservices zu finden. Technolgien für diese sind besipielsweiße DNS (Domain Name Sstem), Eureka, Consul.
 \cite[S. 143 - 146]{wolff}
 
-- Load Balancing
+Bei hoher Last können Microservices unabhängig skalieren. Dadurch müssen mehrere Instanzen registriert werden, die sich die Last gegen einen Dienst teilen. Um HTTP anfragen in solch einem Fall zu verteilen wird ein Load Balanecr genutzt, der sich nach außen wie eine einzige Instanz verhält, aber die Anfragen auf mehrere verteilt. Da bei einem einzigen Load Balancer für mehrere Microservices, dieser zum Flaschenhals werden kann, sollte pro Microservice ein Load Balancer existieren. Technologien für Load Balancer existieren nativ in Cloud Umgebungen oder können beispielsweiße mit Apache httpd, nginx oder HAProxy umgesetzt werden.
 \cite[S. 147 - 150]{wolff}
 
-- Sicherheit
+Die Sicherheitsarchitektur muss einheitlich auf der Gesamtebene des Systems definiert werden, um sicherzustellen, dass ein Zugriff eines Nutzers einheitlich behandelt wird. Dazu gehört es, Authentifizierung und Autorisierung zu gewährleisten. Der einzelne Microservice des fachlich abgebildeten Systems soll keine Authentifizierung übernehmen. Stattdessen wird diese Aufgabe von einem zentralen Server wahrgenommen. Bei der Autorisierung ist ein Zusammenspiel gefragt, da über Benutzergruppen bestimmte Features des Microservices zugewiesen sind. Welche dies sind, soll der Microservice entscheiden. Eine Implementierung dieses Konzepts ist das OAuth2-Protokoll. Dabei erhält ein Nutzer nach erfolgreicher Authentifizierung und Autorisierung ein Access Token, welches genutzt wird, um mit einem Service zu interagieren. Dieses kann weiterhin von einem Microservice an andere Microservices weitergereicht werden, um berechtigte Anfragen zu ermöglichen und die einheitliche Sicherheitsrichtlinie im gesamten System zu gewährleisten.
 \cite[S. 153 - 161]{wolff}
 
+\pagebreak 
 \subsection{Kommunikation}
 
-- REST
+Mit REST (representational State Transfer) können Microservices untereinander Code aufrufen. Es gibt eine Vielzahl von Ressourcen, die über URIs identifiziert werden können. Die Ressourcen können über eine feste Menge von methoden manipuliert werden, welche z.B. durch HTTP vorgegeben werden. Ressourcen können unterschiedlich repräsentiert werden. Beziehungen zwischen Ressourcen können durch Links angegeben werden(HATEOAS). Der Server in einem REST System sollte Zustandslos sein. Eine RESTful-HTTP Schnittstelle kann durch einen Cache ergängzt werden. RESTful HTTP ist synchron. Daher können Ausfälle auftreten, welchen mit Timeouts entgegengewirkt werden kann um Fehlerfortpflanzung zu vermeiden.
 \cite[S. 179-182]{wolff}
 
-- SOAP
+Mit REST (Representational State Transfer) können Microservices untereinander Code aufrufen. Es gibt eine Vielzahl von Ressourcen, die über URIs identifiziert werden können. Die Ressourcen können über eine feste Menge von Methoden manipuliert werden, welche z. B. durch HTTP vorgegeben sind. Ressourcen können unterschiedlich repräsentiert werden. Beziehungen zwischen Ressourcen können durch Links angegeben werden (HATEOAS). Der Server in einem REST-System sollte zustandslos sein. Eine RESTful-HTTP-Schnittstelle kann durch einen Cache ergänzt werden. RESTful HTTP ist synchron. Daher können Ausfälle auftreten, denen mit Timeouts entgegengewirkt werden kann, um Fehlerfortpflanzung zu vermeiden.
 \cite[S. 182 - 183]{wolff}
 
-- Messaging
+Messaging-Systeme sind eine weitere Möglichkeit, um Kommunikation zwischen Microservices umzusetzen. Diese basieren auf dem Verschicken von Nachrichten. Diese können auch beim Ausfall des Netzwerks übertragen werden, da Messaging-Systeme diese zwischenspeichern. Auch eine korrekte Verarbeitung kann garantiert werden, indem eine erneute Übertragung im Fehlerfall ausgelöst wird. Solche Messaging-Architekturen sind asynchron und gut auf hohe Latenzzeiten abgestimmt. Der Aufruf eines anderen Service blockiert die weitere Verarbeitung nicht. Daher kann ein Microservice weiterarbeiten, ohne auf eine Antwort warten zu müssen. Der Sender kennt den Empfänger nicht, da die Nachricht auf einer Queue oder einem Topic landet. Dort registrieren sich mögliche Empfänger. Dadurch sind Sender und Empfänger entkoppelt.
+Messaging bietet eine Lösung für transaktionale Systeme mit Microservices. Das Schicken und Empfangen von Nachrichten ist dabei Teil einer Transaktion. Wenn beim Verarbeiten der Nachricht ein Fehler auftritt, werden alle ausgehenden Nachrichten storniert und Änderungen rückgängig gemacht. Auch die Empfänger können transaktional abgesichert sein. Entscheidend ist, dass Schicken und Empfangen von Nachrichten und die Transaktion auf der Datenbank in einer Transaktion zusammengefasst werden. Messaging kann durch verschiedene Technologien wie AMQP, Apache Kafka, JMS oder ATOM Feeds umgesetzt werden.
 \cite[S. 183 - 187]{wolff}
 
-- Schnittstellen
-\cite[S. 190 - 193]{wolff}
+Jeder Microservice kann eine oder mehrere Schnittstellen für andere Microservices bereitstellen. Außerdem kann ein Microservice Schnittstellen nach außen haben, die Interaktionen außerhalb des Systemkontexts ermöglichen. Wenn ein Microservice eine Schnittstelle ändert, sollte er auch noch die alte Schnittstelle unterstützen. Weiterhin sollten Schnittstellen getrennt umgesetzt werden. Um Änderungen an einer Schnittstelle deutlich zu machen, kann eine Versionsnummer genutzt werden. Semantic Versioning definiert dabei eine Semantik für Versionsnummern, wobei das Format MAJOR.MINOR.PATCH lautet. Dabei sind Änderungen der Major-Version nicht rückwärtskompatibel, Änderungen der Minor-Version bieten neue Features, und Patch-Änderungen beheben Fehler (Bugfixes). Die Version sollte nicht in einer URL, sondern besser in einem Header bei einem REST-Request angegeben werden.
+\cite[S. 190 - 192]{wolff}
 
+\pagebreak 
 \subsection{Architektur eines Microservices}
 
 - Fachliche Architektur
@@ -302,6 +249,7 @@ Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten
 - Resilience und Stabilität
 \cite[S. 207 - 212]{wolff}
 
+\pagebreak 
 \subsection{Betrieb und Continious Delivery}
 
 - Logging
@@ -316,6 +264,7 @@ Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten
 - Infrastruktur
 \cite[S. 263 - 269]{wolff}
 
+\pagebreak 
 \section{Cloud-Infrastruktur}
 
 \subsection{Definition}
@@ -331,6 +280,7 @@ Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten
 - Kubernetes
 \cite[S. 166-192]{stender}
 
+\pagebreak 
 \section{Modellgetriebene Entwicklung von Microservices}
 
 \subsection{AjiL - an Eclipse tool for MSA modeling with a code generator}
