@@ -1,4 +1,4 @@
-\begin{thebibliography}{Wol16}
+\begin{thebibliography}{ZCM19}
 
 \bibitem[Eva07]{evans}
 Eric Evans.
@@ -7,6 +7,12 @@ Eric Evans.
 \newblock Addison-Wesley, Upper Saddle River, NJ [u.a.], 11. printing edition,
   2007.
 \newblock Eric Evans.
+
+\bibitem[RSS18]{rademacher}
+Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.
+\newblock Challenges of domain-driven microservice design: A model-driven
+  perspective.
+\newblock {\em IEEE Software}, 35(3):36--43, 2018.
 
 \bibitem[Ste20]{stender}
 Daniel Stender.
@@ -21,5 +27,10 @@ Eberhard Wolff.
 \newblock {\em Microservices: Grundlagen flexibler Softwarearchitekturen}.
 \newblock dpunkt.verlag, Heidelberg, 1., korrigierter nachdruck edition, 2016.
 \newblock Eberhard Wolff.
+
+\bibitem[ZCM19]{zalila}
+Faiez Zalila, Stéphanie Challita, and Philippe Merle.
+\newblock Model-driven cloud resource management with occiware.
+\newblock {\em Future Generation Computer Systems}, 99:260--277, 2019.
 
 \end{thebibliography}

@@ -29,15 +29,22 @@
 \contentsline {subsection}{\numberline {2.2.1}Definition}{11}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Architektur von Microservice-Systemen}{12}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Kommunikation}{14}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Architektur eines Microservices}{16}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Betrieb und Continious Delivery}{17}{subsection.2.2.5}%
-\contentsline {section}{\numberline {2.3}Cloud-Infrastruktur}{18}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Definition}{18}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}Modellgetriebene Entwicklung von Microservices}{19}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}AjiL - an Eclipse tool for MSA modeling with a code generator}{19}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}OCCIware - a unified framework for managing diverse cloud resources and services}{19}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}ARGON - automated cloud infrastructure provisioning using a domain-specific language}{20}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}model-driven approach for adaptive microservice-based systems using VxBPMN4MS}{20}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.4.5}Context Mapper, a tool for DDD and microservice design.}{21}{subsection.2.4.5}%
-\contentsline {subsection}{\numberline {2.4.6}DOML simplifies infrastructure deployments by unifying multiple IaC languages}{21}{subsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.2.4}Betrieb und Continious Delivery}{15}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Cloud-Infrastruktur}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Definition}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Docker}{16}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Kubernetes}{16}{subsection.2.3.3}%
+\contentsline {subsubsection}{\nonumberline Deployement}{17}{subsubsection*.39}%
+\contentsline {subsubsection}{\nonumberline Pod}{17}{subsubsection*.41}%
+\contentsline {subsubsection}{\nonumberline Service}{17}{subsubsection*.43}%
+\contentsline {subsubsection}{\nonumberline Rollout}{17}{subsubsection*.45}%
+\contentsline {subsubsection}{\nonumberline Replica Set}{17}{subsubsection*.47}%
+\contentsline {subsubsection}{\nonumberline Secret}{17}{subsubsection*.49}%
+\contentsline {subsubsection}{\nonumberline Templates}{17}{subsubsection*.51}%
+\contentsline {section}{\numberline {2.4}Modellgetriebene Entwicklung von Microservices}{18}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Noch zu sichten}{19}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}ARGON - automated cloud infrastructure provisioning using a domain-specific language}{19}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}model-driven approach for adaptive microservice-based systems using VxBPMN4MS}{19}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Context Mapper, a tool for DDD and microservice design.}{20}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}DOML simplifies infrastructure deployments by unifying multiple IaC languages}{20}{subsection.2.5.4}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

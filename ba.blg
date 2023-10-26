@@ -7,45 +7,45 @@ Warning--I'm ignoring wolff's extra "note" field
 --line 9 of file bibs/litDB.bib
 Warning--I'm ignoring evans's extra "note" field
 --line 23 of file bibs/litDB.bib
-You've used 3 entries,
+You've used 5 entries,
             2543 wiz_defined-function locations,
-            585 strings with 4939 characters,
-and the built_in function-call counts, 905 in all, are:
-= -- 88
-> -- 24
+            599 strings with 5267 characters,
+and the built_in function-call counts, 1770 in all, are:
+= -- 174
+> -- 74
 < -- 3
-+ -- 6
-- -- 6
-* -- 51
-:= -- 162
-add.period$ -- 13
-call.type$ -- 3
-change.case$ -- 15
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 48
-empty$ -- 76
-format.name$ -- 12
-if$ -- 186
++ -- 24
+- -- 24
+* -- 122
+:= -- 310
+add.period$ -- 19
+call.type$ -- 5
+change.case$ -- 29
+chr.to.int$ -- 5
+cite$ -- 5
+duplicate$ -- 76
+empty$ -- 133
+format.name$ -- 32
+if$ -- 359
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 6
-newline$ -- 21
-num.names$ -- 9
-pop$ -- 16
+missing$ -- 8
+newline$ -- 31
+num.names$ -- 15
+pop$ -- 24
 preamble$ -- 1
-purify$ -- 18
+purify$ -- 34
 quote$ -- 0
-skip$ -- 31
+skip$ -- 55
 stack$ -- 0
-substring$ -- 21
-swap$ -- 3
+substring$ -- 71
+swap$ -- 5
 text.length$ -- 3
 text.prefix$ -- 3
 top$ -- 0
-type$ -- 12
+type$ -- 28
 warning$ -- 0
-while$ -- 6
-width$ -- 4
-write$ -- 51
+while$ -- 14
+width$ -- 6
+write$ -- 77
 (There were 2 warnings)

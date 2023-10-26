@@ -218,50 +218,29 @@ Die Sicherheitsarchitektur muss einheitlich auf der Gesamtebene des Systems defi
 \pagebreak 
 \subsection{Kommunikation}
 
-Mit REST (representational State Transfer) können Microservices untereinander Code aufrufen. Es gibt eine Vielzahl von Ressourcen, die über URIs identifiziert werden können. Die Ressourcen können über eine feste Menge von methoden manipuliert werden, welche z.B. durch HTTP vorgegeben werden. Ressourcen können unterschiedlich repräsentiert werden. Beziehungen zwischen Ressourcen können durch Links angegeben werden(HATEOAS). Der Server in einem REST System sollte Zustandslos sein. Eine RESTful-HTTP Schnittstelle kann durch einen Cache ergängzt werden. RESTful HTTP ist synchron. Daher können Ausfälle auftreten, welchen mit Timeouts entgegengewirkt werden kann um Fehlerfortpflanzung zu vermeiden.
-\cite[S. 179-182]{wolff}
-
 Mit REST (Representational State Transfer) können Microservices untereinander Code aufrufen. Es gibt eine Vielzahl von Ressourcen, die über URIs identifiziert werden können. Die Ressourcen können über eine feste Menge von Methoden manipuliert werden, welche z. B. durch HTTP vorgegeben sind. Ressourcen können unterschiedlich repräsentiert werden. Beziehungen zwischen Ressourcen können durch Links angegeben werden (HATEOAS). Der Server in einem REST-System sollte zustandslos sein. Eine RESTful-HTTP-Schnittstelle kann durch einen Cache ergänzt werden. RESTful HTTP ist synchron. Daher können Ausfälle auftreten, denen mit Timeouts entgegengewirkt werden kann, um Fehlerfortpflanzung zu vermeiden.
 \cite[S. 182 - 183]{wolff}
 
-Messaging-Systeme sind eine weitere Möglichkeit, um Kommunikation zwischen Microservices umzusetzen. Diese basieren auf dem Verschicken von Nachrichten. Diese können auch beim Ausfall des Netzwerks übertragen werden, da Messaging-Systeme diese zwischenspeichern. Auch eine korrekte Verarbeitung kann garantiert werden, indem eine erneute Übertragung im Fehlerfall ausgelöst wird. Solche Messaging-Architekturen sind asynchron und gut auf hohe Latenzzeiten abgestimmt. Der Aufruf eines anderen Service blockiert die weitere Verarbeitung nicht. Daher kann ein Microservice weiterarbeiten, ohne auf eine Antwort warten zu müssen. Der Sender kennt den Empfänger nicht, da die Nachricht auf einer Queue oder einem Topic landet. Dort registrieren sich mögliche Empfänger. Dadurch sind Sender und Empfänger entkoppelt.
-Messaging bietet eine Lösung für transaktionale Systeme mit Microservices. Das Schicken und Empfangen von Nachrichten ist dabei Teil einer Transaktion. Wenn beim Verarbeiten der Nachricht ein Fehler auftritt, werden alle ausgehenden Nachrichten storniert und Änderungen rückgängig gemacht. Auch die Empfänger können transaktional abgesichert sein. Entscheidend ist, dass Schicken und Empfangen von Nachrichten und die Transaktion auf der Datenbank in einer Transaktion zusammengefasst werden. Messaging kann durch verschiedene Technologien wie AMQP, Apache Kafka, JMS oder ATOM Feeds umgesetzt werden.
+Messaging-Systeme stellen eine weitere Möglichkeit dar, die Kommunikation zwischen Microservices zu ermöglichen. Sie basieren auf dem Versand von Nachrichten, die selbst bei einem Netzwerkausfall übermittelt werden können, da die Messaging-Systeme sie zwischenspeichern. Eine korrekte Verarbeitung kann durch Initiierung einer erneuten Übertragung im Fehlerfall garantiert werden. Diese Art von Messaging-Architekturen ist asynchron und auf hohe Latenzzeiten ausgelegt. Der Aufruf eines anderen Services blockiert die weitere Verarbeitung nicht, sodass ein Microservice ohne Wartezeit auf eine Antwort weiterarbeiten kann. Der Sender kennt den Empfänger nicht, weil die Nachricht auf einer Queue oder einem Topic landet, für die sich potenzielle Empfänger registrieren. Dies entkoppelt Sender und Empfänger. 
+
+Messaging bietet eine Lösung für transaktionale Systeme mit Microservices, wobei das Senden und Empfangen von Nachrichten Teil einer Transaktion ist. Tritt bei der Verarbeitung einer Nachricht ein Fehler auf, werden alle gesendeten Nachrichten storniert und jegliche Änderungen rückgängig gemacht. Die Empfänger können ebenfalls transaktional abgesichert sein. Entscheidend dabei ist, dass sowohl das Senden und Empfangen von Nachrichten als auch die Transaktion auf der Datenbank in einer einzigen Transaktion zusammengefasst werden. 
+
+Messaging kann durch verschiedene Technologien wie AMQP, Apache Kafka, JMS oder ATOM-Feeds realisiert werden.
 \cite[S. 183 - 187]{wolff}
 
 Jeder Microservice kann eine oder mehrere Schnittstellen für andere Microservices bereitstellen. Außerdem kann ein Microservice Schnittstellen nach außen haben, die Interaktionen außerhalb des Systemkontexts ermöglichen. Wenn ein Microservice eine Schnittstelle ändert, sollte er auch noch die alte Schnittstelle unterstützen. Weiterhin sollten Schnittstellen getrennt umgesetzt werden. Um Änderungen an einer Schnittstelle deutlich zu machen, kann eine Versionsnummer genutzt werden. Semantic Versioning definiert dabei eine Semantik für Versionsnummern, wobei das Format MAJOR.MINOR.PATCH lautet. Dabei sind Änderungen der Major-Version nicht rückwärtskompatibel, Änderungen der Minor-Version bieten neue Features, und Patch-Änderungen beheben Fehler (Bugfixes). Die Version sollte nicht in einer URL, sondern besser in einem Header bei einem REST-Request angegeben werden.
 \cite[S. 190 - 192]{wolff}
 
 \pagebreak 
-\subsection{Architektur eines Microservices}
-
-- Fachliche Architektur
-\cite[S. 197 - 198]{wolff}
-
-- CQRS
-\cite[S. 199 - 201]{wolff}
-
-- Event Sourcing
-\cite[S. 201 - 203]{wolff}
-
-- Hexagonale Architektur
-\cite[S. 203 - 206]{wolff}
-
-- Resilience und Stabilität
-\cite[S. 207 - 212]{wolff}
-
-\pagebreak 
 \subsection{Betrieb und Continious Delivery}
 
-- Logging
+Mit Logging kann eine Anwendung sehr einfach Informationen darüber bereitstellen, welche Ereignisse aufgetreten sind. Anfragen können oftmals nur durch das Zusammenspiel mehrerer Services behandelt werden. Dies erfordert eine Korrelations-ID, die es ermöglicht, einen Request über alle Log-Einträge der einzelnen Dienste hinweg eindeutig zu identifizieren. Logs können von Microservices zentral über das Netzwerk verarbeitet werden. Dies kann beispielsweise mit Technologien wie Logstash, Elasticsearch und Kibana umgesetzt werden.
 \cite[S. 244 - 249]{wolff}
 
-- Monitoring
+Monitoring bezeichnet das Überwachen von Metriken einer Software. Bei Microservice-Architekturen sollten die relevanten Informationen dafür in einem einheitlichen Format vorliegen. Grundlegende Metriken für Microservices können beispielsweise ein Wert sein, der die Verfügbarkeit des Dienstes anzeigt (Alive). Weiterhin kann die Verfügbarkeit in Abhängigkeit von den vom Dienst genutzten Diensten und Ressourcen dargestellt werden (Health). Antwortzeiten, die Anzahl bestimmter Fehler oder die Anzahl von Anfragen sind andere mögliche Metriken. Dabei ist es sinnvoll, eine einheitliche Abfrageschnittstelle für alle Services zu nutzen. Da Microservices dynamisch starten und verschwinden können, muss das Monitoring unabhängig vom einzelnen Dienst erfolgen. Dies kann mit Technologien wie Graphite, Grafana oder Nagios umgesetzt werden. Auch in Cloud-Umgebungen stehen entsprechende Werkzeuge zur Verfügung.
 \cite[S. 250 - 256]{wolff}
 
-- Deployement
-\cite[S. 256 - 260]{wolff}
-
-- Infrastruktur
+Manuelle Deployments sind bei einer Microservice-Architektur nicht sinnvoll umsetzbar. Daher muss dies automatisiert werden. Dies kann mittels Skripten, die die Installation der Software umsetzen, geschehen. Auch Immutable Server können mit Technologien wie Docker genutzt werden. Auf Linux-Betriebssystemen ist ein Ausrollen mit Paketmanagern wie rpm (Red Hat), dpkg (Debian/Ubuntu) oder zypper (SuSE) auch möglich. Um mit Fehlern und daraus resultierenden Problemen umzugehen, existieren verschiedene Deployment-Strategien: Ein Rollback ist die Auslieferung einer vorherigen Version eines Microservices. Dabei müssen mögliche Datenbankänderungen berücksichtigt werden, da diese eine Rückkehr in den alten Zustand verhindern können. Alternativ können Fehler mit einem Roll Forward behoben werden, dem Ausrollen einer neuen, den Fehler nicht mehr enthaltenden Version. Continuous Deployment beschreibt die Strategie, jegliche Änderung sofort auf das Produktivsystem zu bringen, um die Anzahl an Änderungen pro Release klein zu halten. Mit Blue/Green-Deployments werden zwei parallele Microservice-Instanzen beschrieben, wodurch Änderungen auf einer Produktivumgebung wirksam werden, beobachtet werden können und in einem Fehlerfall das Routing zwischen der neuen und der alten Instanz gesteuert werden kann.
 \cite[S. 263 - 269]{wolff}
 
 \pagebreak 
@@ -269,32 +248,83 @@ Jeder Microservice kann eine oder mehrere Schnittstellen für andere Microservic
 
 \subsection{Definition}
 
-- Cloud, Virtualisierung, Continous Delivery, Container
 
+Unter Cloud-Computing versteht man das Nutzen von Computing-Ressourcen über das Netzwerk. Durch Virtualisierung können so Ressourcen eines von Cloud-Anbietern gehosteten Rechenzentrums gekapselt werden. In einer Cloud-Umgebung können Konzepte wie Continuous Delivery umgesetzt werden.
 \cite[S. 20]{stender}
+
+Softwarecontainer sind eine Methode, um eine beliebige Anwendung in eine normierte, portable Einheit zu verpacken, die ein lauffähiges Gebilde ist. Die zentrale Eigenschaft einer solchen Umgebung ist es, dass der Container als Prozesskapsel von dem restlichen System isoliert ist und im Rahmen bestimmter Grenzen läuft. Dies erlaubt sowohl unterschiedliche Applikationen als auch verschiedene Komponenten derselben Applikation in separaten Containern zu betreiben. Ein Effekt davon ist, dass diese in der Cloud dann unabhängig voneinander skaliert werden können. Diese Modularisierung wird insbesondere bei Microservices als Prinzip für Entwicklung und Applikationsarchitektur auf die Spitze getrieben.
+
+Für die Orchestrierung einer komplexen containerisierten Anwendung wird ein Cluster-Manager benötigt. Cluster bezeichnet dabei eine zusammengehörige Gruppe von Servern mit Containern, während die Instanzen, die in einem solchen Konstrukt eingebunden sind, als Knoten (Nodes) bezeichnet werden. Beispiele dafür sind Swarm Mode (Teil von Docker) oder Kubernetes.
+
 \cite[S. 46-63]{stender}
 
-- Docker
-\cite[S. 131-166]{stender}
+\subsection{Docker}
 
-- Kubernetes
+\begin{itemize}
+\item Docker (Kurzbeschreibung)
+\item Docker Compose
+\item Images
+\item Volumes
+\end{itemize}
+
+\subsection{Kubernetes}
+
+Kubernetes ist ein moderner Standard für den verteilten Betrieb von containerisierten Applikationen auf Infrastrukturen aus der Public Cloud. Kubernetes nutzt Docker als Default-Container-Engine. Kubernetes besitzt eine eigene API, welche vor allem bei der Entwicklung von eigenen Werkzeugen genutzt wird. Das Tool kubectl spricht die Cluster über die auf dem Master laufende API an. Der Master steuert alle angeschlossenen Worker-Nodes und setzt die vom Anwender gewünschten Veränderungen um.
+
+Objekte in Kubernetes sind eine Reihe von verschiedenen Dingen, die der Nutzer im Cluster betreiben kann.
+
+\subsubsection{Deployement}
+
+Ein Deployement ist ein Objekt, welches etwas im Cluster installiert um es dort laufen zu lassen.
+
+\subsubsection{Pod}
+
+Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enthalten. Pods sind Objekte die vervielfältigt werden können, um die darin enthlaltene Appliaktion im Cluster zu skalieren.
+
+\subsubsection{Service}
+
+\subsubsection{Rollout}
+
+\subsubsection{Replica Set}
+
+\subsubsection{Secret}
+
+\subsubsection{Templates}
+
+%ISBN: 978-3-8362-6385-6
 \cite[S. 166-192]{stender}
 
 \pagebreak 
 \section{Modellgetriebene Entwicklung von Microservices}
 
-\subsection{AjiL - an Eclipse tool for MSA modeling with a code generator}
+Herausforderungen beim Domain-Driven Microservice Design:
+
+\begin{itemize}
+\item Ableitung von Microservices aus Domänenmodellen
+\item Fehlende Infrastrukturkomponenten in Domänenmodellen
+\item Autonome Domänenmodellierung
+\end{itemize}
+
+Mittel der modellgetriebenen Entwicklung zur Bewältigung von Herausforderungen
+\begin{itemize}
+\item Zwischenmodelle, die Microservice-Schnittstellen und -Bereitstellung spezifizieren.
+\item Reduzierung der Inoffizialität von Domänenmodellen durch Modellierungskonventionen
+\item Richtlinien für Autonome Domänenmodellierung
+\end{itemize}
+
+\cite{rademacher}
+
+Tools:
 
 AjiL is an Eclipse-based tool for graphical MSA modeling. It features a diagram editor for modeling rudimentary domain models, functional and infrastructure microservices, and provided and required interfaces. Thus, AjiL facilitates creating intermediate models for service interfaces (see the section “Intermediate Models”). AjiL ships with a code generator that produces microservice implementations from AjiL models. The generated Java code is based on Spring Boot and Spring Cloud. It is directly runnable and comprises interface implementations, stubs for implementing services' business logic, and configuration files for infrastructure components. However, AjiL currently does not support round-trip engineering.4 The tool is available at github.com/SeelabFhdo/AjiL.
+\cite{rademacher}
 
-https://ieeexplore.ieee.org/abstract/document/8354426
-https://github.com/SeelabFhdo/AjiL
+Open Cloud Computing Interface (OCCI) is proposed as a community-based and open recommendation standard for managing any kind of cloud resources. Currently, only runtime implementations exist for OCCI, and each one targets a specific cloud service model such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Software as a Service (SaaS). Thus, OCCI lacks an approach to model and execute different OCCI artifacts. Our approach provides a generic modeling framework coupled with a generic runtime implementation. In this article, we propose the OCCIware approach, which represents the first approach to design, validate, generate, implement, deploy, execute, and supervise everything as a service with OCCI. This approach provides OCCIware Studio, the first model-driven tool chain for OCCI. It is built around OCCIware Metamodel, which defines the static semantics for the OCCI standard in Ecore and OCL. In addition, it proposes OCCIware Runtime, the first generic OCCI runtime implementation targeting all the cloud service models (IaaS, PaaS, and SaaS). OCCIware provides a unique and unified framework to manage OCCI artifacts and, at the same time, it represents a factory to build cloud domain-specific modeling frameworks where each framework targets a specific cloud domain. OCCIware has been applied in various cloud domains and use-cases, which validate its applicability.
+%https://www.sciencedirect.com/science/article/pii/S0167739X18306071#sec5
+\cite{zalila}
 
-\subsection{OCCIware - a unified framework for managing diverse cloud resources and services}
 
-Cloud computing has emerged as the main paradigm for hosting and delivering computing resources as services over Internet. It provides a delivery model for computing resources at infrastructure, platform, and software levels. However, there is a plethora of cloud providers offering different resource management interfaces. Due to this diversity, the consumption, provisioning, management, and supervision of cloud resources are subjected to four key issues, i.e., heterogeneity, interoperability, integration, and portability. To cope with these issues, Open Cloud Computing Interface (OCCI) is proposed as a community-based and open recommendation standard for managing any kind of cloud resources. Currently, only runtime implementations exist for OCCI, and each one targets a specific cloud service model such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Software as a Service (SaaS). Thus, OCCI lacks an approach to model and execute different OCCI artifacts. Our approach provides a generic modeling framework coupled with a generic runtime implementation. In this article, we propose the OCCIware approach, which represents the first approach to design, validate, generate, implement, deploy, execute, and supervise everything as a service with OCCI. This approach provides OCCIware Studio, the first model-driven tool chain for OCCI. It is built around OCCIware Metamodel, which defines the static semantics for the OCCI standard in Ecore and OCL. In addition, it proposes OCCIware Runtime, the first generic OCCI runtime implementation targeting all the cloud service models (IaaS, PaaS, and SaaS). OCCIware provides a unique and unified framework to manage OCCI artifacts and, at the same time, it represents a factory to build cloud domain-specific modeling frameworks where each framework targets a specific cloud domain. OCCIware has been applied in various cloud domains and use-cases, which validate its applicability.
-
-https://www.sciencedirect.com/science/article/pii/S0167739X18306071\# sec5
+\section{Noch zu sichten}
 
 \subsection{ARGON - automated cloud infrastructure provisioning using a domain-specific language}
 
