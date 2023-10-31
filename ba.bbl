@@ -16,6 +16,14 @@ Herbert Dowalil.
 \newblock Hanser, M{\"u}nchen, 2018.
 \newblock Herbert Dowalil.
 
+\bibitem[Erl17]{erl}
+Thomas Erl.
+\newblock {\em Service-oriented architecture: analysis and design for services
+  and microservices}.
+\newblock The Prentice Hall service technology series from Thomas Erl. Prentice
+  Hall ; Service Tech Press, Boston, second edition edition, 2017.
+\newblock Thomas Erl ; with contributions by Paulo Merson and Roger Stoffers.
+
 \bibitem[Eva07]{evans}
 Eric Evans.
 \newblock {\em Domain-driven design: tackling complexity in the heart of
@@ -24,17 +32,44 @@ Eric Evans.
   2007.
 \newblock Eric Evans.
 
+\bibitem[Fow17]{fowlersusan}
+Susan~J. Fowler.
+\newblock {\em Production-ready microservices: building standardized systems
+  across an engineering organization}.
+\newblock O{\textasciiacute}Reilly, Beijing, first edition edition, 2017.
+\newblock Susan J. Fowler.
+
+\bibitem[LF14]{fowlerlewis}
+James Lewis and Martin Fowler.
+\newblock Microservices - a definition of this new architectural term, 2014.
+\newblock Accessed: [Datum des Zugriffs].
+
 \bibitem[New15]{newman}
 Sam Newman.
 \newblock {\em Microservices: Konzeption und Design}.
 \newblock mitp-Verl., [Frechen], 1. aufl. edition, 2015.
 \newblock Sam Newman. {\"U}bers. aus dem Amerikan. von Knut Lorenzen.
 
+\bibitem[RF21]{richards}
+Mark Richards and Neal Ford.
+\newblock {\em Handbuch moderner Softwarearchitektur: Architekturstile,
+  Patterns und Best Practices}.
+\newblock O'Reilly, Heidelberg, 1. auflage edition, 2021.
+\newblock Mark Richards und Neal Ford ; deutsche {\"U}bersetzung von J{\o}rgen
+  W. Lang.
+
 \bibitem[RSS18]{rademacher}
 Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.
 \newblock Challenges of domain-driven microservice design: A model-driven
   perspective.
 \newblock {\em IEEE Software}, 35(3):36--43, 2018.
+
+\bibitem[Som20]{sommerville}
+Ian Sommerville.
+\newblock {\em Engineering software products: an introduction to modern
+  software engineering}.
+\newblock Pearson, Hoboken, NJ, 2020.
+\newblock Ian Sommerville.
 
 \bibitem[Ste20]{stender}
 Daniel Stender.

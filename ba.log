@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  31 OCT 2023 15:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  1 NOV 2023 07:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -625,8 +625,8 @@ l.1 \chapter
 
 ]
 chapter 2.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-5.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
+2.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
@@ -635,74 +635,118 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [3]
-<pics/PatternsDDD.png, id=88, 1124.2pt x 708.6475pt>
+<pics/PatternsDDD.png, id=90, 1124.2pt x 708.6475pt>
 File: pics/PatternsDDD.png Graphic file (type png)
 <use pics/PatternsDDD.png>
-Package pdftex.def Info: pics/PatternsDDD.png  used on input line 29.
+Package pdftex.def Info: pics/PatternsDDD.png  used on input line 36.
 (pdftex.def)             Requested size: 315.95747pt x 199.16928pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 30.
+(caption)                particular \caption on input line 37.
 See the caption package documentation for explanation.
 
 [4 <./pics/PatternsDDD.png>] [5] [6]
-<pics/Strategic.png, id=141, 853.1875pt x 443.6575pt>
+<pics/Strategic.png, id=143, 853.1875pt x 443.6575pt>
 File: pics/Strategic.png Graphic file (type png)
 <use pics/Strategic.png>
-Package pdftex.def Info: pics/Strategic.png  used on input line 99.
+Package pdftex.def Info: pics/Strategic.png  used on input line 107.
 (pdftex.def)             Requested size: 383.00652pt x 199.16928pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 100.
+(caption)                particular \caption on input line 108.
 See the caption package documentation for explanation.
 
-[7 <./pics/Strategic.png (PNG copy)>] [8] [9] [10] [11] [12] [13]
-Overfull \hbox (14.80084pt too wide) in paragraph at lines 207--209
-[]\OT1/phv/m/n/10.95 (-20) Monitoring be-zeich-net das []Uberwachen von Me-tri-
-ken ei-ner Soft-wa-re. Bei Microservice-Architekturen
+[7 <./pics/Strategic.png (PNG copy)>] [8] [9]
+<pics/soa_vs_ms.png, id=204, 363.60844pt x 304.88907pt>
+File: pics/soa_vs_ms.png Graphic file (type png)
+<use pics/soa_vs_ms.png>
+Package pdftex.def Info: pics/soa_vs_ms.png  used on input line 169.
+(pdftex.def)             Requested size: 203.60269pt x 170.71652pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 170.
+See the caption package documentation for explanation.
+
+[10 <./pics/soa_vs_ms.png>]
+<pics/microservices_eigenschaften.png, id=226, 964.60374pt x 722.7pt>
+File: pics/microservices_eigenschaften.png Graphic file (type png)
+<use pics/microservices_eigenschaften.png>
+Package pdftex.def Info: pics/microservices_eigenschaften.png  used on input li
+ne 186.
+(pdftex.def)             Requested size: 265.83351pt x 199.16928pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 187.
+See the caption package documentation for explanation.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 190.
+[11 <./pics/microservices_eigenschaften.png>] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (14.80084pt too wide) in paragraph at lines 317--319
+\OT1/phv/m/n/10.95 (-20) Monitoring be-zeich-net das []Uberwachen von Me-tri-ke
+n ei-ner Soft-wa-re. Bei Microservice-Architekturen
  []
 
-[14] [15] [16] [17] [18]) (./inc/k3_modellierung.tex) (./inc/k4_generierung.tex
-) (./inc/k5_anwendung.tex) (./inc/k6_diskussion.tex) (./inc/k7_schluss.tex)
-[19] (./ba.bbl [20
+[18] [19] [20] [21] [22] [23]) (./inc/k3_modellierung.tex)
+(./inc/k4_generierung.tex) (./inc/k5_anwendung.tex) (./inc/k6_diskussion.tex)
+(./inc/k7_schluss.tex) [24] (./ba.bbl
+LaTeX Info: Symbol \textasciiacute not provided by
+            font family phv in TS1 encoding.
+            Default family used instead on input line 39.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
+39.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmss' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [25
 
 
 ]
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 5.
-
-Underfull \hbox (badness 3108) in paragraph at lines 48--52
+Underfull \hbox (badness 3108) in paragraph at lines 83--87
 []\OT1/phv/m/n/10.95 (+20) Eberhard Wolff.  \OT1/phv/m/sl/10.95 (+20) Mi-cro-se
 r-vices: Grund-la-gen fle-xibler Soft-wa-rear-chi-tek-tu-ren\OT1/phv/m/n/10.95 
 (+20) .
  []
 
-) [21] (./ba.aux)
+) [26] (./ba.aux)
 Package rerunfilecheck Info: File `ba.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 20 ({)
+### simple group (level 1) entered at line 27 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18193 strings out of 476175
- 351938 string characters out of 5796271
+ 18300 strings out of 476175
+ 353890 string characters out of 5796271
  1864793 words of memory out of 6000000
- 37927 multiletter control sequences out of 15000+600000
- 539295 words of font info for 199 fonts, out of 8000000 for 9000
+ 37967 multiletter control sequences out of 15000+600000
+ 541379 words of font info for 213 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 108i,19n,106p,10597b,640s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on ba.pdf (23 pages, 280625 bytes).
+ 108i,19n,106p,10597b,719s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
+r-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/shar
+e/texlive/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/helvetic/uhvro8a.pfb>
+Output written on ba.pdf (28 pages, 454647 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 365 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
- 45256 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 475 compressed objects within 5 object streams
+ 149 named destinations out of 1000 (max. 500000)
+ 46298 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -1,5 +1,12 @@
 \chapter{Grundlagen}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%						DOMAIN	DRIVEN	DESIGN
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Domain-Driven Design}
 
 \subsection{Definition}
@@ -143,51 +150,135 @@ Wenn ein Teilsystem mit vielen anderen verbunden werden muss, kann es problemati
 
 Das direkte Übersetzen von Modellsprachen kann zu sehr komplexen Strukturen führen. Selbst wenn eine Sprache für den Datenaustausch genutzt wird, ist sie einmal festgelegt und lässt sich nicht leicht an Entwicklungsbedürfnisse anpassen. Deshalb kann eine gut dokumentierte, gemeinsame Sprache als allgemeines Kommunikationsmittel bereitgestellt werden. Diese \glqq Published Language\grqq stellt eine Modellierung der Domäne als universelle Sprache zwischen den Bounded Contexts dar \cite[S. 375-378]{evans} \cite[S. 48]{wolff} \cite[s.65]{dowalil}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%						MICROSERVICES
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \pagebreak
 \section{Microservices}
 
-\subsection{Definition}
+\subsection{Geschichte und Definition}
 
-Der zur Modularisierung eingesetzte Ansatz der Microservices erfüllt verschiedene Grundlegende Vorraussetzungen:
-In ihrer Implementierung gibt es keine technologischen Einschränkungen. Die Dienste können unabhängig voneinander überarbeitet und auf ein Zielsystem ausgerollt werden. Weiterhin sollen Build und Deployement automatisiert sein. Sie besitzen einen eigenen Datenhaushalt sowie eigenständige Prozesse auf der ausführenden Infrastruktureinheit. Microservices nutzen verteilte Netzwerkkommunikation, um sich mit anderen Diensten zu verständigen. Transaktionen zeichnen sich durch die ACID-Eigenschaften aus, zu denen Atomizität, Konsistenz, Isolation und Dauerhaftigkeit gehören. Es ist wichtig, dass Daten konsistent bleiben. Deshalb sollten keine Transaktionen über mehrere Services hinweg durchgeführt werden. Um diese Konsistenz zu gewährleisten, können Kompensationstransaktionen eingesetzt werden.
-\cite[S. 2]{wolff}
-\cite[S. 31-37]{wolff}
+%TODO ESB erklären
+Im Mai 2011 wurde der Begriff \glqq Microservice\grqq{} während eines Architekten-Workshops in Venedig eingeführt, um einen neu entstehenden Architekturstil zu beschreiben. Dieser Stil entwickelte sich aus der \glqq Service-orientierten Architektur\grqq{} (SOA). Ein Software-Service bezeichnet in der SOA eine Softwarekomponente, die über das Internet von entfernten Computern aus zugänglich ist. Microservice-Architekturen ähneln der SOA, aber SOA wird oft unterschiedlich verstanden und unterscheidet sich in der Regel von Microservices, insbesondere in Bezug auf die Betonung von ESBs. Viele SOA-Projekte stießen auf Schwierigkeiten, sei es wegen ihrer Komplexität oder hohen Kosten. Aufgrund von Herausforderungen bei Skalierung und Verschiebung von Diensten, die nach diesen Prinzipien arbeiteten, entstand ein neuer Ansatz: Ein völlig unabhängiger Dienst mit eigener Datenbank, eigener Benutzeroberfläche und der Fähigkeit, einen Dienst zu ersetzen oder zu replizieren, ohne andere Systemdienste ändern zu müssen.
+
+%TODO Grafik machen, Quelle angeben
+\begin{center}
+\includegraphics[height=6cm]{pics/soa_vs_ms.png}
+\captionof{figure}{Gegenüberstellung von SOA und Microservices}
+\end{center}
+
+Ein Jahr später wurde der Name Microservices als am besten passend für dieses Konzept gewählt. Der Microservice-Architekturstil wurde dann von Martin Fowler und James Lewis im März 2014 in einem Blogbeitrag erstmals ausführlicher vorgestellt \cite{fowlerlewis} \cite[S.251]{richards}. \cite[S.150,151]{sommerville}.
+
+Microservices wurden nicht im Voraus geplant, sondern entstanden durch beobachtete Trends und Muster in der Praxis. Dazu gehören Continuous Delivery, bedarfsorientierte Virtualisierung, automatisierte Infrastrukturen, skalierbare Systeme und unabhängige Entwicklerteams. Die Hauptinspiration stammt jedoch aus dem DDD, insbesondere dem Konzept des Bounded Context \cite[S.21]{newman} \cite[S.251]{richards}.
+
+Microservices können als kleine, leicht ersetzbare, unabhängige Komponenten definiert werden, die sich auf eng begrenzte Geschäftsvorgänge konzentrieren. Ihr Hauptziel ist eine hohe Entkopplung.\cite[S.252]{richards} \cite[S.5,6]{fowlersusan} \cite[S.152]{sommerville} \cite[S.113]{erl} \cite[S.22-23]{newman}.
+
+\pagebreak
+\subsection{Eigenschaften von Microservices}
+
+Verschiede Eigenschaften zeichnen einen Microservice aus:
+
+%TODO Grafik machen
+\begin{center}
+\includegraphics[height=7cm]{pics/microservices_eigenschaften.png}
+\captionof{figure}{Eigenschaften von Microservices}
+\end{center}
+
+\textit{Technologisch Uneingeschränkt} - In ihrer Implementierung können Microservices unabhängig voneinander mit verschiedenen Technologien umgesetzt werden. Es existieren keine technologische Einschränkungen \cite[S. 2, 31-37]{wolff} \cite[S.154-157]{sommerville} \cite[S.24]{newman}.
+
+\textit{Unabhängigkeit} - Die Dienste können weiterhin unabhängig voneinander überarbeitet und deployt werden, ohne Beeinflussung des gesamten Systems. Build und Deployment sind dabei automatisiert. \cite[S. 2, 31-37]{wolff} \cite[S.28]{newman}.
+
+\textit{Isolierte Daten} - Microservices, die auf dem Konzept des Bounded Contexts basieren, legen Wert auf Datenisolierung. Sie vermeiden jegliche Formen der Kopplung, einschließlich gemeinsam genutzter Schemata und Datenbanken als Integrationspunkte, und verfügen über einen eigenen Datenhaushalt auf ihrer ausführenden Infrastruktureinheit \cite[S. 2, 31-37]{wolff} \cite[S.255]{richards}.
+
+\textit{Eigene Prozesse} - Ein Microservice ist wie ein eigenständiges Programm, das entweder als eigener Dienst auf einer Plattform oder als eigener Prozess auf einem Betriebssystem läuft. Jeder dieser Dienste arbeitet unabhängig und kann automatisch und einzeln bereitgestellt werden.\cite[S.23]{newman} \cite[S.253]{richards} \cite[S. 2, 31-37]{wolff} \cite[S.154-157]{sommerville}.
+
+\textit{Verteilte Netwerkkommunikation} - Microservices repräsentieren eine verteilte Architektur und nutzen verteilte Netzwerkkommunikation für die Interaktion mit anderen Diensten. Die Integration der Services erfolgt hauptsächlich über REST oder Lightweight Messaging. Durch die Kommunikation über leichte Protokolle wird der Overhead minimiert. Die Netzwerkkommunikation betont die Isolierung der Services und vermeidet die Gefahren einer engen Kopplung \cite[S.253]{richards} \cite[S. 2, 31-37]{wolff} \cite[S.154-157]{sommerville} \cite[S.128]{dowalil} \cite[S.23]{newman}.
+
+\textit{Einschränkungen bei Transaktionen} - Aufgrund dieser Architektur, sollten Transaktionen nicht über mehrere Services hinweg durchgeführt werden. Transaktionen sind durch die ACID-Eigenschaften (Atomizität, Konsistenz, Isolation, Dauerhaftigkeit) gekennzeichnet \cite[S.253]{richards} \cite[S. 2, 31-37]{wolff}.
+
+\textit{API-Schicht} - In vielen Darstellungen von Microservices ist eine API-Schicht erkennbar, die zwischen den Nutzern (Consumern) und dem System liegt. Obwohl diese Schicht optional ist, wird sie häufig verwendet, da sie in der Architektur gut positioniert ist, um nützliche Aufgaben zu erfüllen. Sie sollte jedoch nicht als Vermittler oder Orchestrierungswerkzeug fungieren, da Microservices streng domänenspezifisch sind. Jeder Service stellt eine API bereit, über die andere Services mit ihm kommunizieren können. Es ist wichtig, dass durch die API keine Kopplung an die Consumer entsteht, was bei der Technologieauswahl zu berücksichtigen ist \cite[S.255,256]{richards} \cite[S.24]{newman}.
+
+\textit{Unabhängigkeit} - Microservices sind durch ihre Selbstständigkeit gekennzeichnet und haben keine externen Abhängigkeiten. Sie sind tendenziell kleiner und leicht austauschbar, wobei der Fokus auf Ersetzbarkeit statt auf Wiederverwendung liegt. Der Ansatz von Microservices zielt darauf ab, Services für eng begrenzte Geschäftsvorgänge zu erstellen, die unabhängig voneinander geändert und bereitgestellt werden können, ohne die Consumer zu beeinflussen \cite[S.154-157]{sommerville} \cite[S.128]{dowalil} \cite[S.22,23]{newman}.
+
+\pagebreak
+\subsection{Architektur von Microservice-Systemen}
+
+Microservices sind kleinmaßstäbliche Dienste, die kombiniert werden können, um Anwendungen zu erstellen \cite[S.154-157]{sommerville}.
+
+\subsubsection{DDD-Prinzipien und Kohäsion in Microservices}
+
+Der Grundgedanke der Microservices ist der BOunded Context. Hierbei bildet jeder Dienst eine Domäne oder einen bestimmten Arbeitsablauf ab. In vielen Punkten sind Microservices die physikalische Verkörperung der logischen Konzepte des DDD \cite[S.253,254]{richards}.
 
 Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten ist, dass für Änderungen oder neue Features nur ein Microservice geändert werden muss. Weiterhin sollen die aus dem DDD bekannten Konzepte des Strategic Design verwendet werden. Micorservices sollen jeweils eine fachliche Domäne modellieren, sodass neue Features oder Änderungen nur in einem Microservice umgesetzt werden müssen. Ein Bounded Context kann in mehrere Microservices aufgeteilt werden, wenn das sinnvoll erscheint.
 \cite[S. 48-51]{wolff}
 
-Damit Microservices unabhängig voneinander in Produktion gebracht werden können, ist eine gekapselte Hardware nötig, welche durch Virtualisierung umgesetzt werden kann. Dies setzt eine passende Infrastruktur voraus, die automatisiert eine große Anzahl virtueller Maschinen erzeugen kann. Weiterhin benötigt jeder Microservice, als Folgerung aus der Voraussetzung, unabhängig deployen zu können, eine eigene Continuous-Delivery-Pipeline. Zudem muss es ein umfassendes Monitoring geben, da durch die Vielzahl an Anwendungen sonst Probleme nicht erkannt werden können. Dieses sollte neben technischen Metriken auch Anwendungsmetriken erfassen, um eine umfassendere Problemübersicht zu bekommen. Auch eine unabhängige Versionskontrolle der Dienste ist notwendig, da aus der unabhängigen Deploybarkeit auch verschiedene Versionierungen möglich sind.
-\cite[S. 80-81]{wolff}
-
-\pagebreak 
-\subsection{Architektur von Microservice-Systemen}
-
 Gemäß den DDD-Prinzipien kann eine fachliche Architektur erfolgen. Dabei soll es zwischen den Microservices eine lose Kopplung geben, wodurch sie isoliert und leichter abänderbar sind. Innerhalb eines Dienstes sollen die Bestandteile eng zusammenarbeiten, was einer hohen Kohäsion entspricht. Weiterhin sind zyklische fachliche Abhängigkeiten in der Architektur problematisch, da dadurch die isolierte Änderbarkeit nicht mehr gewährleistet ist.
 \cite[S. 101-105]{wolff}
 
-Verschiedene etablierte Methoden existieren im Zusammenhang mit Änderungen der Gesamtarchitektur, die durch neue Erkenntnisse aus der Domäne notwendig sein können. So kann in mehreren Diensten gemeinsam verwendeter Code in Bibliotheken ausgelagert werden. Dabei muss jedoch auf die dadurch entstehende Abhängigkeit geachtet werden, da durch unkoordinierte Änderungen Fehler in Teilen des Microservice-Systems einschleichen können. Weiterhin kann Code eines Dienstes in einen anderen übertragen werden, um Verbesserungen im Hinblick auf die Kohäsion in einem Dienst zu erreichen. Eine Alternative zur Bibliothek ist es, Code in einen gemeinsamen, neuen Dienst zu übertragen, was bei vorausgesetzter passender Schnittstellendefinition dem Ziel der entkoppelten Dienste zuträglich ist. Es ist auch möglich, alten Code in einen neuen Service zu migrieren oder die notwendige Änderung der Architektur mit einem vollständig neu entwickelten Microservice umzusetzen.
+
+Ihr Ziel bei der Gestaltung eines Microservices sollte es sein, einen Dienst mit hoher Kohäsion und geringer Kopplung zu erstellen. Das zugrunde liegende Prinzip hier ist das "Single Responsibility Principle"
+\cite[S.154-157]{sommerville}
+
+\subsubsection{Anpassungen und Methoden in der Microservice-Gesamtarchitektur}
+
+Verschiedene etablierte Methoden existieren im Zusammenhang mit Änderungen der Gesamtarchitektur, die durch neue Erkenntnisse aus der Domäne notwendig sein können. So kann in mehreren Diensten gemeinsam verwendeter Code in Bibliotheken ausgelagert werden.
+Dabei muss jedoch auf die dadurch entstehende Abhängigkeit geachtet werden, da durch unkoordinierte Änderungen Fehler in Teilen des Microservice-Systems einschleichen können. Weiterhin kann Code eines Dienstes in einen anderen übertragen werden, um Verbesserungen im Hinblick auf die Kohäsion in einem Dienst zu erreichen. Eine Alternative zur Bibliothek ist es, Code in einen gemeinsamen, neuen Dienst zu übertragen, was bei vorausgesetzter passender Schnittstellendefinition dem Ziel der entkoppelten Dienste zuträglich ist. Es ist auch möglich, alten Code in einen neuen Service zu migrieren oder die notwendige Änderung der Architektur mit einem vollständig neu entwickelten Microservice umzusetzen.
 \cite[S. 112-120]{wolff}
+
+\subsubsection{Ereignisgetriebene Architektur in Microservices}
+
+Der eventbasierte Architekturstil ist ein verteilter asynchroner Stil. Sie besteht aufs entkoppelten Komponenten zur Eventverarbeitung, die Events asynchron empfangen und verarbeiten \cite[S.183]{richards}.
+
+Ein Eventbasiertes Modell reagiert auf eine bestimmte Situation und führt daraufhin eine oder mehrere Aktionen aus \cite[S.184]{richards}.
+
+%TODO Ausführlicher
+Für die Eventbasierte Architektur gibt es zwei grundlegende Topologien:
+Die Broker Topologie gibt es keinen zentralen Event Mediator. Stattdessen ist der Nachrichtenfluss auf die Event-Prozessorkomponenten nach Art eines verketteten Broadcastings mithilfe eines einfachen Message Brokers verteilt \cite[S.184-189]{richards}
+Die Mediator Topologie besitzt einen Event-Mediator. Er verwaltet und kontrolliert den Arbeitsablauf und die beteiligten Event-Prozessoren.
+
+%TODO Datenverlust verhindern \cite[S.205-207]{richards}
 
 Damit Microservices ihre gemeinsame Logik implementieren können, müssen sie sich gegenseitig aufrufen. Dabei kann eine ereignisgetriebene Architektur (Event-Driven Architecture, EDA) verwendet werden, bei der ein Dienst bei einem Ereignis aus der Anwendungslogik, einem Event, dieses versendet. Dieser Dienst, der Event-Emitter, signalisiert damit allen interessierten Microservices (Event-Consumern), dass etwas passiert ist. Dieses Vorgehen kapselt die Anwendungslogik und entkoppelt die Bearbeitung der Events zeitlich, was dem Ziel einer losen Kopplung beiträgt.
 \cite[S. 137 - 138]{wolff}
 
+\subsubsection{Konfigurationsmanagement in Microservice-Systemen}
+
 Die Konfiguration eines Microservice-Systems wird mit steigender Anzahl von Services entsprechend aufwendig. Mit Werkzeugen wie Zookeeper, etcd oder Spring Cloud Config werden Key-Value-Stores bereitgestellt, die dies vereinfachen. Jedoch gilt es zu beachten, dass dadurch eine Abhängigkeit zu einem Konfigurationsserver entsteht. Alternativ kann eine Konfiguration auf dem Server des Microservices selbst vorliegen. Dies vermeidet die Notwendigkeit eines zentralen Konfigurationsservers, kann aber auch Herausforderungen in Bezug auf die Synchronisation und Verwaltung der Konfigurationen über mehrere Instanzen hinweg mit sich bringen.
 \cite[S. 141 - 142]{wolff}
+
+
+\subsubsection{Service Discovery in Microservice-Architekturen}
 
 Service Discovery stellt sicher, dass Microservices sich gegenseitig finden können. Dazu muss diese dynamisch sein um gehende und kommende Microservices zu finden. Technolgien für diese sind besipielsweiße DNS (Domain Name Sstem), Eureka, Consul.
 \cite[S. 143 - 146]{wolff}
 
+\subsubsection{Lastverteilung in Microservices}
+
 Bei hoher Last können Microservices unabhängig skalieren. Dadurch müssen mehrere Instanzen registriert werden, die sich die Last gegen einen Dienst teilen. Um HTTP anfragen in solch einem Fall zu verteilen wird ein Load Balanecr genutzt, der sich nach außen wie eine einzige Instanz verhält, aber die Anfragen auf mehrere verteilt. Da bei einem einzigen Load Balancer für mehrere Microservices, dieser zum Flaschenhals werden kann, sollte pro Microservice ein Load Balancer existieren. Technologien für Load Balancer existieren nativ in Cloud Umgebungen oder können beispielsweiße mit Apache httpd, nginx oder HAProxy umgesetzt werden.
 \cite[S. 147 - 150]{wolff}
+
+\subsubsection{Sicherheitsrichtlinien und -architekturen in Microservice-Systemen}
 
 Die Sicherheitsarchitektur muss einheitlich auf der Gesamtebene des Systems definiert werden, um sicherzustellen, dass ein Zugriff eines Nutzers einheitlich behandelt wird. Dazu gehört es, Authentifizierung und Autorisierung zu gewährleisten. Der einzelne Microservice des fachlich abgebildeten Systems soll keine Authentifizierung übernehmen. Stattdessen wird diese Aufgabe von einem zentralen Server wahrgenommen. Bei der Autorisierung ist ein Zusammenspiel gefragt, da über Benutzergruppen bestimmte Features des Microservices zugewiesen sind. Welche dies sind, soll der Microservice entscheiden. Eine Implementierung dieses Konzepts ist das OAuth2-Protokoll. Dabei erhält ein Nutzer nach erfolgreicher Authentifizierung und Autorisierung ein Access Token, welches genutzt wird, um mit einem Service zu interagieren. Dieses kann weiterhin von einem Microservice an andere Microservices weitergereicht werden, um berechtigte Anfragen zu ermöglichen und die einheitliche Sicherheitsrichtlinie im gesamten System zu gewährleisten.
 \cite[S. 153 - 161]{wolff}
 
-\pagebreak 
 \subsection{Kommunikation}
+
+Grundsätzlich müssen sich Architekten zwischen synchroner und asynchroner Kommunikation entscheiden. Bei der synchronen Kommunikation muss der Aufrufer eine Antwort vom Aufgerufenen warten. In Microservice-Architekturen kommt dagegen meist eine protokollbewusste heterogene Interoperabilität zum Einsatz. Um eine Kopplung beim technischen Betrieb zu vermeiden, gibt es bei Microservices keinen zentralen integrations-Hub. Jeder Dienst muss selbst wissen, wie er die anderen Dienste aufrufen kann. Daher müssen alle Dienste wissen (oder per Service Discovery herausfinden), welche Protokolle für den Aufruf anderer Dienste verwendet werden müssen. Da Microservices eine verteilte Architektur sind, kann jeder Dienst in einem anderen Techonologiestack geschrieben sein. Interoperabilität beschreibt Dienste die einander aufrufen. Für die asynchrone Kommunikation nutzen Architekten oft Events und Messages. Das heißt intern kommt eine eventbasierte Architektur zum Einsatz bei der in Microservices Choreografie und Orchestrierung die Funktion der Broker- und Mediator-Muster übernehmen \cite[S.260,261]{richards}.
+
+Key dcision when choosing a standart for microservice communication: should service interaction be synchronous or asynchronous. should services communictate directly or via massage broker middleware. what protocol shoul be used for messages between services.
+Synchronous interaction is less complex than asynchronous. On the other Hand anychronous interaction is often more efficient, as services are not idle while waiting. Asynchr. services are loosely coupled, so making changes to these services should be easier.
+\cite[S.161-163]{sommerville}
+
+\subsubsection{REST}
 
 Mit REST (Representational State Transfer) können Microservices untereinander Code aufrufen. Es gibt eine Vielzahl von Ressourcen, die über URIs identifiziert werden können. Die Ressourcen können über eine feste Menge von Methoden manipuliert werden, welche z. B. durch HTTP vorgegeben sind. Ressourcen können unterschiedlich repräsentiert werden. Beziehungen zwischen Ressourcen können durch Links angegeben werden (HATEOAS). Der Server in einem REST-System sollte zustandslos sein. Eine RESTful-HTTP-Schnittstelle kann durch einen Cache ergänzt werden. RESTful HTTP ist synchron. Daher können Ausfälle auftreten, denen mit Timeouts entgegengewirkt werden kann, um Fehlerfortpflanzung zu vermeiden.
 \cite[S. 182 - 183]{wolff}
+
+\subsubsection{Messaging}
 
 Messaging-Systeme stellen eine weitere Möglichkeit dar, die Kommunikation zwischen Microservices zu ermöglichen. Sie basieren auf dem Versand von Nachrichten, die selbst bei einem Netzwerkausfall übermittelt werden können, da die Messaging-Systeme sie zwischenspeichern. Eine korrekte Verarbeitung kann durch Initiierung einer erneuten Übertragung im Fehlerfall garantiert werden. Diese Art von Messaging-Architekturen ist asynchron und auf hohe Latenzzeiten ausgelegt. Der Aufruf eines anderen Services blockiert die weitere Verarbeitung nicht, sodass ein Microservice ohne Wartezeit auf eine Antwort weiterarbeiten kann. Der Sender kennt den Empfänger nicht, weil die Nachricht auf einer Queue oder einem Topic landet, für die sich potenzielle Empfänger registrieren. Dies entkoppelt Sender und Empfänger. 
 
@@ -196,20 +287,47 @@ Messaging bietet eine Lösung für transaktionale Systeme mit Microservices, wob
 Messaging kann durch verschiedene Technologien wie AMQP, Apache Kafka, JMS oder ATOM-Feeds realisiert werden.
 \cite[S. 183 - 187]{wolff}
 
+
+\subsubsection{Schnittstellenmanagement und Versionierung in Microservices}
+
 Jeder Microservice kann eine oder mehrere Schnittstellen für andere Microservices bereitstellen. Außerdem kann ein Microservice Schnittstellen nach außen haben, die Interaktionen außerhalb des Systemkontexts ermöglichen. Wenn ein Microservice eine Schnittstelle ändert, sollte er auch noch die alte Schnittstelle unterstützen. Weiterhin sollten Schnittstellen getrennt umgesetzt werden. Um Änderungen an einer Schnittstelle deutlich zu machen, kann eine Versionsnummer genutzt werden. Semantic Versioning definiert dabei eine Semantik für Versionsnummern, wobei das Format MAJOR.MINOR.PATCH lautet. Dabei sind Änderungen der Major-Version nicht rückwärtskompatibel, Änderungen der Minor-Version bieten neue Features, und Patch-Änderungen beheben Fehler (Bugfixes). Die Version sollte nicht in einer URL, sondern besser in einem Header bei einem REST-Request angegeben werden.
 \cite[S. 190 - 192]{wolff}
 
 \pagebreak 
 \subsection{Betrieb und Continious Delivery}
 
+Umgesetzt wird dies (verteilte Architektur) mit virtuellen Maschienen und Containern.
+\cite[S.253]{richards}
+
+\subsubsection{Infrastruktur und Werkzeuge für unabhängige Microservice-Produktion}
+
+Damit Microservices unabhängig voneinander in Produktion gebracht werden können, ist eine gekapselte Hardware nötig, welche durch Virtualisierung umgesetzt werden kann. Dies setzt eine passende Infrastruktur voraus, die automatisiert eine große Anzahl virtueller Maschinen erzeugen kann. Weiterhin benötigt jeder Microservice, als Folgerung aus der Voraussetzung, unabhängig deployen zu können, eine eigene Continuous-Delivery-Pipeline. Zudem muss es ein umfassendes Monitoring geben, da durch die Vielzahl an Anwendungen sonst Probleme nicht erkannt werden können. Dieses sollte neben technischen Metriken auch Anwendungsmetriken erfassen, um eine umfassendere Problemübersicht zu bekommen. Auch eine unabhängige Versionskontrolle der Dienste ist notwendig, da aus der unabhängigen Deploybarkeit auch verschiedene Versionierungen möglich sind.
+\cite[S. 80-81]{wolff}
+
+
+Microservices are self-contained and run in seperate processes. In Cloud-based Systems, each Microservice can be deployed in its own container. Therefore it can be stopped and restarted without affecting other parts of the system.
+\cite[S.158]{sommerville}
+
+\subsubsection{Logging in Microservices und Korrelation von Anfragen}
+
 Mit Logging kann eine Anwendung sehr einfach Informationen darüber bereitstellen, welche Ereignisse aufgetreten sind. Anfragen können oftmals nur durch das Zusammenspiel mehrerer Services behandelt werden. Dies erfordert eine Korrelations-ID, die es ermöglicht, einen Request über alle Log-Einträge der einzelnen Dienste hinweg eindeutig zu identifizieren. Logs können von Microservices zentral über das Netzwerk verarbeitet werden. Dies kann beispielsweise mit Technologien wie Logstash, Elasticsearch und Kibana umgesetzt werden.
 \cite[S. 244 - 249]{wolff}
+
+\subsubsection{Monitoring in Microservice-Architekturen}
 
 Monitoring bezeichnet das Überwachen von Metriken einer Software. Bei Microservice-Architekturen sollten die relevanten Informationen dafür in einem einheitlichen Format vorliegen. Grundlegende Metriken für Microservices können beispielsweise ein Wert sein, der die Verfügbarkeit des Dienstes anzeigt (Alive). Weiterhin kann die Verfügbarkeit in Abhängigkeit von den vom Dienst genutzten Diensten und Ressourcen dargestellt werden (Health). Antwortzeiten, die Anzahl bestimmter Fehler oder die Anzahl von Anfragen sind andere mögliche Metriken. Dabei ist es sinnvoll, eine einheitliche Abfrageschnittstelle für alle Services zu nutzen. Da Microservices dynamisch starten und verschwinden können, muss das Monitoring unabhängig vom einzelnen Dienst erfolgen. Dies kann mit Technologien wie Graphite, Grafana oder Nagios umgesetzt werden. Auch in Cloud-Umgebungen stehen entsprechende Werkzeuge zur Verfügung.
 \cite[S. 250 - 256]{wolff}
 
+\subsubsection{Automatisierung und Strategien für Microservice-Deployments}
+
 Manuelle Deployments sind bei einer Microservice-Architektur nicht sinnvoll umsetzbar. Daher muss dies automatisiert werden. Dies kann mittels Skripten, die die Installation der Software umsetzen, geschehen. Auch Immutable Server können mit Technologien wie Docker genutzt werden. Auf Linux-Betriebssystemen ist ein Ausrollen mit Paketmanagern wie rpm (Red Hat), dpkg (Debian/Ubuntu) oder zypper (SuSE) auch möglich. Um mit Fehlern und daraus resultierenden Problemen umzugehen, existieren verschiedene Deployment-Strategien: Ein Rollback ist die Auslieferung einer vorherigen Version eines Microservices. Dabei müssen mögliche Datenbankänderungen berücksichtigt werden, da diese eine Rückkehr in den alten Zustand verhindern können. Alternativ können Fehler mit einem Roll Forward behoben werden, dem Ausrollen einer neuen, den Fehler nicht mehr enthaltenden Version. Continuous Deployment beschreibt die Strategie, jegliche Änderung sofort auf das Produktivsystem zu bringen, um die Anzahl an Änderungen pro Release klein zu halten. Mit Blue/Green-Deployments werden zwei parallele Microservice-Instanzen beschrieben, wodurch Änderungen auf einer Produktivumgebung wirksam werden, beobachtet werden können und in einem Fehlerfall das Routing zwischen der neuen und der alten Instanz gesteuert werden kann.
 \cite[S. 263 - 269]{wolff}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%						CLOUD-INFRASTRUKTUR
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak 
 \section{Cloud-Infrastruktur}
@@ -261,6 +379,12 @@ Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enth
 
 %ISBN: 978-3-8362-6385-6
 \cite[S. 166-192]{stender}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%						MDSD VON MICROSERVICES
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak 
 \section{Modellgetriebene Entwicklung von Microservices}
