@@ -1,5 +1,21 @@
 \begin{thebibliography}{ZCM19}
 
+\bibitem[Das17]{daschner}
+Sebastian Daschner.
+\newblock {\em Architecting modern Java EE applications: designing lightweight,
+  business-oriented enterprise applications in the age of cloud, containers,
+  and Java EE 8}.
+\newblock Packt, Birmingham, 2017.
+\newblock Sebastian Daschner ; Foreword by: David Blevins, Founder and CEO,
+  Tomitribe.
+
+\bibitem[Dow18]{dowalil}
+Herbert Dowalil.
+\newblock {\em Grundlagen des modularen Softwareentwurfs: der Bau langlebiger
+  Mikro- und Makro-Architekturen wie Microservices und SOA 2.0}.
+\newblock Hanser, M{\"u}nchen, 2018.
+\newblock Herbert Dowalil.
+
 \bibitem[Eva07]{evans}
 Eric Evans.
 \newblock {\em Domain-driven design: tackling complexity in the heart of
@@ -7,6 +23,12 @@ Eric Evans.
 \newblock Addison-Wesley, Upper Saddle River, NJ [u.a.], 11. printing edition,
   2007.
 \newblock Eric Evans.
+
+\bibitem[New15]{newman}
+Sam Newman.
+\newblock {\em Microservices: Konzeption und Design}.
+\newblock mitp-Verl., [Frechen], 1. aufl. edition, 2015.
+\newblock Sam Newman. {\"U}bers. aus dem Amerikan. von Knut Lorenzen.
 
 \bibitem[RSS18]{rademacher}
 Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.

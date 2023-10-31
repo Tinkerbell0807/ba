@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  26 OCT 2023 14:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  31 OCT 2023 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -625,108 +625,84 @@ l.1 \chapter
 
 ]
 chapter 2.
-
-Overfull \hbox (3.63448pt too wide) in paragraph at lines 14--16
-\OT1/phv/m/n/10.95 (-20) die m[]oglichst en-ge Ab-stim-mung zwi-schen Software-
-Design und kon-zep-tio-nel-lem Dom[]anenmodell.
- []
-
-[3]
-<pics/PatternsDDD.png, id=82, 1124.2pt x 708.6475pt>
-File: pics/PatternsDDD.png Graphic file (type png)
-<use pics/PatternsDDD.png>
-Package pdftex.def Info: pics/PatternsDDD.png  used on input line 23.
-(pdftex.def)             Requested size: 406.23839pt x 256.0748pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 24.
-See the caption package documentation for explanation.
-
-[4 <./pics/PatternsDDD.png>] [5]
-Overfull \hbox (9.85196pt too wide) in paragraph at lines 66--68
-\OT1/phv/m/n/10.95 (-20) Ein Ag-gre-gat ist ein Clus-ter von as-so-zi-ier-ten O
-b-jek-ten, die wir zu dem Zweck von Da-ten[]anderungen
- []
-
-[6] [7]
-<pics/Strategic.png, id=133, 853.1875pt x 443.6575pt>
-File: pics/Strategic.png Graphic file (type png)
-<use pics/Strategic.png>
-Package pdftex.def Info: pics/Strategic.png  used on input line 99.
-(pdftex.def)             Requested size: 492.44066pt x 256.0748pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 100.
-See the caption package documentation for explanation.
-
-
-Overfull \hbox (37.19658pt too wide) in paragraph at lines 99--100
- [] 
- []
-
-[8 <./pics/Strategic.png (PNG copy)>] [9] [10] [11] [12] [13] [14]
-Overfull \hbox (14.80084pt too wide) in paragraph at lines 240--242
-[]\OT1/phv/m/n/10.95 (-20) Monitoring be-zeich-net das []Uberwachen von Me-tri-
-ken ei-ner Soft-wa-re. Bei Microservice-Architekturen
- []
-
-[15]
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-64.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
+5.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [16] [17]
+ [3]
+<pics/PatternsDDD.png, id=88, 1124.2pt x 708.6475pt>
+File: pics/PatternsDDD.png Graphic file (type png)
+<use pics/PatternsDDD.png>
+Package pdftex.def Info: pics/PatternsDDD.png  used on input line 29.
+(pdftex.def)             Requested size: 315.95747pt x 199.16928pt.
 
-LaTeX Warning: Citation `zalila' on page 18 undefined on input line 324.
 
-[18] [19]) (./inc/k3_modellierung.tex) (./inc/k4_generierung.tex)
-(./inc/k5_anwendung.tex) (./inc/k6_diskussion.tex) (./inc/k7_schluss.tex)
-[20] (./ba.bbl
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 30.
+See the caption package documentation for explanation.
+
+[4 <./pics/PatternsDDD.png>] [5] [6]
+<pics/Strategic.png, id=141, 853.1875pt x 443.6575pt>
+File: pics/Strategic.png Graphic file (type png)
+<use pics/Strategic.png>
+Package pdftex.def Info: pics/Strategic.png  used on input line 99.
+(pdftex.def)             Requested size: 383.00652pt x 199.16928pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 100.
+See the caption package documentation for explanation.
+
+[7 <./pics/Strategic.png (PNG copy)>] [8] [9] [10] [11] [12] [13]
+Overfull \hbox (14.80084pt too wide) in paragraph at lines 207--209
+[]\OT1/phv/m/n/10.95 (-20) Monitoring be-zeich-net das []Uberwachen von Me-tri-
+ken ei-ner Soft-wa-re. Bei Microservice-Architekturen
+ []
+
+[14] [15] [16] [17] [18]) (./inc/k3_modellierung.tex) (./inc/k4_generierung.tex
+) (./inc/k5_anwendung.tex) (./inc/k6_diskussion.tex) (./inc/k7_schluss.tex)
+[19] (./ba.bbl [20
+
+
+]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 5.
 
-Underfull \hbox (badness 3108) in paragraph at lines 26--30
+Underfull \hbox (badness 3108) in paragraph at lines 48--52
 []\OT1/phv/m/n/10.95 (+20) Eberhard Wolff.  \OT1/phv/m/sl/10.95 (+20) Mi-cro-se
 r-vices: Grund-la-gen fle-xibler Soft-wa-rear-chi-tek-tu-ren\OT1/phv/m/n/10.95 
 (+20) .
  []
 
-) [21
-
-
-] (./ba.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+) [21] (./ba.aux)
 Package rerunfilecheck Info: File `ba.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 20 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 18165 strings out of 476175
- 351629 string characters out of 5796271
+ 18193 strings out of 476175
+ 351938 string characters out of 5796271
  1864793 words of memory out of 6000000
- 37915 multiletter control sequences out of 15000+600000
- 538213 words of font info for 190 fonts, out of 8000000 for 9000
+ 37927 multiletter control sequences out of 15000+600000
+ 539295 words of font info for 199 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 108i,19n,106p,10597b,491s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/helvetic/uhvro8a.pfb>
-Output written on ba.pdf (23 pages, 277733 bytes).
+ 108i,19n,106p,10597b,640s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
+r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on ba.pdf (23 pages, 280625 bytes).
 PDF statistics:
- 383 PDF objects out of 1000 (max. 8388607)
- 343 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 365 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
  45256 words of extra memory for PDF output out of 51595 (max. 10000000)
 

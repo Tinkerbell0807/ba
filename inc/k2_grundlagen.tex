@@ -4,178 +4,146 @@
 
 \subsection{Definition}
 
-Modelle sind bewusst simplifizierte und strukturierte Darstellungen von Wissen.
-Die Methodik des Domain-Driven Design (DDD) stellt drei Regeln auf, welche bei der Wahl eines Modells zu berücksichtigen sind: Modell und Implementierung beeinflussen sich gegenseitig. Das Modell ist die Grundlage der im Entwicklungsprozess verwendeten Terminologie. Das Modell beinhaltet Wissen in einer nutzbaren, aufgearbeiteten Form.
-\cite[S. 3-4]{evans}
+%TODO Definition Domäne
+\glqq Domain-Driven Design\grqq{} (Abk. DDD) ist eine Herangehensweise, Problemdomänen in ein Modell für die Softwareentwicklung zu überführen.
+%TODO Definition Modell
 
-Fachlichkeiten aus einer Domäne werden mit einer Unbiquitous Language, einer dem Model-basieten Sprache welche Entwickler und Domänen-Experten eine gemeinsame Terminologie vorgibt, ausgedrückt.
-\cite[S. 25-27]{evans}
+Maßgeblich geprägt wurde das DDD durch Eric Evans in seinem Buch \glqq Domain-Driven Design: Tackling Complexity in the Heart of Software\grqq{} \cite{evans}. Kern des domänengetriebenen Entwurfs ist es, die reale, oft unübersichtliche Fachlichkeit fortschreitend in feiner geschnittene Teilbereiche zu kapseln. Diese sollten weiterhin möglichst wenige Abhängigkeiten zueinander haben \cite[S.63, 70]{dowalil}. Dieser auf das Domänenmodell fokussierte Ansatz versucht dabei, Kernaspekte einer Anwendung möglichst im Modell zu integrieren, anstatt sie über externe Dienste zu binden \cite[S.74]{daschner}.
 
-Im Domain-Driven Design (DDD) bezeichnet und gewährleistet das Model-Driven Design(MDD) die möglichst enge Abstimmung zwischen Software-Design und konzeptionellem Domänenmodell. Um eine hohe Übereinstimmung zwischen Modell und Design zu erreichen, ist es fast unerlässlich, innerhalb eines von Software-Werkzeugen unterstützten Modellierungsparadigmas zu arbeiten. Ein ideales Werkzeug sind objektorientierte Programmiersprachen, da Modellkonzepte sich recht gut in objektorientierte Konzepte übersetzen lassen.
-\cite[S. 49-51]{evans}
+Evans stellt drei grundlegende Eigenschaften fest, welche bei der Wahl eines Modells im DDD zu berücksichtigen sind \cite[S. 3-4]{evans}:
+\begin{itemize}
+\item Es existiert immer eine Abhängigkeit zwischen Modell und Implementierung.
+\item Die Terminologie während der Softwareentwicklung ist eine Implikation des zugrunde liegenden Modells.
+\item Nützliches und aufgearbeitetes Wissen kann diesem Modell entnommen werden.
+\end{itemize}
+
+Ein weiteres Kernkonzept des DDD ist die \glqq Ubiquitous Language\grqq{}. Sie verbindet Entwickler und Domänen-Experten durch eine auf dem Modell basierenden Sprache. Dabei definiert sie eindeutig die verwendeten Begriffe und die ihnen zugeordneten Fachlichkeiten \cite[S. 25-27]{evans}. Ein weiterer Kern ist das \glqq Model-Driven Design\grqq{{} (Abk. MDD). MDD betont und bezeichnet das notwendige Ineinandergreifen der Konzeption eines Domänenmodells mit dem Entwurf der Anwendungssoftware. Um eine enge Übereinstimmung zwischen Modell und Software sicherzustellen, ist es von Vorteil, innerhalb eines durch Software-Tools unterstützten Modellierungsansatzes zu arbeiten. Objektorientierte Programmiersprachen eignen sich besonders gut, da sich die objekthaften Eigenschaften von Modellen gut abbilden lassen \cite[S. 49-51]{evans}.
 
 \pagebreak 
 \subsection{Bausteine des Model-Driven Design}
 
-Folgende abstrakten Bausteine existieren im MDD:
+Das DDD definiert verschiedene Bausteine des MDD \cite[S. 65]{evans}:
 
+%TODO Grafik machen
 \begin{center}
-\includegraphics[height=9cm]{pics/PatternsDDD.png}
+\includegraphics[height=7cm]{pics/PatternsDDD.png}
 \captionof{figure}{Bausteine des Model-Driven Design}
 \end{center}
 
-\cite[S. 65]{evans}
-
 \subsubsection{Schichtenarchitektur}
 
-Um die Komplexität von Software zu beherrschen, werden unter anderem Schichtenarchitekturen verwendet. In dieser hängt jedes Element einer Schicht nur von anderen Elementen in der gleichen oder den darunterliegenden Schichten ab. Im Kontext des DDD ist hier die Trennung der Geschäftslogik in eine eigene Domain Layer entscheidend. Dies erzeugt eine starke Kohäsion zum Modell im Sinne des MDD. Mit Entwurfsmustern wie dem Model-View Controller kann  auf diese Domain Layer wieder zugegriffen werden.
-\cite[S. 69 - 73]{evans}
+Schichtearchitekturn helfen die Komplexität von Software zu beherschen. Jedes Element einer Schicht hängt nur von Elementen derselben oder einer tieferen Schicht ab. Beim DDD wird die Geschäftslogik in eine eigene Schicht, die \glqq Domain Layer\grqq, gelegt. Dies sorgt für eine enge Verbindung zum Modell, wie es das MDD vorsieht. Mit Mustern wie dem Model-View-Controller kann man dann diese Schicht nutzen \cite[S. 69 - 73]{evans}.
 
-\subsubsection{Associations}
-Die Umsetzung von Assoziationen kann zwischen Modell und Implementierung stark variieren. Um die Assoziationen eines Modells besser handhabbar zu machen, gibt es verschiedene Ansätze: Das Festlegen einer Durchlaufrichtung verineinfacht beispielsweiße das Design und Reduziert Abhäbgigkeiten. Auch das Hinzufügen eines Qualifikators der effektiv die Multiplizität reduziert vereinfacht Modell und Implementierung. Das Entfernen von nicht essenziellen Assoziationen ist schließlich ebenso möglich.
-\cite[S. 81-85]{evans}
+%TODO Definition MVC
+%TODO Zusätzliche Definition Schichtenarchitektur
+
+\subsubsection{Assoziationen im Modell}
+Wie Assoziationen zwischen Modell und Umsetzung dargestellt werden, kann sich unterscheiden. Man kann diese vereinfachen, indem man z.B. eine bestimmte Richtung festlegt, was das Design klärt und Abhängigkeiten verringert. Ein weiterer Weg ist das Hinzufügen eines Qualifikators, um die Anzahl der Beziehungen zu reduzieren. Zudem kann man unwichtige Assoziationen auch ganz weglassen \cite[S. 81-85]{evans}.
 
 \subsubsection{Entities}
-Ein Objekt, das hauptsächlich durch seine Identität definiert wird, wird als Entität bezeichnet. Dessen Attribute sind dabei nebensächlich.
-Eine Entität stellt eine abstrakte Kontinuität eines Objektes dar, die sich durch einen Lebenszyklus zieht.
-Klassendefinitionen, Verantwortlichkeiten, Attribute und Assoziationen sollten die Identität der Entität repräsentieren.
 
-Bei einer Modellierung ist die grundlegendsten Verantwortlichkeit von Entitäten, Kontinuität herzustellen. Sie sollten sparsam verwendet werden. Nur das Verhalten das unerlässlich ist sollte ihnen angefügt werden. Darüber hinaus sollten zusätzliche Verhalten und Attribute zu anderen damit verbundenen Objekten verschoben werden. Die Identität soll mit einem einzigartigen Identifikationswert, welcher beispielsweiße automatisch generiert werden kann, sichergestellt werden.
-\cite[S. 89-96]{evans}
+\glqq Entities\grqq{} sind identifizierbare Objekte eines speziellen Bereichs. Wichtig ist, dass man sie einzeln identifizieren kann, nicht ihre spezifischen Merkmale. Dies kann z.B. mit automatisch erzeugten Identifikationswerten geschehen. Sie symbolisieren die durchgehende Existenz eines Objekts über dessen Lebenszyklus. Beim Erstellen eines Modells geht es hauptsächlich darum, diese Kontinuität zu gewährleisten. Klassendetails, Aufgaben und Assoziationen sollten die Identität der Entity zeigen. Entitäten sollen sparsam verwendet werden. Nur notwendiges Verhalten soll ihnen hinzu gefügt werden. Zusätzliches Verhalten soll zu anderen zugehörigen Objekten verschoben werden \cite[S. 89-96]{evans} \cite[S.75]{daschner}.
 
 \subsubsection{Value Objects}
-Ein Objekt, das einen beschreibenden Aspekt des Domänenbereichs darstellt und keine konzeptionelle Identität besitzt, wird als Wertobjekt (Value Object) bezeichnet. Wertobjekte können eine Zusammenstellung von anderen Objekten sein. Sie können Entitäten referenzieren. Wertobjekte werden häufig als Parameter in Nachrichten zwischen Objekten übergeben. Sie werden als Attribute von Entitäten (oder anderen Werten) verwendet. Die Felder eines Werteobjekts sollen ein konzeptionelles Ganzes formen.
 
-Beim Design sollte das Verhalten beim kopieren, teilen und der Veränderlichkeit von Value Objekten berücksichtigt werden.
-Damit Value Objects sicher geteilt werden können müssen sie unveränderlich sein. Alternativ müssen Value Objekte als Kopien übergeben werden.
-Weiterhin sind bidirektionale Assoziationen zwischen Value Objekten aufgrund der fehlenden Identität bedeutungslos und sollten entfernt werden.
-\cite[S. 97-103]{evans}
+\glqq Value Objects\grqq{} sind Typen ohne eigene Identität, die spezifische Werte repräsentieren. Sie können aus Value Objects Objekten bestehen und Entitäten referenzieren. Oft werden sie als Parameter zwischen Objekten oder als Eigenschaften von Entitäten genutzt. Value Objects sollten ein stimmiges Ganzes bilden und sind idealerweise unveränderlich, wodurch sie sicher geteilt werden können. Bidirektionale Verbindungen bei Value Objects sind aufgrund ihrer fehlenden Identität nicht sinnvoll und sollten vermieden werden \cite[S. 97-103]{evans} \cite[S.75]{daschner}.
 
 \subsubsection{Services}
 
-Einige Konzepte aus dem Domänenbereich sind nicht natürlich als Objekte zu modellieren. Daher wird ein neues Konzept eingeführt: Ein Service ist eine als Schnittstelle angebotene Operation, die im Modell eigenständig steht, ohne einen Zustand zu kapseln. Er wird rein nach dem definiert, was er für einen Client tun kann. Meist wird er nach einer Aktivität benannt und nicht nach einer Entität. Sie sollten bedacht eingesetzt werden und es sollte nicht zugelassen werden, dass sie den Entitäten und Wertobjekten all ihr Verhalten entziehen. Ein guter Service hat drei Eigenschaften: Die Operation bezieht sich auf ein Domänenkonzept, das kein natürlicher Teil einer Entität oder eines Wertobjekts ist. Die Schnittstelle ist in Bezug auf andere Elemente des Domänenmodells definiert. Die Operation ist zustandslos. Da Services auch außerhalb der Domain Layer auftreten können ist eine präzise fachliche Betrachtung nötig.
-\cite[S. 104 - 108]{evans}
+\glqq Services\grqq{} bieten eine spezielle Funktion im Modell an, ohne dabei Daten oder Zustände zu speichern. Er wird nach dem benannt, was er macht, und nicht nach dem, was er ist. Services starten oft bestimmte Vorgänge und arbeiten mit den Objekten des Modells. Sie kombinieren Schritte in Geschäftsprozessen. Sie sollten bedacht eingesetzt werden und dabei nicht alle Aufgaben von Entities und Value Objects abnehmen.
 
-\subsubsection{Modules/Packages}
+Ein guter Service sollte folgende Eigenschaften erfüllen:
+\begin{itemize}
+\item Er bezieht sich auf ein Konzept, das nicht direkt zu einer Entität oder einem Wertobjekt gehört.
+\item Es existiert eine klare Schnittstelle im Bezug auf andere Elemente des Modells.
+\item Kein Zustand wird gespeichert
+\end{itemize}
 
-Modules strukturieren Teile des Modells, sodass in ihnen eine möglichst hohe Kohäsion herrschst und zwischen ihnen eine möglichst lose Kopplung. Daher bündeln sie konzeptionell zusammengehörige Elemente.
-\cite[S. 109 - 116]{evans}
+Da Services auch außerhalb der Domain Layer auftreten können ist eine präzise fachliche Betrachtung nötig \cite[S. 104 - 108]{evans} \cite[S.74]{daschner}.
+
+\subsubsection{Packages}
+
+\glqq Packages\grqq{} sorgen im Modell für starke Kohäsion innerhalb und schwache Kopplung zwischen ihnen, indem sie zusammengehörige Elemente bündeln \cite[S. 109 - 116]{evans}.
 
 \subsubsection{Aggregates}
 
-Ein Aggregat ist ein Cluster von assoziierten Objekten, die wir zu dem Zweck von Datenänderungen als eine Einheit behandeln. Jedes Aggregat hat eine Wurzel und eine Grenze. Die Grenze definiert, was sich innerhalb des Aggregats befindet. Die Wurzel ist eine einzelne, spezifische Entität innerhalb des Aggregats. Die Wurzel ist das einzige Mitglied des Aggregats, auf das Außenobjekte Referenzen halten dürfen, obwohl Objekte innerhalb der Grenze Referenzen untereinander halten dürfen. Entitäten, die nicht die Wurzel sind, haben eine lokale Identität, aber diese Identität muss nur innerhalb des Aggregats unterscheidbar sein, da kein Außenobjekt sie außerhalb des Kontexts der Wurzel-Entität sehen kann.
-\cite[S. 123 - 135]{evans}
+\glqq Aggregates\grqq{} sind Ansammlungen von Objekten, die zusammen als Einheit betrachtet werden. Ihr Zweck ist es, Veränderungen als Ganzes zu handhaben, um Konsistenz zu gewährleisten. Ein direkter Zugriff auf einzelne Bestandteile kann Probleme verursachen. Deshalb gibt es in einem Aggregat ein Hauptobjekt (Wurzel), das für alle Aktionen verwendet wird.
+
+In jedem Aggregat gibt es diese Hauptobjekt und einen definierten Bereich, in dem sich alle zugehörigen Objekte befinden. Andere Objekte können nur auf dieses Hauptobjekt verweisen, wobei die enthaltenen Objekte untereinander verweisen können. Objekte innerhalb des Aggregats, die nicht die Hauptfunktion ausüben, sind nur in ihrem Kontext eindeutig identifizierbar \cite[S. 123 - 135]{evans} \cite[S.76]{daschner}.
 
 \subsubsection{Factories}
 
-Die Erstellung komplexer Objekte ist eine Verantwortung der Domänenschicht, dennoch gehört diese Aufgabe nicht zu den Objekten, die das Modell ausdrücken. Ein Programmelement, dessen Verantwortung die Erstellung anderer Objekte ist, wird als Fabrik (Factory) bezeichnet. Eine Fabrik kapselt das Wissen ein, das zur Erstellung eines komplexen Objekts oder Aggregats benötigt wird. Zwei grundlegende Anforderungen sind:
+Eine Factory erstellt Objekte. Dies ist nützlich, wenn das Erstellen eines Objekts mehr ist als nur das Ausführen eines Konstruktors, da manchmal besondere Regeln oder Logik benötigt werden. Zwei grundlegende Anforderungen an einer Factory sind:
 
-Jede Erstellungsmethode ist atomar und erzwingt alle Invarianten des erstellten Objekts oder Aggregats. Eine Fabrik sollte nur in der Lage sein, ein Objekt in einem konsistenten Zustand zu produzieren.
+\begin{itemize}
+\item Sie stellt sicher, dass jedes erstellte Objekt korrekt und vollständig ist.
+\item Sie fokussiert sich auf den Typ des Objekts, das erstellt werden soll, und nicht unbedingt darauf, wie es gemacht wird.
+\end{itemize}
 
-Die Fabrik sollte abstrakt auf den gewünschten Typ ausgerichtet sein, anstatt auf die konkrete(n) erstellte(n) Klasse(n).
-
-Obwohl eine Fabrik dafür verantwortlich ist sicherzustellen, dass alle Invarianten erfüllt sind, kann sie die Überprüfung von Invarianten delegieren, was oft am besten ist. Eine Fabrik kann für die Erstellung oder Rekonstitution verwendet werden. Die zweite hat zwei wesentliche Unterschiede:
-
-Eine Entitäten-Fabrik, die zur Rekonstitution verwendet wird, weist keine neue Tracking-ID zu.
-
-Eine Fabrik, die ein Objekt rekonstituiert, wird Verstöße gegen eine Invariante anders behandeln, da ein reines Ignorieren möglicherweise nicht ausreicht.
-\cite[S. 136 - 146]{evans}
+Auch wenn eine Factory dafür sorgt, dass ein Objekt richtig erstellt wird, kann sie einige Überprüfungen an andere Teile auslagern. Es gibt auch Factories, die bestehende Objekte wiederherstellen. Dabei gibt es Unterschiede, z.B. weisen sie keine neuen IDs zu und sie müssen Verletzungen von Regeln anders behandeln \cite[S. 136 - 146]{evans} \cite[S.77]{daschner}.
 
 \subsubsection{Repositories}
 
-Ein Repository stellt alle Objekte eines bestimmten Typs als ein konzeptuelles Set dar. Es verhält sich wie eine Sammlung, jedoch mit einer ausgefeilteren Abfragefähigkeit. Objekte des entsprechenden Typs werden hinzugefügt und entfernt, und die Maschinerie hinter dem Repository fügt sie in die Datenbank ein oder löscht sie daraus. Clients fordern Objekte aus Repositories an, indem sie Abfragemethoden verwenden, die Objekte basierend auf vom Client angegebenen Kriterien auswählen, wie zum Beispiel Werte bestimmter Attribute. Diese Abfragen können in ihrer Komplexität stark variieren.
-\cite[S. 147 - 161]{evans}
+\glqq Repositories\grqq{} sind dafür zuständig, Daten von bestimmten Objekten, wie Entitäten oder Aggregaten, sicher zu speichern und zu verwalten. Die Hauptidee von Repositories ist, einen zentralen Ort zu haben, der dafür sorgt, dass alles korrekt und konsequent gespeichert wird. Man kann sich ein Repository wie eine besondere Sammlung vorstellen, aus der man Daten anhand von bestimmten Kriterien abfragen kann. Dabei fügt das Repository neue Objekte der Datenbank hinzu oder löscht sie. Wenn man Daten aus einem Repository möchte, nutzt man spezielle Suchmethoden. Dabei kann die Suche einfach oder auch sehr detailliert sein \cite[S. 147 - 161]{evans} \cite[S.76]{daschner}.
+
+%TODO Checken ob notwendig
+%\subsection{Domain Event}
+%
+%Domain Events represent events that are relevant to the business domain. They usually merge from business use cases and have specific domain semantics. They are important for event Sourcing and event-driven architecture..\cite[S.78]{daschner}
 
 \pagebreak 
 \subsection{Strategic Design}
 
-Die strategischen Designprinzipien müssen Designentscheidungen leiten, um die Abhängigkeit der Teile zu verringern und die Klarheit zu verbessern, ohne dabei die kritische Interoperabilität und Synergie zu verlieren.
-\cite[S. 334]{evans}
-
-Strateic Design bezeichnet wie verschiedene Domänenmodelle miteinander interagieren können.
-\cite[S. 45]{wolff}
+Als \glqq Strategic Design" wird im DDD beschrieben, wie verschiedene Domänenmodelle miteinander interagieren können. Dabei müssen die strategischen Designprinzipien die Designentscheidungen leiten, um die Abhängigkeiten der Teile zu verringern und die Klarheit zu erhöhen, ohne dabei die kritische Interoperabilität und Synergie zu verlieren \cite[S. 45]{wolff} \cite[S. 334]{evans}.
 
 \begin{center}
-\includegraphics[height=9cm]{pics/Strategic.png}
+\includegraphics[height=7cm]{pics/Strategic.png}
 \captionof{figure}{Supple Design}
 \end{center}
 
-
 \subsubsection{Bounded Context}
 
-Ein Modell findet in einem Kontext Anwendung. Der Kontext kann ein bestimmter Teil des Codes oder die Arbeit eines bestimmten Teams sein. Der Modellkontext sind alle Bedingungen, die erfüllt sein müssen, damit man sagen kann, dass die Begriffe in einem Modell eine spezifische Bedeutung haben.
+Im Zentrum dieser Designentscheidungen steht der \glqq Bounded Context\grqq{}. Der Grundgedanke dahinter ist, dass jedes Domänenmodell nur in einem klar definierten Rahmen sinnvoll ist \cite[S. 45]{wolff}. Dieser Rahmen könnte ein spezifischer Codebereich oder die Arbeit eines Teams sein. Der Bounded Context beschreibt die Bedingungen, unter denen die Begriffe im Modell eine bestimmte Bedeutung haben. Eine Domäne kann aus mehreren solchen Kontexten bestehen, die auch Informationen mit anderen Kontexten teilen können. Jeder Bounded Context hat eine Schnittstelle, die bestimmt, welche Modelle für andere Kontexte verfügbar sind \cite[S.57]{newman}.
 
-Ein abgegrenzter Kontext begrenzt die Anwendbarkeit eines bestimmten Modells, sodass Teammitglieder ein klares und gemeinsames Verständnis davon haben, was konsistent sein muss und wie es sich zu anderen Kontexten verhält. Innerhalb dieses Kontexts sollte daran gearbeitet werden, das Modell logisch einheitlich zu halten, aber man sollte sich keine Gedanken über die Anwendbarkeit außerhalb dieser Grenzen machen.
-\cite[S. 335 - 340]{evans}
-\cite[S. 45]{wolff}
+Ein Bounded Context legt fest, in welchem Bereich ein Modell und somit auch die dazugehörige Ubiquitous Language gültig ist. Das hilft dabei, Verknüpfungen und mögliche Missverständnisse an Schnittstellen zu erkennen. Ein solcher Kontext klärt das Verständnis eines Modells innerhalb eines Teams und wie es sich zu anderen Kontexten verhält. Im Rahmen dieses Kontexts sollte das Modell konsistent gehalten werden, ohne dass man sich Sorgen um die Relevanz außerhalb dieser Grenzen machen muss \cite[S. 335 - 340]{evans} \cite[S.64-65]{dowalil}.
+
 
 \subsubsection{Context Map}
 
-Eine Kontextkarte befindet sich in der Überschneidung zwischen Projektmanagement und Softwareentwurf. Es handelt sich um eine Karte des bestehenden Geländes von Modellen mit Schwerpunkt auf den Berührungspunkten, die eine explizite Übersetzung für jegliche Kommunikation skizziert und jegliches Teilen hervorhebt.
-\cite[S. 344 - 353]{evans}
-\cite[S. 45]{wolff}
+Eine \glqq Context Map\grqq{} liegt an der Schnittstelle zwischen Projektmanagement und Softwareentwurf. Sie ist eine Übersicht über bestehende Modelle, wobei der Fokus auf den Berührungspunkten liegt. Diese Karte macht explizit die Kommunikationswege und gemeinsam genutzten Bereiche deutlich. Context Maps werden verwendet, um die Beziehungen verschiedener Bounded Contexts darzustellen \cite[S. 344 - 353]{evans} \cite[S. 45]{wolff}.
 
 \subsubsection{Shared Kernel}
 
-Ein Teilbereich des Domänenmodells kann dafür vorgesehen werden, unter Teams geteilt zu werden. Dies umfasst die Codebasis und die Datenbank, die möglicherweise mit dem Modell verbunden sind. Dieser geteilte Kern (Shared Kernel) sollte sorgfältig behandelt werden, da daran mehr Entwickler beteiligt sind. Der Shared Kernel ist oft die Kern-Domäne (Core Domain), eine Reihe von generischen Teil-Domänen (Subdomains) oder beides. Das Ziel ist es, Duplikationen zu reduzieren.
-\cite[S. 354 - 355]{evans}
-\cite[S. 45]{wolff}
+Ein Bereich des Domänenmodells kann dazu dienen, zwischen Teams geteilt zu werden. Das betrifft sowohl die Codebasis als auch die Datenbank, die mit dem Modell verknüpft sein könnte. Bei einem solchen \glqq Shared Kernel\grqq{} teilen sich die Domänenmodelle einige Elemente, können sich jedoch in anderen Aspekten unterscheiden. Dies kann entweder implizit geschehen oder explizit durch den gemeinsamen Codegebrauch bzw. durch den Zugriff auf dieselben Tabellen in der Datenbank. Oft bezeichnet der  Shared Kernel die Kern-Domäne, eine Sammlung generischer Teilbereiche oder beides. Ziel dabei ist es, Wiederholungen zu vermeiden \cite[S. 354 - 355]{evans} \cite[S. 45]{wolff} \cite[S.65]{dowalil}.
 
 \subsubsection{Customer/Supplier}
 
-Zwischen Parteien, die zwei unterschiedliche begrenzte Kontexte aufrechterhalten, kann eine Beziehung in Form einer nachgelagerten (downstream) und vorgelagerten (upstream) Komponente entstehen. Daher führt das Domain-Driven Design eine klare Kunden-/Lieferantenbeziehung zwischen solchen Kontexten ein. Daher erfüllt ein nachgelagertes Fragment eine kundenähnliche Rolle mit eigenen Bedürfnissen, die das vorgelagerte Fragment berücksichtigen muss. Automatisiertes Testen und Überwachen müssen implementiert werden, um zu verhindern, dass der nachgelagerte Bereich beschädigt wird.
-\cite[S. 356 - 360]{evans}
-\cite[S. 45-47]{wolff}
+Zwischen Parteien mit zwei verschiedenen Kontexten kann eine Beziehung entstehen, die aus einer nachgelagerten und einer vorgelagerten Komponente besteht. Das Domain-Driven Design definiert deshalb eine klare Kunden-/Lieferantenbeziehung für solche Kontexte. Die \glqq Customer/Supplier\grqq{}-Beziehung zeigt, dass ein Untersystem dem Aufrufer ein Domänenmodell zur Verfügung stellt. Der Aufrufer, also der Kunde, legt die Struktur des Modells fest. Der Anbieter der Schnittstelle richtet sich beim Design nach den Wünschen des Kunden und gibt ihm oft ein Mitspracherecht. Es sind automatisierte Tests und Überwachungen notwendig, um Schäden im nachgelagerten Bereich zu vermeiden \cite[S. 356 - 360]{evans} \cite[S. 45,47]{wolff} \cite[S.66]{dowalil}.
 
 \subsubsection{Conformist}
 
-Wenn die Bedürfnisse eines solchen nachgelagerten, abhängigen Subsystems durch den vorgelagerten Teil erfüllt werden können, ist eine mögliche Lösung, die Rolle des Konformisten der nachgelagerten Komponente zuzuweisen. Dadurch wird die Komplexität der Übersetzung zwischen den abgegrenzten Kontexten beseitigt, indem man sich an das Modell des vorgelagerten Fragments hält.
-\cite[S. 361 - 363]{evans}
-\cite[S. 47]{wolff}
+Wenn die Anforderungen eines nachgelagerten, abhängigen Subsystems durch den vorgelagerten Teil gedeckt werden können, bietet es sich an, dem nachgelagerten Teil die Rolle des \glqq Conformist\grqq{} zuzuweisen. Dies vereinfacht den Datenaustausch zwischen den beiden Kontexten, indem beide dasselbe Modell verwenden. Der Aufrufer nutzt also das gleiche Modell wie das aufgerufene System und passt sich somit dem anderen Modell an \cite[S. 361 - 363]{evans} \cite[S. 47]{wolff} \cite[S.66]{dowalil}.
 
 \subsubsection{Anticorruption Layer}
 
-Wenn Systeme, die auf unterschiedlichen Modellen basieren, kombiniert werden, kann die Notwendigkeit, dass das neue System sich an die Semantik des anderen Systems anpasst, zu einer Korruption des eigenen Modells des neuen Systems führen. Eine Antikorruptionsschicht kann erstellt werden, um eine isolierende Schicht zu schaffen, die den Clients Funktionalität im Sinne ihres eigenen Domänenmodells bietet. Die Schicht kommuniziert über die bestehende Schnittstelle mit dem anderen System, wobei wenig oder keine Änderungen am anderen System erforderlich sind. Intern übersetzt die Schicht bei Bedarf in beide Richtungen zwischen den beiden Modellen.
-\cite[S. 364 - 370]{evans}
-\cite[S. 47]{wolff}
+Wenn man Systeme kombiniert, die auf verschiedenen Modellen basieren, kann es passieren, dass das Modell des einen Systems durch das andere beeinflusst wird. Ein \glqq Anticorruption Layer\grqq{} kann helfen, indem er eine Schutzschicht bildet. Diese Schicht ermöglicht es den Nutzern, mit ihrem gewohnten Modell zu arbeiten, ohne das andere System zu beeinflussen. Sie dient als Übersetzer zwischen den beiden Modellen und sorgt dafür, dass sie unabhängig voneinander bleiben. Die Schicht kommuniziert über eine Schnittstelle mit dem anderen System, ohne dass große Änderungen daran notwendig sind. Sie kann bei Bedarf in beide Richtungen zwischen den Modellen übersetzen \cite[S. 364 - 370]{evans} \cite[S. 47]{wolff} \cite[S.66]{dowalil}.
 
-\subsubsection{Seperate Ways}
+\subsubsection{Separate Ways}
 
-Wenn der Nutzen im Vergleich zu den Integrationskosten zu gering ist, kann es eine gültige Lösung sein, zu erklären, dass ein abgegrenzter Kontext überhaupt keine Verbindung zu anderen hat. Anstatt Lösungen für Probleme im Bereich zu teilen, müssen diese in einem einfachen, spezialisierten Weg innerhalb dieses kleinen Rahmens implementiert werden.
-\cite[S. 371 - 373]{evans}
-\cite[S. 47]{wolff}
+Wenn der Nutzen im Vergleich zu den Integrationskosten zu gering ist, kann es sinnvoll sein, festzulegen, dass ein bestimmter Kontext keine Verbindung zu anderen hat. Im DDD spricht man hier von \glqq Separate Ways\grqq{}, was bedeutet, dass die beiden Systeme nicht verbunden werden und unabhängig voneinander bleiben. Anstatt Lösungen für Probleme gemeinsam zu nutzen, müssen diese auf einem klaren, speziellen Weg innerhalb dieses Rahmens umgesetzt werden. Dies kann zum Beispiel mit dem Composite UI Pattern erreicht werden \cite[S. 371 - 373]{evans} \cite[S. 47]{wolff} \cite[S.66]{dowalil}.
+
+%TODO Composite UI Pattern erklären
 
 \subsubsection{Open Host Service}
 
-Wenn ein Teilsystem mit vielen anderen integriert werden muss, kann die Anpassung eines Übersetzers für jedes einzelne problematisch skalieren. In diesem Fall ist die Definition eines offenen Protokolls von Diensten, das Zugang zum Teilsystem bietet, die bevorzugte Gestaltung.
-\cite[S. 374]{evans}
-\cite[S. 48]{wolff}
+Wenn ein Teilsystem mit vielen anderen verbunden werden muss, kann es problematisch sein, für jedes einen Übersetzer anzupassen. Hier bietet es sich an, ein offenes Protokoll von Diensten zu definieren, das Zugang zum Teilsystem ermöglicht. Dieser Kontext, als \glqq Open Host Service\grqq{} bezeichnet, stellt also Schnittstellen bereit, die jeder nutzen kann. So kann jeder Bereich seine eigene Anbindung erstellen.
+\cite[S. 374]{evans} \cite[S. 48]{wolff} \cite[S.66]{dowalil}.
 
 \subsubsection{Published Language}
 
-Das direkte Übersetzen der Sprache von Modellen kann zu übermäßig komplexen Strukturen führen. Auch wenn eine Sprache als Datenaustauschsprache verwendet wird, wird sie festgelegt und kann nicht mehr an die Bedürfnisse der Entwicklung angepasst werden. Daher kann eine gut dokumentierte gemeinsame Sprache als allgemeines Kommunikationsmedium veröffentlicht werden.
-\cite[S. 375-378]{evans}
-\cite[S. 48]{wolff}
+Das direkte Übersetzen von Modellsprachen kann zu sehr komplexen Strukturen führen. Selbst wenn eine Sprache für den Datenaustausch genutzt wird, ist sie einmal festgelegt und lässt sich nicht leicht an Entwicklungsbedürfnisse anpassen. Deshalb kann eine gut dokumentierte, gemeinsame Sprache als allgemeines Kommunikationsmittel bereitgestellt werden. Diese \glqq Published Language\grqq stellt eine Modellierung der Domäne als universelle Sprache zwischen den Bounded Contexts dar \cite[S. 375-378]{evans} \cite[S. 48]{wolff} \cite[s.65]{dowalil}.
 
 \pagebreak
-%\subsection{Large-Scale Structure}
-%
-%\subsubsection{Evolving Order}
-%
-%-Description
-%\cite[S. 444-446]{evans}
-%
-%\subsubsection{System Methapor}
-%
-%-Description
-%\cite[S. 447-449]{evans}
-%
-%\subsubsection{Responsibility Layer}
-%
-%-Description
-%\cite[S. 450-464]{evans}
-%
-%\pagebreak 
 \section{Microservices}
 
 \subsection{Definition}
