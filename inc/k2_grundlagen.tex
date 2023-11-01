@@ -1,6 +1,5 @@
 \chapter{Grundlagen}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %						DOMAIN	DRIVEN	DESIGN
@@ -101,7 +100,7 @@ Auch wenn eine Factory dafür sorgt, dass ein Objekt richtig erstellt wird, kann
 \pagebreak 
 \subsection{Strategic Design}
 
-Als \glqq Strategic Design" wird im DDD beschrieben, wie verschiedene Domänenmodelle miteinander interagieren können. Dabei müssen die strategischen Designprinzipien die Designentscheidungen leiten, um die Abhängigkeiten der Teile zu verringern und die Klarheit zu erhöhen, ohne dabei die kritische Interoperabilität und Synergie zu verlieren \cite[S. 45]{wolff} \cite[S. 334]{evans}.
+Als \glqq Strategic Design\grqq{} wird im DDD beschrieben, wie verschiedene Domänenmodelle miteinander interagieren können. Dabei müssen die strategischen Designprinzipien die Designentscheidungen leiten, um die Abhängigkeiten der Teile zu verringern und die Klarheit zu erhöhen, ohne dabei die kritische Interoperabilität und Synergie zu verlieren \cite[S. 45]{wolff} \cite[S. 334]{evans}.
 
 \begin{center}
 \includegraphics[height=7cm]{pics/Strategic.png}
@@ -197,6 +196,7 @@ Verschiede Eigenschaften zeichnen einen Microservice aus:
 
 \textit{Verteilte Netwerkkommunikation} - Microservices repräsentieren eine verteilte Architektur und nutzen verteilte Netzwerkkommunikation für die Interaktion mit anderen Diensten. Die Integration der Services erfolgt hauptsächlich über REST oder Lightweight Messaging. Durch die Kommunikation über leichte Protokolle wird der Overhead minimiert. Die Netzwerkkommunikation betont die Isolierung der Services und vermeidet die Gefahren einer engen Kopplung \cite[S.253]{richards} \cite[S. 2, 31-37]{wolff} \cite[S.154-157]{sommerville} \cite[S.128]{dowalil} \cite[S.23]{newman}.
 
+%TODO Ausführlicher erklären
 \textit{Einschränkungen bei Transaktionen} - Aufgrund dieser Architektur, sollten Transaktionen nicht über mehrere Services hinweg durchgeführt werden. Transaktionen sind durch die ACID-Eigenschaften (Atomizität, Konsistenz, Isolation, Dauerhaftigkeit) gekennzeichnet \cite[S.253]{richards} \cite[S. 2, 31-37]{wolff}.
 
 \textit{API-Schicht} - In vielen Darstellungen von Microservices ist eine API-Schicht erkennbar, die zwischen den Nutzern (Consumern) und dem System liegt. Obwohl diese Schicht optional ist, wird sie häufig verwendet, da sie in der Architektur gut positioniert ist, um nützliche Aufgaben zu erfüllen. Sie sollte jedoch nicht als Vermittler oder Orchestrierungswerkzeug fungieren, da Microservices streng domänenspezifisch sind. Jeder Service stellt eine API bereit, über die andere Services mit ihm kommunizieren können. Es ist wichtig, dass durch die API keine Kopplung an die Consumer entsteht, was bei der Technologieauswahl zu berücksichtigen ist \cite[S.255,256]{richards} \cite[S.24]{newman}.
@@ -206,79 +206,117 @@ Verschiede Eigenschaften zeichnen einen Microservice aus:
 \pagebreak
 \subsection{Architektur von Microservice-Systemen}
 
-Microservices sind kleinmaßstäbliche Dienste, die kombiniert werden können, um Anwendungen zu erstellen \cite[S.154-157]{sommerville}.
+Microservices sind kleine Dienste, die zusammengesetzt Anwendungen bilden. Sie unterscheiden sich von traditionellen, geschichteten Architekturen. Statt einer festgelegten Menge von Komponenten, setzen sie auf flexiblere, unabhängige Dienste. In der Softwareentwicklung gibt es den Trend, Systeme modular zu gestalten. Microservice-Architekturen tun dies, indem sie Software in Dienste statt in klassische Bibliotheken gliedern. Vorteile sind unter anderem die unabhängige Bereitstellung und klare Schnittstellen, die eine enge Verknüpfung vermindern \cite[S.154-157]{sommerville} \cite{fowlerlewis}.
 
-\subsubsection{DDD-Prinzipien und Kohäsion in Microservices}
+\subsubsection{DDD-Prinzipien}
 
-Der Grundgedanke der Microservices ist der BOunded Context. Hierbei bildet jeder Dienst eine Domäne oder einen bestimmten Arbeitsablauf ab. In vielen Punkten sind Microservices die physikalische Verkörperung der logischen Konzepte des DDD \cite[S.253,254]{richards}.
+Der Kerngedanke hinter Microservices ist der Bounded Context. Jeder Dienst repräsentiert eine Domäne oder einen bestimmten Arbeitsprozess. Ein Microservice sollte eine eigenständige fachliche Einheit darstellen, die so gestaltet ist, dass bei Änderungen oder neuen Funktionen nur dieser eine Microservice angepasst werden muss. Ein Bounded Context kann in mehrere Microservices unterteilt werden, falls das zweckmäßig ist. Zudem sollten die aus dem DDD bekannten Konzepte des Strategic Design berücksichtigt werden. Die Zuständigkeiten der Anwendungen müssen daher klar definiert und von anderen Anwendungen abgegrenzt sein. Ebenso sollten die Belange verschiedener Anwendungen auch auf Code-Ebene separat gehalten werden \cite[S.253,254]{richards} \cite[S. 48-51]{wolff} \cite[S.289]{daschner}.
 
-Jeder Microservice soll eine eigene fachliche Einheit bilden, die so geschnitten ist, dass für Änderungen oder neue Features nur ein Microservice geändert werden muss. Weiterhin sollen die aus dem DDD bekannten Konzepte des Strategic Design verwendet werden. Micorservices sollen jeweils eine fachliche Domäne modellieren, sodass neue Features oder Änderungen nur in einem Microservice umgesetzt werden müssen. Ein Bounded Context kann in mehrere Microservices aufgeteilt werden, wenn das sinnvoll erscheint.
-\cite[S. 48-51]{wolff}
+\subsubsection{Kopplung und Kohäsion}
 
-Gemäß den DDD-Prinzipien kann eine fachliche Architektur erfolgen. Dabei soll es zwischen den Microservices eine lose Kopplung geben, wodurch sie isoliert und leichter abänderbar sind. Innerhalb eines Dienstes sollen die Bestandteile eng zusammenarbeiten, was einer hohen Kohäsion entspricht. Weiterhin sind zyklische fachliche Abhängigkeiten in der Architektur problematisch, da dadurch die isolierte Änderbarkeit nicht mehr gewährleistet ist.
-\cite[S. 101-105]{wolff}
+Kohäsion beschreibt, wie eng Teile eines Moduls zusammengehören sollten. Es wird gemessen, wie verwandte Teile sich zueinander verhalten. Am besten sind alle Teile eines kohäsiven Moduls im gleichen Package. Teilt man so ein Modul auf, müssen die Einheiten durch Aufrufe zwischen den Modulen verbunden werden, um sinnvolle Ergebnisse zu erzielen \cite[S.40]{richards}.
 
+Die Kopplung zeigt, wie stark eine Komponente von einer anderen abhängt. Man unterscheidet zwischen afferenter Kopplung, die eingehende Verbindungen eines Code-Teils zählt, und efferenter Kopplung, die Verbindungen zu anderen Code-Teilen misst \cite[S.44]{richards}.
 
-Ihr Ziel bei der Gestaltung eines Microservices sollte es sein, einen Dienst mit hoher Kohäsion und geringer Kopplung zu erstellen. Das zugrunde liegende Prinzip hier ist das "Single Responsibility Principle"
-\cite[S.154-157]{sommerville}
+Das Ziel bei Microservices ist, einen Dienst mit starker Kohäsion und schwacher Kopplung zu schaffen. Dies basiert auf dem \glqq Single Responsibility Principle\grqq{} \cite[S.154-157]{sommerville}. Innerhalb eines Dienstes sollten die Bestandteile eng zusammenarbeiten (hohe Kohäsion). Zwischen den Microservices sollte eine schwache Kopplung herrschen, sodass sie unabhängig und leicht änderbar sind. Wenn Dienste schwach gekoppelt sind, bedeutet das, dass eine Änderung in einem Dienst nicht automatisch Änderungen in anderen erfordert. Ein schwach gekoppelter Dienst kennt nur das Nötigste über andere Dienste. Deshalb ist es ratsam, die Kommunikation zwischen den Diensten zu beschränken, um Geschwindigkeitsprobleme und enge Kopplungen zu vermeiden. Zyklische Abhängigkeiten in der Architektur sind problematisch, da sie die Unabhängigkeit der Änderungen beeinträchtigen \cite[S. 101-105]{wolff} \cite[S.56]{newman}.
 
-\subsubsection{Anpassungen und Methoden in der Microservice-Gesamtarchitektur}
-
-Verschiedene etablierte Methoden existieren im Zusammenhang mit Änderungen der Gesamtarchitektur, die durch neue Erkenntnisse aus der Domäne notwendig sein können. So kann in mehreren Diensten gemeinsam verwendeter Code in Bibliotheken ausgelagert werden.
-Dabei muss jedoch auf die dadurch entstehende Abhängigkeit geachtet werden, da durch unkoordinierte Änderungen Fehler in Teilen des Microservice-Systems einschleichen können. Weiterhin kann Code eines Dienstes in einen anderen übertragen werden, um Verbesserungen im Hinblick auf die Kohäsion in einem Dienst zu erreichen. Eine Alternative zur Bibliothek ist es, Code in einen gemeinsamen, neuen Dienst zu übertragen, was bei vorausgesetzter passender Schnittstellendefinition dem Ziel der entkoppelten Dienste zuträglich ist. Es ist auch möglich, alten Code in einen neuen Service zu migrieren oder die notwendige Änderung der Architektur mit einem vollständig neu entwickelten Microservice umzusetzen.
-\cite[S. 112-120]{wolff}
+Generell sollten Microservices und ihre Schnittstellen auf spezifische Kontexte ausgerichtet sein. Dies schafft optimale Voraussetzungen für schwache Kopplung und starke Kohäsion \cite[S.59,60]{newman}.
 
 \subsubsection{Ereignisgetriebene Architektur in Microservices}
 
-Der eventbasierte Architekturstil ist ein verteilter asynchroner Stil. Sie besteht aufs entkoppelten Komponenten zur Eventverarbeitung, die Events asynchron empfangen und verarbeiten \cite[S.183]{richards}.
+Um gemeinsame Logik zu implementieren, müssen Microservices miteinander kommunizieren. Dadurch werden größere Transaktionen in kleinere aufgeteilt, die zwar für sich genommen inkonsistent sein können, aber im Gesamtkontext für Konsistenz sorgen. Eine ereignisgetriebene Architektur (Event-Driven Architecture, EDA) kann hierbei helfen. Bei dieser Architektur sendet ein Dienst, bei einem bestimmten Ereignis, eine Nachricht aus. Dieser Dienst, der Event-Emitter, informiert so alle beteiligten Microservices darüber, dass eine Aktion stattgefunden hat. Der eventbasierte Architekturstil arbeitet verteilt und asynchron. In dieser Architektur erfolgt die Kommunikation über asynchrone Nachrichten, die zuverlässig gesendet und empfangen werden. Die Komponenten sind entkoppelt und verarbeiten diese Nachrichten asynchron \cite[S. 137 - 138]{wolff} \cite[S.183]{richards} \cite[S.301]{daschner}.
 
-Ein Eventbasiertes Modell reagiert auf eine bestimmte Situation und führt daraufhin eine oder mehrere Aktionen aus \cite[S.184]{richards}.
+Für die Ereignisgetriebene Architektur existieren zwei grundlegende Topologien: Die Broker-Topologie und die Mediator-Topologie.
 
-%TODO Ausführlicher
-Für die Eventbasierte Architektur gibt es zwei grundlegende Topologien:
-Die Broker Topologie gibt es keinen zentralen Event Mediator. Stattdessen ist der Nachrichtenfluss auf die Event-Prozessorkomponenten nach Art eines verketteten Broadcastings mithilfe eines einfachen Message Brokers verteilt \cite[S.184-189]{richards}
-Die Mediator Topologie besitzt einen Event-Mediator. Er verwaltet und kontrolliert den Arbeitsablauf und die beteiligten Event-Prozessoren.
+%TODO Grafik machen
+\begin{center}
+\includegraphics[height=7cm]{pics/broker.png}
+\captionof{figure}{Broker-Topologie}
+\end{center}
 
-%TODO Datenverlust verhindern \cite[S.205-207]{richards}
+In der Broker-Topologie verteilt ein einfacher Message Broker Nachrichten über die Event-Prozessorkomponenten, ähnlich einem verketteten Broadcasting. Diese Topologie ist sinnvoll, wenn hohe Reaktionsfähigkeit und dynamische Kontrolle über die Eventverarbeitung gefordert sind. Sie ist besonders nützlich, wenn der Event-Verarbeitungsfluss einfach ist und keine zentrale Orchestrierung oder Koordination benötigt.
 
-Damit Microservices ihre gemeinsame Logik implementieren können, müssen sie sich gegenseitig aufrufen. Dabei kann eine ereignisgetriebene Architektur (Event-Driven Architecture, EDA) verwendet werden, bei der ein Dienst bei einem Ereignis aus der Anwendungslogik, einem Event, dieses versendet. Dieser Dienst, der Event-Emitter, signalisiert damit allen interessierten Microservices (Event-Consumern), dass etwas passiert ist. Dieses Vorgehen kapselt die Anwendungslogik und entkoppelt die Bearbeitung der Events zeitlich, was dem Ziel einer losen Kopplung beiträgt.
-\cite[S. 137 - 138]{wolff}
+Die Broker-Topologie besteht aus vier Hauptkomponenten: Einem auslösenden Event, dem Event-Broker, einem Event-Prozessor und einem verarbeitenden Event.
 
-\subsubsection{Konfigurationsmanagement in Microservice-Systemen}
+Das auslösende Event startet den Event-Fluss und wird zur Verarbeitung an einen Kanal des Event-Brokers weitergeleitet. Ein einzelner Event-Prozessor übernimmt und verarbeitet das Event. Nach der Verarbeitung informiert er das System über ein sogenanntes Verarbeitungs-Event über seine Aktionen. Dieses wird asynchron an den Event Broker gesendet, um eventuell weitere Verarbeitungsschritte zu initiieren. Andere Event-Prozessoren reagieren darauf, führen Aktionen aus und informieren das System erneut über ein Verarbeitungs-Event. Dieser Prozess wiederholt sich, bis kein weiteres Interesse an den Aktionen des letzten Event-Prozessors besteht.
 
-Die Konfiguration eines Microservice-Systems wird mit steigender Anzahl von Services entsprechend aufwendig. Mit Werkzeugen wie Zookeeper, etcd oder Spring Cloud Config werden Key-Value-Stores bereitgestellt, die dies vereinfachen. Jedoch gilt es zu beachten, dass dadurch eine Abhängigkeit zu einem Konfigurationsserver entsteht. Alternativ kann eine Konfiguration auf dem Server des Microservices selbst vorliegen. Dies vermeidet die Notwendigkeit eines zentralen Konfigurationsservers, kann aber auch Herausforderungen in Bezug auf die Synchronisation und Verwaltung der Konfigurationen über mehrere Instanzen hinweg mit sich bringen.
-\cite[S. 141 - 142]{wolff}
+Ein Event-Broker ist oft in Domänen unterteilt, wobei jeder Broker alle für eine Domäne notwendigen Kanäle enthält. In der Broker-Topologie wird ein entkoppeltes, asynchrones \glqq fire and forget\grqq{} Broadcasting mit Themen verwendet, die nach dem Publish-Subscribe-Modell funktionieren. Jeder Event-Prozessor teilt dabei dem System mit, was er getan hat, unabhängig davon, ob dies für andere Event-Prozessoren relevant ist oder nicht \cite[S.184-186]{richards}.
 
+%TODO Grafik machen
+\begin{center}
+\includegraphics[height=7cm]{pics/mediator.png}
+\captionof{figure}{Mediator-Topologie}
+\end{center}
 
-\subsubsection{Service Discovery in Microservice-Architekturen}
+Die Mediator-Topologie verfügt über einen Event-Mediator, der den Arbeitsablauf und die beteiligten Event-Prozessoren für initiale Events steuert. Sie setzt sich zusammen aus einem initialen Event, einer Event-Queue, dem Event-Mediator, Event-Channels und Event-Prozessoren.
 
-Service Discovery stellt sicher, dass Microservices sich gegenseitig finden können. Dazu muss diese dynamisch sein um gehende und kommende Microservices zu finden. Technolgien für diese sind besipielsweiße DNS (Domain Name Sstem), Eureka, Consul.
-\cite[S. 143 - 146]{wolff}
+In dieser Topologie wird das initiale Event zuerst an die Event-Queue gesendet, die vom Event-Mediator verwaltet wird. Der Event-Mediator kennt nur die für die Event-Verarbeitung erforderlichen Schritte und erzeugt daher Verarbeitungs-Events, die zu den jeweiligen Event-Channels weitergeleitet werden. Die Event-Prozessoren hören auf bestimmten Event-Channels, bearbeiten das Event und informieren in der Regel den Event-Mediator nach Abschluss ihrer Aufgabe. Im Unterschied zur Broker-Topologie teilen die Event-Prozessoren in der Mediator-Topologie nicht mit, was sie verarbeitet haben. Häufig gibt es verschiedene Mediatoren, die jeweils für bestimmte Bereiche oder Event-Gruppen verantwortlich sind.
+\cite[S.189-190]{richards}
 
-\subsubsection{Lastverteilung in Microservices}
+\subsubsection{Orchestrierung und Choreographie}
 
-Bei hoher Last können Microservices unabhängig skalieren. Dadurch müssen mehrere Instanzen registriert werden, die sich die Last gegen einen Dienst teilen. Um HTTP anfragen in solch einem Fall zu verteilen wird ein Load Balanecr genutzt, der sich nach außen wie eine einzige Instanz verhält, aber die Anfragen auf mehrere verteilt. Da bei einem einzigen Load Balancer für mehrere Microservices, dieser zum Flaschenhals werden kann, sollte pro Microservice ein Load Balancer existieren. Technologien für Load Balancer existieren nativ in Cloud Umgebungen oder können beispielsweiße mit Apache httpd, nginx oder HAProxy umgesetzt werden.
-\cite[S. 147 - 150]{wolff}
+Wenn komplexere Programmlogiken entwickelt werden, müssen Geschäftsprozessen abgebildet werden, die über mehrere Services verteilt sind. Meistens handelt es sich um eine Abfolge von Interaktionen, bei denen Operationen in einer bestimmten Reihenfolge stattfinden. Dies nennt man auch Workflow.
 
-\subsubsection{Sicherheitsrichtlinien und -architekturen in Microservice-Systemen}
+Es gibt zwei von der EDA beeinflusste Architekturstile die diese Aufgabe angehen: Orchestrierung und Choreographie.
 
-Die Sicherheitsarchitektur muss einheitlich auf der Gesamtebene des Systems definiert werden, um sicherzustellen, dass ein Zugriff eines Nutzers einheitlich behandelt wird. Dazu gehört es, Authentifizierung und Autorisierung zu gewährleisten. Der einzelne Microservice des fachlich abgebildeten Systems soll keine Authentifizierung übernehmen. Stattdessen wird diese Aufgabe von einem zentralen Server wahrgenommen. Bei der Autorisierung ist ein Zusammenspiel gefragt, da über Benutzergruppen bestimmte Features des Microservices zugewiesen sind. Welche dies sind, soll der Microservice entscheiden. Eine Implementierung dieses Konzepts ist das OAuth2-Protokoll. Dabei erhält ein Nutzer nach erfolgreicher Authentifizierung und Autorisierung ein Access Token, welches genutzt wird, um mit einem Service zu interagieren. Dieses kann weiterhin von einem Microservice an andere Microservices weitergereicht werden, um berechtigte Anfragen zu ermöglichen und die einheitliche Sicherheitsrichtlinie im gesamten System zu gewährleisten.
-\cite[S. 153 - 161]{wolff}
+Bei der Orchestrierung gibt es eine zentrale Stelle, die den Prozess steuert. Ein Workflow kann klar definiert werden, und es gibt einen separaten Dienst, der den Workflow ausführt, indem er die einzelnen Dienste nacheinander aufruft. Durch diesen Mediator entsteht eine Verknüpfung zwischen den Diensten. Gleichzeitig kann der Architekt die Koordination auf einen Dienst konzentrieren, ohne andere zu beeinflussen.
 
+Choreographie hingegen verwendet den Kommunikationsstil der Broker-Topologie. Entsprechend der Philosophie des Bounded Context gibt es keine zentrale Steuerung. Bei der Choreographie wird den Systemkomponenten ihre Aufgabe mitgeteilt und überlassen ihnen die Einzelheiten der Umsetzung. Jeder Dienst teilt ein Ereignis, wenn er fertig ist. Andere Dienste beobachten diese und reagieren darauf. Zur Umsetzung wird zusätzliche Software wie ein Message-Broker benötigt, der Veröffentlichungs- und Abonnierfunktionen unterstützt \cite[S.72]{newman} \cite[S.261-262,264-265]{richards} \cite[S.168-169]{sommerville}.
+
+\subsubsection{Anpassungen der Microservice-Gesamtarchitektur}
+
+Durch neue Erkenntnisse aus der Domäne, wachsenden Code oder auch dem Wunsch Code wiederzuverwenden, kann es notwendig sein Teile der Microservice-Architektur anzupassen. Verschiedene Methoden existieren dazu.
+
+Code, der in mehreren Diensten verwendet wird, kann in Bibliotheken ausgelagert werden. Diese Bibliotheken erleichtern das Teilen von Funktionalitäten mit anderen Teams oder Services. Man muss allerdings auf die entstehenden Abhängigkeiten achten, denn unkoordinierte Änderungen können zu Fehlern im Microservice-System führen. Zudem geht die Möglichkeit, verschiedene Technologien zu nutzen, verloren \cite[S. 1121-115]{wolff} \cite[S.31]{newman}.
+
+%TODO Mesh betwas mehr erklären; Mesh Chassis Unterschied klarstellen
+Gemeinsamer Code kann auch durch das Sidecar-Entwurfsmuster wiederverwendet werden. Die Sidecar-Komponente ist ein Bestandteil eines Dienstes und kümmert sich beispielsweise um technische Betriebsaufgaben wie Logging, Monitoring und Sicherung. Wenn jeder Dienst ein Sidecar hat, kann ein Service Mesh erstellt werden, das eine einheitliche Kontrolle über Funktionen wie Logging und Monitoring in der gesamten Architektur ermöglicht. Die typischen Sidecar-Komponenten bieten dabei eine durchgängige Schnittstelle für den technischen Betrieb aller Microservices. Das Service Mesh gibt damit Entwicklern umfassenden Zugriff auf die Dienste.\cite[S.256-258]{richards}.
+
+%TODO Chassis etwas mehr erklären
+Das Mikroservice-Chassis stellt in diesem Kontext eine weiter Lösung für solche gemeinsamen Belange dar, indem es standardisierte Build-Komponenten und Werkzeuge für diese Aspekte bereitstellt. Dies ermöglicht eine effiziente Service-Implementierung ohne redundante Einrichtungsaufgaben. Zudem vereinfacht das Chassis Aktualisierungen, da zentrale Änderungen an alle Dienste weitergegeben werden können.
+\cite{richardson}
+
+Man kann den Code eines Dienstes in einen anderen übertragen, um beispielsweiße die Kohäsion zu verbessern. Auch kann man alten Code in einen neuen Dienst verschieben oder Änderungen in der Architektur durch einen neu entwickelten Microservice realisieren.
+\cite[S. 115-120]{wolff}
+
+\subsubsection{Zugriff in einer Microservice-Architektur}
+
+Die Service-Erkennung (engl.: Service Discovery) läuft in zwei Schritten ab: Zunächst ermöglicht ein Mechanismus einer Instanz die Registrierung, danach kann der Service gefunden werden. Zu den Technologien, die dies ermöglichen, gehören Systeme mit statischer Namensauflösung wie DNS oder solche mit dynamischer Registrierungsmöglichkeit wie Zookeeper, Consul und Eureka. Service Discovery sorgt dafür, dass Microservices sich gegenseitig erkennen können \cite[S.296-301]{newman} \cite[S. 143 - 146]{wolff} \cite[S.329]{daschner}.
+
+Bei hoher Last skalieren Microservices selbstständig, indem mehrere Instanzen die Arbeit teilen. Ein Load Balancer leitet HTTP-Anfragen an diese Instanzen weiter. Jeder Microservice sollte seinen eigenen Load Balancer haben. Technologien dafür findet man in Cloud-Umgebungen oder mit Tools wie Apache httpd, nginx und HAProxy. Für die Stabilität eines Service sollte der Ausfall einer Instanz das System nicht stören. Bei typischen Microservices wird das mit mehreren Instanzen und einem Lastverteiler erreicht. Lastverteiler teilen Anfragen nach einem Algorithmus auf und können kaputte Instanzen ersetzen. Sie ermöglichen auch die Umwandlung von HTTPS in HTTP, was die Systemeinrichtung einfacher macht \cite[S. 147 - 150]{wolff} \cite[S.274-275]{newman}.
+
+%TODO Deep Dive ? \cite[S.221-233]{newman}.
+Weiterhin muss Die Sicherheit des gesamten Systems einheitlich gestaltet werden, sodass jeder Nutzerzugriff einheitlich geregelt ist. Dies beinhaltet die Authentifizierung und Autorisierung. Einzelne Microservices sollten sich nicht um die Authentifizierung kümmern. Dies macht ein zentraler Server. Bei der Autorisierung arbeiten verschiedene Teile zusammen, wobei Microservices bestimmen, welche Funktionen bestimmten Nutzergruppen zur Verfügung stehen. Ein Beispiel für die Umsetzung ist das OAuth2-Protokoll. Nach erfolgreicher Authentifizierung und Autorisierung bekommt der Nutzer ein Access Token, das den Zugriff auf Services erlaubt. Dieses Token kann zwischen Microservices ausgetauscht werden, um sichere Anfragen zu ermöglichen und die Sicherheit im gesamten System sicherzustellen \cite[S. 153-161]{wolff}.
+
+\pagebreak
 \subsection{Kommunikation}
 
 Grundsätzlich müssen sich Architekten zwischen synchroner und asynchroner Kommunikation entscheiden. Bei der synchronen Kommunikation muss der Aufrufer eine Antwort vom Aufgerufenen warten. In Microservice-Architekturen kommt dagegen meist eine protokollbewusste heterogene Interoperabilität zum Einsatz. Um eine Kopplung beim technischen Betrieb zu vermeiden, gibt es bei Microservices keinen zentralen integrations-Hub. Jeder Dienst muss selbst wissen, wie er die anderen Dienste aufrufen kann. Daher müssen alle Dienste wissen (oder per Service Discovery herausfinden), welche Protokolle für den Aufruf anderer Dienste verwendet werden müssen. Da Microservices eine verteilte Architektur sind, kann jeder Dienst in einem anderen Techonologiestack geschrieben sein. Interoperabilität beschreibt Dienste die einander aufrufen. Für die asynchrone Kommunikation nutzen Architekten oft Events und Messages. Das heißt intern kommt eine eventbasierte Architektur zum Einsatz bei der in Microservices Choreografie und Orchestrierung die Funktion der Broker- und Mediator-Muster übernehmen \cite[S.260,261]{richards}.
 
-Key dcision when choosing a standart for microservice communication: should service interaction be synchronous or asynchronous. should services communictate directly or via massage broker middleware. what protocol shoul be used for messages between services.
-Synchronous interaction is less complex than asynchronous. On the other Hand anychronous interaction is often more efficient, as services are not idle while waiting. Asynchr. services are loosely coupled, so making changes to these services should be easier.
+Schlüsselentscheidung bei der Wahl eines Standards für die Kommunikation von Mikroservices: Sollte die Service-Interaktion synchron oder asynchron sein? Sollten Services direkt kommunizieren oder über einen Message-Broker-Middleware? Welches Protokoll sollte für Nachrichten zwischen den Services verwendet werden?
+Synchroner Austausch ist weniger komplex als asynchroner. Andererseits ist asynchrone Interaktion oft effizienter, da die Services nicht untätig sind, während sie warten. Asynchrone Services sind locker gekoppelt, daher sollte das Ändern dieser Services einfacher sein.
 \cite[S.161-163]{sommerville}
+
+Bei der synchronen Kommunikation wird ein Aufruf an einen entfernten Server übermittelt und es wird gewartet, bis die Transaktion abgeschlossen ist. Bei der asynchronen Kommunikation hingegen wartet der Aufrufer nicht auf den Abschluss der Transaktion, und der Programmablauf wird fortgesetzt. Es ist dem Aufrufer möglicherweise egal, ob die Anfrage überhaupt abgeschlossen wird.
+
+Diese beiden Kommunikationsverfahren führen zu zwei unterschiedlichen Begrifflichkeiten hinsichtlich der Art der Kollaboration: Anfrage/Antwort (Request/Response) und ereignisgesteuert (Event-Based). Im Fall von Anfrage/Antwort stellt der Client eine Anfrage und wartet auf die Antwort. Diese Vorgehensweise lässt sich der synchronen Kommunikation zuordnen, kann aber auch in der asynchronen Kommunikation funktionieren. So könnte ich beispielsweise eine Transaktion veranlassen und einen Callback einrichten, sodass der Server mich informiert, sobald meine Transaktion abgeschlossen ist.
+
+Bei der ereignisgesteuerten Kollaboration wird der Vorgang gewissermaßen auf den Kopf gestellt: Statt eines Clients, der mit einer Anfrage um die Erledigung einer Aufgabe bittet, teilt ein Service einfach mit: "Dies und jenes ist passiert" und geht davon aus, dass ein anderer Service schon wissen wird, wie darauf zu reagieren ist.
+\cite[S.70-71]{newman}
 
 \subsubsection{REST}
 
-Mit REST (Representational State Transfer) können Microservices untereinander Code aufrufen. Es gibt eine Vielzahl von Ressourcen, die über URIs identifiziert werden können. Die Ressourcen können über eine feste Menge von Methoden manipuliert werden, welche z. B. durch HTTP vorgegeben sind. Ressourcen können unterschiedlich repräsentiert werden. Beziehungen zwischen Ressourcen können durch Links angegeben werden (HATEOAS). Der Server in einem REST-System sollte zustandslos sein. Eine RESTful-HTTP-Schnittstelle kann durch einen Cache ergänzt werden. RESTful HTTP ist synchron. Daher können Ausfälle auftreten, denen mit Timeouts entgegengewirkt werden kann, um Fehlerfortpflanzung zu vermeiden.
-\cite[S. 182 - 183]{wolff}
+%TODO HTTP Protokoll als Quelle nutzen
+
+Mit REST (Representational State Transfer) können Microservices untereinander Code aufrufen. Es gibt eine Vielzahl von Ressourcen, die über URIs identifiziert werden können. Die Ressourcen können über eine feste Menge von Methoden manipuliert werden, welche z. B. durch HTTP vorgegeben sind. Ressourcen können unterschiedlich repräsentiert werden. Beziehungen zwischen Ressourcen können durch Links angegeben werden (HATEOAS). Der Server in einem REST-System sollte zustandslos sein. Eine RESTful-HTTP-Schnittstelle kann durch einen Cache ergänzt werden. RESTful HTTP ist synchron. Daher können Ausfälle auftreten, denen mit Timeouts entgegengewirkt werden kann, um Fehlerfortpflanzung zu vermeiden \cite[S. 182 - 183]{wolff}.
+
+Am wichtigsten ist das Konzept der Ressourcen. Man kann sich eine Ressource als ein Objekt vorstellen, von dem der Service Kenntnis hat. Wie eine Ressource nach außen hin dargestellt wird, ist vollständig von ihrer internen Darstellung entkoppelt. REST selbst gibt wenig Auskunft über das zugrundeliegende Protokoll. Am häufigsten wird jedoch HTTP verwendet. HTTP legt genau fest, wie Verben (GET, POST, PUT) auf Ressourcen wirken \cite[S.79-80]{newman}.
+
+Der REST-Architekturstil basiert auf der Übertragung von Darstellungen digitaler Ressourcen von einem Server an einen Client. Ein RESTful-Service nutzt die im HTTP-Protokoll definierten HTTP-Methoden und ist zustandslos. Jede Ressource sollte über eine adressierbare URI mit einer hierarchischen Struktur verfügen. Ressourcen werden üblicherweise im JSON- oder XML-Format repräsentiert. Die Operationen eines RESTful-Services umfassen das Erstellen (implementiert mit POST), Lesen (implementiert mit GET), Aktualisieren (implementiert mit PUT) und Löschen (implementiert mit DELETE). \cite[S.173-175]{sommerville}.
 
 \subsubsection{Messaging}
+
+%TODO Literatur zu Messaging Systemen, Apache Kafka
 
 Messaging-Systeme stellen eine weitere Möglichkeit dar, die Kommunikation zwischen Microservices zu ermöglichen. Sie basieren auf dem Versand von Nachrichten, die selbst bei einem Netzwerkausfall übermittelt werden können, da die Messaging-Systeme sie zwischenspeichern. Eine korrekte Verarbeitung kann durch Initiierung einer erneuten Übertragung im Fehlerfall garantiert werden. Diese Art von Messaging-Architekturen ist asynchron und auf hohe Latenzzeiten ausgelegt. Der Aufruf eines anderen Services blockiert die weitere Verarbeitung nicht, sodass ein Microservice ohne Wartezeit auf eine Antwort weiterarbeiten kann. Der Sender kennt den Empfänger nicht, weil die Nachricht auf einer Queue oder einem Topic landet, für die sich potenzielle Empfänger registrieren. Dies entkoppelt Sender und Empfänger. 
 
@@ -286,6 +324,9 @@ Messaging bietet eine Lösung für transaktionale Systeme mit Microservices, wob
 
 Messaging kann durch verschiedene Technologien wie AMQP, Apache Kafka, JMS oder ATOM-Feeds realisiert werden.
 \cite[S. 183 - 187]{wolff}
+
+Bei der Frage der verfügbaren Technologien sind im Wesentlichen zwei Aspekte zu beachten: Unser Microservice muss Ereignisse auslösen können, und die Consumer müssen feststellen können, dass diese Ereignisse stattgefunden haben. Message-Broker-Systeme wie RabbitMQ versuchen, beide Aufgaben gleichzeitig zu erledigen. Die Auslöser der Ereignisse greifen auf eine API zu, um dem Message-Broker das Auftreten eines Ereignisses mitzuteilen. Der Message-Broker wiederum informiert die Abonnenten, wenn ein Ereignis eingetreten ist. Der Message-Broker kann sogar den Zustand der Abonnenten überwachen und dadurch nachverfolgen, welche Ereignisse ihnen bereits mitgeteilt wurden.
+Ein anderer Ansatz ist, für das Eintreten von Ereignissen HTTP zu benutzen. ATOM ist eine REST-konforme Spezifikation, die (unter anderem) das zur Veröffentlichung solcher Feeds erforderliche Vokabular definiert.\cite[S.87-88]{newman}
 
 
 \subsubsection{Schnittstellenmanagement und Versionierung in Microservices}
@@ -295,6 +336,8 @@ Jeder Microservice kann eine oder mehrere Schnittstellen für andere Microservic
 
 \pagebreak 
 \subsection{Betrieb und Continious Delivery}
+
+%TODO Ab hier zusätzl. Quellen recherchieren
 
 Umgesetzt wird dies (verteilte Architektur) mit virtuellen Maschienen und Containern.
 \cite[S.253]{richards}
@@ -334,9 +377,10 @@ Manuelle Deployments sind bei einer Microservice-Architektur nicht sinnvoll umse
 
 \subsection{Definition}
 
-
 Unter Cloud-Computing versteht man das Nutzen von Computing-Ressourcen über das Netzwerk. Durch Virtualisierung können so Ressourcen eines von Cloud-Anbietern gehosteten Rechenzentrums gekapselt werden. In einer Cloud-Umgebung können Konzepte wie Continuous Delivery umgesetzt werden.
 \cite[S. 20]{stender}
+
+%%%
 
 Softwarecontainer sind eine Methode, um eine beliebige Anwendung in eine normierte, portable Einheit zu verpacken, die ein lauffähiges Gebilde ist. Die zentrale Eigenschaft einer solchen Umgebung ist es, dass der Container als Prozesskapsel von dem restlichen System isoliert ist und im Rahmen bestimmter Grenzen läuft. Dies erlaubt sowohl unterschiedliche Applikationen als auch verschiedene Komponenten derselben Applikation in separaten Containern zu betreiben. Ein Effekt davon ist, dass diese in der Cloud dann unabhängig voneinander skaliert werden können. Diese Modularisierung wird insbesondere bei Microservices als Prinzip für Entwicklung und Applikationsarchitektur auf die Spitze getrieben.
 
@@ -344,7 +388,17 @@ Für die Orchestrierung einer komplexen containerisierten Anwendung wird ein Clu
 
 \cite[S. 46-63]{stender}
 
+%%%
+
 \subsection{Docker}
+
+Ein Container-Image ist ein Binary-Paket, das alle für das Ausführen eines Programms in einem OS-Container notwendigen Dateien zusammenfasst. \cite [S.16]{burns1}
+
+Das Docker-Image-Format ist der De-facto-Standart. \cite[S.17]{burns1}.
+
+Container gehören zu einer von zwei Hauptkategorien: System-Container oder Anwendungscontainer. System-Container versuchen virtuelle Maschienen nachzubilden, und führen häufig einen vollständigen Boot-Prozess durch. Anwendungs-Container unterscheiden sich von System-Containern darin, dass sie im Allgemeinen nur ein einzelnes Programm in sich laufen lassen \cite[S.18]{burns1}.
+
+
 
 \begin{itemize}
 \item Docker (Kurzbeschreibung)
@@ -355,19 +409,33 @@ Für die Orchestrierung einer komplexen containerisierten Anwendung wird ein Clu
 
 \subsection{Kubernetes}
 
-Kubernetes ist ein moderner Standard für den verteilten Betrieb von containerisierten Applikationen auf Infrastrukturen aus der Public Cloud. Kubernetes nutzt Docker als Default-Container-Engine. Kubernetes besitzt eine eigene API, welche vor allem bei der Entwicklung von eigenen Werkzeugen genutzt wird. Das Tool kubectl spricht die Cluster über die auf dem Master laufende API an. Der Master steuert alle angeschlossenen Worker-Nodes und setzt die vom Anwender gewünschten Veränderungen um.
+%%% Burns
 
-Objekte in Kubernetes sind eine Reihe von verschiedenen Dingen, die der Nutzer im Cluster betreiben kann.
+Kobernetes ist ein Open-Source-Orchestrierer für das Deployen containerisierter Anwendungen. Es wurde ursprünglich von Google entwickelt und ist durch ein Jahrzehnt Erfahrung beim Deployen skalierbarer, zuverlässiger Systeme in Containern über anwendungsorientierte APIs inspiriert. \cite[S.1]{burns1} \cite{burns3}
+
+
+%%% Stender
+
+Kubernetes ist ein moderner Standard für den verteilten Betrieb von containerisierten Applikationen auf Infrastrukturen aus der Public Cloud. Kubernetes nutzt Docker als Default-Container-Engine. Kubernetes besitzt eine eigene API, welche vor allem bei der Entwicklung von eigenen Werkzeugen genutzt wird. Das Tool kubectl spricht die Cluster über die auf dem Master laufende API an. Der Master steuert alle angeschlossenen Worker-Nodes und setzt die vom Anwender gewünschten Veränderungen um.
+\cite[S. 166-192]{stender}
+
+Alles in Kubernetes ist ein deklaratives Konfigurations-Objekt, das den gewünschten Status des Systems präsentiert. Die Idee, deklarative Konfiguration unter Versionsverwaltung zu stellen, wird oft als "Infrastructure as Code" bezeichnet \cite[S.4]{burns1}
+
+Objekte in Kubernetes sind eine Reihe von verschiedenen Dingen, die der Nutzer im Cluster betreiben kann. \cite[S. 166-192]{stender}
 
 \subsubsection{Deployement}
 
-Ein Deployement ist ein Objekt, welches etwas im Cluster installiert um es dort laufen zu lassen.
+Ein Deployement ist ein Objekt, welches etwas im Cluster installiert um es dort laufen zu lassen. \cite[S. 166-192]{stender}
 
 \subsubsection{Pod}
 
-Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enthalten. Pods sind Objekte die vervielfältigt werden können, um die darin enthlaltene Appliaktion im Cluster zu skalieren.
+Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enthalten. Pods sind Objekte die vervielfältigt werden können, um die darin enthlaltene Appliaktion im Cluster zu skalieren. \cite[S. 166-192]{stender}
+
+Pods sind Gruppen von Containern - können von verschiedenen Teams entwickelte Container-Images zu einer einzelnen deploybaren Einheit verbinden. \cite[S.8]{burns1}
 
 \subsubsection{Service}
+
+Services bieten Load Balancing, Naming und Discovery, um einen Microservice von anderen zu isolieren.  \cite[S.8]{burns1}
 
 \subsubsection{Rollout}
 
@@ -377,8 +445,6 @@ Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enth
 
 \subsubsection{Templates}
 
-%ISBN: 978-3-8362-6385-6
-\cite[S. 166-192]{stender}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

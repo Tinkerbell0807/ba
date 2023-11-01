@@ -1,4 +1,18 @@
-\begin{thebibliography}{ZCM19}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{BGO{\etalchar{+}}16}
+
+\bibitem[BBHE23]{burns1}
+Brendan Burns, Joe Beda, Kelsey Hightower, and Lachlan Evenson.
+\newblock {\em Kubernetes: eine kompakte Einf{\"u}hrung}.
+\newblock dpunkt.verlag, Heidelberg, 3., aktualisierte und erweiterte auflage
+  edition, 2023.
+\newblock Brendan Burns, Joe Beda, Kelsey Hightower, Lachlan Evenson.
+
+\bibitem[BGO{\etalchar{+}}16]{burns3}
+Brendan Burns, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes.
+\newblock Borg, omega, and kubernetes: Lessons learned from three
+  container-management systems over a decade.
+\newblock {\em Queue}, 14(1):70–93, jan 2016.
 
 \bibitem[Das17]{daschner}
 Sebastian Daschner.
@@ -42,7 +56,7 @@ Susan~J. Fowler.
 \bibitem[LF14]{fowlerlewis}
 James Lewis and Martin Fowler.
 \newblock Microservices - a definition of this new architectural term, 2014.
-\newblock Accessed: [Datum des Zugriffs].
+\newblock Accessed: 01.11.2023.
 
 \bibitem[New15]{newman}
 Sam Newman.
@@ -57,6 +71,11 @@ Mark Richards and Neal Ford.
 \newblock O'Reilly, Heidelberg, 1. auflage edition, 2021.
 \newblock Mark Richards und Neal Ford ; deutsche {\"U}bersetzung von J{\o}rgen
   W. Lang.
+
+\bibitem[Ric]{richardson}
+Chris Richardson.
+\newblock Pattern: Microservice chassis.
+\newblock Accessed: 01.11.2023.
 
 \bibitem[RSS18]{rademacher}
 Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.

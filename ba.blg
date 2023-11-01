@@ -13,49 +13,54 @@ Warning--I'm ignoring wolff's extra "note" field
 --line 64 of file bibs/litDB.bib
 Warning--entry type for "fowlerlewis" isn't style-file defined
 --line 113 of file bibs/litDB.bib
+Warning--entry type for "richardson" isn't style-file defined
+--line 122 of file bibs/litDB.bib
 Warning--I'm ignoring sommerville's extra "note" field
---line 143 of file bibs/litDB.bib
+--line 152 of file bibs/litDB.bib
 Warning--I'm ignoring sommerville's extra "note" field
---line 144 of file bibs/litDB.bib
-You've used 13 entries,
+--line 153 of file bibs/litDB.bib
+Warning--I'm ignoring burns1's extra "note" field
+--line 201 of file bibs/litDB.bib
+Warning--I didn't find a database entry for "burns"
+You've used 16 entries,
             2543 wiz_defined-function locations,
-            657 strings with 7096 characters,
-and the built_in function-call counts, 4162 in all, are:
-= -- 405
-> -- 160
-< -- 9
-+ -- 48
-- -- 48
-* -- 252
-:= -- 718
-add.period$ -- 51
-call.type$ -- 13
-change.case$ -- 68
-chr.to.int$ -- 13
-cite$ -- 13
-duplicate$ -- 197
-empty$ -- 333
-format.name$ -- 70
-if$ -- 855
+            677 strings with 7718 characters,
+and the built_in function-call counts, 5356 in all, are:
+= -- 515
+> -- 234
+< -- 10
++ -- 75
+- -- 75
+* -- 344
+:= -- 925
+add.period$ -- 61
+call.type$ -- 16
+change.case$ -- 90
+chr.to.int$ -- 16
+cite$ -- 16
+duplicate$ -- 237
+empty$ -- 413
+format.name$ -- 100
+if$ -- 1089
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 22
-newline$ -- 78
-num.names$ -- 39
-pop$ -- 77
+missing$ -- 25
+newline$ -- 95
+num.names$ -- 48
+pop$ -- 105
 preamble$ -- 1
-purify$ -- 84
+purify$ -- 109
 quote$ -- 0
-skip$ -- 140
+skip$ -- 168
 stack$ -- 0
-substring$ -- 127
-swap$ -- 13
-text.length$ -- 9
-text.prefix$ -- 9
+substring$ -- 169
+swap$ -- 16
+text.length$ -- 10
+text.prefix$ -- 10
 top$ -- 0
-type$ -- 64
+type$ -- 84
 warning$ -- 0
-while$ -- 32
-width$ -- 14
-write$ -- 199
-(There were 7 warnings)
+while$ -- 41
+width$ -- 18
+write$ -- 240
+(There were 10 warnings)
