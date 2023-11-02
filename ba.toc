@@ -40,25 +40,14 @@
 \contentsline {subsubsection}{\nonumberline Messaging}{19}{subsubsection*.53}%
 \contentsline {subsubsection}{\nonumberline Schnittstellenmanagement und Versionierung in Microservices}{20}{subsubsection*.55}%
 \contentsline {subsection}{\numberline {2.2.5}Betrieb und Continious Delivery}{21}{subsection.2.2.5}%
-\contentsline {subsubsection}{\nonumberline Infrastruktur und Werkzeuge für unabhängige Microservice-Produktion}{21}{subsubsection*.57}%
-\contentsline {subsubsection}{\nonumberline Logging in Microservices und Korrelation von Anfragen}{21}{subsubsection*.59}%
-\contentsline {subsubsection}{\nonumberline Monitoring in Microservice-Architekturen}{21}{subsubsection*.61}%
-\contentsline {subsubsection}{\nonumberline Automatisierung und Strategien für Microservice-Deployments}{22}{subsubsection*.63}%
 \contentsline {section}{\numberline {2.3}Cloud-Infrastruktur}{23}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Definition}{23}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Docker}{23}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Kubernetes}{24}{subsection.2.3.3}%
-\contentsline {subsubsection}{\nonumberline Deployement}{24}{subsubsection*.65}%
-\contentsline {subsubsection}{\nonumberline Pod}{24}{subsubsection*.67}%
-\contentsline {subsubsection}{\nonumberline Service}{24}{subsubsection*.69}%
-\contentsline {subsubsection}{\nonumberline Rollout}{25}{subsubsection*.71}%
-\contentsline {subsubsection}{\nonumberline Replica Set}{25}{subsubsection*.73}%
-\contentsline {subsubsection}{\nonumberline Secret}{25}{subsubsection*.75}%
-\contentsline {subsubsection}{\nonumberline Templates}{25}{subsubsection*.77}%
 \contentsline {section}{\numberline {2.4}Modellgetriebene Entwicklung von Microservices}{26}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Noch zu sichten}{27}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}ARGON - automated cloud infrastructure provisioning using a domain-specific language}{27}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}model-driven approach for adaptive microservice-based systems using VxBPMN4MS}{27}{subsection.2.5.2}%
 \contentsline {subsection}{\numberline {2.5.3}Context Mapper, a tool for DDD and microservice design.}{28}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}DOML simplifies infrastructure deployments by unifying multiple IaC languages}{28}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.4}DOML simplifies infrastructure deployments by unifying multiple IaC languages}{29}{subsection.2.5.4}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

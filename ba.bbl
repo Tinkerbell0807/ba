@@ -64,6 +64,13 @@ Sam Newman.
 \newblock mitp-Verl., [Frechen], 1. aufl. edition, 2015.
 \newblock Sam Newman. {\"U}bers. aus dem Amerikan. von Knut Lorenzen.
 
+\bibitem[rem11]{rempp}
+{\em Model Driven SOA: anwendungsorientierte Methodik und Vorgehen in der
+  Praxis}.
+\newblock Xpert.press. Springer, Berlin, 2011.
+\newblock Gerhard Rempp; Mark Akermann; Martin L{\"o}ffler; Jens Lehmann. Mit
+  Ill. von Martin Starzmann.
+
 \bibitem[RF21]{richards}
 Mark Richards and Neal Ford.
 \newblock {\em Handbuch moderner Softwarearchitektur: Architekturstile,
@@ -76,6 +83,14 @@ Mark Richards and Neal Ford.
 Chris Richardson.
 \newblock Pattern: Microservice chassis.
 \newblock Accessed: 01.11.2023.
+
+\bibitem[Rit18]{riti}
+Pierluigi Riti.
+\newblock {\em Pro DevOps with Google Cloud Platform: with Docker, Jenkins, and
+  Kubernetes}.
+\newblock For professionals by professionals. Apress, [Berkeley, California],
+  2018.
+\newblock Pierluigi Riti.
 
 \bibitem[RSS18]{rademacher}
 Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.

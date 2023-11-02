@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  1 NOV 2023 20:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  2 NOV 2023 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,14 +710,17 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [15 <./pics/mediator.png>] [16] [17] [18] [19] [20]
-Overfull \hbox (14.80084pt too wide) in paragraph at lines 361--363
-\OT1/phv/m/n/10.95 (-20) Monitoring be-zeich-net das []Uberwachen von Me-tri-ke
-n ei-ner Soft-wa-re. Bei Microservice-Architekturen
+Overfull \hbox (27.40102pt too wide) in paragraph at lines 352--353
+[]\OT1/phv/m/n/10.95 (-20) Die Eta-blie-rung ei-ner Be-reit-schafts-ro-ta-ti-on
+, die si-cher-stellt, dass kon-ti-nu-ier-lich ei-ne []Uberwachung
  []
 
-[21] [22] [23] [24] [25] [26] [27]) (./inc/k3_modellierung.tex)
+[21] [22] [23] [24] [25] [26] [27] [28]) (./inc/k3_modellierung.tex)
 (./inc/k4_generierung.tex) (./inc/k5_anwendung.tex) (./inc/k6_diskussion.tex)
-(./inc/k7_schluss.tex) [28] (./ba.bbl
+(./inc/k7_schluss.tex) [29] (./ba.bbl [30
+
+
+]
 LaTeX Info: Symbol \textasciiacute not provided by
             font family phv in TS1 encoding.
             Default family used instead on input line 53.
@@ -735,17 +738,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [29
-
-
-]
-Underfull \hbox (badness 1629) in paragraph at lines 102--106
+ [31]
+Underfull \hbox (badness 1629) in paragraph at lines 117--121
 []\OT1/phv/m/n/10.95 (+20) Eberhard Wolff.  \OT1/phv/m/sl/10.95 (+20) Mi-cro-se
 r-vices: Grund-la-gen fle-xibler Soft-wa-rear-chi-tek-tu-ren\OT1/phv/m/n/10.95 
 (+20) .
  []
 
-) [30] (./ba.aux)
+) [32] (./ba.aux)
 Package rerunfilecheck Info: File `ba.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  )
@@ -754,13 +754,13 @@ Package rerunfilecheck Info: File `ba.out' has not changed.
 ### simple group (level 1) entered at line 26 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18316 strings out of 476175
- 354162 string characters out of 5796271
+ 18307 strings out of 476175
+ 353994 string characters out of 5796271
  1864793 words of memory out of 6000000
- 37983 multiletter control sequences out of 15000+600000
- 540662 words of font info for 207 fonts, out of 8000000 for 9000
+ 37988 multiletter control sequences out of 15000+600000
+ 540964 words of font info for 210 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 108i,20n,106p,10597b,720s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,106p,10597b,723s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
 r-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
@@ -768,10 +768,10 @@ e/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/he
 lvetic/uhvro8a.pfb>
-Output written on ba.pdf (32 pages, 744195 bytes).
+Output written on ba.pdf (34 pages, 751067 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 526 compressed objects within 6 object streams
- 156 named destinations out of 1000 (max. 500000)
+ 584 PDF objects out of 1000 (max. 8388607)
+ 521 compressed objects within 6 object streams
+ 138 named destinations out of 1000 (max. 500000)
  46308 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -273,7 +273,7 @@ Code, der in mehreren Diensten verwendet wird, kann in Bibliotheken ausgelagert 
 Gemeinsamer Code kann auch durch das Sidecar-Entwurfsmuster wiederverwendet werden. Die Sidecar-Komponente ist ein Bestandteil eines Dienstes und kümmert sich beispielsweise um technische Betriebsaufgaben wie Logging, Monitoring und Sicherung. Wenn jeder Dienst ein Sidecar hat, kann ein Service Mesh erstellt werden, das eine einheitliche Kontrolle über Funktionen wie Logging und Monitoring in der gesamten Architektur ermöglicht. Die typischen Sidecar-Komponenten bieten dabei eine durchgängige Schnittstelle für den technischen Betrieb aller Microservices. Das Service Mesh gibt damit Entwicklern umfassenden Zugriff auf die Dienste.\cite[S.256-258]{richards}.
 
 %TODO Chassis etwas mehr erklären
-Das Mikroservice-Chassis stellt in diesem Kontext eine weiter Lösung für solche gemeinsamen Belange dar, indem es standardisierte Build-Komponenten und Werkzeuge für diese Aspekte bereitstellt. Dies ermöglicht eine effiziente Service-Implementierung ohne redundante Einrichtungsaufgaben. Zudem vereinfacht das Chassis Aktualisierungen, da zentrale Änderungen an alle Dienste weitergegeben werden können.
+Das Microservice-Chassis stellt in diesem Kontext eine weiter Lösung für solche gemeinsamen Belange dar, indem es standardisierte Build-Komponenten und Werkzeuge für diese Aspekte bereitstellt. Dies ermöglicht eine effiziente Service-Implementierung ohne redundante Einrichtungsaufgaben. Zudem vereinfacht das Chassis Aktualisierungen, da zentrale Änderungen an alle Dienste weitergegeben werden können.
 \cite{richardson}
 
 Man kann den Code eines Dienstes in einen anderen übertragen, um beispielsweiße die Kohäsion zu verbessern. Auch kann man alten Code in einen neuen Dienst verschieben oder Änderungen in der Architektur durch einen neu entwickelten Microservice realisieren.
@@ -293,7 +293,7 @@ Weiterhin muss Die Sicherheit des gesamten Systems einheitlich gestaltet werden,
 
 Grundsätzlich müssen sich Architekten zwischen synchroner und asynchroner Kommunikation entscheiden. Bei der synchronen Kommunikation muss der Aufrufer eine Antwort vom Aufgerufenen warten. In Microservice-Architekturen kommt dagegen meist eine protokollbewusste heterogene Interoperabilität zum Einsatz. Um eine Kopplung beim technischen Betrieb zu vermeiden, gibt es bei Microservices keinen zentralen integrations-Hub. Jeder Dienst muss selbst wissen, wie er die anderen Dienste aufrufen kann. Daher müssen alle Dienste wissen (oder per Service Discovery herausfinden), welche Protokolle für den Aufruf anderer Dienste verwendet werden müssen. Da Microservices eine verteilte Architektur sind, kann jeder Dienst in einem anderen Techonologiestack geschrieben sein. Interoperabilität beschreibt Dienste die einander aufrufen. Für die asynchrone Kommunikation nutzen Architekten oft Events und Messages. Das heißt intern kommt eine eventbasierte Architektur zum Einsatz bei der in Microservices Choreografie und Orchestrierung die Funktion der Broker- und Mediator-Muster übernehmen \cite[S.260,261]{richards}.
 
-Schlüsselentscheidung bei der Wahl eines Standards für die Kommunikation von Mikroservices: Sollte die Service-Interaktion synchron oder asynchron sein? Sollten Services direkt kommunizieren oder über einen Message-Broker-Middleware? Welches Protokoll sollte für Nachrichten zwischen den Services verwendet werden?
+Schlüsselentscheidung bei der Wahl eines Standards für die Kommunikation von Microservices: Sollte die Service-Interaktion synchron oder asynchron sein? Sollten Services direkt kommunizieren oder über einen Message-Broker-Middleware? Welches Protokoll sollte für Nachrichten zwischen den Services verwendet werden?
 Synchroner Austausch ist weniger komplex als asynchroner. Andererseits ist asynchrone Interaktion oft effizienter, da die Services nicht untätig sind, während sie warten. Asynchrone Services sind locker gekoppelt, daher sollte das Ändern dieser Services einfacher sein.
 \cite[S.161-163]{sommerville}
 
@@ -337,34 +337,24 @@ Jeder Microservice kann eine oder mehrere Schnittstellen für andere Microservic
 \pagebreak 
 \subsection{Betrieb und Continious Delivery}
 
-%TODO Ab hier zusätzl. Quellen recherchieren
+Nach der Entwicklung und dem Start eines Systems muss es auf Servern laufen gelassen werden. Das macht eine Überwachung und regelmäßig Updates notwendig. Früher waren der Betrieb und die Entwicklung eines Systems getrennte Bereiche mit unterschiedlichen Aufgaben für die Systemadministratoren und Entwickler. Heutzutage müssen komplexe Systeme, die aus vielen Microservices bestehen und in der Cloud auf mehreren Containern verteilt sind, einheitlich gemanagt werden. Verteilte Systeme arbeiten mit virtuellen Maschinen und Containern, und Tools wie Kubernetes helfen mit Planung, Service-Entdeckung, Lastverteilung und der Verwaltung von Docker-Containern. Alternativ ermöglichen auch Linux-Paketmanager einfachere Installation und Aktualisierung von Software \cite[S.179,181]{sommerville} \cite[S.253]{richards}.
 
-Umgesetzt wird dies (verteilte Architektur) mit virtuellen Maschienen und Containern.
-\cite[S.253]{richards}
+Um auftretende Fehler zu beheben, gibt es verschiedene Möglichkeiten: Rollbacks machen Updates rückgängig, was aber komplexer werden kann, wenn Datenbanken verändert wurden. Roll Forwards dagegen bringen eine neue, verbesserte Version heraus. Continuous Deployment führt Änderungen sofort im Live-System ein, um die Menge der gleichzeitigen Änderungen klein zu halten. Bei Blue/Green-Deployments gibt es zwei Versionen von je einem Microservice, die gleichzeitig laufen. Das erlaubt uns, Änderungen zu testen und bei Bedarf schnell zwischen der alten und neuen Version zu wechseln \cite[S. 263 - 269]{wolff}.
 
-\subsubsection{Infrastruktur und Werkzeuge für unabhängige Microservice-Produktion}
+Microservices sind unabhängig und laufen getrennt voneinander, sodass jeder in seinem eigenen Container in der Cloud betrieben werden kann. Das erlaubt es, einzelne Services zu stoppen und neu zu starten, ohne den Rest des Systems zu stören. Sie brauchen ihre eigene isolierte Hardware, die durch Virtualisierung bereitgestellt wird. Dies benötigt eine Infrastruktur, die automatisch viele virtuelle Maschinen erstellen kann. Jeder Microservice muss auch seine eigene Lieferkette für Updates haben, ein gründliches Überwachungssystem, um Probleme schnell zu finden, und eine unabhängige Versionsverwaltung, die verschiedene Versionen zulässt \cite[S.158]{sommerville} \cite[S. 80-81]{wolff}.
 
-Damit Microservices unabhängig voneinander in Produktion gebracht werden können, ist eine gekapselte Hardware nötig, welche durch Virtualisierung umgesetzt werden kann. Dies setzt eine passende Infrastruktur voraus, die automatisiert eine große Anzahl virtueller Maschinen erzeugen kann. Weiterhin benötigt jeder Microservice, als Folgerung aus der Voraussetzung, unabhängig deployen zu können, eine eigene Continuous-Delivery-Pipeline. Zudem muss es ein umfassendes Monitoring geben, da durch die Vielzahl an Anwendungen sonst Probleme nicht erkannt werden können. Dieses sollte neben technischen Metriken auch Anwendungsmetriken erfassen, um eine umfassendere Problemübersicht zu bekommen. Auch eine unabhängige Versionskontrolle der Dienste ist notwendig, da aus der unabhängigen Deploybarkeit auch verschiedene Versionierungen möglich sind.
-\cite[S. 80-81]{wolff}
+Monitoring in der Softwaretechnik bezieht sich auf das Überwachen von Metriken, um den Zustand einer Software zu erfassen und zu verstehen. Zu den Schlüsselmetriken gehören Host- und Infrastrukturmetriken wie CPU- und RAM-Nutzung, Threads, offene Dateideskriptoren und Datenbankverbindungen jedes Microservice. Zudem sind Microservice-spezifische Metriken wie Service-Level-Agreements (SLAs), Latenz, API-Endpunkt-Erfolg und -Antwortzeiten, Quelle und Ziel von API-Anfragen, Fehler sowie der Status von Abhängigkeiten zu berücksichtigen. Ein Monitoring von einem Microservice stütz sich auf vier Hauptkomponenten:
 
+\begin{itemize}
+\item Die Protokollierung aller relevanten Informationen, die ein Nachvollziehen des Dienstzustandes in Echtzeit sowie retrospektiv ermöglicht.
+\item Gut gestaltete Dashboards, die den Gesundheitszustand des Microservices präzise anzeigen und für eine klare Übersicht sorgen.
+\item Eine effektive Alarmierung, die bei Abweichungen von Schlüsselmetriken aktiv wird und Entwicklern hilft, frühzeitig auf potenzielle Probleme zu reagieren.
+\item Die Etablierung einer Bereitschaftsrotation, die sicherstellt, dass kontinuierlich eine Überwachung und gegebenenfalls schnelle Reaktion gewährleistet ist.
+\end{itemize}
 
-Microservices are self-contained and run in seperate processes. In Cloud-based Systems, each Microservice can be deployed in its own container. Therefore it can be stopped and restarted without affecting other parts of the system.
-\cite[S.158]{sommerville}
+Es ist zudem sinnvoll, eine einheitliche Abfrageschnittstelle für alle Microservices zu implementieren. Da Microservices dynamisch sind und ihre Instanzen starten oder beendet werden können, muss das Monitoring systemübergreifend und dienstunabhängig gestaltet sein. Dies kann durch den Einsatz von Technologien wie Graphite, Grafana oder Nagios realisiert werden, wobei auch Cloud-Umgebungen entsprechende Tools bereitstellen, um ein effizientes Monitoring sicherzustellen \cite[S. 250 - 256]{wolff} \cite[S.105-108]{fowlersusan}.
 
-\subsubsection{Logging in Microservices und Korrelation von Anfragen}
-
-Mit Logging kann eine Anwendung sehr einfach Informationen darüber bereitstellen, welche Ereignisse aufgetreten sind. Anfragen können oftmals nur durch das Zusammenspiel mehrerer Services behandelt werden. Dies erfordert eine Korrelations-ID, die es ermöglicht, einen Request über alle Log-Einträge der einzelnen Dienste hinweg eindeutig zu identifizieren. Logs können von Microservices zentral über das Netzwerk verarbeitet werden. Dies kann beispielsweise mit Technologien wie Logstash, Elasticsearch und Kibana umgesetzt werden.
-\cite[S. 244 - 249]{wolff}
-
-\subsubsection{Monitoring in Microservice-Architekturen}
-
-Monitoring bezeichnet das Überwachen von Metriken einer Software. Bei Microservice-Architekturen sollten die relevanten Informationen dafür in einem einheitlichen Format vorliegen. Grundlegende Metriken für Microservices können beispielsweise ein Wert sein, der die Verfügbarkeit des Dienstes anzeigt (Alive). Weiterhin kann die Verfügbarkeit in Abhängigkeit von den vom Dienst genutzten Diensten und Ressourcen dargestellt werden (Health). Antwortzeiten, die Anzahl bestimmter Fehler oder die Anzahl von Anfragen sind andere mögliche Metriken. Dabei ist es sinnvoll, eine einheitliche Abfrageschnittstelle für alle Services zu nutzen. Da Microservices dynamisch starten und verschwinden können, muss das Monitoring unabhängig vom einzelnen Dienst erfolgen. Dies kann mit Technologien wie Graphite, Grafana oder Nagios umgesetzt werden. Auch in Cloud-Umgebungen stehen entsprechende Werkzeuge zur Verfügung.
-\cite[S. 250 - 256]{wolff}
-
-\subsubsection{Automatisierung und Strategien für Microservice-Deployments}
-
-Manuelle Deployments sind bei einer Microservice-Architektur nicht sinnvoll umsetzbar. Daher muss dies automatisiert werden. Dies kann mittels Skripten, die die Installation der Software umsetzen, geschehen. Auch Immutable Server können mit Technologien wie Docker genutzt werden. Auf Linux-Betriebssystemen ist ein Ausrollen mit Paketmanagern wie rpm (Red Hat), dpkg (Debian/Ubuntu) oder zypper (SuSE) auch möglich. Um mit Fehlern und daraus resultierenden Problemen umzugehen, existieren verschiedene Deployment-Strategien: Ein Rollback ist die Auslieferung einer vorherigen Version eines Microservices. Dabei müssen mögliche Datenbankänderungen berücksichtigt werden, da diese eine Rückkehr in den alten Zustand verhindern können. Alternativ können Fehler mit einem Roll Forward behoben werden, dem Ausrollen einer neuen, den Fehler nicht mehr enthaltenden Version. Continuous Deployment beschreibt die Strategie, jegliche Änderung sofort auf das Produktivsystem zu bringen, um die Anzahl an Änderungen pro Release klein zu halten. Mit Blue/Green-Deployments werden zwei parallele Microservice-Instanzen beschrieben, wodurch Änderungen auf einer Produktivumgebung wirksam werden, beobachtet werden können und in einem Fehlerfall das Routing zwischen der neuen und der alten Instanz gesteuert werden kann.
-\cite[S. 263 - 269]{wolff}
+Ein Microservice-System muss jede Anfrage von Anfang bis Ende verfolgen können, um den Datenfluss zwischen verschiedenen Diensten zu verstehen. Dazu nutzt man eine Korrelations-ID, die jede Anfrage identifizierbar macht und über alle Dienste hinweg verfolgt werden kann. Mit Logging können die Dienste dann wichtige Ereignisse dokumentieren. Tools wie Logstash, Elasticsearch und Kibana helfen dabei, Logs aller Microservices zentral zu sammeln und auszuwerten. Während Infrastruktur-Werkzeuge sich um die Überwachung der Infrastruktur kümmern sollten, ist es wichtig, dass Microservices selbst Details wie verschlüsselte Nutzer-IDs und Informationen zu Anfragen und Antworten in ihren eigenen Logs festhalten \cite[S. 244 - 249]{wolff} \cite[S.109-110]{fowlersusan}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -385,10 +375,11 @@ Unter Cloud-Computing versteht man das Nutzen von Computing-Ressourcen über das
 Softwarecontainer sind eine Methode, um eine beliebige Anwendung in eine normierte, portable Einheit zu verpacken, die ein lauffähiges Gebilde ist. Die zentrale Eigenschaft einer solchen Umgebung ist es, dass der Container als Prozesskapsel von dem restlichen System isoliert ist und im Rahmen bestimmter Grenzen läuft. Dies erlaubt sowohl unterschiedliche Applikationen als auch verschiedene Komponenten derselben Applikation in separaten Containern zu betreiben. Ein Effekt davon ist, dass diese in der Cloud dann unabhängig voneinander skaliert werden können. Diese Modularisierung wird insbesondere bei Microservices als Prinzip für Entwicklung und Applikationsarchitektur auf die Spitze getrieben.
 
 Für die Orchestrierung einer komplexen containerisierten Anwendung wird ein Cluster-Manager benötigt. Cluster bezeichnet dabei eine zusammengehörige Gruppe von Servern mit Containern, während die Instanzen, die in einem solchen Konstrukt eingebunden sind, als Knoten (Nodes) bezeichnet werden. Beispiele dafür sind Swarm Mode (Teil von Docker) oder Kubernetes.
-
 \cite[S. 46-63]{stender}
 
 %%%
+
+The NIST (National Institute of Standards and Technology) defines Cloud Computing as follows: "Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort or service provider interaction. This cloud model is composed of five essential characteristics, three service models (SaaS, PaaS, IaaS), and four deployment models (Private, Community, Public, Hybrid)."\cite[S.19-22]{riti}
 
 \subsection{Docker}
 
@@ -398,23 +389,25 @@ Das Docker-Image-Format ist der De-facto-Standart. \cite[S.17]{burns1}.
 
 Container gehören zu einer von zwei Hauptkategorien: System-Container oder Anwendungscontainer. System-Container versuchen virtuelle Maschienen nachzubilden, und führen häufig einen vollständigen Boot-Prozess durch. Anwendungs-Container unterscheiden sich von System-Containern darin, dass sie im Allgemeinen nur ein einzelnes Programm in sich laufen lassen \cite[S.18]{burns1}.
 
+Ein Dockerfile kann genutzt werden, um das Erstellen eines Docker-Container-Image zu automatisieren. \cite[S.18]{burns1}
 
+%%%
 
-\begin{itemize}
-\item Docker (Kurzbeschreibung)
-\item Docker Compose
-\item Images
-\item Volumes
-\end{itemize}
+Containerization can be viewed as an evolution of virtualization. With virtualization, we typically recreate an entire operating system and host it on a host machine. Docker is perhaps the most well-known software for containerization. It provides a level of virtualization known as operating-system-level virtualization, which is synonymous with containerization. This form of isolation enables us to run multiple operating systems within another. \cite[S.63]{riti}
 
-\subsection{Kubernetes}
+Docker is composed of the following different components:
 
-%%% Burns
+The Docker engine is a client-server application. The client talks with the server application, called a daemon. The daemon is responsible for executing the containers. Both the client and the daemon can be on the same machine or on different ones.
+
+Images are the foundation of our Docker architecture. Images are used to launch our containers, and we can create personal images by starting with another basic image.
+
+The registry is where the images are stored. We can identify two types of registries: private and public.
+
+Containers are essentially an image that is executed. A container can have more than one running process inside, depending on how the images are designed and created. Essentially, a container is a lightweight, standalone application. We can combine more than one container to execute a complex application.\cite[S.64-65]{riti}
+
+\subsection{Kubernetes} 
 
 Kobernetes ist ein Open-Source-Orchestrierer für das Deployen containerisierter Anwendungen. Es wurde ursprünglich von Google entwickelt und ist durch ein Jahrzehnt Erfahrung beim Deployen skalierbarer, zuverlässiger Systeme in Containern über anwendungsorientierte APIs inspiriert. \cite[S.1]{burns1} \cite{burns3}
-
-
-%%% Stender
 
 Kubernetes ist ein moderner Standard für den verteilten Betrieb von containerisierten Applikationen auf Infrastrukturen aus der Public Cloud. Kubernetes nutzt Docker als Default-Container-Engine. Kubernetes besitzt eine eigene API, welche vor allem bei der Entwicklung von eigenen Werkzeugen genutzt wird. Das Tool kubectl spricht die Cluster über die auf dem Master laufende API an. Der Master steuert alle angeschlossenen Worker-Nodes und setzt die vom Anwender gewünschten Veränderungen um.
 \cite[S. 166-192]{stender}
@@ -423,28 +416,34 @@ Alles in Kubernetes ist ein deklaratives Konfigurations-Objekt, das den gewünsc
 
 Objekte in Kubernetes sind eine Reihe von verschiedenen Dingen, die der Nutzer im Cluster betreiben kann. \cite[S. 166-192]{stender}
 
-\subsubsection{Deployement}
+In Kubernetes wird alles als REST-Ressource repräsentiert. Jedes-Kubernetes Objekt existiert unter einem eindeutigen HTTP Pfad. \cite[S.40]{burns1}
+Objekte können mit Labeln Anmerkungen hinzugefügt werden. \cite[S.42]{burns1}
 
-Ein Deployement ist ein Objekt, welches etwas im Cluster installiert um es dort laufen zu lassen. \cite[S. 166-192]{stender}
+Ein Kubernetes-Cluster besteht aus veschiedenen Komponenten: Kubernetes Proxy, Kubernetes-DNS und Kubernetes UI. \cite[S.36-37]{burns1}
 
-\subsubsection{Pod}
+Kubernetes nutzt Namensräume, um Objekte im Cluster zu organisieren. Mit einem Kontext kann der Standart Namenraum geändert werden.\cite[S.39]{burns1}
+
+%Pods
 
 Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enthalten. Pods sind Objekte die vervielfältigt werden können, um die darin enthlaltene Appliaktion im Cluster zu skalieren. \cite[S. 166-192]{stender}
 
 Pods sind Gruppen von Containern - können von verschiedenen Teams entwickelte Container-Images zu einer einzelnen deploybaren Einheit verbinden. \cite[S.8]{burns1}
 
-\subsubsection{Service}
+Ein Pod repräsentiert eine Gruppe von Anwendungs-Containern und Volumes, die in der gleichen Ausführungsumgebung laufen. Pods sind das kleinste deploybare Artefakt in einem Kubrenetes Cluster. Anwendungen die im gleichen Pod laufen, haben die gleiche IP-Addresse und den gleichen Port-Space, den gleichen Hostnamen und sie können über native Interprozess-Kommunikationskanäle kommunizieren. Pods werden in einem Pod-Mainfest beschrieben \cite[S.48,49]{burns1}.
+
+%Deployement
+
+Ein Deployement ist ein Objekt, welches etwas im Cluster installiert um es dort laufen zu lassen. \cite[S. 166-192]{stender}
+
+%Service
 
 Services bieten Load Balancing, Naming und Discovery, um einen Microservice von anderen zu isolieren.  \cite[S.8]{burns1}
 
-\subsubsection{Rollout}
-
-\subsubsection{Replica Set}
-
-\subsubsection{Secret}
-
-\subsubsection{Templates}
-
+% Volumes
+% Rollout
+% Replica Set
+% Secret
+% Templates
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -454,6 +453,18 @@ Services bieten Load Balancing, Naming und Discovery, um einen Microservice von 
 
 \pagebreak 
 \section{Modellgetriebene Entwicklung von Microservices}
+
+Model Driven SOA ist eine Variante der MID-Modellierungsmethodik M³ . Sie unterstützt den modellgetriebenen Entwurf und die Entwicklung von SOA-Anwendungen. Die Methodik wird üblicherweise in mehreren Iterationen durchlaufen. MDSOA läuft in verschiedenen Phasen ab:
+
+Initiationsphase: Aufnahme der Fachlichkeit und deren Anforderungen sowie die Identifikation von fachlichen Services.
+
+Systemevaluierungsphase: Spezifikation der technischen Services, des Fachdatenmodells und der Maskenflüsse.
+
+Architekturprojektionsphase: Abbildung der gewählten Architektur und die Übertragung der in der Initiations- und Evaluierungsphase spezifizierten Inhalte auf konkrete Elemente der Architektur.
+
+Softwarekonstruktion: Generierung von Artefakten und Integration aller Ergebnisse zu einer lauffähigen Anwendung auf einer spezifischen Plattform.
+
+\cite[S.62-66]{rempp}
 
 Herausforderungen beim Domain-Driven Microservice Design:
 
