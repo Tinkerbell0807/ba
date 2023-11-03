@@ -13,6 +13,7 @@ Brendan Burns, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes.
 \newblock Borg, omega, and kubernetes: Lessons learned from three
   container-management systems over a decade.
 \newblock {\em Queue}, 14(1):70–93, jan 2016.
+\newblock \url{https://doi.org/10.1145/2898442.2898444}.
 
 \bibitem[Das17]{daschner}
 Sebastian Daschner.
@@ -56,7 +57,8 @@ Susan~J. Fowler.
 \bibitem[LF14]{fowlerlewis}
 James Lewis and Martin Fowler.
 \newblock Microservices - a definition of this new architectural term, 2014.
-\newblock Accessed: 01.11.2023.
+\newblock \url{https://martinfowler.com/articles/microservices.html}, Zugriff
+  am 01.11.2023.
 
 \bibitem[New15]{newman}
 Sam Newman.
@@ -82,7 +84,8 @@ Mark Richards and Neal Ford.
 \bibitem[Ric]{richardson}
 Chris Richardson.
 \newblock Pattern: Microservice chassis.
-\newblock Accessed: 01.11.2023.
+\newblock \url{https://microservices.io/patterns/microservice-chassis.html},
+  Zugriff am 01.11.2023.
 
 \bibitem[Rit18]{riti}
 Pierluigi Riti.
@@ -97,6 +100,7 @@ Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.
 \newblock Challenges of domain-driven microservice design: A model-driven
   perspective.
 \newblock {\em IEEE Software}, 35(3):36--43, 2018.
+\newblock \url{https://ieeexplore.ieee.org/document/8354426}.
 
 \bibitem[Som20]{sommerville}
 Ian Sommerville.
@@ -123,5 +127,7 @@ Eberhard Wolff.
 Faiez Zalila, Stéphanie Challita, and Philippe Merle.
 \newblock Model-driven cloud resource management with occiware.
 \newblock {\em Future Generation Computer Systems}, 99:260--277, 2019.
+\newblock
+  \url{https://www.sciencedirect.com/science/article/pii/S0167739X18306071}.
 
 \end{thebibliography}

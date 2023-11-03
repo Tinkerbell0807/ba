@@ -24,23 +24,23 @@ Warning--I'm ignoring riti's extra "note" field
 Warning--I'm ignoring burns1's extra "note" field
 --line 201 of file bibs/litDB.bib
 Warning--I'm ignoring rempp's extra "note" field
---line 250 of file bibs/litDB.bib
-Warning--I'm ignoring rempp's extra "note" field
 --line 251 of file bibs/litDB.bib
+Warning--I'm ignoring rempp's extra "note" field
+--line 252 of file bibs/litDB.bib
 Warning--to sort, need author, editor, or key in rempp
 Warning--empty author and editor in rempp
 You've used 18 entries,
             2543 wiz_defined-function locations,
-            691 strings with 8099 characters,
-and the built_in function-call counts, 5896 in all, are:
-= -- 571
+            695 strings with 8416 characters,
+and the built_in function-call counts, 5923 in all, are:
+= -- 577
 > -- 243
 < -- 11
 + -- 77
 - -- 77
 * -- 377
-:= -- 1009
-add.period$ -- 70
+:= -- 1015
+add.period$ -- 73
 call.type$ -- 18
 change.case$ -- 97
 chr.to.int$ -- 18
@@ -48,13 +48,13 @@ cite$ -- 21
 duplicate$ -- 269
 empty$ -- 467
 format.name$ -- 104
-if$ -- 1208
+if$ -- 1214
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 28
-newline$ -- 106
+newline$ -- 109
 num.names$ -- 51
-pop$ -- 113
+pop$ -- 110
 preamble$ -- 1
 purify$ -- 120
 quote$ -- 0
@@ -69,5 +69,5 @@ type$ -- 92
 warning$ -- 2
 while$ -- 43
 width$ -- 20
-write$ -- 270
+write$ -- 276
 (There were 14 warnings)

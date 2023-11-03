@@ -93,6 +93,7 @@ Auch wenn eine Factory dafür sorgt, dass ein Objekt richtig erstellt wird, kann
 \glqq Repositories\grqq{} sind dafür zuständig, Daten von bestimmten Objekten, wie Entitäten oder Aggregaten, sicher zu speichern und zu verwalten. Die Hauptidee von Repositories ist, einen zentralen Ort zu haben, der dafür sorgt, dass alles korrekt und konsequent gespeichert wird. Man kann sich ein Repository wie eine besondere Sammlung vorstellen, aus der man Daten anhand von bestimmten Kriterien abfragen kann. Dabei fügt das Repository neue Objekte der Datenbank hinzu oder löscht sie. Wenn man Daten aus einem Repository möchte, nutzt man spezielle Suchmethoden. Dabei kann die Suche einfach oder auch sehr detailliert sein \cite[S. 147 - 161]{evans} \cite[S.76]{daschner}.
 
 %TODO Checken ob notwendig
+%TODO Grafik machen
 %\subsection{Domain Event}
 %
 %Domain Events represent events that are relevant to the business domain. They usually merge from business use cases and have specific domain semantics. They are important for event Sourcing and event-driven architecture..\cite[S.78]{daschner}
@@ -288,6 +289,8 @@ Bei hoher Last skalieren Microservices selbstständig, indem mehrere Instanzen d
 %TODO Deep Dive ? \cite[S.221-233]{newman}.
 Weiterhin muss Die Sicherheit des gesamten Systems einheitlich gestaltet werden, sodass jeder Nutzerzugriff einheitlich geregelt ist. Dies beinhaltet die Authentifizierung und Autorisierung. Einzelne Microservices sollten sich nicht um die Authentifizierung kümmern. Dies macht ein zentraler Server. Bei der Autorisierung arbeiten verschiedene Teile zusammen, wobei Microservices bestimmen, welche Funktionen bestimmten Nutzergruppen zur Verfügung stehen. Ein Beispiel für die Umsetzung ist das OAuth2-Protokoll. Nach erfolgreicher Authentifizierung und Autorisierung bekommt der Nutzer ein Access Token, das den Zugriff auf Services erlaubt. Dieses Token kann zwischen Microservices ausgetauscht werden, um sichere Anfragen zu ermöglichen und die Sicherheit im gesamten System sicherzustellen \cite[S. 153-161]{wolff}.
 
+
+%TODO Das Kapitel überarbeiten
 \pagebreak
 \subsection{Kommunikation}
 
@@ -328,7 +331,7 @@ Messaging kann durch verschiedene Technologien wie AMQP, Apache Kafka, JMS oder 
 Bei der Frage der verfügbaren Technologien sind im Wesentlichen zwei Aspekte zu beachten: Unser Microservice muss Ereignisse auslösen können, und die Consumer müssen feststellen können, dass diese Ereignisse stattgefunden haben. Message-Broker-Systeme wie RabbitMQ versuchen, beide Aufgaben gleichzeitig zu erledigen. Die Auslöser der Ereignisse greifen auf eine API zu, um dem Message-Broker das Auftreten eines Ereignisses mitzuteilen. Der Message-Broker wiederum informiert die Abonnenten, wenn ein Ereignis eingetreten ist. Der Message-Broker kann sogar den Zustand der Abonnenten überwachen und dadurch nachverfolgen, welche Ereignisse ihnen bereits mitgeteilt wurden.
 Ein anderer Ansatz ist, für das Eintreten von Ereignissen HTTP zu benutzen. ATOM ist eine REST-konforme Spezifikation, die (unter anderem) das zur Veröffentlichung solcher Feeds erforderliche Vokabular definiert.\cite[S.87-88]{newman}
 
-
+%TODO Das mal hinterfragen ob ich das wirklich brauche
 \subsubsection{Schnittstellenmanagement und Versionierung in Microservices}
 
 Jeder Microservice kann eine oder mehrere Schnittstellen für andere Microservices bereitstellen. Außerdem kann ein Microservice Schnittstellen nach außen haben, die Interaktionen außerhalb des Systemkontexts ermöglichen. Wenn ein Microservice eine Schnittstelle ändert, sollte er auch noch die alte Schnittstelle unterstützen. Weiterhin sollten Schnittstellen getrennt umgesetzt werden. Um Änderungen an einer Schnittstelle deutlich zu machen, kann eine Versionsnummer genutzt werden. Semantic Versioning definiert dabei eine Semantik für Versionsnummern, wobei das Format MAJOR.MINOR.PATCH lautet. Dabei sind Änderungen der Major-Version nicht rückwärtskompatibel, Änderungen der Minor-Version bieten neue Features, und Patch-Änderungen beheben Fehler (Bugfixes). Die Version sollte nicht in einer URL, sondern besser in einem Header bei einem REST-Request angegeben werden.
@@ -363,87 +366,78 @@ Ein Microservice-System muss jede Anfrage von Anfang bis Ende verfolgen können,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak 
-\section{Cloud-Infrastruktur}
+\section{Cloud-Computing}
 
-\subsection{Definition}
+%TODO Quelle für das NIST suchen
 
-Unter Cloud-Computing versteht man das Nutzen von Computing-Ressourcen über das Netzwerk. Durch Virtualisierung können so Ressourcen eines von Cloud-Anbietern gehosteten Rechenzentrums gekapselt werden. In einer Cloud-Umgebung können Konzepte wie Continuous Delivery umgesetzt werden.
-\cite[S. 20]{stender}
-
-%%%
-
-Softwarecontainer sind eine Methode, um eine beliebige Anwendung in eine normierte, portable Einheit zu verpacken, die ein lauffähiges Gebilde ist. Die zentrale Eigenschaft einer solchen Umgebung ist es, dass der Container als Prozesskapsel von dem restlichen System isoliert ist und im Rahmen bestimmter Grenzen läuft. Dies erlaubt sowohl unterschiedliche Applikationen als auch verschiedene Komponenten derselben Applikation in separaten Containern zu betreiben. Ein Effekt davon ist, dass diese in der Cloud dann unabhängig voneinander skaliert werden können. Diese Modularisierung wird insbesondere bei Microservices als Prinzip für Entwicklung und Applikationsarchitektur auf die Spitze getrieben.
-
-Für die Orchestrierung einer komplexen containerisierten Anwendung wird ein Cluster-Manager benötigt. Cluster bezeichnet dabei eine zusammengehörige Gruppe von Servern mit Containern, während die Instanzen, die in einem solchen Konstrukt eingebunden sind, als Knoten (Nodes) bezeichnet werden. Beispiele dafür sind Swarm Mode (Teil von Docker) oder Kubernetes.
-\cite[S. 46-63]{stender}
-
-%%%
-
-The NIST (National Institute of Standards and Technology) defines Cloud Computing as follows: "Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort or service provider interaction. This cloud model is composed of five essential characteristics, three service models (SaaS, PaaS, IaaS), and four deployment models (Private, Community, Public, Hybrid)."\cite[S.19-22]{riti}
+Cloud-Computing bedeutet, Rechnerressourcen über ein Netzwerk zu nutzen. Mithilfe von Virtualisierung lassen sich die Ressourcen eines von Cloud-Anbietern betriebenen Rechenzentrums abgrenzen. In der Cloud können wir Konzepte wie Continuous Delivery anwenden. Das National Institute of Standards and Technology (NIST) beschreibt Cloud-Computing so: Cloud-Computing ist ein Modell für einen allgegenwärtigen, bequemen und bedarfsgerechten Netzwerkzugang zu einem Pool von konfigurierbaren Rechenressourcen, die schnell und mit minimalem Verwaltungsaufwand oder ohne große Interaktion mit dem Dienstanbieter bereitgestellt und freigegeben werden können \cite[S. 20]{stender} \cite[S.19-22]{riti}.
 
 \subsection{Docker}
 
-Ein Container-Image ist ein Binary-Paket, das alle für das Ausführen eines Programms in einem OS-Container notwendigen Dateien zusammenfasst. \cite [S.16]{burns1}
+Softwarecontainer sind eine Methode, um Anwendungen in normierte, portable Einheiten zu packen, die eigenständig laufen können. Das Besondere an diesen Umgebungen ist ihre Isolierung vom restlichen System als abgegrenzte Prozesskapseln, die innerhalb festgelegter Grenzen operieren. Dies ermöglicht es, unterschiedliche Anwendungen und sogar verschiedene Komponenten einer Anwendung in separaten Containern zu betreiben, die in der Cloud unabhängig voneinander skaliert werden können. Besonders im Bereich der Microservices wird dieses Prinzip bei der Entwicklung und in der Applikationsarchitektur stark genutzt.
 
-Das Docker-Image-Format ist der De-facto-Standart. \cite[S.17]{burns1}.
+Containerisierung kann als Weiterentwicklung der Virtualisierung angesehen werden, bei der ein Betriebssystem auf einem Hostrechner nachgebildet wird. Es gibt hauptsächlich zwei Arten von Containern: System-Container, die virtuelle Maschinen imitieren und oft einen vollständigen Boot-Vorgang durchführen, und Anwendungscontainer, die meist nur ein einzelnes Programm ausführen. Docker ist die wohl bekannteste Container-Software und bietet eine Virtualisierung auf Betriebssystemebene, die mit Containerisierung gleichzusetzen ist. Diese Isolationstechnik erlaubt es, mehrere Betriebssysteme innerhalb eines anderen zu betreiben \cite[S. 54-59]{stender} \cite[S.18]{burns1} \cite[S.63]{riti}.
 
-Container gehören zu einer von zwei Hauptkategorien: System-Container oder Anwendungscontainer. System-Container versuchen virtuelle Maschienen nachzubilden, und führen häufig einen vollständigen Boot-Prozess durch. Anwendungs-Container unterscheiden sich von System-Containern darin, dass sie im Allgemeinen nur ein einzelnes Programm in sich laufen lassen \cite[S.18]{burns1}.
+Docker setzt sich aus folgenden Komponenten zusammen:
 
-Ein Dockerfile kann genutzt werden, um das Erstellen eines Docker-Container-Image zu automatisieren. \cite[S.18]{burns1}
+Die Docker Engine ist eine Client-Server-Anwendung, bei der der Client mit dem Server, auch Daemon genannt, kommuniziert. Der Daemon kümmert sich um das Ausführen der Container. Client und Daemon können auf demselben Rechner oder auf unterschiedlichen laufen.
 
-%%%
+Images bilden das Fundament unserer Docker-Architektur. Sie dienen dazu, Container zu starten. Eigene Images lassen sich erstellen, indem man von einem Basisimage ausgeht. Ein Container-Image ist ein Binärpaket, das alle Dateien enthält, die nötig sind, um ein Programm in einem Betriebssystemcontainer auszuführen. Das Format der Docker-Images hat sich als Standard etabliert. Mit einem Dockerfile kann man die Erstellung eines Docker-Container-Images automatisieren.
 
-Containerization can be viewed as an evolution of virtualization. With virtualization, we typically recreate an entire operating system and host it on a host machine. Docker is perhaps the most well-known software for containerization. It provides a level of virtualization known as operating-system-level virtualization, which is synonymous with containerization. This form of isolation enables us to run multiple operating systems within another. \cite[S.63]{riti}
+Ein Container ist praktisch ein ausgeführtes Image. Er kann mehrere Prozesse enthalten, je nachdem, wie das Image gestaltet und erstellt wurde. Kurz gesagt, ist ein Container eine portable, eigenständige Applikation. Man kann mehrere Container kombinieren, um komplexe Anwendungen zu betreiben.
 
-Docker is composed of the following different components:
+Das Registry ist der Speicherort für Images. Es gibt private und öffentliche Registries \cite [S.16-18]{burns1} \cite[S.64-65]{riti}.
 
-The Docker engine is a client-server application. The client talks with the server application, called a daemon. The daemon is responsible for executing the containers. Both the client and the daemon can be on the same machine or on different ones.
 
-Images are the foundation of our Docker architecture. Images are used to launch our containers, and we can create personal images by starting with another basic image.
+\subsection{Kubernetes}
 
-The registry is where the images are stored. We can identify two types of registries: private and public.
+Für das Orchestrieren einer komplexen, containerisierten Anwendung braucht man einen Cluster-Manager. Ein Cluster ist eine Gruppe von Servern mit Containern, die Knoten genannt werden. Beispiele hierfür sind Docker Swarm oder Kubernetes, auf welches im folgenden genauer eingegangen wird:
 
-Containers are essentially an image that is executed. A container can have more than one running process inside, depending on how the images are designed and created. Essentially, a container is a lightweight, standalone application. We can combine more than one container to execute a complex application.\cite[S.64-65]{riti}
+Kubernetes ist ein Open-Source-Orchestrierer für das Deployment von containerisierten Anwendungen. Entwickelt von Google, Verwaltet von der Cloud Native Computing Foundation, ermöglicht Kubernetes das Verwalten und Skalieren von containerisierten Anwendungen in einem Cluster. Es gilt als moderner Standard für den verteilten Betrieb von Applikationen, insbesondere in der Public Cloud, und nutzt Docker standardmäßig als Container-Engine. Kubernetes bietet eine eigene API, die besonders bei der Entwicklung eigener Werkzeuge zum Einsatz kommt.
 
-\subsection{Kubernetes} 
+Mit Kubernetes erstellt man einen Cluster aus Knoten, wobei es einen Master-Knoten und beliebig viele Worker-Knoten gibt. So kann ein Cluster nur aus einem Master-Knoten bestehen. Je nach Konfiguration kann jeder Knoten als Master oder Worker dienen. In Kubernetes wird alles als deklaratives Konfigurationsobjekt dargestellt, welches den gewünschten Zustand des Systems beschreibt. Dieses Prinzip, deklarative Konfigurationen unter Versionskontrolle zu halten, ist auch bekannt als "Infrastructure as Code".
 
-Kobernetes ist ein Open-Source-Orchestrierer für das Deployen containerisierter Anwendungen. Es wurde ursprünglich von Google entwickelt und ist durch ein Jahrzehnt Erfahrung beim Deployen skalierbarer, zuverlässiger Systeme in Containern über anwendungsorientierte APIs inspiriert. \cite[S.1]{burns1} \cite{burns3}
+Mit dem Tool kubectl können Benutzer über die auf dem Master laufende API mit dem Cluster kommunizieren. Der Master leitet die Worker-Nodes und führt die gewünschten Änderungen des Benutzers durch \cite[S.1,4]{burns1} \cite{burns3} \cite[S.79,81]{riti} \cite[S. 60-63,166]{stender}.
 
-Kubernetes ist ein moderner Standard für den verteilten Betrieb von containerisierten Applikationen auf Infrastrukturen aus der Public Cloud. Kubernetes nutzt Docker als Default-Container-Engine. Kubernetes besitzt eine eigene API, welche vor allem bei der Entwicklung von eigenen Werkzeugen genutzt wird. Das Tool kubectl spricht die Cluster über die auf dem Master laufende API an. Der Master steuert alle angeschlossenen Worker-Nodes und setzt die vom Anwender gewünschten Veränderungen um.
-\cite[S. 166-192]{stender}
+Kubernetes definiert grundlegende Objekte, um Ressourcen zu erstellen und zu verwalten. Die Komponenten sind so gestaltet, dass sie flexibel miteinander verbunden sind. In Kubernetes sind Objekte verschiedene Elemente, die man im Cluster verwenden kann. Jedes Objekt in Kubernetes hat einen einzigartigen HTTP-Pfad, da alles in Kubernetes als REST-Ressource dargestellt wird   \cite[S.40, 42]{burns1} \cite[S.80-81]{riti} \cite[S. 175]{stender}
 
-Alles in Kubernetes ist ein deklaratives Konfigurations-Objekt, das den gewünschten Status des Systems präsentiert. Die Idee, deklarative Konfiguration unter Versionsverwaltung zu stellen, wird oft als "Infrastructure as Code" bezeichnet \cite[S.4]{burns1}
+\subsubsection{Pods}
 
-Objekte in Kubernetes sind eine Reihe von verschiedenen Dingen, die der Nutzer im Cluster betreiben kann. \cite[S. 166-192]{stender}
-
-In Kubernetes wird alles als REST-Ressource repräsentiert. Jedes-Kubernetes Objekt existiert unter einem eindeutigen HTTP Pfad. \cite[S.40]{burns1}
-Objekte können mit Labeln Anmerkungen hinzugefügt werden. \cite[S.42]{burns1}
-
-Ein Kubernetes-Cluster besteht aus veschiedenen Komponenten: Kubernetes Proxy, Kubernetes-DNS und Kubernetes UI. \cite[S.36-37]{burns1}
-
-Kubernetes nutzt Namensräume, um Objekte im Cluster zu organisieren. Mit einem Kontext kann der Standart Namenraum geändert werden.\cite[S.39]{burns1}
-
-%Pods
-
-Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enthalten. Pods sind Objekte die vervielfältigt werden können, um die darin enthlaltene Appliaktion im Cluster zu skalieren. \cite[S. 166-192]{stender}
+Pods sind kleine Organisationseinheiten, deren Aufgabe es ist, Container zu enthalten. Pods sind Objekte die vervielfältigt werden können, um die darin enthlaltene Appliaktion im Cluster zu skalieren. \cite[S. 176]{stender}
 
 Pods sind Gruppen von Containern - können von verschiedenen Teams entwickelte Container-Images zu einer einzelnen deploybaren Einheit verbinden. \cite[S.8]{burns1}
 
 Ein Pod repräsentiert eine Gruppe von Anwendungs-Containern und Volumes, die in der gleichen Ausführungsumgebung laufen. Pods sind das kleinste deploybare Artefakt in einem Kubrenetes Cluster. Anwendungen die im gleichen Pod laufen, haben die gleiche IP-Addresse und den gleichen Port-Space, den gleichen Hostnamen und sie können über native Interprozess-Kommunikationskanäle kommunizieren. Pods werden in einem Pod-Mainfest beschrieben \cite[S.48,49]{burns1}.
 
-%Deployement
+Die erste Komponente der Kubernetes-Bausteine wird als Pod bezeichnet. Ein Pod ist eine Sammlung von Docker-Containern, die alle die gleiche IP-Adresse haben. Jeder Pod kann aus einem oder mehreren Containern bestehen, die auf demselben Host gehostet werden und die Ressourcen teilen. Jeder Pod teilt sich eine einzigartige IP-Adresse mit dem Cluster und kann manuell, über die API oder durch den Controller verwaltet werden. \cite[S.80-81]{riti}
+
+\subsubsection{Deployement}
 
 Ein Deployement ist ein Objekt, welches etwas im Cluster installiert um es dort laufen zu lassen. \cite[S. 166-192]{stender}
 
-%Service
+\subsubsection{Service}
 
+In Kubernetes ist ein Service ein Satz von Pods, die zusammenarbeiten. \cite[S.80-81]{riti}
 Services bieten Load Balancing, Naming und Discovery, um einen Microservice von anderen zu isolieren.  \cite[S.8]{burns1}
 
-% Volumes
-% Rollout
-% Replica Set
-% Secret
-% Templates
+\subsubsection{Rollout}
+
+Ein Rollout ist der Prozess des Ausrollens von Pods aus einem Deployment im Cluster \cite[S.180]{stender}.
+
+\subsubsection{Replica Set}
+
+Ein Replica Set überwcht über ein bestimmtes Label designierte Pods fdarauf hin, dass immer die gewünschte Anzahl davon im Cluster vorhanden ist. Das Replica Set stellt die gewünschte Anzahl der Pods automatisch sicher \cite[S.179]{stender}.
+
+\subsubsection{Label}
+
+Die andere in Kubernetes definierte Ressource wird als Labels bezeichnet. Diese werden verwendet, um eine Schlüssel-Wert-Paarung zu erstellen, um die Ressource zu identifizieren, beispielsweise einen Pod. Das Label bietet keine Einzigartigkeit. In K8s ist es möglich, dass mehr als ein Objekt denselben Namen hat und das, was man einen Label-Selektor oder Selektor nennt, zu erstellen.
+Mit einem Selektor ist es möglich, eine Gruppe von Objekten zu identifizieren. \cite[S.80-81]{riti}
+Labels sind Schlüssel/Wert-Paare, die Kubernetes Objekten wie Pods oder Replica-Sets zugewiesen werden können. Sie können beliebige Inhalte haben und sind nützlich, um Informationen zum Identifizieren von Kubernetes-Objekten daran anzubringen. Sie dienen als Grundlage zum Gruppieren von Objekten. \cite[S.???]{burns1}
+
+\subsubsection{Controller}
+
+Der Controller wird verwendet, um den Zustand des Clusters zu verwalten. \cite[S.80-81]{riti}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -483,58 +477,106 @@ Mittel der modellgetriebenen Entwicklung zur Bewältigung von Herausforderungen
 
 \cite{rademacher}
 
-Tools:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			TABELLE FÜR TOOLS ANF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-AjiL is an Eclipse-based tool for graphical MSA modeling. It features a diagram editor for modeling rudimentary domain models, functional and infrastructure microservices, and provided and required interfaces. Thus, AjiL facilitates creating intermediate models for service interfaces (see the section “Intermediate Models”). AjiL ships with a code generator that produces microservice implementations from AjiL models. The generated Java code is based on Spring Boot and Spring Cloud. It is directly runnable and comprises interface implementations, stubs for implementing services' business logic, and configuration files for infrastructure components. However, AjiL currently does not support round-trip engineering.4 The tool is available at github.com/SeelabFhdo/AjiL.
-\cite{rademacher}
+\begin{table}[h]
+\centering
+\begin{tabularx}{\textwidth}{|p{0.25\textwidth}|X|}
+\hline
+Tool & Funktionalität \\
+\hline
+AjiL \cite{rademacher} & 
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+	\item Eclipse-basierte grafische Modellierung und Bearbeitung für Mikroservices und Domänenmodelle.
+	\item Umfassende Unterstützung für Schnittstellenmanagement, von Entwurf bis hin zu Zwischenmodellen.
+	\item Automatisierte Generierung von ausführbarem Java-Code, Service-Stubs und Konfigurationen, basierend auf Spring Boot und Spring Cloud.
+\end{itemize} \\
+\hline
+OCGI \cite{zalila} & 
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+	\item Implementierung offener Standards für das durchgängige Management von Cloud-Ressourcen über alle Service-Modelle (IaaS, PaaS, SaaS) hinweg.
+	\item OCCIware Studio und Metamodell als Kernstücke für eine MDA, die Entwurf, Entwicklung und Verwaltung von Cloud-Diensten ermöglichen.
+	\item Ein universeller, generischer Rahmen, der OCCI-Spezifikationen ergänzt und in verschiedenen Cloud-Umgebungen getestet und validiert wurde.
+\end{itemize} \\
+\hline
+ARGON & 
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+    \item Funktion 1
+    \item Funktion 2
+\end{itemize} \\
+\hline
+VxBPMN4MS & 
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+    \item Funktion 1
+    \item Funktion 2
+\end{itemize} \\
+\hline
+Context Mapper & 
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+    \item Funktion 1
+    \item Funktion 2
+\end{itemize} \\
+\hline
+DOML & 
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+    \item Funktion 1
+    \item Funktion 2
+\end{itemize} \\
+\hline
+\end{tabularx}
+\caption{Tools für MDSD von Microservices}
+\label{tab:beispieltabelle}
+\end{table}
 
-Open Cloud Computing Interface (OCCI) is proposed as a community-based and open recommendation standard for managing any kind of cloud resources. Currently, only runtime implementations exist for OCCI, and each one targets a specific cloud service model such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), or Software as a Service (SaaS). Thus, OCCI lacks an approach to model and execute different OCCI artifacts. Our approach provides a generic modeling framework coupled with a generic runtime implementation. In this article, we propose the OCCIware approach, which represents the first approach to design, validate, generate, implement, deploy, execute, and supervise everything as a service with OCCI. This approach provides OCCIware Studio, the first model-driven tool chain for OCCI. It is built around OCCIware Metamodel, which defines the static semantics for the OCCI standard in Ecore and OCL. In addition, it proposes OCCIware Runtime, the first generic OCCI runtime implementation targeting all the cloud service models (IaaS, PaaS, and SaaS). OCCIware provides a unique and unified framework to manage OCCI artifacts and, at the same time, it represents a factory to build cloud domain-specific modeling frameworks where each framework targets a specific cloud domain. OCCIware has been applied in various cloud domains and use-cases, which validate its applicability.
-%https://www.sciencedirect.com/science/article/pii/S0167739X18306071#sec5
-\cite{zalila}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%			TABELLE FÜR TOOLS END
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\section{Noch zu sichten}
-
-\subsection{ARGON - automated cloud infrastructure provisioning using a domain-specific language}
-
-Infrastructure as Code (IaC) is an approach to infrastructure automation based on practices from software development. IaC tools use scripts to specify the creation, update, and execution of cloud infrastructures. As each cloud provider offers a different type of infrastructure, the definition of an infrastructure element implies to write several lines of code that strongly depend on the target cloud provider. As a result, managing IaC scripts has become a time-consuming and error-prone activity. In previous work, we have presented ARGON, which is a model-driven infrastructure provisioning tool. ARGON implements a domain-specific language (DSL) for modeling the characteristics of the cloud infrastructure and provides transformation engines to automate the infrastructure provisioning for different cloud providers. In this demonstration, we show the use of ARGON for modeling and provisioning a load balancer in Amazon Web Services and Microsoft Azure. The load balancer distributes incoming application traffic across multiple virtual machines.
-
-https://ieeexplore.ieee.org/abstract/document/8904494
-
-\subsection{model-driven approach for adaptive microservice-based systems using VxBPMN4MS}
-
-A microservice-based system is composed of numerous independently deployed and executed microservices, among which normally exist the complex dependencies. Traditional service composition approaches usually expect the business process predefined at design time. As a result, it is difficult for the microservice-based system to quickly adapt to the frequently changing operation environments and business requirements. To address the above limitations, we propose a variability-enabling and model-driven approach to developing adaptive microservice-based systems. Our approach first models the business process with variability using VxBPMN4MS, an extension of Business Process Model and Notation (BPMN) with support for variability, then transforms the business process model to variability supported microservice composition frameworks, and finally derives business process instances at run-time according to the predefined process configuration. We have developed a platform to automate the proposed approach as much as possible, and conducted a case study to evaluate the effectiveness of the proposed approach and platform.
-
-https://ieeexplore.ieee.org/abstract/document/9529482
-
-
-\subsection{Context Mapper, a tool for DDD and microservice design.}
-
-Service-oriented architectures and microservices have gained much attention in recent years; companies adopt
-these concepts and supporting technologies in order to increase agility, scalability, and maintainability of their
-systems. Decomposing an application into multiple independently deployable, appropriately sized services
-and then integrating such services is challenging. With strategic patterns such as Bounded Context and Context
-Map, Domain-driven Design (DDD) can support business analysts, (enterprise) architects, and microservice
-adopters. However, existing architecture description languages do not support the strategic DDD patterns
-sufficiently; modeling tools for DDD primarily focus on its tactical patterns. As a consequence, different
-opinions on how to apply strategic DDD exist, and it is not clear how to combine its patterns. Aiming for
-a clear and concise interpretation of the patterns and their combinations, this paper distills a meta-model of
-selected strategic DDD patterns from the literature. It then introduces Context Mapper, an open source project
-that a) defines a Domain-specific Language (DSL) expressing the strategic DDD patterns and b) provides
-editing, validation, and transformation tools for this DSL. As a machine-readable description of DDD, the DSL
-provides a modeling foundation for (micro-)service design and integration. The models can be refactored and
-transformed within an envisioned tool chain supporting the continuous specification and evolution of Context
-Maps. Our validation activities (prototyping, action research, and case studies) suggest that the DDD pattern
-clarification in our meta-model and the Context Mapper tool indeed can benefit the target audience.
-
-https://www.scitepress.org/Papers/2020/89105/89105.pdf
-
-\subsection{DOML simplifies infrastructure deployments by unifying multiple IaC languages}
-
-One of the main DevOps practices is the automation of resource provisioning and deployment of complex software. This automation is enabled by the explicit definition of Infrastructure-as-Code (IaC), i.e., a set of scripts, often written in different modelling languages, which defines the infrastructure and applications to be deployed.
-
-We introduce the DevOps Modelling Language (DOML), a new Cloud modelling language for infrastructure deployments. DOML is a modelling approach that can be mapped into multiple IaC languages, addressing infrastructure provisioning, application deployment and configuration at once. The idea behind DOML is to use a single modelling paradigm which can help to reduce the need of deep technical expertise in using different specialised IaC languages.
-
-We present the DOML’s principles and discuss the related work on IaC languages. We demonstrate the DOML advantages for the end-user in comparison with state-of-the-art IaC languages such as Ansible, Terraform, and Cloudify, and show its effectiveness through an example.
-
-%https://link.springer.com/chapter/10.1007/978-3-031-34560-9_18\# Abs1
+%\newpage
+%\section{Noch zu sichten}
+%
+%\subsection{ARGON - automated cloud infrastructure provisioning using a domain-specific language}
+%
+%Infrastructure as Code (IaC) is an approach to infrastructure automation based on practices from software development. IaC tools use scripts to specify the creation, update, and execution of cloud infrastructures. As each cloud provider offers a different type of infrastructure, the definition of an infrastructure element implies to write several lines of code that strongly depend on the target cloud provider. As a result, managing IaC scripts has become a time-consuming and error-prone activity. In previous work, we have presented ARGON, which is a model-driven infrastructure provisioning tool. ARGON implements a domain-specific language (DSL) for modeling the characteristics of the cloud infrastructure and provides transformation engines to automate the infrastructure provisioning for different cloud providers. In this demonstration, we show the use of ARGON for modeling and provisioning a load balancer in Amazon Web Services and Microsoft Azure. The load balancer distributes incoming application traffic across multiple virtual machines.
+%
+%https://ieeexplore.ieee.org/abstract/document/8904494
+%
+%\subsection{model-driven approach for adaptive microservice-based systems using VxBPMN4MS}
+%
+%A microservice-based system is composed of numerous independently deployed and executed microservices, among which normally exist the complex dependencies. Traditional service composition approaches usually expect the business process predefined at design time. As a result, it is difficult for the microservice-based system to quickly adapt to the frequently changing operation environments and business requirements. To address the above limitations, we propose a variability-enabling and model-driven approach to developing adaptive microservice-based systems. Our approach first models the business process with variability using VxBPMN4MS, an extension of Business Process Model and Notation (BPMN) with support for variability, then transforms the business process model to variability supported microservice composition frameworks, and finally derives business process instances at run-time according to the predefined process configuration. We have developed a platform to automate the proposed approach as much as possible, and conducted a case study to evaluate the effectiveness of the proposed approach and platform.
+%
+%https://ieeexplore.ieee.org/abstract/document/9529482
+%
+%
+%\subsection{Context Mapper, a tool for DDD and microservice design.}
+%
+%Service-oriented architectures and microservices have gained much attention in recent years; companies adopt
+%these concepts and supporting technologies in order to increase agility, scalability, and maintainability of their
+%systems. Decomposing an application into multiple independently deployable, appropriately sized services
+%and then integrating such services is challenging. With strategic patterns such as Bounded Context and Context
+%Map, Domain-driven Design (DDD) can support business analysts, (enterprise) architects, and microservice
+%adopters. However, existing architecture description languages do not support the strategic DDD patterns
+%sufficiently; modeling tools for DDD primarily focus on its tactical patterns. As a consequence, different
+%opinions on how to apply strategic DDD exist, and it is not clear how to combine its patterns. Aiming for
+%a clear and concise interpretation of the patterns and their combinations, this paper distills a meta-model of
+%selected strategic DDD patterns from the literature. It then introduces Context Mapper, an open source project
+%that a) defines a Domain-specific Language (DSL) expressing the strategic DDD patterns and b) provides
+%editing, validation, and transformation tools for this DSL. As a machine-readable description of DDD, the DSL
+%provides a modeling foundation for (micro-)service design and integration. The models can be refactored and
+%transformed within an envisioned tool chain supporting the continuous specification and evolution of Context
+%Maps. Our validation activities (prototyping, action research, and case studies) suggest that the DDD pattern
+%clarification in our meta-model and the Context Mapper tool indeed can benefit the target audience.
+%
+%https://www.scitepress.org/Papers/2020/89105/89105.pdf
+%
+%\subsection{DOML simplifies infrastructure deployments by unifying multiple IaC languages}
+%
+%One of the main DevOps practices is the automation of resource provisioning and deployment of complex software. This automation is enabled by the explicit definition of Infrastructure-as-Code (IaC), i.e., a set of scripts, often written in different modelling languages, which defines the infrastructure and applications to be deployed.
+%
+%We introduce the DevOps Modelling Language (DOML), a new Cloud modelling language for infrastructure deployments. DOML is a modelling approach that can be mapped into multiple IaC languages, addressing infrastructure provisioning, application deployment and configuration at once. The idea behind DOML is to use a single modelling paradigm which can help to reduce the need of deep technical expertise in using different specialised IaC languages.
+%
+%We present the DOML’s principles and discuss the related work on IaC languages. We demonstrate the DOML advantages for the end-user in comparison with state-of-the-art IaC languages such as Ansible, Terraform, and Cloudify, and show its effectiveness through an example.
+%
+%%https://link.springer.com/chapter/10.1007/978-3-031-34560-9_18\# Abs1
