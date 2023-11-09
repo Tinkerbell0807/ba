@@ -370,6 +370,8 @@ Ein Microservice-System muss jede Anfrage von Anfang bis Ende verfolgen können,
 
 %TODO Quelle für das NIST suchen
 
+%TODO Das Kapitel überarbeiten sobald die Generierung konzepiert ist
+
 Cloud-Computing bedeutet, Rechnerressourcen über ein Netzwerk zu nutzen. Mithilfe von Virtualisierung lassen sich die Ressourcen eines von Cloud-Anbietern betriebenen Rechenzentrums abgrenzen. In der Cloud können wir Konzepte wie Continuous Delivery anwenden. Das National Institute of Standards and Technology (NIST) beschreibt Cloud-Computing so: Cloud-Computing ist ein Modell für einen allgegenwärtigen, bequemen und bedarfsgerechten Netzwerkzugang zu einem Pool von konfigurierbaren Rechenressourcen, die schnell und mit minimalem Verwaltungsaufwand oder ohne große Interaktion mit dem Dienstanbieter bereitgestellt und freigegeben werden können \cite[S. 20]{stender} \cite[S.19-22]{riti}.
 
 \subsection{Docker}
@@ -495,31 +497,31 @@ AjiL \cite{rademacher} &
 \end{itemize} \\
 \hline
 OCGI \cite{zalila} & 
-\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\bAaselineskip}]
 	\item Implementierung offener Standards für das durchgängige Management von Cloud-Ressourcen über alle Service-Modelle (IaaS, PaaS, SaaS) hinweg.
 	\item OCCIware Studio und Metamodell als Kernstücke für eine MDA, die Entwurf, Entwicklung und Verwaltung von Cloud-Diensten ermöglichen.
 	\item Ein universeller, generischer Rahmen, der OCCI-Spezifikationen ergänzt und in verschiedenen Cloud-Umgebungen getestet und validiert wurde.
 \end{itemize} \\
 \hline
-ARGON & 
+ARGON \cite{argon} & 
 \begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
     \item Funktion 1
     \item Funktion 2
 \end{itemize} \\
 \hline
-VxBPMN4MS & 
+VxBPMN4MS \cite{sun} & 
 \begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
     \item Funktion 1
     \item Funktion 2
 \end{itemize} \\
 \hline
-Context Mapper & 
+Context Mapper \cite{mapper} & 
 \begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
     \item Funktion 1
     \item Funktion 2
 \end{itemize} \\
 \hline
-DOML & 
+DOML \cite{doml} & 
 \begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
     \item Funktion 1
     \item Funktion 2
@@ -527,56 +529,4 @@ DOML &
 \hline
 \end{tabularx}
 \caption{Tools für MDSD von Microservices}
-\label{tab:beispieltabelle}
 \end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			TABELLE FÜR TOOLS END
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\newpage
-%\section{Noch zu sichten}
-%
-%\subsection{ARGON - automated cloud infrastructure provisioning using a domain-specific language}
-%
-%Infrastructure as Code (IaC) is an approach to infrastructure automation based on practices from software development. IaC tools use scripts to specify the creation, update, and execution of cloud infrastructures. As each cloud provider offers a different type of infrastructure, the definition of an infrastructure element implies to write several lines of code that strongly depend on the target cloud provider. As a result, managing IaC scripts has become a time-consuming and error-prone activity. In previous work, we have presented ARGON, which is a model-driven infrastructure provisioning tool. ARGON implements a domain-specific language (DSL) for modeling the characteristics of the cloud infrastructure and provides transformation engines to automate the infrastructure provisioning for different cloud providers. In this demonstration, we show the use of ARGON for modeling and provisioning a load balancer in Amazon Web Services and Microsoft Azure. The load balancer distributes incoming application traffic across multiple virtual machines.
-%
-%https://ieeexplore.ieee.org/abstract/document/8904494
-%
-%\subsection{model-driven approach for adaptive microservice-based systems using VxBPMN4MS}
-%
-%A microservice-based system is composed of numerous independently deployed and executed microservices, among which normally exist the complex dependencies. Traditional service composition approaches usually expect the business process predefined at design time. As a result, it is difficult for the microservice-based system to quickly adapt to the frequently changing operation environments and business requirements. To address the above limitations, we propose a variability-enabling and model-driven approach to developing adaptive microservice-based systems. Our approach first models the business process with variability using VxBPMN4MS, an extension of Business Process Model and Notation (BPMN) with support for variability, then transforms the business process model to variability supported microservice composition frameworks, and finally derives business process instances at run-time according to the predefined process configuration. We have developed a platform to automate the proposed approach as much as possible, and conducted a case study to evaluate the effectiveness of the proposed approach and platform.
-%
-%https://ieeexplore.ieee.org/abstract/document/9529482
-%
-%
-%\subsection{Context Mapper, a tool for DDD and microservice design.}
-%
-%Service-oriented architectures and microservices have gained much attention in recent years; companies adopt
-%these concepts and supporting technologies in order to increase agility, scalability, and maintainability of their
-%systems. Decomposing an application into multiple independently deployable, appropriately sized services
-%and then integrating such services is challenging. With strategic patterns such as Bounded Context and Context
-%Map, Domain-driven Design (DDD) can support business analysts, (enterprise) architects, and microservice
-%adopters. However, existing architecture description languages do not support the strategic DDD patterns
-%sufficiently; modeling tools for DDD primarily focus on its tactical patterns. As a consequence, different
-%opinions on how to apply strategic DDD exist, and it is not clear how to combine its patterns. Aiming for
-%a clear and concise interpretation of the patterns and their combinations, this paper distills a meta-model of
-%selected strategic DDD patterns from the literature. It then introduces Context Mapper, an open source project
-%that a) defines a Domain-specific Language (DSL) expressing the strategic DDD patterns and b) provides
-%editing, validation, and transformation tools for this DSL. As a machine-readable description of DDD, the DSL
-%provides a modeling foundation for (micro-)service design and integration. The models can be refactored and
-%transformed within an envisioned tool chain supporting the continuous specification and evolution of Context
-%Maps. Our validation activities (prototyping, action research, and case studies) suggest that the DDD pattern
-%clarification in our meta-model and the Context Mapper tool indeed can benefit the target audience.
-%
-%https://www.scitepress.org/Papers/2020/89105/89105.pdf
-%
-%\subsection{DOML simplifies infrastructure deployments by unifying multiple IaC languages}
-%
-%One of the main DevOps practices is the automation of resource provisioning and deployment of complex software. This automation is enabled by the explicit definition of Infrastructure-as-Code (IaC), i.e., a set of scripts, often written in different modelling languages, which defines the infrastructure and applications to be deployed.
-%
-%We introduce the DevOps Modelling Language (DOML), a new Cloud modelling language for infrastructure deployments. DOML is a modelling approach that can be mapped into multiple IaC languages, addressing infrastructure provisioning, application deployment and configuration at once. The idea behind DOML is to use a single modelling paradigm which can help to reduce the need of deep technical expertise in using different specialised IaC languages.
-%
-%We present the DOML’s principles and discuss the related work on IaC languages. We demonstrate the DOML advantages for the end-user in comparison with state-of-the-art IaC languages such as Ansible, Terraform, and Cloudify, and show its effectiveness through an example.
-%
-%%https://link.springer.com/chapter/10.1007/978-3-031-34560-9_18\# Abs1

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  3 NOV 2023 17:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  5 NOV 2023 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -751,9 +751,14 @@ Overfull \hbox (27.40102pt too wide) in paragraph at lines 355--356
  []
 
 [23] [24] [25] [26] [27] [28]
-Underfull \hbox (badness 2035) in paragraph at lines 528--528
+Underfull \hbox (badness 2035) in paragraph at lines 530--530
 []\OT1/phv/m/n/10.95 (+20) Automatisierte Ge-ne-rie-rung von ausf[]uhrbarem Jav
 a-Code,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--530
+[]|\OT1/phv/m/n/10.95 (+20) VxBPMN4MS
  []
 
 
@@ -794,13 +799,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 LaTeX Info: Symbol \textasciiacute not provided by
             font family phv in TS1 encoding.
-            Default family used instead on input line 54.
+            Default family used instead on input line 62.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-54.
+62.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -809,13 +814,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 [41]
-Underfull \hbox (badness 1629) in paragraph at lines 121--125
+Underfull \hbox (badness 1629) in paragraph at lines 149--153
 []\OT1/phv/m/n/10.95 (+20) Eberhard Wolff.  \OT1/phv/m/sl/10.95 (+20) Mi-cro-se
 r-vices: Grund-la-gen fle-xibler Soft-wa-rear-chi-tek-tu-ren\OT1/phv/m/n/10.95 
 (+20) .
  []
 
-) [42] (./ba.aux)
+[42]) [43] (./ba.aux)
 Package rerunfilecheck Info: File `ba.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  )
@@ -824,13 +829,13 @@ Package rerunfilecheck Info: File `ba.out' has not changed.
 ### simple group (level 1) entered at line 26 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18835 strings out of 476175
- 362631 string characters out of 5796271
+ 18843 strings out of 476175
+ 362681 string characters out of 5796271
  1866793 words of memory out of 6000000
- 38462 multiletter control sequences out of 15000+600000
+ 38465 multiletter control sequences out of 15000+600000
  541371 words of font info for 213 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 108i,20n,106p,10705b,731s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,106p,10705b,734s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
 r-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
@@ -839,10 +844,10 @@ f-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
 /uhvro8a.pfb>
-Output written on ba.pdf (45 pages, 769658 bytes).
+Output written on ba.pdf (46 pages, 772413 bytes).
 PDF statistics:
- 743 PDF objects out of 1000 (max. 8388607)
- 662 compressed objects within 7 object streams
- 178 named destinations out of 1000 (max. 500000)
+ 772 PDF objects out of 1000 (max. 8388607)
+ 682 compressed objects within 7 object streams
+ 183 named destinations out of 1000 (max. 500000)
  46932 words of extra memory for PDF output out of 51595 (max. 10000000)
 

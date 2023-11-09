@@ -28,46 +28,50 @@ Warning--I'm ignoring rempp's extra "note" field
 Warning--I'm ignoring rempp's extra "note" field
 --line 252 of file bibs/litDB.bib
 Warning--to sort, need author, editor, or key in rempp
+Warning--empty journal in doml
+Warning--empty journal in mapper
 Warning--empty author and editor in rempp
-You've used 18 entries,
+Warning--empty journal in argon
+Warning--empty journal in sun
+You've used 22 entries,
             2543 wiz_defined-function locations,
-            695 strings with 8416 characters,
-and the built_in function-call counts, 5923 in all, are:
-= -- 577
-> -- 243
-< -- 11
-+ -- 77
-- -- 77
-* -- 377
-:= -- 1015
-add.period$ -- 73
-call.type$ -- 18
-change.case$ -- 97
-chr.to.int$ -- 18
-cite$ -- 21
-duplicate$ -- 269
-empty$ -- 467
-format.name$ -- 104
-if$ -- 1214
+            722 strings with 9682 characters,
+and the built_in function-call counts, 8235 in all, are:
+= -- 815
+> -- 363
+< -- 15
++ -- 122
+- -- 121
+* -- 536
+:= -- 1373
+add.period$ -- 89
+call.type$ -- 22
+change.case$ -- 129
+chr.to.int$ -- 22
+cite$ -- 29
+duplicate$ -- 361
+empty$ -- 607
+format.name$ -- 151
+if$ -- 1709
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 109
-num.names$ -- 51
-pop$ -- 110
+missing$ -- 32
+newline$ -- 133
+num.names$ -- 63
+pop$ -- 142
 preamble$ -- 1
-purify$ -- 120
+purify$ -- 156
 quote$ -- 0
-skip$ -- 188
+skip$ -- 282
 stack$ -- 0
-substring$ -- 184
-swap$ -- 18
-text.length$ -- 11
+substring$ -- 329
+swap$ -- 54
+text.length$ -- 15
 text.prefix$ -- 11
 top$ -- 0
-type$ -- 92
-warning$ -- 2
-while$ -- 43
-width$ -- 20
-write$ -- 276
-(There were 14 warnings)
+type$ -- 124
+warning$ -- 6
+while$ -- 64
+width$ -- 26
+write$ -- 332
+(There were 18 warnings)

@@ -15,6 +15,14 @@ Brendan Burns, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes.
 \newblock {\em Queue}, 14(1):70–93, jan 2016.
 \newblock \url{https://doi.org/10.1145/2898442.2898444}.
 
+\bibitem[CXN{\etalchar{+}}23]{doml}
+Michele Chiari, Bin Xiang, Galia~Novakova Nedeltcheva, Elisabetta Di~Nitto,
+  Lorenzo Blasi, Debora Benedetto, and Laurentiu Niculut.
+\newblock Doml: A new modelling approach to infrastructure-as-code.
+\newblock pages 297--313, 2023.
+\newblock
+  \url{https://link.springer.com/chapter/10.1007/978-3-031-34560-9_18/#citeas}.
+
 \bibitem[Das17]{daschner}
 Sebastian Daschner.
 \newblock {\em Architecting modern Java EE applications: designing lightweight,
@@ -53,6 +61,13 @@ Susan~J. Fowler.
   across an engineering organization}.
 \newblock O{\textasciiacute}Reilly, Beijing, first edition edition, 2017.
 \newblock Susan J. Fowler.
+
+\bibitem[KZ20]{mapper}
+Stefan Kapferer and Olaf Zimmermann.
+\newblock Domain-specific language and tools for strategic domain-driven
+  design, context mapping and bounded context modeling.
+\newblock pages 299--306, 01 2020.
+\newblock \url{https://www.scitepress.org/Papers/2020/89105/89105.pdf}.
 
 \bibitem[LF14]{fowlerlewis}
 James Lewis and Martin Fowler.
@@ -102,6 +117,12 @@ Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.
 \newblock {\em IEEE Software}, 35(3):36--43, 2018.
 \newblock \url{https://ieeexplore.ieee.org/document/8354426}.
 
+\bibitem[SIA19]{argon}
+Julio Sandobalin, Emilio Insfran, and Silvia Abrahão.
+\newblock Argon: A model-driven infrastructure provisioning tool.
+\newblock pages 738--742, 2019.
+\newblock \url{https://ieeexplore.ieee.org/abstract/document/8904494}.
+
 \bibitem[Som20]{sommerville}
 Ian Sommerville.
 \newblock {\em Engineering software products: an introduction to modern
@@ -116,6 +137,13 @@ Daniel Stender.
 \newblock Rheinwerk computing. Rheinwerk Computing, Bonn, 1. auflage edition,
   2020.
 \newblock Daniel Stender.
+
+\bibitem[SWLH21]{sun}
+Chang-ai Sun, Jing Wang, Zhenxian Liu, and Yanbo Han.
+\newblock A variability-enabling and model-driven approach to adaptive
+  microservice-based systems.
+\newblock pages 968--973, 2021.
+\newblock \url{https://ieeexplore.ieee.org/abstract/document/9529482}.
 
 \bibitem[Wol16]{wolff}
 Eberhard Wolff.
