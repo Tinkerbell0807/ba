@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:microserviceMetamodell="microserviceMetamodell">
+  <webservices domainName="Kontaktdaten" hostUrl="http://contact-service.tu-ilmenau.de"/>
+</microserviceMetamodell:SystemModel>

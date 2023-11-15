@@ -3,75 +3,80 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: ba.aux
 The style file: alpha.bst
 Database file #1: bibs/litDB.bib
+Warning--I'm ignoring brugge's extra "note" field
+--line 12 of file bibs/litDB.bib
+Warning--I'm ignoring posch's extra "note" field
+--line 28 of file bibs/litDB.bib
+Warning--I'm ignoring posch's extra "note" field
+--line 29 of file bibs/litDB.bib
 Warning--I'm ignoring evans's extra "note" field
---line 11 of file bibs/litDB.bib
+--line 44 of file bibs/litDB.bib
 Warning--I'm ignoring dowalil's extra "note" field
---line 36 of file bibs/litDB.bib
+--line 69 of file bibs/litDB.bib
 Warning--I'm ignoring dowalil's extra "note" field
---line 37 of file bibs/litDB.bib
+--line 70 of file bibs/litDB.bib
 Warning--I'm ignoring wolff's extra "note" field
---line 64 of file bibs/litDB.bib
+--line 97 of file bibs/litDB.bib
 Warning--entry type for "fowlerlewis" isn't style-file defined
---line 113 of file bibs/litDB.bib
+--line 146 of file bibs/litDB.bib
 Warning--entry type for "richardson" isn't style-file defined
---line 122 of file bibs/litDB.bib
+--line 155 of file bibs/litDB.bib
 Warning--I'm ignoring sommerville's extra "note" field
---line 152 of file bibs/litDB.bib
+--line 185 of file bibs/litDB.bib
 Warning--I'm ignoring sommerville's extra "note" field
---line 153 of file bibs/litDB.bib
-Warning--I'm ignoring riti's extra "note" field
 --line 186 of file bibs/litDB.bib
+Warning--I'm ignoring riti's extra "note" field
+--line 219 of file bibs/litDB.bib
 Warning--I'm ignoring burns1's extra "note" field
---line 201 of file bibs/litDB.bib
+--line 234 of file bibs/litDB.bib
 Warning--I'm ignoring rempp's extra "note" field
---line 251 of file bibs/litDB.bib
+--line 284 of file bibs/litDB.bib
 Warning--I'm ignoring rempp's extra "note" field
---line 252 of file bibs/litDB.bib
+--line 285 of file bibs/litDB.bib
 Warning--to sort, need author, editor, or key in rempp
-Warning--empty journal in doml
 Warning--empty journal in mapper
 Warning--empty author and editor in rempp
 Warning--empty journal in argon
 Warning--empty journal in sun
-You've used 22 entries,
+You've used 23 entries,
             2543 wiz_defined-function locations,
-            722 strings with 9682 characters,
-and the built_in function-call counts, 8235 in all, are:
-= -- 815
-> -- 363
-< -- 15
-+ -- 122
-- -- 121
-* -- 536
-:= -- 1373
-add.period$ -- 89
-call.type$ -- 22
-change.case$ -- 129
-chr.to.int$ -- 22
+            726 strings with 9655 characters,
+and the built_in function-call counts, 8292 in all, are:
+= -- 819
+> -- 362
+< -- 14
++ -- 120
+- -- 119
+* -- 533
+:= -- 1393
+add.period$ -- 93
+call.type$ -- 23
+change.case$ -- 131
+chr.to.int$ -- 23
 cite$ -- 29
-duplicate$ -- 361
-empty$ -- 607
+duplicate$ -- 368
+empty$ -- 622
 format.name$ -- 151
-if$ -- 1709
+if$ -- 1719
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 32
-newline$ -- 133
-num.names$ -- 63
-pop$ -- 142
+missing$ -- 35
+newline$ -- 139
+num.names$ -- 66
+pop$ -- 144
 preamble$ -- 1
-purify$ -- 156
+purify$ -- 159
 quote$ -- 0
-skip$ -- 282
+skip$ -- 283
 stack$ -- 0
-substring$ -- 329
-swap$ -- 54
-text.length$ -- 15
+substring$ -- 304
+swap$ -- 47
+text.length$ -- 14
 text.prefix$ -- 11
 top$ -- 0
 type$ -- 124
-warning$ -- 6
+warning$ -- 5
 while$ -- 64
 width$ -- 26
-write$ -- 332
-(There were 18 warnings)
+write$ -- 350
+(There were 20 warnings)

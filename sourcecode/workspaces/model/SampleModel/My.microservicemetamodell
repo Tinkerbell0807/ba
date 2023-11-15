@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell" description="Dieses Modell stellt einen Ablauf im Kundenservice dar">
+  <webservices domainName="Kundenanfrage" hostUrl="http://kundenanfrage-service.mycompany.org">
+    <domainObjectControllers objectName="AnfragenController" domainObjectServices="//@webservices.0/@domainObjectServices.0">
+      <restEndpoints httpMethod="POST" path="/postUpdatedAnfrage"/>
+      <restEndpoints httpMethod="DELETE" path="/deleteAnfrage"/>
+      <restEndpoints httpMethod="POST" path="/postNewAnfrage"/>
+    </domainObjectControllers>
+    <domainObjectServices objectName="AnfragenService" domainObjectRepositories="//@webservices.0/@domainObjectRepositories.0 //@webservices.0/@domainObjectRepositories.1" calls="//@webservices.1/@domainObjectControllers.0/@restEndpoints.0 //@webservices.2/@domainObjectControllers.0/@restEndpoints.0"/>
+    <domainObjectRepositories objectName="BestellungsRepository"/>
+    <domainObjectRepositories objectName="AnfragenRepository"/>
+    <domainObjects objectName="Bestellung" domainObjectRepository="//@webservices.0/@domainObjectRepositories.0"/>
+    <domainObjects objectName="Anfrage" domainObjectRepository="//@webservices.0/@domainObjectRepositories.1" domainObjectService="//@webservices.0/@domainObjectServices.0" domainObjectController="//@webservices.0/@domainObjectControllers.0"/>
+  </webservices>
+  <webservices domainName="Bearbeitungsticket" hostUrl="http://bearbeitungsticket-service.mycompany.org">
+    <domainObjectControllers objectName="TicketController" domainObjectServices="//@webservices.1/@domainObjectServices.0">
+      <restEndpoints httpMethod="POST" path="/postNewTicket"/>
+    </domainObjectControllers>
+    <domainObjectServices objectName="TicketService" domainObjectRepositories="//@webservices.1/@domainObjectRepositories.0" calls="//@webservices.0/@domainObjectControllers.0/@restEndpoints.1 //@webservices.0/@domainObjectControllers.0/@restEndpoints.0 //@webservices.2/@domainObjectControllers.0/@restEndpoints.1 //@webservices.2/@domainObjectControllers.0/@restEndpoints.2"/>
+    <domainObjectRepositories objectName="TicketRepository"/>
+    <domainObjects objectName="Ticket" domainObjectRepository="//@webservices.1/@domainObjectRepositories.0" domainObjectService="//@webservices.1/@domainObjectServices.0" domainObjectController="//@webservices.1/@domainObjectControllers.0"/>
+  </webservices>
+  <webservices domainName="Kundenbewertung" hostUrl="http://kundenbewertung-service.mycompany.org">
+    <domainObjectControllers objectName="BewertungsController" domainObjectServices="//@webservices.2/@domainObjectServices.0">
+      <restEndpoints httpMethod="POST" path="/postBewertung"/>
+      <restEndpoints path="/getBewertung"/>
+      <restEndpoints httpMethod="DELETE" path="/deleteBewertung"/>
+    </domainObjectControllers>
+    <domainObjectServices objectName="BewertungsService" domainObjectRepositories="//@webservices.2/@domainObjectRepositories.0"/>
+    <domainObjectRepositories objectName="BewertungsRepository"/>
+    <domainObjects objectName="Bewertung" domainObjectRepository="//@webservices.2/@domainObjectRepositories.0" domainObjectService="//@webservices.2/@domainObjectServices.0" domainObjectController="//@webservices.2/@domainObjectControllers.0"/>
+  </webservices>
+</microserviceMetamodell:SystemModel>

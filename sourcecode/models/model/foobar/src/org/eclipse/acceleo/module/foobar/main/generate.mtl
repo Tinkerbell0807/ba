@@ -1,0 +1,163 @@
+[comment encoding = UTF-8 /]
+[module generate('http://microservice.com/microserviceMetamodell')]
+
+
+[template public generateElement(aSystemModel : SystemModel)]
+[comment @main/]
+
+[comment] %%%ApplicationStarter%%%][/comment]
+
+[for (webservice: DomainWebservice | aSystemModel.webservices)]
+[file ('/' + webservice.domainName.toLowerCase() + '/' + webservice.domainName + 'Application.java', false, 'UTF-8')] 
+package  [webservice.domainName.toLowerCase()/];
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class [webservice.domainName/]Application {
+   public static void main(String['[]'/] args) {
+      SpringApplication.run([webservice.domainName/]Application.class, args);
+   }
+}
+[/file]
+[/for]
+
+[comment] %%%Controller%%% [/comment]
+
+[for (webservice: DomainWebservice | aSystemModel.webservices)]
+[for (controller: DomainObjectController | webservice.domainObjectControllers)]
+[file ('/' + webservice.domainName.toLowerCase() + '/' + controller.objectName + '.java', false, 'UTF-8')] 
+package  [webservice.domainName.toLowerCase()/];
+
+import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@RestController
+public class [controller.objectName/] {
+
+[for (domainService: DomainObjectService | controller.domainObjectServices)]
+	private final [domainService.objectName/] [domainService.objectName.toLowerFirst()/];
+[/for]
+    Logger logger = LoggerFactory.getLogger([controller.objectName/].class);
+
+    public [controller.objectName/](
+[for (domainService: DomainObjectService | controller.domainObjectServices)]
+		[domainService.objectName/] [domainService.objectName.toLowerFirst()/][if not controller.domainObjectServices->last().objectName.equalsIgnoreCase(domainService.objectName)],[/if]
+[/for]
+		) {
+[for (domainService: DomainObjectService | controller.domainObjectServices)]
+        this.[domainService.objectName.toLowerFirst()/] = [domainService.objectName.toLowerFirst()/];
+[/for]
+    }
+    
+
+[for (restEndpoint: RestEndpoint | controller.restEndpoints)]
+
+    @[restEndpoint.httpMethod.toString().toLowerCase().toUpperFirst()/]Mapping("[restEndpoint.path/]")
+    public String [restEndpoint.path.toString().substring(2)/]() {
+		logger.info("[restEndpoint.path.toString().substring(2)/] executed");
+        // TODO: not yet implemented
+        return "200 OK from [restEndpoint.path.toString().substring(2)/]";
+    }
+[/for]
+}
+[/file]
+[/for]
+[/for]
+
+[comment] %%%Service%%%%][/comment]
+
+[for (webservice: DomainWebservice | aSystemModel.webservices)]
+[for (domainService: DomainObjectService | webservice.domainObjectServices)]
+
+[file ('/' + webservice.domainName.toLowerCase() + '/' + domainService.objectName + '.java', false, 'UTF-8')] 
+package  [webservice.domainName.toLowerCase()/];
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Component
+public class [domainService.objectName/] {
+
+[for (repo: DomainObjectRepository | domainService.domainObjectRepositories)]
+	private final [repo.objectName.toUpperFirst()/] [repo.objectName.toLowerFirst()/];
+[/for]
+    private final WebClient webClient;
+
+    Logger logger = LoggerFactory.getLogger([domainService.objectName/].class);
+
+    public [domainService.objectName/](
+		[for (repo: DomainObjectRepository | domainService.domainObjectRepositories)]
+		[repo.objectName.toUpperFirst()/] [repo.objectName.toLowerFirst()/],
+		[/for]
+		WebClient webClient){
+        	this.webClient = webClient;
+			[for (repo: DomainObjectRepository | domainService.domainObjectRepositories)]
+			this.[repo.objectName.toLowerFirst()/] = [repo.objectName.toLowerFirst()/];
+			[/for]
+    }
+
+[for (restEndpoint: RestEndpoint | domainService.calls) ]
+    public Mono<String> request[restEndpoint.path.toString().substring(2).toUpperFirst()/]() {
+		logger.info("request[restEndpoint.path.toString().substring(2).toUpperFirst()/] executed");
+        return webClient.[restEndpoint.httpMethod.toString().toLowerCase()/]()
+                .uri("[restEndpoint.ancestors(DomainWebservice).hostUrl/][restEndpoint.path/]")
+                .retrieve()
+                .bodyToMono(String.class);
+    }
+[/for]
+}
+[/file]
+[/for]
+
+[comment] %%% WebClientConfig %%%[/comment]
+
+[file ('/' + webservice.domainName.toLowerCase() + '/' + 'WebClientConfig.java', false, 'UTF-8')] 
+package  [webservice.domainName.toLowerCase()/];
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@Configuration
+public class WebClientConfig {
+    @Bean
+    public WebClient webClient(WebClient.Builder builder) {
+        return builder.build();
+    }
+}
+[/file]
+[/for]
+
+[comment] %%% Repository %%% [/comment]
+
+[for (webservice: DomainWebservice | aSystemModel.webservices)]
+[for (repo: DomainObjectRepository | webservice.domainObjectRepositories)]
+
+[file ('/' + webservice.domainName.toLowerCase() + '/' + repo.objectName + '.java', false, 'UTF-8')] 
+package  [webservice.domainName.toLowerCase()/];
+
+import org.springframework.stereotype.Repository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Repository
+public class [repo.objectName/] {
+
+	Logger logger = LoggerFactory.getLogger([repo.objectName/].class);
+
+	public void doDatabaseStuff(){
+		logger.info("doDatabaseStuff() executed");
+		//TODO: not yet implemented
+	}
+}
+[/file]
+[/for]
+[/for]
+
+[/template]

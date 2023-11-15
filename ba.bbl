@@ -8,20 +8,19 @@ Brendan Burns, Joe Beda, Kelsey Hightower, and Lachlan Evenson.
   edition, 2023.
 \newblock Brendan Burns, Joe Beda, Kelsey Hightower, Lachlan Evenson.
 
+\bibitem[BD10]{brugge}
+Bernd Br{\"u}gge and Allen~Henry Dutoit.
+\newblock {\em Object-oriented software engineering: using UML, patterns, and
+  Java}.
+\newblock Pearson, Boston, 3. ed., international ed. edition, 2010.
+\newblock Bernd Bruegge {\&} Allen H. Dutoit.
+
 \bibitem[BGO{\etalchar{+}}16]{burns3}
 Brendan Burns, Brian Grant, David Oppenheimer, Eric Brewer, and John Wilkes.
 \newblock Borg, omega, and kubernetes: Lessons learned from three
   container-management systems over a decade.
 \newblock {\em Queue}, 14(1):70–93, jan 2016.
 \newblock \url{https://doi.org/10.1145/2898442.2898444}.
-
-\bibitem[CXN{\etalchar{+}}23]{doml}
-Michele Chiari, Bin Xiang, Galia~Novakova Nedeltcheva, Elisabetta Di~Nitto,
-  Lorenzo Blasi, Debora Benedetto, and Laurentiu Niculut.
-\newblock Doml: A new modelling approach to infrastructure-as-code.
-\newblock pages 297--313, 2023.
-\newblock
-  \url{https://link.springer.com/chapter/10.1007/978-3-031-34560-9_18/#citeas}.
 
 \bibitem[Das17]{daschner}
 Sebastian Daschner.
@@ -80,6 +79,14 @@ Sam Newman.
 \newblock {\em Microservices: Konzeption und Design}.
 \newblock mitp-Verl., [Frechen], 1. aufl. edition, 2015.
 \newblock Sam Newman. {\"U}bers. aus dem Amerikan. von Knut Lorenzen.
+
+\bibitem[PBG11]{posch}
+Torsten Posch, Klaus Birken, and Michael Gerdom.
+\newblock {\em Basiswissen Softwarearchitektur: verstehen, entwerfen,
+  wiederverwenden}.
+\newblock dpunkt-Verl., Heidelberg, 3., aktualisierte und erw. aufl. edition,
+  2011.
+\newblock Torsten Posch; Klaus Birken; Michael Gerdom.
 
 \bibitem[rem11]{rempp}
 {\em Model Driven SOA: anwendungsorientierte Methodik und Vorgehen in der

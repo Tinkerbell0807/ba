@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/microserviceMetamodel/src" modelPluginID="microserviceMetamodel"
+    modelName="MicroserviceMetamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>microserviceMetamodel.ecore</foreignModel>
+  <genPackages prefix="MicroserviceMetamodell" disposableProviderFactory="true" ecorePackage="microserviceMetamodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//HttpMethod">
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//HttpMethod/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//HttpMethod/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//HttpMethod/DELETE"/>
+    </genEnums>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//DomainObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DomainObject/objectName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainObject/domainObjectRepository"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainObject/domainObjectService"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainObject/domainObjectController"/>
+    </genClasses>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//DomainObjectController">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainObjectController/restEndpoints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DomainObjectController/objectName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainObjectController/domainObjectServices"/>
+    </genClasses>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//RestEndpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//RestEndpoint/httpMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//RestEndpoint/path"/>
+    </genClasses>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//DomainObjectService">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DomainObjectService/objectName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainObjectService/domainObjectRepositories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainObjectService/calls"/>
+    </genClasses>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//DomainObjectRepository">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DomainObjectRepository/objectName"/>
+    </genClasses>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//SystemModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SystemModel/webservices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//SystemModel/description"/>
+    </genClasses>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//DomainWebservice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainWebservice/domainObjectControllers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainWebservice/domainObjectServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainWebservice/domainObjectRepositories"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DomainWebservice/domainName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainWebservice/domainObjects"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DomainWebservice/hostUrl"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

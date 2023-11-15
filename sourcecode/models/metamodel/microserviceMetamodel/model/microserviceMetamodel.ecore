@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="microserviceMetamodell" nsURI="http://microservice.com/microserviceMetamodell"
+    nsPrefix="microserviceMetamodell">
+  <eClassifiers xsi:type="ecore:EClass" name="DomainObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectRepository"
+        eType="#//DomainObjectRepository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectService" eType="#//DomainObjectService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectController"
+        eType="#//DomainObjectController"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainObjectController">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restEndpoints" upperBound="-1"
+        eType="#//RestEndpoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectServices" upperBound="-1"
+        eType="#//DomainObjectService"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RestEndpoint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="httpMethod" eType="#//HttpMethod"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HttpMethod">
+    <eLiterals name="GET"/>
+    <eLiterals name="POST" literal="POST"/>
+    <eLiterals name="DELETE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainObjectService">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectRepositories"
+        upperBound="-1" eType="#//DomainObjectRepository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calls" upperBound="-1"
+        eType="#//RestEndpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainObjectRepository">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="webservices" upperBound="-1"
+        eType="#//DomainWebservice" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainWebservice">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectControllers"
+        upperBound="-1" eType="#//DomainObjectController" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectServices" upperBound="-1"
+        eType="#//DomainObjectService" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectRepositories"
+        upperBound="-1" eType="#//DomainObjectRepository" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domainName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjects" upperBound="-1"
+        eType="#//DomainObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
