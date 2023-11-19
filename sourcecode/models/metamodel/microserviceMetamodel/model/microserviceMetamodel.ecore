@@ -37,9 +37,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="objectName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="webservices" upperBound="-1"
-        eType="#//DomainWebservice" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainmodellayer" eType="#//DomainModelLayer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainWebservice">
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjectControllers"
@@ -52,5 +52,114 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainObjects" upperBound="-1"
         eType="#//DomainObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainevent" upperBound="-1"
+        eType="#//DomainEvent" eOpposite="#//DomainEvent/domainmodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" upperBound="-1"
+        eType="#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" upperBound="-1"
+        eType="#//Aggregate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" upperBound="-1"
+        eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" upperBound="-1"
+        eType="#//Repository" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueobject" upperBound="-1"
+        eType="#//ValueObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="package" upperBound="-1"
+        eType="#//Package" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="factory" upperBound="-1"
+        eType="#//Factory" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedcontext" lowerBound="1"
+        eType="#//BoundedContext" eOpposite="#//BoundedContext/domainmodel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainModelLayer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainmodel" upperBound="-1"
+        eType="#//DomainModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedcontext" upperBound="-1"
+        eType="#//BoundedContext" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InfrastructureLayer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TechnicalLayer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueobject" upperBound="-1"
+        eType="#//ValueObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" upperBound="-1"
+        eType="#//Behaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueobject" upperBound="-1"
+        eType="#//ValueObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" upperBound="-1"
+        eType="#//Behaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Aggregate">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregateroot" lowerBound="1"
+        eType="#//AggregateRoot" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatenode" upperBound="-1"
+        eType="#//AggregateNode" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Factory">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="#//Aggregate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueobject" eType="#//ValueObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" eType="#//Repository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" upperBound="-1"
+        eType="#//Service"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" upperBound="-1"
+        eType="#//Behaviour" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Repository"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DomainEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainmodel" lowerBound="1"
+        eType="#//DomainModel" eOpposite="#//DomainModel/domainevent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" upperBound="-1"
+        eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" upperBound="-1"
+        eType="#//Aggregate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" upperBound="-1"
+        eType="#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" upperBound="-1"
+        eType="#//Repository" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="factory" upperBound="-1"
+        eType="#//Factory" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueobject" upperBound="-1"
+        eType="#//ValueObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="package" upperBound="-1"
+        eType="#//Package" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoundedContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainmodel" lowerBound="1"
+        eType="#//DomainModel" eOpposite="#//DomainModel/boundedcontext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedcontextrelationship"
+        upperBound="-1" eType="#//BoundedContextRelationship" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootEntity" lowerBound="1"
+        eType="#//Entity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateNode" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Behaviour"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SharedKernel" eSuperTypes="#//BoundedContextRelationship"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomerSupplier" eSuperTypes="#//UpstreamDownstreamRelationship"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conformist" eSuperTypes="#//DownstreamRole"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AnticorruptionLayer" eSuperTypes="#//DownstreamRole"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenHostService" eSuperTypes="#//UpstreamRole"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PublishedLanguage" eSuperTypes="#//UpstreamRole"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BoundedContextRelationship" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpstreamRole" abstract="true" eSuperTypes="#//RelationshipRole"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DownstreamRole" abstract="true" eSuperTypes="#//RelationshipRole"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationshipRole" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpstreamDownstreamRelationship" abstract="true"
+      eSuperTypes="#//BoundedContextRelationship">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="downstream" eType="#//RelationshipRole"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upstream" eType="#//RelationshipRole"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

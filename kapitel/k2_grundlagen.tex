@@ -10,9 +10,7 @@
 
 \subsection{Definition}
 
-Die Domäne einer Software bezeichnet das Themengebiet oder den Anwendungsbereich, in dem das Programm eingesetzt wird \cite[S.2]{evans} \cite[S.307]{posch}
-\glqq Domain-Driven Design\grqq{} (Abk. DDD) ist eine Herangehensweise, Problemdomänen in ein Modell für die Softwareentwicklung zu überführen.
-Modellieren ist eine grundlegende Methode der Wissenschaft um mit komplexen Systemen umzugehen. Eine Abstraktion eines solchen Systems, die es ermöglicht, Fragestellungen dazu zu beantworten, wird als Modell bezeichnet \cite{brugge}.
+Die Domäne einer Software bezeichnet das Themengebiet oder den Anwendungsbereich, in dem das Programm eingesetzt wird \cite[S.2]{evans} \cite[S.307]{posch}. \glqq Domain-Driven Design\grqq{} (Abk. DDD) ist eine Herangehensweise, Problemdomänen in ein Modell für die Softwareentwicklung zu überführen. Modellieren ist eine grundlegende Methode der Wissenschaft um mit komplexen Systemen umzugehen. Eine Abstraktion eines solchen Systems, die es ermöglicht, Fragestellungen dazu zu beantworten, wird als Modell bezeichnet \cite{brugge}.
 
 Geprägt wurde das DDD durch Eric Evans in seinem Buch \glqq Domain-Driven Design: Tackling Complexity in the Heart of Software\grqq{} \cite{evans}. Kern des domänengetriebenen Entwurfs ist es, die reale, oft unübersichtliche Fachlichkeit fortschreitend in feiner geschnittene Teilbereiche zu kapseln. Diese sollen möglichst wenige Abhängigkeiten zueinander haben \cite[S.63, 70]{dowalil}. Dieser auf das Domänenmodell fokussierte Ansatz versucht, Kernaspekte einer Anwendung im Modell zu integrieren, anstatt sie über externe Dienste einzubinden \cite[S.74]{daschner}.
 
@@ -38,10 +36,9 @@ Das DDD definiert verschiedene Bausteine des MDD \cite[S. 65]{evans}:
 
 \subsubsection{Schichtenarchitektur}
 
-Schichtenarchitekturen helfen die Komplexität von Software besser zu beherschen. Jedes Element einer Schicht hängt nur von Elementen derselben oder einer tieferen Schicht ab. Beim DDD wird die Geschäftslogik in eine eigene Schicht, die \glqq Domain Layer\grqq, gelegt. Dies sorgt für eine enge Verbindung zum Modell, wie es das MDD vorsieht. Mit Mustern wie dem Model-View-Controller kann man dann diese Schicht nutzen \cite[S. 69 - 73]{evans}.
-%TODO Definition MVC
-%TODO Zusätzliche Definition Schichtenarchitektur
-%TODO Klarstellen, Modell vs Technische Umsetzung
+
+Der schichtbasierte Architekturstil teilt Software in verschiedene Schichten auf. Jede Schicht fasst Komponenten zusammen, die ähnliche Aufgaben haben. Das macht die Software einfacher zu verstehen und zu verwalten. Die Architektur ist nach technischen Funktionen gegliedert. Gängige Schichten sind die Präsentationsschicht, Geschäftslogikschicht, Persistenzschicht, Datenbankschicht oder die Dienstschicht. Jedes Element einer Schicht hängt nur von Elementen derselben oder einer tieferen Schicht ab. DDD fordert, die Geschäftslogik in eine eigene Schicht, den \glqq Domain Layer\grqq, zu legen. Dies sorgt für eine enge Verbindung zum Modell, wie es das MDD vorsieht \cite[S. 69 - 73]{evans} \cite[S.139-141]{richards}.
+
 
 \subsubsection{Packages}
 
@@ -57,16 +54,7 @@ Schichtenarchitekturen helfen die Komplexität von Software besser zu beherschen
 
 \subsubsection{Services}
 
-\glqq Services\grqq{} bieten eine spezielle Funktion im Modell an, ohne dabei Daten oder Zustände zu speichern. Sie werden dabei nach ihrer Aufgabe benannt. Services starten Vorgänge und arbeiten mit den Objekten des Modells. Sie kombinieren Schritte in Geschäftsprozessen und sollten bedacht eingesetzt werden. Außerdem  sollen sie nicht alle Aufgaben von Entities und Value Objects abnehmen.
-
-Ein guter Service sollte folgende Eigenschaften erfüllen:
-\begin{itemize}
-\item Er bezieht sich auf ein Konzept, das nicht direkt zu einer Entität oder einem Wertobjekt gehört.
-\item Es existiert eine klare Schnittstelle im Bezug auf andere Elemente des Modells.
-\item Kein Zustand wird gespeichert
-\end{itemize}
-
-Da Services auch außerhalb der Domain Layer auftreten können ist eine präzise fachliche Betrachtung nötig \cite[S. 104 - 108]{evans} \cite[S.74]{daschner}.
+\glqq Services\grqq{} bieten eine spezielle Funktion im Modell an, ohne dabei Daten oder Zustände zu speichern. Sie werden dabei nach ihrer Aufgabe benannt. Services starten Vorgänge und arbeiten mit den Objekten des Modells. Sie kombinieren Schritte in Geschäftsprozessen und sollten bedacht eingesetzt werden. Außerdem sollen sie nicht alle Aufgaben von Entities und Value Objects abnehmen. Es existiert eine klare Schnittstelle im Bezug auf andere Elemente des Modells. Da Services auch außerhalb der Domain Layer auftreten können ist eine präzise fachliche Betrachtung nötig \cite[S. 104 - 108]{evans} \cite[S.74]{daschner}.
 
 \subsubsection{Aggregates}
 
@@ -74,22 +62,16 @@ Da Services auch außerhalb der Domain Layer auftreten können ist eine präzise
 
 \subsubsection{Factories}
 
-Eine \glqq Factory\grqq{} erstellt Objekte. Dies ist nützlich, wenn das Erstellen eines Objekts mehr als nur das Ausführen eines Konstruktors beinhaltet, da manchmal besondere Reglen oder Logik benötigt werden. Zwei grundlegende Anforderungen an einer Factory sind:
-
-%TODO Zweiten Punkt nochmal nachlesen
-\begin{itemize}
-\item Sie stellt sicher, dass jedes erstellte Objekt korrekt und vollständig ist.
-\item Sie fokussiert sich auf den Typ des Objekts, das erstellt werden soll, und nicht unbedingt darauf, wie es gemacht wird.
-\end{itemize}
-
-Auch wenn eine Factory dafür sorgt, dass ein Objekt richtig erstellt wird, kann sie Überprüfungen an andere Teile auslagern. Es gibt weiterhin Factories, die bestehende Objekte wiederherstellen. Dabei gibt es Unterschiede, z.B. weisen sie keine neuen IDs zu und sie müssen Verletzungen von Regeln anders behandeln \cite[S. 136 - 146]{evans} \cite[S.77]{daschner}.
+Eine \glqq Factory\grqq{} erstellt Objekte. Dies ist nützlich, wenn das Erstellen eines Objekts mehr als nur das Ausführen eines Konstruktors beinhaltet, da manchmal besondere Reglen oder Logik benötigt werden. Sie stellt sicher, dass jedes erstellte Objekt korrekt und vollständig ist. Auch wenn eine Factory dafür sorgt, dass ein Objekt richtig erstellt wird, kann sie Überprüfungen an andere Teile auslagern. Es gibt weiterhin Factories, die bestehende Objekte wiederherstellen. Dabei gibt es Unterschiede, z.B. weisen sie keine neuen IDs zu und sie müssen Verletzungen von Regeln anders behandeln \cite[S. 136 - 146]{evans} \cite[S.77]{daschner}.
 
 \subsubsection{Repositories}
 
 \glqq Repositories\grqq{} sind dafür zuständig, Daten von Entities oder Aggregates, sicher zu speichern und zu verwalten. Die Hauptidee von Repositories ist, einen zentralen Ort zu haben, der dafür sorgt, dass alles korrekt und konsequent gespeichert wird. Ein Repository ist mit einer Sammlung vergleichbar, aus der man Daten anhand von bestimmten Kriterien abfragen kann. Dabei fügt das Repository neue Objekte der Datenbank hinzu oder löscht sie. Wenn man Daten aus einem Repository möchte, nutzt man spezielle Suchmethoden. Dabei kann die Suche einfach oder auch sehr detailliert sein \cite[S. 147 - 161]{evans} \cite[S.76]{daschner}.
 
 \subsubsection{Domain Event}
-Domain Events represent events that are relevant to the business domain. They usually merge from business use cases and have specific domain semantics. They are important for event Sourcing and event-driven architecture..\cite[S.78]{daschner}
+
+
+Domain Events sind Ereignisse die für den Geschäftsbereich relevant sind und zum Domänenmodell gehören. Sie entstehen aus Geschäftsvorfällen und haben eine spezifische Domänensemantik. In verteilten Systemen, wie zum Beispiel in Microservice-Architekturen, ergibt sich häufig die Notwendigkeit für Domain Events. Wenn ein Mikroservice seinen Zustand ändert, können andere Dienste an dieser Änderung interessiert sein. Eine Lösung hierfür ist, dass der betreffende Dienst ein Domain Event veröffentlicht, bei dem sich interessierte Dienste registrieren können. Dies fördert die Entkopplung der Dienste, da ihre Kommunikation hauptsächlich über Domain Events erfolgt \cite[S.78]{daschner} \cite{ritter}.
 
 \pagebreak 
 \subsection{Strategic Design}
@@ -127,8 +109,8 @@ Wenn man Systeme kombiniert, die auf verschiedenen Modellen basieren, kann es pa
 
 \subsubsection{Separate Ways}
 
-Wenn der Nutzen im Vergleich zu den Integrationskosten zu gering ist, kann es sinnvoll sein, festzulegen, dass ein bestimmter Kontext keine Verbindung zu anderen hat. Im DDD spricht man hier von \glqq Separate Ways\grqq{}, was bedeutet, dass die beiden Systeme nicht verbunden werden und unabhängig voneinander bleiben. Anstatt Lösungen für Probleme gemeinsam zu nutzen, müssen diese auf einem klaren, speziellen Weg innerhalb dieses Rahmens umgesetzt werden. Dies kann zum Beispiel mit dem Composite UI Pattern erreicht werden \cite[S. 371 - 373]{evans} \cite[S. 47]{wolff} \cite[S.66]{dowalil}.
-%TODO Composite UI Pattern erklären
+Wenn der Nutzen im Vergleich zu den Integrationskosten zu gering ist, kann es sinnvoll sein, festzulegen, dass ein bestimmter Kontext keine Verbindung zu anderen hat. Im DDD spricht man hier von \glqq Separate Ways\grqq{}, was bedeutet, dass die beiden Systeme nicht verbunden werden und unabhängig voneinander bleiben. Anstatt Lösungen für Probleme gemeinsam zu nutzen, müssen diese auf einem klaren, speziellen Weg innerhalb dieses Rahmens umgesetzt werden. \cite[S. 371 - 373]{evans} \cite[S. 47]{wolff} \cite[S.66]{dowalil}.
+
 
 \subsubsection{Open Host Service}
 
@@ -456,66 +438,43 @@ Der Controller wird verwendet, um den Zustand des Clusters zu verwalten. \cite[S
 
 \subsection{Verfahren}
 
-\subsubsection{Model Driven SOA}
+Bei der Modellgetriebenen Entwicklung von Microservice Anwendungen ist es möglich Verfahren zu definieren, welche eine Modellierungsmethodik vorgibt. Das allgemein für Service-orientierte Architekturen ausgelegte Verfahren Model Driven SOA , eine Variante der MID-Modellierungsmethodik M³, ist ein Beispiel für so eines. In dieser werden Iterativ verschiedene Phasen wiederholt:
 
-Model Driven SOA ist eine Variante der MID-Modellierungsmethodik M³ . Sie unterstützt den modellgetriebenen Entwurf und die Entwicklung von SOA-Anwendungen. Die Methodik wird üblicherweise in mehreren Iterationen durchlaufen. MDSOA läuft in verschiedenen Phasen ab:
+In der Initiationsphase wird die Fachlichkeit aufgenommen, deren Anforderungen identifiziert und fachliche Services werden ermittelt. Anschließend folgt die Systemevaluierungsphase, in der die technischen Services spezifiziert werden, zusammen mit dem Fachdatenmodell und den Maskenflüssen.
 
-Initiationsphase: Aufnahme der Fachlichkeit und deren Anforderungen sowie die Identifikation von fachlichen Services.
+In der Architekturprojektionsphase wird dann die gewählte Architektur abgebildet, und die in der Initiations- und Evaluierungsphase spezifizierten Inhalte werden auf konkrete Elemente der Architektur übertragen.
 
-Systemevaluierungsphase: Spezifikation der technischen Services, des Fachdatenmodells und der Maskenflüsse.
+Schließlich umfasst die Softwarekonstruktion die Generierung von Artefakten und die Integration aller Ergebnisse zu einer lauffähigen Anwendung auf einer spezifischen Plattform \cite[S.62-66]{rempp}.
 
-Architekturprojektionsphase: Abbildung der gewählten Architektur und die Übertragung der in der Initiations- und Evaluierungsphase spezifizierten Inhalte auf konkrete Elemente der Architektur.
+Ein weiteres Beispiel für ein Verfahren ist eines, welches im Zusammenhang des Tools VxBPMN4MS definiert wird. Dieses besteht aus einer Modellierungsphase, einer Servicezusammensetzung und -bereitstellungsphase und einer Ausführungsphase:
 
-Softwarekonstruktion: Generierung von Artefakten und Integration aller Ergebnisse zu einer lauffähigen Anwendung auf einer spezifischen Plattform.
+In der Modellierungsphase werden mit VxBPMN4MS Geschäftsprozesse modelliert, um variable Modelle und Konfigurationsdateien für Prozesse zu erstellen. Diese Modelle koordinieren Microservice, um bestimmte Anforderungen zu erfüllen und entsprechende Geschäftsprozesse zu bilden. Ähnliche Prozesse werden gruppiert, um Gemeinsamkeiten und Unterschiede zu analysieren und so Variationspunkte sowie Varianten zu identifizieren.
 
-\cite[S.62-66]{rempp}
+In der Phase der Servicezusammensetzung und -bereitstellung werden Microservice-Frameworks entwickelt, die eine anpassungsfähige Infrastruktur integrieren. Die erstellten Geschäftsprozessmodelle werden in diese Frameworks konvertiert, welche die allgemeine Geschäftslogik und spezielle Varianten für unterschiedliche Prozesse umsetzen. Zusätzliche Logik und Projektdetails vervollständigen die Microservice-Architektur, die dann in den Zielumgebungen bereitgestellt wird.
 
-\subsubsection{Sun Approach}
+In der Ausführungsphase wird die Microservice-Architektur umgesetzt. Prozessinstanzen werden in Echtzeit aus der Konfigurationsdatei abgeleitet, die ein Schema für verschiedene Prozessvarianten vorgibt. Bei Erreichen eines Variationspunktes im Prozess werden die festgelegten Varianten dynamisch aufgerufen und der Prozess wird fortgesetzt, bis alle Aktivitäten abgeschlossen sind \cite{sun}.
 
-Modellierungsphase: In dieser Phase wird VxBPMN4MS verwendet, um Geschäftsprozesse mit Variabilität zu modellieren. Dies führt zur Erstellung von variablen Geschäftsprozessmodellen und Prozesskonfigurationsdateien. Der Ansatz koordiniert Mikroservices und ihre Operationen, um spezifische Anforderungen zu erfüllen und bildet so die entsprechenden Geschäftsprozesse. Geschäftsprozesse mit ähnlichen Regeln oder Zielen werden zusammengefasst. Innerhalb dieser Gruppen werden Ähnlichkeiten und Unterschiede analysiert, um Variationspunkte, Varianten und die Beziehungen zwischen diesen Varianten zu identifizieren.
+\subsection{Herausforderungen}
 
-Phase der Servicezusammensetzung und -bereitstellung: In dieser Phase werden Mikroservice-Kompositionsframeworks erstellt, die eine Variabilitätsfähige Infrastruktur integrieren. Die von VxBPMN4MS erstellten Geschäftsprozessmodelle werden automatisch in diese Frameworks umgewandelt. Diese Frameworks implementieren die allgemeine Geschäftslogik und binden variabilitätsunterstützte Stubs für verschiedene Prozessvarianten ein. Zusätzliche Geschäftslogik und Projektdetails werden hinzugefügt, um die Mikroservice-Kompositionsspezifikation zu vervollständigen. Diese Spezifikation, zusammen mit den Mikroservices und einem externen Paket, wird dann in den vorgesehenen Umgebungen bereitgestellt.
+Spezielle Herausforderungen existieren bei einem modellgetrieben Ansatz zur Microservice-Entwicklung:
 
-Ausführungsphase: Während dieser Phase wird die bereitgestellte Mikroservice-Komposition ausgeführt, und Geschäftsprozessinstanzen werden in Echtzeit basierend auf der Prozesskonfigurationsdatei abgeleitet. Die Datei ermöglicht die Auswahl eines Variationskonfigurationsschemas entsprechend den Anforderungen oder Präferenzen. Dieses Schema spezifiziert Varianten für jeden Variationspunkt in der Servicekomposition, was zu einer Laufzeit-Geschäftsprozessinstanz führt. Wenn ein Variationspunkt während der Prozessausführung erreicht wird, werden die festgelegten Varianten (alternative Operationen des Mikroservices) dynamisch aufgerufen, und der Prozess setzt sich fort, bis alle Aktivitäten in der Instanz abgeschlossen sind.
+Zunächst besteht die Aufgabe darin, Microservices direkt aus den Domänenmodellen abzuleiten, was oft komplex ist. Ein weiteres Problem ist das Fehlen von Infrastrukturkomponenten in den Domänenmodellen, was die Umsetzung erschwert. Außerdem stellt die autonome Domänenmodellierung eine Herausforderung dar, da sie eine hohe Unabhängigkeit und Eigenverantwortlichkeit der Modelle erfordert.
 
-\cite{sun}
+Um diese Herausforderungen zu bewältigen, bietet die modellgetriebene Entwicklung verschiedene Mittel.
 
-\subsection{Herausforderungen beim Domain-Driven Microservice Design:}
+Eines davon sind Zwischenmodelle, die dazu dienen, Microservice-Schnittstellen und deren Bereitstellung zu spezifizieren. Zwischenmodelle erleichtern die Umsetzung der aus den Domänenmodellen abgeleiteten Services und bilden eine Brücke zwischen Domänenmodellen und der Mikroservice-Architektur.
 
-\begin{itemize}
-\item Ableitung von Microservices aus Domänenmodellen
-\item Fehlende Infrastrukturkomponenten in Domänenmodellen
-\item Autonome Domänenmodellierung
-\end{itemize}
+Um Domänenmodelle klarer zu gestalten, kann man bestimmte Regeln für die Modellierung einführen. Eine Regel ist zum Beispiel, einfache Beziehungen zwischen Elementen zu nutzen, um klarer zu zeigen, wie Microservices Daten austauschen. Eine andere Möglichkeit ist, bestimmte Muster aus dem Domain-Driven Design zu verwenden, die als Basis für die Schnittstellen der Microservices dienen. Es ist auch hilfreich, genau festzulegen, welche Datenarten von Methoden zurückgegeben werden und einfache, gemeinsame Modelle zu nutzen, die das Domänenmodell gut darstellen. Diese Methoden sollen den Prozess der Modellierung genauer und einheitlicher machen.
 
-Mittel der modellgetriebenen Entwicklung zur Bewältigung von Herausforderungen
-\begin{itemize}
-\item Zwischenmodelle, die Microservice-Schnittstellen und -Bereitstellung spezifizieren.
-\item Reduzierung der Inoffizialität von Domänenmodellen durch Modellierungskonventionen
-\item Richtlinien für Autonome Domänenmodellierung
-\end{itemize}
-
-\cite{rademacher}
-
-\paragraph{Zwischenmodelle und ihre technischen Eigenschaften}
-
-Zwischenmodelle spielen eine wichtige Rolle, indem sie eine Verbindung zwischen Domänenmodellen und Mikroservice-Architektur herstellen. Die bereitgestellten Schnittstellen werden durch UML-Lollipops symbolisiert, welche die Dienste eines Mikroservices in Bezug auf seinen Domänenkontext darstellen. Erforderliche Schnittstellen hingegen zeigen die Dienste auf, die ein Mikroservice von anderen Kontexten benötigt. Zusätzlich wird ein Bereitstellungsmodell vorgestellt, das verdeutlicht, wie jeder abgegrenzte Kontext im Domänenmodell in Mikroservice-Artefakte innerhalb einer Containerumgebung übersetzt wird. Dieses Modell veranschaulicht die Interaktion von Mikroservices, einschließlich ihrer Kommunikationswege und -protokolle, wie REST und JSON, sowie wichtiger Infrastrukturkomponenten wie Serviceerkennung und API-Gateways.
-
-\paragraph{Verringerung der Informalität von Domänenmodellen durch Modellierungskonventionen}
-
-Um die Informalität in Domänenmodellen zu adressieren, können Modellierungskonventionen verwendet werden. Eine wichtige Konvention ist die Vermeidung binärer Assoziationen, um Modellierern zu helfen, klar zu definieren, welcher Mikroservice Daten von einem anderen anfordert, was zu einer verbesserten Klarheit in der Serviceinteraktion führt. Zusätzlich wird die frühzeitige Festlegung von Domain-Driven Design (DDD)-Mustern nahegelegt, die die Basis für Mikroservice-Schnittstellen bilden, einschließlich der Definition der Umwandlung von Repositories und Services in Schnittstellen. Auch die Wichtigkeit der expliziten Modellierung von Rückgabetypen von Methoden und der Einsatz von gemeinsam genutzten Modellen wird hervorgehoben. Diese Modelle könnten die Entitäten des Domänenmodells reflektieren, aber für eine höhere Effizienz eine vereinfachte Struktur aufweisen. Das Hauptziel dieser Konventionen ist es, den Modellierungsprozess genauer und konsistenter zu machen.
-
-\paragraph{Richtlinien für autonomes Domänenmodellieren}
-Richtlinien werden verwendet, um die Handhabung von Domänenmodellen in Szenarien mit selbstständigen, verteilten Serviceteams effektiv zu gestalten. Ein bewährter Ansatz ist die Beschränkung des Zugriffs auf die für jedes Team relevanten Segmente des Domänenmodells. Dies gewährleistet, dass Teams die notwendigen Informationen zu ihren Diensten und den damit verbundenen Konzepten aus anderen Bereichen erhalten. Diese Vorgehensweise zielt darauf ab, die Verknüpfung zwischen den Services zu minimieren und erfordert eine umsichtige Verwaltung des Modells, um die Konsistenz im gesamten Domänenmodell sicherzustellen. Ferner werden Empfehlungen für erlaubte Modifikationen innerhalb festgelegter Kontexte oder in Bezug auf die Domänenkonzepte anderer Teams erörtert. Obwohl Änderungen zur Verbesserung oder Aktualisierung des Modells nützlich sein können, erfordern sie eine koordinierte Abstimmung unter den beteiligten Teams und die Berücksichtigung neuer Abhängigkeiten, die aus diesen Änderungen resultieren könnten. Das Hauptziel dieser Richtlinien ist es, einen ausgewogenen Ansatz für den Modellzugriff und dessen Modifikationen zu finden, um gleichzeitig die Zusammenarbeit zu fördern und unbeabsichtigte Abhängigkeiten zwischen den Services zu minimieren.
-
-\cite{rademacher}
-
-
+Mit Richtlinien für die autonome Domänenmodellierung kann schließlich die Unabhängigkeit und Konsistenz der Modelle gewährleistet werden. Ziel ist es, insbesondere im Kontext von Teams, die gemeinsam auf das Modell zugreifen, einen ausgewogenen Umgang mit dem Modellzugriff zu finden. Gleichzeitig sollen Änderungen so gesteuert werden, dass die Zusammenarbeit gefördert und ungewollte Abhängigkeiten zwischen Services reduziert werden \cite{rademacher}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%			TABELLE FÜR TOOLS ANF
+%			TABELLE FÜR TOOLS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Tools}
+
+Verschiedene Papers thematisieren Aspeekte der modellgetriebenen Microservice-Entwicklung und stellen dabei Tools mit verschiedenen Funktionalitäten vor. Im Folgenden werden einige aufgelistet und ihre jeweiligen Kern-Features aufgezählt.
 
 \begin{table}[h]
 \centering

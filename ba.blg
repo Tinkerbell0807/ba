@@ -15,68 +15,70 @@ Warning--I'm ignoring dowalil's extra "note" field
 --line 69 of file bibs/litDB.bib
 Warning--I'm ignoring dowalil's extra "note" field
 --line 70 of file bibs/litDB.bib
+Warning--entry type for "ritter" isn't style-file defined
+--line 87 of file bibs/litDB.bib
 Warning--I'm ignoring wolff's extra "note" field
---line 97 of file bibs/litDB.bib
+--line 104 of file bibs/litDB.bib
 Warning--entry type for "fowlerlewis" isn't style-file defined
---line 146 of file bibs/litDB.bib
+--line 153 of file bibs/litDB.bib
 Warning--entry type for "richardson" isn't style-file defined
---line 155 of file bibs/litDB.bib
+--line 162 of file bibs/litDB.bib
 Warning--I'm ignoring sommerville's extra "note" field
---line 185 of file bibs/litDB.bib
+--line 192 of file bibs/litDB.bib
 Warning--I'm ignoring sommerville's extra "note" field
---line 186 of file bibs/litDB.bib
+--line 193 of file bibs/litDB.bib
 Warning--I'm ignoring riti's extra "note" field
---line 219 of file bibs/litDB.bib
+--line 226 of file bibs/litDB.bib
 Warning--I'm ignoring burns1's extra "note" field
---line 234 of file bibs/litDB.bib
+--line 241 of file bibs/litDB.bib
 Warning--I'm ignoring rempp's extra "note" field
---line 284 of file bibs/litDB.bib
+--line 291 of file bibs/litDB.bib
 Warning--I'm ignoring rempp's extra "note" field
---line 285 of file bibs/litDB.bib
+--line 292 of file bibs/litDB.bib
 Warning--to sort, need author, editor, or key in rempp
 Warning--empty journal in mapper
 Warning--empty author and editor in rempp
 Warning--empty journal in argon
 Warning--empty journal in sun
-You've used 23 entries,
+You've used 24 entries,
             2543 wiz_defined-function locations,
-            726 strings with 9655 characters,
-and the built_in function-call counts, 8292 in all, are:
-= -- 819
-> -- 362
-< -- 14
-+ -- 120
-- -- 119
-* -- 533
-:= -- 1393
-add.period$ -- 93
-call.type$ -- 23
-change.case$ -- 131
-chr.to.int$ -- 23
-cite$ -- 29
-duplicate$ -- 368
-empty$ -- 622
-format.name$ -- 151
-if$ -- 1719
+            731 strings with 9804 characters,
+and the built_in function-call counts, 8568 in all, are:
+= -- 847
+> -- 370
+< -- 15
++ -- 122
+- -- 121
+* -- 544
+:= -- 1437
+add.period$ -- 97
+call.type$ -- 24
+change.case$ -- 136
+chr.to.int$ -- 24
+cite$ -- 30
+duplicate$ -- 379
+empty$ -- 647
+format.name$ -- 155
+if$ -- 1778
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 35
-newline$ -- 139
-num.names$ -- 66
-pop$ -- 144
+newline$ -- 145
+num.names$ -- 69
+pop$ -- 153
 preamble$ -- 1
-purify$ -- 159
+purify$ -- 165
 quote$ -- 0
-skip$ -- 283
+skip$ -- 293
 stack$ -- 0
-substring$ -- 304
-swap$ -- 47
-text.length$ -- 14
-text.prefix$ -- 11
+substring$ -- 311
+swap$ -- 48
+text.length$ -- 15
+text.prefix$ -- 12
 top$ -- 0
-type$ -- 124
+type$ -- 132
 warning$ -- 5
-while$ -- 64
-width$ -- 26
-write$ -- 350
-(There were 20 warnings)
+while$ -- 66
+width$ -- 27
+write$ -- 364
+(There were 21 warnings)

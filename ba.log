@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  14 NOV 2023 21:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/CVE-2023-32700 patched) (preloaded format=pdflatex 2023.10.5)  19 NOV 2023 18:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,7 +628,7 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=16.49675pt'.
 (scrlayer-scrpage)                I'll also decrease \topmargin on input line 1
-41.
+22.
 
 
 Overfull \vbox (4.49675pt too high) has occurred while \output is active []
@@ -676,94 +676,112 @@ chapter 3.
 <bilder/k2/k2_mdd.png, id=144, 783.92876pt x 573.14125pt>
 File: bilder/k2/k2_mdd.png Graphic file (type png)
 <use bilder/k2/k2_mdd.png>
-Package pdftex.def Info: bilder/k2/k2_mdd.png  used on input line 35.
+Package pdftex.def Info: bilder/k2/k2_mdd.png  used on input line 33.
 (pdftex.def)             Requested size: 350.25272pt x 256.0748pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 36.
+(caption)                particular \caption on input line 34.
 See the caption package documentation for explanation.
 
-[6 <./bilder/k2/k2_mdd.png>] [7] [8]
-<bilder/k2/k2_context_map.png, id=200, 244.2726pt x 139.722pt>
+[6 <./bilder/k2/k2_mdd.png>] [7]
+Overfull \hbox (13.65569pt too wide) in paragraph at lines 74--75
+\OT1/phv/m/n/10.95 (-20) Domain Events sind Er-eig-nis-se die f[]ur den Gesch[]
+aftsbereich re-le-vant sind und zum Dom[]anenmodell
+ []
+
+[8]
+<bilder/k2/k2_context_map.png, id=204, 244.2726pt x 139.722pt>
 File: bilder/k2/k2_context_map.png Graphic file (type png)
 <use bilder/k2/k2_context_map.png>
-Package pdftex.def Info: bilder/k2/k2_context_map.png  used on input line 113.
+Package pdftex.def Info: bilder/k2/k2_context_map.png  used on input line 88.
 (pdftex.def)             Requested size: 248.71866pt x 142.26378pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 114.
+(caption)                particular \caption on input line 89.
 See the caption package documentation for explanation.
 
 [9 <./bilder/k2/k2_context_map.png (PNG copy)>] [10] [11]
-<bilder/k2/k2_soa_vs_ms.png, id=258, 363.60844pt x 304.88907pt>
+<bilder/k2/k2_soa_vs_ms.png, id=262, 363.60844pt x 304.88907pt>
 File: bilder/k2/k2_soa_vs_ms.png Graphic file (type png)
 <use bilder/k2/k2_soa_vs_ms.png>
-Package pdftex.def Info: bilder/k2/k2_soa_vs_ms.png  used on input line 167.
+Package pdftex.def Info: bilder/k2/k2_soa_vs_ms.png  used on input line 142.
 (pdftex.def)             Requested size: 203.60269pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 168.
+(caption)                particular \caption on input line 143.
 See the caption package documentation for explanation.
 
 [12 <./bilder/k2/k2_soa_vs_ms.png>]
-<bilder/k2/k2_microservices_eigenschaften.png, id=281, 861.2175pt x 341.275pt>
+<bilder/k2/k2_microservices_eigenschaften.png, id=284, 861.2175pt x 341.275pt>
 File: bilder/k2/k2_microservices_eigenschaften.png Graphic file (type png)
 <use bilder/k2/k2_microservices_eigenschaften.png>
 Package pdftex.def Info: bilder/k2/k2_microservices_eigenschaften.png  used on 
-input line 183.
+input line 158.
 (pdftex.def)             Requested size: 359.01495pt x 142.26378pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 184.
+(caption)                particular \caption on input line 159.
 See the caption package documentation for explanation.
 
 [13 <./bilder/k2/k2_microservices_eigenschaften.png>] [14] [15]
-<bilder/k2/k2_broker.png, id=351, 272.89684pt x 184.44368pt>
+<bilder/k2/k2_broker.png, id=354, 272.89684pt x 184.44368pt>
 File: bilder/k2/k2_broker.png Graphic file (type png)
 <use bilder/k2/k2_broker.png>
-Package pdftex.def Info: bilder/k2/k2_broker.png  used on input line 245.
+Package pdftex.def Info: bilder/k2/k2_broker.png  used on input line 220.
 (pdftex.def)             Requested size: 294.69087pt x 199.16928pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 246.
+(caption)                particular \caption on input line 221.
 See the caption package documentation for explanation.
 
 [16 <./bilder/k2/k2_broker.png>]
-<bilder/k2/k2_mediator.png, id=361, 287.08481pt x 233.43654pt>
+<bilder/k2/k2_mediator.png, id=364, 287.08481pt x 233.43654pt>
 File: bilder/k2/k2_mediator.png Graphic file (type png)
 <use bilder/k2/k2_mediator.png>
-Package pdftex.def Info: bilder/k2/k2_mediator.png  used on input line 259.
+Package pdftex.def Info: bilder/k2/k2_mediator.png  used on input line 234.
 (pdftex.def)             Requested size: 244.9563pt x 199.16928pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 260.
+(caption)                particular \caption on input line 235.
 See the caption package documentation for explanation.
 
 [17 <./bilder/k2/k2_mediator.png>] [18] [19] [20] [21] [22]
-Overfull \hbox (27.40102pt too wide) in paragraph at lines 366--367
+Overfull \hbox (27.40102pt too wide) in paragraph at lines 341--342
 []\OT1/phv/m/n/10.95 (-20) Die Eta-blie-rung ei-ner Be-reit-schafts-ro-ta-ti-on
 , die si-cher-stellt, dass kon-ti-nu-ier-lich ei-ne []Uberwachung
  []
 
-[23] [24] [25] [26] [27] [28] [29]
-Overfull \hbox (19.24718pt too wide) in paragraph at lines 509--510
-\OT1/phv/m/n/10.95 (-20) Der Text be-han-delt Zwi-schen-mo-del-le, die ei-ne Br
-[]ucke zwi-schen Dom[]anenmodellen und Mikroservice-
+[23] [24] [25] [26] [27] [28]
+Overfull \hbox (15.11073pt too wide) in paragraph at lines 449--450
+[]\OT1/phv/m/n/10.95 (-20) Ein wei-te-res Bei-spiel f[]ur ein Ver-fah-ren ist e
+i-nes, wel-ches im Zu-sam-men-hang des Tools VxBPMN4MS
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 568--568
+
+Overfull \hbox (2.60207pt too wide) in paragraph at lines 453--454
+[]\OT1/phv/m/n/10.95 (-20) In der Pha-se der Ser-vice-zu-sam-men-set-zung und -
+bereitstellung wer-den Microservice-Frameworks
+ []
+
+
+Overfull \hbox (28.61798pt too wide) in paragraph at lines 453--454
+\OT1/phv/m/n/10.95 (-20) ent-wi-ckelt, die ei-ne an-pas-sungsf[]ahige In-fra-st
+ruk-tur in-te-grie-ren. Die er-stell-ten Gesch[]aftsprozessmodelle
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 519--519
 []|\OT1/phv/m/n/10.95 (+20) VxBPMN4MS
  []
 
 
-Underfull \hbox (badness 1546) in paragraph at lines 568--568
+Underfull \hbox (badness 1546) in paragraph at lines 519--519
 []\OT1/phv/m/n/10.95 (+20) Erstellen von gra-fi-schen Con-text Maps und Microse
 rvice-
  []
@@ -771,9 +789,12 @@ rvice-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./kapitel/k3_modellierung.tex [31] [32]
+) (./kapitel/k3_modellierung.tex [30] [31] [32
+
+
+]
 chapter 4.
-<bilder/k3/k3_ajil.png, id=558, 1264.725pt x 652.3572pt>
+<bilder/k3/k3_ajil.png, id=550, 1264.725pt x 652.3572pt>
 File: bilder/k3/k3_ajil.png Graphic file (type png)
 <use bilder/k3/k3_ajil.png>
 Package pdftex.def Info: bilder/k3/k3_ajil.png  used on input line 17.
@@ -783,11 +804,8 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 18.
 See the caption package documentation for explanation.
 
-[33
-
-
- <./bilder/k3/k3_ajil.png>]
-<bilder/k3/k3_context_mapper.png, id=566, 1573.88pt x 1710.39pt>
+[33 <./bilder/k3/k3_ajil.png>]
+<bilder/k3/k3_context_mapper.png, id=558, 1573.88pt x 1710.39pt>
 File: bilder/k3/k3_context_mapper.png Graphic file (type png)
 <use bilder/k3/k3_context_mapper.png>
 Package pdftex.def Info: bilder/k3/k3_context_mapper.png  used on input line 29
@@ -800,7 +818,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [34]
-<bilder/k3/k3_ocgi.jpg, id=573, 445.13203pt x 315.94142pt>
+<bilder/k3/k3_ocgi.jpg, id=565, 445.13203pt x 315.94142pt>
 File: bilder/k3/k3_ocgi.jpg Graphic file (type jpg)
 <use bilder/k3/k3_ocgi.jpg>
 Package pdftex.def Info: bilder/k3/k3_ocgi.jpg  used on input line 39.
@@ -812,7 +830,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [35 <./bilder/k3/k3_context_mapper.png (PNG copy)>]
-<bilder/k3/k3_argon.jpg, id=581, 133.6995pt x 231.9867pt>
+<bilder/k3/k3_argon.jpg, id=573, 133.6995pt x 231.9867pt>
 File: bilder/k3/k3_argon.jpg Graphic file (type jpg)
 <use bilder/k3/k3_argon.jpg>
 Package pdftex.def Info: bilder/k3/k3_argon.jpg  used on input line 52.
@@ -824,7 +842,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [36 <./bilder/k3/k3_ocgi.jpg>] [37 <./bilder/k3/k3_argon.jpg>]
-<bilder/todo.png, id=596, 462.528pt x 260.172pt>
+<bilder/todo.png, id=588, 462.528pt x 260.172pt>
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
 Package pdftex.def Info: bilder/todo.png  used on input line 79.
@@ -835,514 +853,403 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 80.
 See the caption package documentation for explanation.
 
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 95.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 96.
+See the caption package documentation for explanation.
+
 [38 <./bilder/todo.png>]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 102.
+Package pdftex.def Info: bilder/todo.png  used on input line 107.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 103.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 113.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 114.
+(caption)                particular \caption on input line 108.
 See the caption package documentation for explanation.
 
 [39]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 124.
+Package pdftex.def Info: bilder/todo.png  used on input line 117.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 125.
+(caption)                particular \caption on input line 118.
 See the caption package documentation for explanation.
 
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 134.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 135.
-See the caption package documentation for explanation.
-
-[40]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 145.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 146.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 156.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 157.
-See the caption package documentation for explanation.
-
-[41]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 167.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 168.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 176.
+Package pdftex.def Info: bilder/todo.png  used on input line 140.
 (pdftex.def)             Requested size: 505.85345pt x 284.52756pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 177.
+(caption)                particular \caption on input line 141.
 See the caption package documentation for explanation.
 
-[42] [43]
+[40] [41]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 190.
+Package pdftex.def Info: bilder/todo.png  used on input line 152.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 191.
+(caption)                particular \caption on input line 153.
+See the caption package documentation for explanation.
+
+[42]
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 171.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 172.
+See the caption package documentation for explanation.
+
+[43]
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 184.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 185.
 See the caption package documentation for explanation.
 
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 200.
+Package pdftex.def Info: bilder/todo.png  used on input line 194.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 201.
+(caption)                particular \caption on input line 195.
 See the caption package documentation for explanation.
 
 [44]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 211.
+Package pdftex.def Info: bilder/todo.png  used on input line 205.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 212.
+(caption)                particular \caption on input line 206.
 See the caption package documentation for explanation.
 
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 221.
+Package pdftex.def Info: bilder/todo.png  used on input line 215.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 222.
+(caption)                particular \caption on input line 216.
 See the caption package documentation for explanation.
 
 [45]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 232.
+Package pdftex.def Info: bilder/todo.png  used on input line 226.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 233.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 242.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 243.
+(caption)                particular \caption on input line 227.
 See the caption package documentation for explanation.
 
 [46]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 253.
+Package pdftex.def Info: bilder/todo.png  used on input line 240.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 254.
+(caption)                particular \caption on input line 241.
 See the caption package documentation for explanation.
 
 [47]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 268.
-(pdftex.def)             Requested size: 505.85345pt x 284.52756pt.
+Package pdftex.def Info: bilder/todo.png  used on input line 254.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 269.
+(caption)                particular \caption on input line 255.
+See the caption package documentation for explanation.
+
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 264.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 265.
 See the caption package documentation for explanation.
 
 [48]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 285.
+Package pdftex.def Info: bilder/todo.png  used on input line 275.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 276.
+See the caption package documentation for explanation.
+
+[49]
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 285.
+(pdftex.def)             Requested size: 505.85345pt x 284.52756pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 286.
 See the caption package documentation for explanation.
 
-[49]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 298.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 299.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 308.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 309.
-See the caption package documentation for explanation.
-
 [50]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 319.
+Package pdftex.def Info: bilder/todo.png  used on input line 300.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 320.
+(caption)                particular \caption on input line 301.
 See the caption package documentation for explanation.
 
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 329.
+Package pdftex.def Info: bilder/todo.png  used on input line 310.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 330.
+(caption)                particular \caption on input line 311.
 See the caption package documentation for explanation.
 
 [51]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 340.
+Package pdftex.def Info: bilder/todo.png  used on input line 321.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 341.
+(caption)                particular \caption on input line 322.
+See the caption package documentation for explanation.
+
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 331.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 332.
 See the caption package documentation for explanation.
 
 [52]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 354.
+Package pdftex.def Info: bilder/todo.png  used on input line 342.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 355.
+(caption)                particular \caption on input line 343.
+See the caption package documentation for explanation.
+
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 352.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 353.
 See the caption package documentation for explanation.
 
 [53]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 368.
+Package pdftex.def Info: bilder/todo.png  used on input line 363.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 369.
+(caption)                particular \caption on input line 364.
 See the caption package documentation for explanation.
 
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 378.
+Package pdftex.def Info: bilder/todo.png  used on input line 373.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 379.
+(caption)                particular \caption on input line 374.
 See the caption package documentation for explanation.
 
 [54]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 389.
+Package pdftex.def Info: bilder/todo.png  used on input line 384.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 390.
+(caption)                particular \caption on input line 385.
+See the caption package documentation for explanation.
+
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 394.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 395.
 See the caption package documentation for explanation.
 
 [55]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 399.
-(pdftex.def)             Requested size: 505.85345pt x 284.52756pt.
+Package pdftex.def Info: bilder/todo.png  used on input line 405.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 400.
+(caption)                particular \caption on input line 406.
+See the caption package documentation for explanation.
+
+File: bilder/todo.png Graphic file (type png)
+<use bilder/todo.png>
+Package pdftex.def Info: bilder/todo.png  used on input line 415.
+(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 416.
 See the caption package documentation for explanation.
 
 [56]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 414.
+Package pdftex.def Info: bilder/todo.png  used on input line 426.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 415.
+(caption)                particular \caption on input line 427.
 See the caption package documentation for explanation.
 
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 424.
+Package pdftex.def Info: bilder/todo.png  used on input line 436.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 425.
+(caption)                particular \caption on input line 437.
 See the caption package documentation for explanation.
 
 [57]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 435.
+Package pdftex.def Info: bilder/todo.png  used on input line 447.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 436.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 445.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 446.
+(caption)                particular \caption on input line 448.
 See the caption package documentation for explanation.
 
 [58]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 456.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
+Package pdftex.def Info: bilder/todo.png  used on input line 457.
+(pdftex.def)             Requested size: 505.85345pt x 284.52756pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 457.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 466.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 467.
+(caption)                particular \caption on input line 458.
 See the caption package documentation for explanation.
 
 [59]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 477.
+Package pdftex.def Info: bilder/todo.png  used on input line 473.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 478.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 487.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 488.
+(caption)                particular \caption on input line 474.
 See the caption package documentation for explanation.
 
 [60]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 498.
+Package pdftex.def Info: bilder/todo.png  used on input line 486.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 499.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 508.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 509.
+(caption)                particular \caption on input line 487.
 See the caption package documentation for explanation.
 
 [61]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 519.
+Package pdftex.def Info: bilder/todo.png  used on input line 497.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 520.
-See the caption package documentation for explanation.
-
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 529.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 530.
+(caption)                particular \caption on input line 498.
 See the caption package documentation for explanation.
 
 [62]
 File: bilder/todo.png Graphic file (type png)
 <use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 540.
+Package pdftex.def Info: bilder/todo.png  used on input line 510.
 (pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 541.
+(caption)                particular \caption on input line 511.
 See the caption package documentation for explanation.
 
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 550.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 551.
-See the caption package documentation for explanation.
-
-[63]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 561.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 562.
-See the caption package documentation for explanation.
-
-[64]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 571.
-(pdftex.def)             Requested size: 505.85345pt x 284.52756pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 572.
-See the caption package documentation for explanation.
-
-[65]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 587.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 588.
-See the caption package documentation for explanation.
-
-[66]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 600.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 601.
-See the caption package documentation for explanation.
-
-[67]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 611.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 612.
-See the caption package documentation for explanation.
-
-[68]
-File: bilder/todo.png Graphic file (type png)
-<use bilder/todo.png>
-Package pdftex.def Info: bilder/todo.png  used on input line 624.
-(pdftex.def)             Requested size: 303.51207pt x 170.71652pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 625.
-See the caption package documentation for explanation.
-
-[69]) (./kapitel/k4_generierung.tex [70]
+[63]) (./kapitel/k4_generierung.tex [64]
 chapter 5.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-) (./kapitel/k5_anwendung.tex [71
+) (./kapitel/k5_anwendung.tex [65
 
 
-] [72
+] [66
 
 
 ]
 chapter 6.
-) (./kapitel/k6_diskussion.tex [73] [74
+) (./kapitel/k6_diskussion.tex [67] [68
 
 
 ]
 chapter 7.
-) (./kapitel/k7_schluss.tex [75] [76
+) (./kapitel/k7_schluss.tex [69] [70
 
 
 ]
 chapter 8.
-) [77] (./ba.bbl [78
+) [71] (./ba.bbl [72
 
 
 ]
@@ -1364,27 +1271,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-[79]
-Underfull \hbox (badness 1629) in paragraph at lines 156--160
+[73]
+Underfull \hbox (badness 1629) in paragraph at lines 163--167
 []\OT1/phv/m/n/10.95 (+20) Eberhard Wolff.  \OT1/phv/m/sl/10.95 (+20) Mi-cro-se
 r-vices: Grund-la-gen fle-xibler Soft-wa-rear-chi-tek-tu-ren\OT1/phv/m/n/10.95 
 (+20) .
  []
 
-[80]) [81] (./ba.aux)
+[74]) [75] (./ba.aux)
 Package rerunfilecheck Info: File `ba.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 26 ({)
+### simple group (level 1) entered at line 24 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 19133 strings out of 476175
- 367293 string characters out of 5796271
- 1868793 words of memory out of 6000000
- 38511 multiletter control sequences out of 15000+600000
- 540742 words of font info for 209 fonts, out of 8000000 for 9000
+ 19079 strings out of 476175
+ 366626 string characters out of 5796271
+ 1867793 words of memory out of 6000000
+ 38512 multiletter control sequences out of 15000+600000
+ 540681 words of font info for 208 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  108i,20n,106p,10705b,852s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
@@ -1395,10 +1302,10 @@ f-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
 /uhvro8a.pfb>
-Output written on ba.pdf (84 pages, 1897306 bytes).
+Output written on ba.pdf (78 pages, 1892260 bytes).
 PDF statistics:
- 1217 PDF objects out of 1440 (max. 8388607)
- 1080 compressed objects within 11 object streams
- 425 named destinations out of 1000 (max. 500000)
+ 1137 PDF objects out of 1200 (max. 8388607)
+ 1006 compressed objects within 11 object streams
+ 371 named destinations out of 1000 (max. 500000)
  46997 words of extra memory for PDF output out of 51595 (max. 10000000)
 

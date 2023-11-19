@@ -80,22 +80,15 @@ Die Umsetzung des Metamodells erfolgt mit dem Eclipse Modeling Framework (EMF), 
 \captionof{figure}{Schichten von Modellen}
 \end{center}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %			Fachl. MDD
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Modellierung der Fachlichkeit}
 
 \subsubsection{Abbildung des MDD in ein Metamodell}
 
-\paragraph{Schicht}
-
-Schichten werden implizit durch das Metamodell vorgegeben.
-Nach dem Grundkonzept exisitiert eine fachliche Schicht und eine technische Schicht, welche die Anwendungsschicht bilden. Außerdem existiert eine Infrastrukturschicht und eine Migrationsschicht.
-Weiterhin werden Domänenmodelle der fachlichen Schicht werden nach dem DDD auf eine eigene Schicht in der technischen Schicht abgebildet, eier Domänenschicht.
-
-\newpage
-\paragraph{Packages}
+\paragraph{Schichten, Domänenmodelle und Pakete}
 
 %TODO Grafik machen
 \begin{center}
@@ -103,21 +96,11 @@ Weiterhin werden Domänenmodelle der fachlichen Schicht werden nach dem DDD auf 
 \captionof{figure}{Metamodell - Klassenname}
 \end{center}
 
+Schichten werden implizit durch das Metamodell vorgegeben. Nach dem Grundkonzept existiert eine fachliche Schicht (\glqq BusinessLayer\grqq), eine technische Schicht (\glqq TechnicalLayer\grqq), eine Infrastrukturschicht (\glqq InfrastructureLayer\grqq) und eine Migrationsschicht (\glqq MigrationLayer\grqq). Die Rolle des Verbindungsgliedes zwischen Modell und \glqq DomainLayer\grqq der Implementierung wird zu einem späteren Zeitpunkt bei der Frage der Abbildung der fachlichen auf die technische Schicht konzipiert.
 
-Ein Paket ist eine Klasse welche beliebige Elemente bündeln kann. Ein Element kann nur in einem Paket erhalten sein. Ein Paket kann auch weitere Pakete erhalten. Daher wird ein Interface Packageable Element eingeführt, sowie eine Klasse Paket welche die Multiplizität definiert.
+Die fachliche Schicht besteht aus beliebig vielen Domänenmodellen (\glqq DomainModel\grqq). Diese können Pakete (\glqq Package\grqq) enthalten. Ein Package ist eine Klasse, die keine bis beliebig viele Elemente bündeln kann. Ein Element kann zudem nur in einem Package enthalten sein. Auch weitere Packages können in einem Package enthalten sein. Sowohl DomainModel als auch Packages sind benamte Objekte.
 
-\paragraph{Entity}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Entities müssen eine einzigartige ID besitzen um identifizierbar zu sein. Sie können Verhalten besitzen. Entities können Value Objects als Eigenschaften besitzen.
-
-\newpage
-\paragraph{Value Object}
+\paragraph{Entities, Aggregates und Value Objects}
 
 %TODO Grafik machen
 \begin{center}
@@ -125,20 +108,9 @@ Entities müssen eine einzigartige ID besitzen um identifizierbar zu sein. Sie k
 \captionof{figure}{Metamodell - Klassenname}
 \end{center}
 
-Value Objects besitzen anderas als Entities keine Identität. Sie können eine Komposition aus anderen Value Objects sein und Entities referenzieren.
+Entities, Value Objects und Aggregates können beliebig oft Teil eines Domain Models oder eines Packages sein. Alle besitzen einen Namen. Entities verfügen über eine einzigartige ID und können Verhalten aufweisen. Dies wird durch eine Komposition mit einer benannten Klasse, \glqq Behaviour\grqq, dargestellt. Entities können zudem beliebig viele Value Objects enthalten. Im Gegensatz zu Entities besitzen Value Objects keine Identität. Sie können aus einer Komposition anderer Value Objects bestehen und Entities referenzieren. Aggregates bestehen aus einem Wurzelobjekt, einer Entity, auf die andere Objekte verweisen können. Objekte, die Teil des Aggregates sind, können untereinander Verweise aufweisen. Andere Objekte dürfen nur auf die Wurzel des Aggregates verweisen.
 
-\paragraph{Service}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Services sind Zustsndslose Klassen welche Verhalten umsetzen und nach diesem bennant sind. Sie benötigen eine Schnittstelle zu anderen Elementen des Modells.
-
-\newpage
-\paragraph{Aggregate}
+\paragraph{Service, Repository und Factory}
 
 %TODO Grafik machen
 \begin{center}
@@ -146,29 +118,21 @@ Services sind Zustsndslose Klassen welche Verhalten umsetzen und nach diesem ben
 \captionof{figure}{Metamodell - Klassenname}
 \end{center}
 
-%TODO Wurzel immer Entität ?
-Aggregates bestehen aus einem Wurzelobjekt, einer Entitiy, auf dem andere Objekte verweisen können. Objekte die Teil des Aggregates sind können untereinander auf isch verweisen.
+Services, Repositories und Factories sind benannt und können ebenfalls beliebig oft Teil eines Domain-Models oder eines Packages sein.
 
-\paragraph{Factory}
+Services sind zustandslose Klassen, welche Verhalten umsetzen und daher eine Komposition aus Behaviours sind. Eine Umsetzung der Schnittstelle zu anderen Elementen des Modells wird als Referenz modelliert.
 
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
+Repositories speichern Daten für eine konkrete Entity oder ein Aggregate, daher existiert eine 0..1-Multiplizität-Referenz zwischen ihnen und der Repository-Klasse. Mit einer Suche können Objekte aus einem Repository abgefragt werden, was eine Art von Verhalten ist, weswegen Repositories beliebig viele Behaviours enthalten können.
 
-Factories erstellen Objekte einer Klasse. Dies wird mit einer eindeutigen 1 zu 1 Multiplizität ausgedrückt. Sie besitzt Invarianten die bei der Erstellung geprüft werden müssen. Die Überprüfung kann aber auch auselagert werden. Auch die Wiedererzeugung muss möglich sein.
+Factories können Objekte von bestimmten Entities, Services, Repositories, Value Objects und Aggregates erstellen. Daher existiert zu ihnen eine Referenz mit der Multiplizität 0..1. Sie besitzen Invarianten, die bei der Erstellung geprüft werden müssen. Die Überprüfung kann aber auch ausgelagert werden. Dies kann durch den Besitz eigenen Verhaltens oder einer Referenz auf einen Service modelliert werden.
 
-\newpage
-\paragraph{Repository}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Repostorys speichern Daten für einen bestimmten Objekttypen, daher 1 zu 1. Mit einer Suche können Objekte aus einem Repository abgefragt werden.
+%\paragraph{Domain Event}
+%
+%%TODO Grafik machen
+%\begin{center}
+%\includegraphics[height=6cm]{bilder/todo.png}
+%\captionof{figure}{Metamodell - Klassenname}
+%\end{center}
 
 \paragraph{Gesamtüberblick}
 
@@ -183,91 +147,13 @@ Repostorys speichern Daten für einen bestimmten Objekttypen, daher 1 zu 1. Mit 
 \newpage
 \subsubsection{Abbildung des Strategic Design in ein Metamodell}
 
-\paragraph{Bounded Context}
-
 %TODO Grafik machen
 \begin{center}
 \includegraphics[height=6cm]{bilder/todo.png}
 \captionof{figure}{Metamodell - Klassenname}
 \end{center}
 
-Ein Bounded Context weißt einem Domänenmodell einen klar definierten Rahmen zu, ist daher also eine gemeinsamer Vaterknoten aller einem Domänenmodell zugehörigen Objekte. Eine abgebildete Domäne wiederum kann aus mehreren solcher Kontexte bestehen. Daher wird dies mit 1 n modelliert. Sie besitzen eine Schnittstelle, welche bestimmt welche Modelle für andere Kontexte verfügbar sind. Sie haben Beziehungen untereinander welche Klassen des Types BoundedContextRelationship sind
-
-\paragraph{Shared Kernel}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Weiterhin können Domänenmodelle geteilt werden um in anderen Domännenmodellen mitgenutzt zu werden. Diese Shared Kernel werden als Beziehung unter Domänenmodellen abgebildet. Shared Kernel ist eine optionale Eigenschaft die ein Domänenmodell haben kann. Wenn es diese hat kann es mehrere Domänenmodeller referenzieren, sonst nicht.
-
-\newpage
-\paragraph{Customer/Supplier}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Eine Customer Supplier Beziehung ist eine Spezielle Beziehungen zwischen Kontexten aus welcher implizit festgelegt wird welcher Kontext sich welchem  Modell anzupassen hat.
-
-\paragraph{Conformist}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Eine Conformist Beziehung ist eine Spezielle Beziehungen zwischen Kontexten aus welcher implizit festgelegt wird welcher Kontext sich welchem  Modell anzupassen hat.
-
-\newpage
-\paragraph{Anticorruption Layer}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-VGL Context Mapper
-
-\paragraph{Open Host Service}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-\newpage
-VGL Context Mapper
-
-\paragraph{Published Language}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-VGL Context Mapper
-
-\paragraph{Seperate Ways}
-
-Muss nicht modelliert werden
-
-\newpage
-
-\paragraph{Gesamtüberblick}
-
-\begin{center}
-\rotatebox{90}{\includegraphics[height=10cm]{bilder/todo.png}}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
+Der Bounded Context ist Teil der fachlichen Schicht und weist einem Domänenmodell einen klar definierten, benannten Rahmen zu. Dies entspricht einer Referenz mit der Multiplizität 1..1. Weiterhin kann eine abgebildete Domäne aus mehreren solchen Kontexten bestehen. Daher wird dies mit einem 1..* Kompositum zwischen fachlicher Schicht und Bounded Context modelliert. Bounded Contexts haben, wie im DDD (Domain-Driven Design) beschrieben, verschiedene Beziehungen zueinander. Diese werden in Anlehnung an das Metamodell von Context Mapper modelliert (vgl. S. 35). Dabei wird auf die Modellierung einiger Klassen verzichtet, da diese im Kontext konkreter Anwendungsentwicklung einen geringen bis keinen Mehrwert versprechen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %			Techn

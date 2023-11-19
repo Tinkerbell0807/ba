@@ -117,6 +117,13 @@ Pierluigi Riti.
   2018.
 \newblock Pierluigi Riti.
 
+\bibitem[Rit23]{ritter}
+Rafael Ritter.
+\newblock Domain event: The missing building block.
+\newblock
+  \url{https://ilegra.com/blog/domain-event-the-missing-building-block/}, 2023.
+\newblock Accessed: 19.11.2023.
+
 \bibitem[RSS18]{rademacher}
 Florian Rademacher, Jonas Sorgalla, and Sabine Sachweh.
 \newblock Challenges of domain-driven microservice design: A model-driven
