@@ -2,9 +2,37 @@
 
 \section{Konzeptionelle Rahmenbedingungen}
 
-\subsection{Anforderungen an eine Lösung / Vorrausetzungen / Methodik / Bewertungskriterien}
+\subsection{Einleitende Überlegungen}
 
-Das Microservice-Architekturmuster fordert eine technologisch unabhängige Implementierung. Aus Gründen der Einfachheit werden in dieser Arbeit die Zieltechnologien im Kontext der Generierung auf einzelne Technologien beschränkt. Trotzdem soll im Metamodell die Möglichkeit, andere Zieltechnologien zu haben, berücksichtigt werden.
+Voraussetzungen:
+\begin{itemize}
+    \item Technologisch unabhängig: Definition einzelner Technologien, dabei jedoch Berücksichtigung
+    \item Erweiterbarkeit (Möglichkeit darauf aufzubauen)
+    \item Umgebung muss teilweise vorinstalliert sein, keine automatische generierung von nem GitHub Account, Google Cloud Umgebung, Datenbank, etc.
+    \item Frontend wird exk
+   ludiert
+\end{itemize}
+
+Methodik:
+\begin{itemize}
+    \item Erfassung des State of the Art
+    \item Abstraktion der theoretischen Konzepte
+    \item Iteratives Vorgehen
+    \item Ergänzungen der Abstraktionen dabei
+    \item Anwendung
+\end{itemize}
+
+Bewertungskriterien:
+\begin{itemize}
+    \item Anwendungsmodelle generieren und lauffähig in einer Cloud-Umgebung betreiben, um Probleme der Realität zu lösen.
+    \item Fokusierung auf Anwendungsrelevante Metaklassen (Konzepte ohne Anwendungsbezug weglassen)
+    \item Realitätsbezug
+    \item Abdeckung von Eigenschaften und Konzepten von Microservices
+    \item Möglichst viel Modellierung und wenig Programmierung
+    \item Möglichkeiten zur Code-Wiederverwertung
+    \item Einfachheit von Veränderungen
+\end{itemize}
+
 
 \subsection{Einbindung aktueller Technologien}
 
@@ -34,29 +62,33 @@ Context Mapper definiert ein sehr umfassendes Metamodell, welches die Konzepte d
 
 \subsubsection{OCGI}
 
-%TODO Quelle angeben
 \begin{center}
-\includegraphics[height=10cm]{bilder/k3/k3_ocgi.jpg}
-\captionof{figure}{Metamodell von Ocgi}
+\includegraphics[height=7cm]{bilder/k3/k3_occi.png}
+\captionof{figure}{Metamodell von OCCI \cite{edmonds}}
 \end{center}
 
-\begin{itemize}
-\item Erklärung des Metamodells
-\item Stärken und Schwächen im Kontext der Zielsetzung
-\end{itemize}
+Das Metamodell des Open Cloud Computing Interface (OCCI) stellt eine kompakte Abstraktion dar, um Cloud-Ressourcen und -Dienste effektiv zu modellieren. Es vermeidet eine direkte Fokussierung auf spezifische Konzepte wie Container oder Deployments. Stattdessen verwendet OCCI allgemeinere Klassen wie „Entity“, „Resource“ und „Link“, um eine breite Palette von Cloud-Konzepten und Beziehungen darzustellen. Beispielsweise kann eine „Entity“ in diesem Modell einen konkreten Cloud-Service oder eine virtuelle Maschine repräsentieren, während „Resource“ für spezifische Dienste wie Speicherplatz oder Rechenkapazitäten steht. „Link“ kann genutzt werden, um die Verbindungen zwischen verschiedenen Ressourcen oder Diensten abzubilden, wie etwa die Zuordnung eines Netzwerkdienstes zu einem bestimmten Container. Dieser abstrakte Ansatz ermöglicht es, das Modell flexibel und anpassbar für eine Vielzahl von spezifischen Cloud-Umgebungen und Anwendungsfällen zu gestalten.
+
+%TODO Gründe sammeln
+Obwohl die Technologie umfassend Cloud-Infrastrukturen modellieren und Generieren kann, bietet es sich nicht an diese im Kontext der Zielstellung zu verwenden.
+
+\begin{center}
+\includegraphics[height=10cm]{bilder/k3/k3_occi_2.jpg}
+\captionof{figure}{Das OCCI Metamodell als Teil der komplexen OCCIware Anwendungsumgebung\cite{zalila}}
+\end{center}
+
+
 
 \subsubsection{ARGON}
 
-%TODO Quelle angeben
 \begin{center}
-\includegraphics[height=13cm]{bilder/k3/k3_argon.jpg}
+\includegraphics[height=10cm]{bilder/k3/k3_argon.jpg}
 \captionof{figure}{Anwendungsschema ARGON}
 \end{center}
 
-\begin{itemize}
-\item Erklärung des Metamodells
-\item Stärken und Schwächen im Kontext der Zielsetzung
-\end{itemize}
+Die Technologie ARGON gliedert den Ansatz, Cloud-Infrastrukturen modellbasiert zu entwickeln, in mehrere Ebenen. Im Gegensatz zu OCCI, das ein umfangreiches Anwendungsframework bietet, konzentriert sich ARGON auf die Definition eines plattformunabhängigen Metamodells (PIM) sowie spezifischer Metamodelle (PSM) für AWS und Microsoft Azure. Mittels M2M-Transformationen ist eine gegenseitige Umwandlung möglich. Zudem sind M2T-Transformationen vorgesehen, um Infrastructure-as-Code mittels Ansible oder Terraform zu erzeugen.
+
+In diesem Kontext erweist sich ARGON als deutlich relevanter als OCCI, da es sich auf die praxisnahe Erstellung von Software-Komponenten konzentriert, die durch ein Metamodell definiert werden, statt auf einen abstrakten, plattformübergreifenden Cloud-Baukasten. Angesichts der Tatsache, dass die Anforderungen durch das Metamodell der Microservice-Architektur suggeriert werden und das Infrastruktur-Metamodell im Gesamtkonzept integriert sein sollte, ist die Entwicklung einer Schnittstelle zu ARGON notwendig. Da der Schwerpunkt dieser Arbeit jedoch darauf abzielt, modellbasierte Anwendungen in spezifischen Umgebungen funktionsfähig zu machen, scheint es sinnvoll, sich auf die konzeptionellen Aspekte zu beschränken. Dies umfasst insbesondere die Ausarbeitung eines auf eine bestimmte Plattform und Technologie zugeschnittenen Metamodells.
 
 
 \subsection{Auswahl der Technologie}
@@ -68,16 +100,24 @@ Die Umsetzung des Metamodells erfolgt mit dem Eclipse Modeling Framework (EMF), 
 %			DSL
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
 \section{Entwicklung der eigenen DSL}
 
 \subsubsection{Grundkonzept - Definition verschiedener Modellschichten}
 
-Die Umsetzung des Metamodells erfolgt mit dem Eclipse Modeling Framework (EMF), einem quelloffenen Java-Framework. Weiterhin kommen die ebenfalls quelloffenen Frameworks Eclipse Sirius, das die Visualisierung von Modellen ermöglicht, und Acceleo, das aus EMF-Modellen Code generieren kann, zum Einsatz. Diese stehen als Plugins für Eclipse zur Verfügung. Die generierten Anwendungen sollen die Programmiersprache Java verwenden. Zudem wird das Spring Framework eingesetzt, welches die Implementierung verschiedenster Strukturen vereinfacht. Als Technologie zur Umsetzung von ereignisgetriebener Architektur wird Apache Kafka verwendet. Die generierten Applikationen sollen mittels GitHub versioniert und deployt werden können. Als Cloud-Infrastruktur wird die Google Cloud gewählt, in welcher die Anwendungen auf einem Kubernetes-Cluster laufen sollen.
+Um ein Metamodell für Microservice-Architekturen zu konzipieren, wird zunächst ein plausibles, konkretes Modell betrachtet. Basierend auf einer Analyse dieses Modells soll ein grundlegender Ansatz gewählt werden, der im Kontext einer Abstraktion sinnvoll erscheint.
+
+Hierzu wird ein Beispielmodell (Abbildung 4.6) eingeführt, das eine Domäne umfasst, bestehend aus den Kontexten Customer und Marketing, die eine Customer/Supplier-Beziehung haben. Weiterhin gibt es Microservices zu diesen Teildomänen, die über eine Schnittstelle miteinander kommunizieren. Die Ausführungsumgebung wird mit spezifischer Servicekonfiguration und einem Modellelement, das die Cloud-Umgebung beschreibt – hier die Google Cloud-Infrastruktur – ebenfalls modelliert.
+
+Bei der Betrachtung wird folgendes festgestellt: Die existierenden Modellelemente lassen sich in fachliche Elemente, technische Elemente oder Infrastrukturelemente gruppieren. Diese Gruppierung wird als gemeinsame Schicht definiert. Innerhalb ihrer Schicht haben die Elemente Beziehungen zu anderen Modellelementen derselben Schicht. Weiterhin können Beziehungen existieren, die über diese Schichten hinausgehen, das heißt, es gibt Abbildungen von Elementen einer Schicht auf Elemente anderer Schichten.
+
+Aus dieser Betrachtung folgt, dass die Metamodellierung ebenfalls schichtbasiert begonnen wird. Weiterhin muss erforscht werden, wie die Beziehungen zwischen den Schichten umgesetzt werden können. Nach abschließender Betrachtung aller Schichten muss das Metamodell im Kontext der Konzeption von Codegenerierung und Migrationsfähigkeiten weiterhin iterativ überprüft und gegebenenfalls nachgebessert werden. Hierbei müssen die Bewertungskriterien aus den einleitenden Überlegungen berücksichtigt werden.
+
 
 %TODO Grafik machen
 \begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Schichten von Modellen}
+\includegraphics[height=7cm]{bilder/k3/k3_konzept.jpg}
+\captionof{figure}{Erkennbare Schichten in einem Modell einer Microservice-Architektur}
 \end{center}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,7 +148,7 @@ Die fachliche Schicht besteht aus beliebig vielen Domänenmodellen (\glqq Domain
 \captionof{figure}{Metamodell - Klassenname}
 \end{center}
 
-Entities, Value Objects und Aggregates können beliebig oft Teil eines Domain Models oder eines Packages sein. Alle besitzen einen Namen. Entities verfügen über eine einzigartige ID und können Verhalten aufweisen. Dies wird durch eine Komposition mit einer benannten Klasse, \glqq Behaviour\grqq, dargestellt. Entities können zudem beliebig viele Value Objects enthalten. Im Gegensatz zu Entities besitzen Value Objects keine Identität. Sie können aus einer Komposition anderer Value Objects bestehen und Entities referenzieren. Aggregates bestehen aus einem Wurzelobjekt, einer Entity, auf die andere Objekte verweisen können. Objekte, die Teil des Aggregates sind, können untereinander Verweise aufweisen. Andere Objekte dürfen nur auf die Wurzel des Aggregates verweisen.
+Entities, Value Objects und Aggregates können beliebig oft Teil eines Domain Models oder eines Packages sein. Alle besitzen einen Namen. Entities verfügen über eine einzigartige ID und können Verhalten aufweisen. Dies wird durch eine Komposition mit einer benannten Klasse, \glqq Behaviour\grqq, dargestellt. Entities können zudem beliebig viele Value Objects enthalten. Im Gegensatz zu Entities besitzen Value Objects keine Identität. Sie können aus einer Komposition anderer Value Objects bestehen und Entities referenzieren. Aggregates bestehen aus einem Wurzelobjekt, einer Entity, auf die andere Objekte verweisen können. Objekte, die Teil des Aggregates sind, können sich untereinander referenzieren. Andere Objekte dürfen nur auf die Wurzel des Aggregates verweisen.
 
 \paragraph{Service, Repository und Factory}
 
@@ -172,41 +212,9 @@ Der Bounded Context ist Teil der fachlichen Schicht und weist einem Domänenmode
 \captionof{figure}{Metamodell - Klassenname}
 \end{center}
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+Microservice sind Teil der technischen Schicht und können beliebig oft in dieser vorkommen.
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-\newpage
-\paragraph{Entity}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-
-\paragraph{Service Klasse}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.  
-
-\newpage
-\paragraph{Repository}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+Um die technologische Uneingeschränkt eines Microservices zu beschreiben besitzt die Metamodellklasse ein Feld implementedIn welches auf ein Enum mit Programmiersprachen referenziert. Da sie einen eigenen Datenhauhalt besitzen referenzieren sie einen DatabaseConnector. Dieser spezifiziert die von dem Service genutzte Datenbank Technologie. Ein Service kann auch keine oder verschiedene Datenbanketechnologien nutzen, daher 0..* Multiplizität. Außerdem kann eine API-Schicht existieren.
 
 \paragraph{Schnittstelle}
 
@@ -245,7 +253,6 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
 
-
 \newpage
 \paragraph{Logging}
 
@@ -258,17 +265,6 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 
 \paragraph{Monitoring}
-
-%TODO Grafik machen
-\begin{center}
-\includegraphics[height=6cm]{bilder/todo.png}
-\captionof{figure}{Metamodell - Klassenname}
-\end{center}
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-
-\newpage
-\paragraph{Factories}
 
 %TODO Grafik machen
 \begin{center}

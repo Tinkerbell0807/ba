@@ -38,6 +38,11 @@ Herbert Dowalil.
 \newblock Hanser, M{\"u}nchen, 2018.
 \newblock Herbert Dowalil.
 
+\bibitem[EPM16]{edmonds}
+OCCI-WG~Andy Edmonds, Alexander Papaspyrou, and Thijs Metsch.
+\newblock Open cloud computing interface-core.
+\newblock {\em Update}, page~6, 2016.
+
 \bibitem[Erl17]{erl}
 Thomas Erl.
 \newblock {\em Service-oriented architecture: analysis and design for services

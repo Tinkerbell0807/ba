@@ -134,16 +134,9 @@ Das direkte Übersetzen von Modellsprachen kann zu sehr komplexen Strukturen fü
 
 \subsection{Geschichte und Definition}
 
-%TODO ESB erklären
-Im Mai 2011 wurde der Begriff \glqq Microservice\grqq{} während eines Architekten-Workshops in Venedig eingeführt, um einen neu entstehenden Architekturstil zu beschreiben. Dieser Stil entwickelte sich aus der \glqq Service-orientierten Architektur\grqq{} (SOA). Ein Software-Service bezeichnet in der SOA eine Softwarekomponente, die über das Internet von entfernten Computern aus zugänglich ist. Microservice-Architekturen ähneln der SOA, aber SOA wird oft unterschiedlich verstanden und unterscheidet sich in der Regel von Microservices, insbesondere in Bezug auf die Betonung von ESBs. Viele SOA-Projekte stießen auf Schwierigkeiten, sei es wegen ihrer Komplexität oder hohen Kosten. Aufgrund von Herausforderungen bei Skalierung und Verschiebung von Diensten, die nach diesen Prinzipien arbeiteten, entstand ein neuer Ansatz: Ein völlig unabhängiger Dienst mit eigener Datenbank, eigener Benutzeroberfläche und der Fähigkeit, einen Dienst zu ersetzen oder zu replizieren, ohne andere Systemdienste ändern zu müssen.
+Im Mai 2011 wurde der Begriff \glqq Microservice\grqq{} während eines Architekten-Workshops in Venedig eingeführt, um einen neu entstehenden Architekturstil zu beschreiben. Dieser Stil entwickelte sich aus der \glqq Service-orientierten Architektur\grqq{} (SOA). Ein Software-Service bezeichnet in der SOA eine Softwarekomponente, die über das Internet von entfernten Computern aus zugänglich ist. Microservice-Architekturen ähneln der SOA, aber SOA wird oft unterschiedlich verstanden und unterscheidet sich in der Regel von Microservices. Merkmale von SOA-Architekturen sind unter anderem ein zentraler Zugriffsbus (ESB) oder die Abbildung ganzer Geschäftsabläufe in einem Service.
 
-%TODO Grafik machen, Quelle angeben
-\begin{center}
-\includegraphics[height=6cm]{bilder/k2/k2_soa_vs_ms.png}
-\captionof{figure}{Gegenüberstellung von SOA und Microservices}
-\end{center}
-
-Ein Jahr später wurde der Name Microservices als am besten passend für dieses Konzept gewählt. Der Microservice-Architekturstil wurde dann von Martin Fowler und James Lewis im März 2014 in einem Blogbeitrag erstmals ausführlicher vorgestellt \cite{fowlerlewis} \cite[S.251]{richards}. \cite[S.150,151]{sommerville}.
+Viele SOA-Projekte stoßen wegen ihrer Komplexität oder hohen Kosten auf Schwierigkeiten. Aufgrund von Herausforderungen bei Skalierung und Verschiebung der Services entstand ein neuer Ansatz: Ein völlig unabhängiger Dienst mit eigener Datenbank, eigener Benutzeroberfläche und der Fähigkeit, einen Dienst zu ersetzen oder zu replizieren, ohne andere Systemdienste ändern zu müssen. Ein Jahr später wurde der Name Microservices als am besten passend für dieses Konzept gewählt. Der Microservice-Architekturstil wurde dann von Martin Fowler und James Lewis im März 2014 in einem Blogbeitrag erstmals ausführlicher vorgestellt \cite{fowlerlewis} \cite[S.251]{richards}. \cite[S.150,151]{sommerville}.
 
 Microservices wurden nicht im Voraus geplant, sondern entstanden durch beobachtete Trends und Muster in der Praxis. Dazu gehören Continuous Delivery, bedarfsorientierte Virtualisierung, automatisierte Infrastrukturen, skalierbare Systeme und unabhängige Entwicklerteams. Die Hauptinspiration stammt jedoch aus dem DDD, insbesondere dem Konzept des Bounded Context \cite[S.21]{newman} \cite[S.251]{richards}.
 
@@ -174,7 +167,6 @@ Ein Microservice ist wie ein eigenständiges Programm, das entweder als eigener 
 \subsubsection{Verteilte Netwerkkommunikation}
 Microservices repräsentieren eine verteilte Architektur und nutzen verteilte Netzwerkkommunikation für die Interaktion mit anderen Diensten. Die Integration der Services erfolgt hauptsächlich über REST oder Lightweight Messaging. Durch die Kommunikation über leichte Protokolle wird der Overhead minimiert. Die Netzwerkkommunikation betont die Isolierung der Services und vermeidet die Gefahren einer engen Kopplung \cite[S.253]{richards} \cite[S. 2, 31-37]{wolff} \cite[S.154-157]{sommerville} \cite[S.128]{dowalil} \cite[S.23]{newman}.
 
-%TODO Ausführlicher erklären
 \subsubsection{Einschränkungen bei Transaktionen}
 
 Aufgrund dieser Architektur, sollten Transaktionen nicht über mehrere Services hinweg durchgeführt werden. Transaktionen sind durch die ACID-Eigenschaften (Atomizität, Konsistenz, Isolation, Dauerhaftigkeit) gekennzeichnet \cite[S.253]{richards} \cite[S. 2, 31-37]{wolff}.
@@ -186,10 +178,8 @@ In vielen Darstellungen von Microservices ist eine API-Schicht erkennbar, die zw
 %TODO Zusammenführen
 \subsubsection{Unabhängigkeit}
 
-Microservices sind durch ihre Selbstständigkeit gekennzeichnet und haben keine externen Abhängigkeiten. Sie sind tendenziell kleiner und leicht austauschbar, wobei der Fokus auf Ersetzbarkeit statt auf Wiederverwendung liegt. Der Ansatz von Microservices zielt darauf ab, Services für eng begrenzte Geschäftsvorgänge zu erstellen, die unabhängig voneinander geändert und bereitgestellt werden können, ohne die Consumer zu beeinflussen \cite[S.154-157]{sommerville} \cite[S.128]{dowalil} \cite[S.22,23]{newman}.
-
-Die Dienste können weiterhin unabhängig voneinander überarbeitet und deployt werden, ohne Beeinflussung des gesamten Systems. Build und Deployment sind dabei automatisiert. \cite[S. 2, 31-37]{wolff} \cite[S.28]{newman}.
-
+Microservices sind durch ihre Selbstständigkeit gekennzeichnet und haben keine externen Abhängigkeiten. Sie sind tendenziell kleiner und leicht austauschbar, wobei der Fokus auf Ersetzbarkeit statt auf Wiederverwendung liegt. Der Ansatz von Microservices zielt darauf ab, Services für eng begrenzte Geschäftsvorgänge zu erstellen, die unabhängig voneinander geändert und bereitgestellt werden können, ohne die Consumer zu beeinflussen. Build und Deployment sind dabei automatisiert. \cite[S. 2, 31-37]{wolff} \cite[S.22,23,28]{newman} \cite[S.154-157]{sommerville} \cite[S.128]{dowalil}.
+ 
 \pagebreak
 \subsection{Architektur von Microservice-Systemen}
 
@@ -272,7 +262,6 @@ Die Service-Erkennung (engl.: Service Discovery) läuft in zwei Schritten ab: Zu
 
 Bei hoher Last skalieren Microservices selbstständig, indem mehrere Instanzen die Arbeit teilen. Ein Load Balancer leitet HTTP-Anfragen an diese Instanzen weiter. Jeder Microservice sollte seinen eigenen Load Balancer haben. Technologien dafür findet man in Cloud-Umgebungen oder mit Tools wie Apache httpd, nginx und HAProxy. Für die Stabilität eines Service sollte der Ausfall einer Instanz das System nicht stören. Bei typischen Microservices wird das mit mehreren Instanzen und einem Lastverteiler erreicht. Lastverteiler teilen Anfragen nach einem Algorithmus auf und können kaputte Instanzen ersetzen. Sie ermöglichen auch die Umwandlung von HTTPS in HTTP, was die Systemeinrichtung einfacher macht \cite[S. 147 - 150]{wolff} \cite[S.274-275]{newman}.
 
-%TODO Deep Dive ? \cite[S.221-233]{newman}.
 Weiterhin muss Die Sicherheit des gesamten Systems einheitlich gestaltet werden, sodass jeder Nutzerzugriff einheitlich geregelt ist. Dies beinhaltet die Authentifizierung und Autorisierung. Einzelne Microservices sollten sich nicht um die Authentifizierung kümmern. Dies macht ein zentraler Server. Bei der Autorisierung arbeiten verschiedene Teile zusammen, wobei Microservices bestimmen, welche Funktionen bestimmten Nutzergruppen zur Verfügung stehen. Ein Beispiel für die Umsetzung ist das OAuth2-Protokoll. Nach erfolgreicher Authentifizierung und Autorisierung bekommt der Nutzer ein Access Token, das den Zugriff auf Services erlaubt. Dieses Token kann zwischen Microservices ausgetauscht werden, um sichere Anfragen zu ermöglichen und die Sicherheit im gesamten System sicherzustellen \cite[S. 153-161]{wolff}.
 
 
@@ -436,7 +425,7 @@ Der Controller wird verwendet, um den Zustand des Clusters zu verwalten. \cite[S
 \pagebreak 
 \section{Modellgetriebene Entwicklung von Microservices}
 
-\subsection{Verfahren}
+\subsection{Verfahren und Herausforderungen}
 
 Bei der Modellgetriebenen Entwicklung von Microservice Anwendungen ist es möglich Verfahren zu definieren, welche eine Modellierungsmethodik vorgibt. Das allgemein für Service-orientierte Architekturen ausgelegte Verfahren Model Driven SOA , eine Variante der MID-Modellierungsmethodik M³, ist ein Beispiel für so eines. In dieser werden Iterativ verschiedene Phasen wiederholt:
 
@@ -454,8 +443,6 @@ In der Phase der Servicezusammensetzung und -bereitstellung werden Microservice-
 
 In der Ausführungsphase wird die Microservice-Architektur umgesetzt. Prozessinstanzen werden in Echtzeit aus der Konfigurationsdatei abgeleitet, die ein Schema für verschiedene Prozessvarianten vorgibt. Bei Erreichen eines Variationspunktes im Prozess werden die festgelegten Varianten dynamisch aufgerufen und der Prozess wird fortgesetzt, bis alle Aktivitäten abgeschlossen sind \cite{sun}.
 
-\subsection{Herausforderungen}
-
 Spezielle Herausforderungen existieren bei einem modellgetrieben Ansatz zur Microservice-Entwicklung:
 
 Zunächst besteht die Aufgabe darin, Microservices direkt aus den Domänenmodellen abzuleiten, was oft komplex ist. Ein weiteres Problem ist das Fehlen von Infrastrukturkomponenten in den Domänenmodellen, was die Umsetzung erschwert. Außerdem stellt die autonome Domänenmodellierung eine Herausforderung dar, da sie eine hohe Unabhängigkeit und Eigenverantwortlichkeit der Modelle erfordert.
@@ -464,14 +451,14 @@ Um diese Herausforderungen zu bewältigen, bietet die modellgetriebene Entwicklu
 
 Eines davon sind Zwischenmodelle, die dazu dienen, Microservice-Schnittstellen und deren Bereitstellung zu spezifizieren. Zwischenmodelle erleichtern die Umsetzung der aus den Domänenmodellen abgeleiteten Services und bilden eine Brücke zwischen Domänenmodellen und der Mikroservice-Architektur.
 
-Um Domänenmodelle klarer zu gestalten, kann man bestimmte Regeln für die Modellierung einführen. Eine Regel ist zum Beispiel, einfache Beziehungen zwischen Elementen zu nutzen, um klarer zu zeigen, wie Microservices Daten austauschen. Eine andere Möglichkeit ist, bestimmte Muster aus dem Domain-Driven Design zu verwenden, die als Basis für die Schnittstellen der Microservices dienen. Es ist auch hilfreich, genau festzulegen, welche Datenarten von Methoden zurückgegeben werden und einfache, gemeinsame Modelle zu nutzen, die das Domänenmodell gut darstellen. Diese Methoden sollen den Prozess der Modellierung genauer und einheitlicher machen.
+Um Domänenmodelle klarer zu gestalten, kann man bestimmte Regeln für die Modellierung einführen. Eine Regel ist zum Beispiel, einfache Beziehungen zwischen Elementen zu nutzen, um klarer zu zeigen, wie Microservices Daten austauschen. Eine andere Möglichkeit ist, bestimmte Muster aus dem Domain-Driven Design zu verwenden, die als Basis für die Schnittstellen der Microservices dienen.
 
-Mit Richtlinien für die autonome Domänenmodellierung kann schließlich die Unabhängigkeit und Konsistenz der Modelle gewährleistet werden. Ziel ist es, insbesondere im Kontext von Teams, die gemeinsam auf das Modell zugreifen, einen ausgewogenen Umgang mit dem Modellzugriff zu finden. Gleichzeitig sollen Änderungen so gesteuert werden, dass die Zusammenarbeit gefördert und ungewollte Abhängigkeiten zwischen Services reduziert werden \cite{rademacher}.
+Richtlinien für den Modellzugriff gewährleisten die Unabhängigkeit und Konsistenz der Modelle \cite{rademacher}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %			TABELLE FÜR TOOLS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\newpage
 \subsection{Tools}
 
 Verschiedene Papers thematisieren Aspeekte der modellgetriebenen Microservice-Entwicklung und stellen dabei Tools mit verschiedenen Funktionalitäten vor. Im Folgenden werden einige aufgelistet und ihre jeweiligen Kern-Features aufgezählt.
@@ -489,7 +476,14 @@ AjiL \cite{rademacher} &
 	\item Generierung von Java-Code, Service-Stubs und Konfigurationen, basierend auf Spring Boot und Spring Cloud
 \end{itemize} \\
 \hline
-OCGI \cite{zalila} & 
+Context Mapper \cite{mapper} & 
+\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
+    \item Darstellung von strategischen Domain-Driven Design Mustern durch eine DSL
+    \item Bearbeiten, Validieren und Transformieren von strategischen DDD-Mustern
+    \item Erstellen von grafischen Context Maps und Microservice-Verträgen, was das Design und die Integration von Diensten unterstützt
+\end{itemize} \\
+\hline
+OCCI \cite{zalila} & 
 \begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
 	\item Implementierung offener Standards für das durchgängige Management von Cloud-Ressourcen über alle Service-Modelle (IaaS, PaaS, SaaS) hinweg
 	\item OCCIware Studio und Metamodell als Kernstücke für eine MDA, die Entwurf, Entwicklung und Verwaltung von Cloud-Diensten ermöglichen
@@ -500,20 +494,6 @@ ARGON \cite{argon} &
     \item Modellgesteuerten Ansatz für die Bereitstellung von Infrastruktur, was die Automatisierung und Vereinfachung des Prozesses ermöglicht
     \item Nahtlose Integration in eine Vielzahl von Cloud-Plattformen
     \item Unterstützung für die Automatisierung der Ressourcenzuweisung und vereinfacht das Management komplexer Bereitstellungen in Cloud-Umgebungen
-\end{itemize} \\
-\hline
-VxBPMN4MS \cite{sun} & 
-\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
-    \item Modellieren von Geschäftsprozessen mit eingebauter Variabilität für flexible und anpassbare Microservice-Architekturen
-    \item Definiert strukturierten Entwicklungs- und Ausführungsprozess durch Phasen, die ein Management und Anpassungsfähigkeit der Microservices gewährleisten
-    \item Werkzeuge für das visuelle Modellieren und Implementieren einer Infrastruktur
-\end{itemize} \\
-\hline
-Context Mapper \cite{mapper} & 
-\begin{itemize}[leftmargin=*, nosep, before=\vspace{-0.6\baselineskip}, after=\vspace{-\baselineskip}]
-    \item Darstellung von strategischen Domain-Driven Design Mustern durch eine DSL
-    \item Bearbeiten, Validieren und Transformieren von strategischen DDD-Mustern
-    \item Erstellen von grafischen Context Maps und Microservice-Verträgen, was das Design und die Integration von Diensten unterstützt
 \end{itemize} \\
 \hline
 \end{tabularx}

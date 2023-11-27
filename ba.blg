@@ -40,45 +40,45 @@ Warning--empty journal in mapper
 Warning--empty author and editor in rempp
 Warning--empty journal in argon
 Warning--empty journal in sun
-You've used 24 entries,
+You've used 25 entries,
             2543 wiz_defined-function locations,
-            731 strings with 9804 characters,
-and the built_in function-call counts, 8568 in all, are:
-= -- 847
-> -- 370
-< -- 15
-+ -- 122
-- -- 121
-* -- 544
-:= -- 1437
-add.period$ -- 97
-call.type$ -- 24
-change.case$ -- 136
-chr.to.int$ -- 24
-cite$ -- 30
-duplicate$ -- 379
-empty$ -- 647
-format.name$ -- 155
-if$ -- 1778
+            736 strings with 9918 characters,
+and the built_in function-call counts, 8974 in all, are:
+= -- 886
+> -- 395
+< -- 16
++ -- 131
+- -- 130
+* -- 572
+:= -- 1507
+add.period$ -- 100
+call.type$ -- 25
+change.case$ -- 143
+chr.to.int$ -- 25
+cite$ -- 31
+duplicate$ -- 396
+empty$ -- 671
+format.name$ -- 165
+if$ -- 1861
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 35
-newline$ -- 145
-num.names$ -- 69
-pop$ -- 153
+missing$ -- 36
+newline$ -- 150
+num.names$ -- 72
+pop$ -- 160
 preamble$ -- 1
-purify$ -- 165
+purify$ -- 173
 quote$ -- 0
-skip$ -- 293
+skip$ -- 307
 stack$ -- 0
-substring$ -- 311
-swap$ -- 48
-text.length$ -- 15
+substring$ -- 320
+swap$ -- 52
+text.length$ -- 16
 text.prefix$ -- 12
 top$ -- 0
-type$ -- 132
+type$ -- 140
 warning$ -- 5
-while$ -- 66
-width$ -- 27
-write$ -- 364
+while$ -- 70
+width$ -- 28
+write$ -- 377
 (There were 21 warnings)
