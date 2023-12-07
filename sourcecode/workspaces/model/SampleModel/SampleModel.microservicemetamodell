@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
+  <domainModelLayer>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="ExampleContext A"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="ExampleContext B"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.2" contextName="ExampleContext C"/>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="DomainModel A"/>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="DomainModel B"/>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.2" boundedContext="//@domainModelLayer/@boundedContexts.2" modelName="DomainModel C"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="SomeEvent A"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="SomeEvent B"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.2" eventName="SomeEvent C"/>
+  </domainModelLayer>
+</microserviceMetamodell:SystemModel>

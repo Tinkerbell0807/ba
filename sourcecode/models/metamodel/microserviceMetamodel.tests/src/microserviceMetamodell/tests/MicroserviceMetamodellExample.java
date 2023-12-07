@@ -4,11 +4,10 @@ package microserviceMetamodell.tests;
 
 import java.io.File;
 import java.io.IOException;
-
-import microserviceMetamodell.DomainObject;
 import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 
+import microserviceMetamodell.SystemModel;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 
@@ -60,7 +59,7 @@ public class MicroserviceMetamodellExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.microservicemetamodell"));
-				DomainObject root = MicroserviceMetamodellFactory.eINSTANCE.createDomainObject();
+				SystemModel root = MicroserviceMetamodellFactory.eINSTANCE.createSystemModel();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

@@ -2,8 +2,44 @@
  */
 package microserviceMetamodell.util;
 
-import microserviceMetamodell.*;
-
+import microserviceMetamodell.Aggregate;
+import microserviceMetamodell.AggregateNode;
+import microserviceMetamodell.AnticorruptionLayer;
+import microserviceMetamodell.AsynchronousInterface;
+import microserviceMetamodell.Behaviour;
+import microserviceMetamodell.BoundedContext;
+import microserviceMetamodell.BoundedContextRelationship;
+import microserviceMetamodell.Conformist;
+import microserviceMetamodell.CustomerSupplier;
+import microserviceMetamodell.DomainEvent;
+import microserviceMetamodell.DomainModel;
+import microserviceMetamodell.DomainModelLayer;
+import microserviceMetamodell.DownstreamRole;
+import microserviceMetamodell.Entity;
+import microserviceMetamodell.EntityNode;
+import microserviceMetamodell.Factorizeable;
+import microserviceMetamodell.Factory;
+import microserviceMetamodell.InfrastructureLayer;
+import microserviceMetamodell.Interface;
+import microserviceMetamodell.Microservice;
+import microserviceMetamodell.MicroserviceMetamodellPackage;
+import microserviceMetamodell.ModelElement;
+import microserviceMetamodell.ModelElementImplementation;
+import microserviceMetamodell.OpenHostService;
+import microserviceMetamodell.Persistable;
+import microserviceMetamodell.PublishedLanguage;
+import microserviceMetamodell.RelationshipRole;
+import microserviceMetamodell.Repository;
+import microserviceMetamodell.RestEndpoint;
+import microserviceMetamodell.Service;
+import microserviceMetamodell.SharedKernel;
+import microserviceMetamodell.SynchronousInterface;
+import microserviceMetamodell.SystemModel;
+import microserviceMetamodell.TechnicalLayer;
+import microserviceMetamodell.UpstreamDownstreamRelationship;
+import microserviceMetamodell.UpstreamRole;
+import microserviceMetamodell.ValueObject;
+import microserviceMetamodell.ValueObjectNode;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -66,15 +102,224 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case MicroserviceMetamodellPackage.DOMAIN_OBJECT: {
-				DomainObject domainObject = (DomainObject)theEObject;
-				T result = caseDomainObject(domainObject);
+			case MicroserviceMetamodellPackage.SYSTEM_MODEL: {
+				SystemModel systemModel = (SystemModel)theEObject;
+				T result = caseSystemModel(systemModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.DOMAIN_OBJECT_CONTROLLER: {
-				DomainObjectController domainObjectController = (DomainObjectController)theEObject;
-				T result = caseDomainObjectController(domainObjectController);
+			case MicroserviceMetamodellPackage.DOMAIN_MODEL: {
+				DomainModel domainModel = (DomainModel)theEObject;
+				T result = caseDomainModel(domainModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER: {
+				DomainModelLayer domainModelLayer = (DomainModelLayer)theEObject;
+				T result = caseDomainModelLayer(domainModelLayer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER: {
+				InfrastructureLayer infrastructureLayer = (InfrastructureLayer)theEObject;
+				T result = caseInfrastructureLayer(infrastructureLayer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.TECHNICAL_LAYER: {
+				TechnicalLayer technicalLayer = (TechnicalLayer)theEObject;
+				T result = caseTechnicalLayer(technicalLayer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.ENTITY: {
+				Entity entity = (Entity)theEObject;
+				T result = caseEntity(entity);
+				if (result == null) result = caseModelElement(entity);
+				if (result == null) result = caseFactorizeable(entity);
+				if (result == null) result = casePersistable(entity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.VALUE_OBJECT: {
+				ValueObject valueObject = (ValueObject)theEObject;
+				T result = caseValueObject(valueObject);
+				if (result == null) result = caseModelElement(valueObject);
+				if (result == null) result = caseFactorizeable(valueObject);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.SERVICE: {
+				Service service = (Service)theEObject;
+				T result = caseService(service);
+				if (result == null) result = caseModelElement(service);
+				if (result == null) result = caseFactorizeable(service);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.AGGREGATE: {
+				Aggregate aggregate = (Aggregate)theEObject;
+				T result = caseAggregate(aggregate);
+				if (result == null) result = caseFactorizeable(aggregate);
+				if (result == null) result = caseModelElement(aggregate);
+				if (result == null) result = casePersistable(aggregate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.FACTORY: {
+				Factory factory = (Factory)theEObject;
+				T result = caseFactory(factory);
+				if (result == null) result = caseModelElement(factory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.REPOSITORY: {
+				Repository repository = (Repository)theEObject;
+				T result = caseRepository(repository);
+				if (result == null) result = caseModelElement(repository);
+				if (result == null) result = caseFactorizeable(repository);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.DOMAIN_EVENT: {
+				DomainEvent domainEvent = (DomainEvent)theEObject;
+				T result = caseDomainEvent(domainEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.MODULE: {
+				microserviceMetamodell.Module module = (microserviceMetamodell.Module)theEObject;
+				T result = caseModule(module);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT: {
+				BoundedContext boundedContext = (BoundedContext)theEObject;
+				T result = caseBoundedContext(boundedContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.BEHAVIOUR: {
+				Behaviour behaviour = (Behaviour)theEObject;
+				T result = caseBehaviour(behaviour);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.SHARED_KERNEL: {
+				SharedKernel sharedKernel = (SharedKernel)theEObject;
+				T result = caseSharedKernel(sharedKernel);
+				if (result == null) result = caseBoundedContextRelationship(sharedKernel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER: {
+				CustomerSupplier customerSupplier = (CustomerSupplier)theEObject;
+				T result = caseCustomerSupplier(customerSupplier);
+				if (result == null) result = caseUpstreamDownstreamRelationship(customerSupplier);
+				if (result == null) result = caseBoundedContextRelationship(customerSupplier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.CONFORMIST: {
+				Conformist conformist = (Conformist)theEObject;
+				T result = caseConformist(conformist);
+				if (result == null) result = caseDownstreamRole(conformist);
+				if (result == null) result = caseRelationshipRole(conformist);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.ANTICORRUPTION_LAYER: {
+				AnticorruptionLayer anticorruptionLayer = (AnticorruptionLayer)theEObject;
+				T result = caseAnticorruptionLayer(anticorruptionLayer);
+				if (result == null) result = caseDownstreamRole(anticorruptionLayer);
+				if (result == null) result = caseRelationshipRole(anticorruptionLayer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.OPEN_HOST_SERVICE: {
+				OpenHostService openHostService = (OpenHostService)theEObject;
+				T result = caseOpenHostService(openHostService);
+				if (result == null) result = caseUpstreamRole(openHostService);
+				if (result == null) result = caseRelationshipRole(openHostService);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.PUBLISHED_LANGUAGE: {
+				PublishedLanguage publishedLanguage = (PublishedLanguage)theEObject;
+				T result = casePublishedLanguage(publishedLanguage);
+				if (result == null) result = caseUpstreamRole(publishedLanguage);
+				if (result == null) result = caseRelationshipRole(publishedLanguage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP: {
+				BoundedContextRelationship boundedContextRelationship = (BoundedContextRelationship)theEObject;
+				T result = caseBoundedContextRelationship(boundedContextRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.UPSTREAM_ROLE: {
+				UpstreamRole upstreamRole = (UpstreamRole)theEObject;
+				T result = caseUpstreamRole(upstreamRole);
+				if (result == null) result = caseRelationshipRole(upstreamRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.DOWNSTREAM_ROLE: {
+				DownstreamRole downstreamRole = (DownstreamRole)theEObject;
+				T result = caseDownstreamRole(downstreamRole);
+				if (result == null) result = caseRelationshipRole(downstreamRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.RELATIONSHIP_ROLE: {
+				RelationshipRole relationshipRole = (RelationshipRole)theEObject;
+				T result = caseRelationshipRole(relationshipRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.UPSTREAM_DOWNSTREAM_RELATIONSHIP: {
+				UpstreamDownstreamRelationship upstreamDownstreamRelationship = (UpstreamDownstreamRelationship)theEObject;
+				T result = caseUpstreamDownstreamRelationship(upstreamDownstreamRelationship);
+				if (result == null) result = caseBoundedContextRelationship(upstreamDownstreamRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.MODEL_ELEMENT: {
+				ModelElement modelElement = (ModelElement)theEObject;
+				T result = caseModelElement(modelElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.FACTORIZEABLE: {
+				Factorizeable factorizeable = (Factorizeable)theEObject;
+				T result = caseFactorizeable(factorizeable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.MICROSERVICE: {
+				Microservice microservice = (Microservice)theEObject;
+				T result = caseMicroservice(microservice);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.INTERFACE: {
+				Interface interface_ = (Interface)theEObject;
+				T result = caseInterface(interface_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.SYNCHRONOUS_INTERFACE: {
+				SynchronousInterface synchronousInterface = (SynchronousInterface)theEObject;
+				T result = caseSynchronousInterface(synchronousInterface);
+				if (result == null) result = caseInterface(synchronousInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE: {
+				AsynchronousInterface asynchronousInterface = (AsynchronousInterface)theEObject;
+				T result = caseAsynchronousInterface(asynchronousInterface);
+				if (result == null) result = caseInterface(asynchronousInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -84,62 +329,40 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.DOMAIN_OBJECT_SERVICE: {
-				DomainObjectService domainObjectService = (DomainObjectService)theEObject;
-				T result = caseDomainObjectService(domainObjectService);
+			case MicroserviceMetamodellPackage.MODEL_ELEMENT_IMPLEMENTATION: {
+				ModelElementImplementation modelElementImplementation = (ModelElementImplementation)theEObject;
+				T result = caseModelElementImplementation(modelElementImplementation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.DOMAIN_OBJECT_REPOSITORY: {
-				DomainObjectRepository domainObjectRepository = (DomainObjectRepository)theEObject;
-				T result = caseDomainObjectRepository(domainObjectRepository);
+			case MicroserviceMetamodellPackage.VALUE_OBJECT_NODE: {
+				ValueObjectNode valueObjectNode = (ValueObjectNode)theEObject;
+				T result = caseValueObjectNode(valueObjectNode);
+				if (result == null) result = caseAggregateNode(valueObjectNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.SYSTEM_MODEL: {
-				SystemModel systemModel = (SystemModel)theEObject;
-				T result = caseSystemModel(systemModel);
+			case MicroserviceMetamodellPackage.ENTITY_NODE: {
+				EntityNode entityNode = (EntityNode)theEObject;
+				T result = caseEntityNode(entityNode);
+				if (result == null) result = caseAggregateNode(entityNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.DOMAIN_WEBSERVICE: {
-				DomainWebservice domainWebservice = (DomainWebservice)theEObject;
-				T result = caseDomainWebservice(domainWebservice);
+			case MicroserviceMetamodellPackage.AGGREGATE_NODE: {
+				AggregateNode aggregateNode = (AggregateNode)theEObject;
+				T result = caseAggregateNode(aggregateNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.PERSISTABLE: {
+				Persistable persistable = (Persistable)theEObject;
+				T result = casePersistable(persistable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Domain Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Domain Object</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDomainObject(DomainObject object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Domain Object Controller</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Domain Object Controller</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDomainObjectController(DomainObjectController object) {
-		return null;
 	}
 
 	/**
@@ -158,32 +381,47 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Domain Object Service</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Model Element Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Domain Object Service</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Model Element Implementation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDomainObjectService(DomainObjectService object) {
+	public T caseModelElementImplementation(ModelElementImplementation object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Domain Object Repository</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Value Object Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Domain Object Repository</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Value Object Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDomainObjectRepository(DomainObjectRepository object) {
+	public T caseValueObjectNode(ValueObjectNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntityNode(EntityNode object) {
 		return null;
 	}
 
@@ -203,17 +441,497 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Domain Webservice</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Domain Webservice</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDomainWebservice(DomainWebservice object) {
+	public T caseDomainModel(DomainModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Model Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Model Layer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDomainModelLayer(DomainModelLayer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infrastructure Layer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInfrastructureLayer(InfrastructureLayer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Technical Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Technical Layer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTechnicalLayer(TechnicalLayer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValueObject(ValueObject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseService(Service object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAggregate(Aggregate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Factory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFactory(Factory object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepository(Repository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Domain Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Domain Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDomainEvent(DomainEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Module</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModule(microserviceMetamodell.Module object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bounded Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bounded Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoundedContext(BoundedContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Behaviour</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBehaviour(Behaviour object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Shared Kernel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Shared Kernel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSharedKernel(SharedKernel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Customer Supplier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Customer Supplier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomerSupplier(CustomerSupplier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conformist</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conformist</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConformist(Conformist object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Anticorruption Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Anticorruption Layer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnticorruptionLayer(AnticorruptionLayer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Open Host Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Open Host Service</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOpenHostService(OpenHostService object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Published Language</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Published Language</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePublishedLanguage(PublishedLanguage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bounded Context Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bounded Context Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoundedContextRelationship(BoundedContextRelationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Upstream Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Upstream Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUpstreamRole(UpstreamRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Downstream Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Downstream Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDownstreamRole(DownstreamRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relationship Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relationship Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelationshipRole(RelationshipRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Upstream Downstream Relationship</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Upstream Downstream Relationship</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUpstreamDownstreamRelationship(UpstreamDownstreamRelationship object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModelElement(ModelElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Factorizeable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Factorizeable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFactorizeable(Factorizeable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Aggregate Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Aggregate Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAggregateNode(AggregateNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Persistable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Persistable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePersistable(Persistable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Microservice</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Microservice</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMicroservice(Microservice object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterface(Interface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Synchronous Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Synchronous Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSynchronousInterface(SynchronousInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Asynchronous Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Asynchronous Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAsynchronousInterface(AsynchronousInterface object) {
 		return null;
 	}
 

@@ -2,8 +2,44 @@
  */
 package microserviceMetamodell.util;
 
-import microserviceMetamodell.*;
-
+import microserviceMetamodell.Aggregate;
+import microserviceMetamodell.AggregateNode;
+import microserviceMetamodell.AnticorruptionLayer;
+import microserviceMetamodell.AsynchronousInterface;
+import microserviceMetamodell.Behaviour;
+import microserviceMetamodell.BoundedContext;
+import microserviceMetamodell.BoundedContextRelationship;
+import microserviceMetamodell.Conformist;
+import microserviceMetamodell.CustomerSupplier;
+import microserviceMetamodell.DomainEvent;
+import microserviceMetamodell.DomainModel;
+import microserviceMetamodell.DomainModelLayer;
+import microserviceMetamodell.DownstreamRole;
+import microserviceMetamodell.Entity;
+import microserviceMetamodell.EntityNode;
+import microserviceMetamodell.Factorizeable;
+import microserviceMetamodell.Factory;
+import microserviceMetamodell.InfrastructureLayer;
+import microserviceMetamodell.Interface;
+import microserviceMetamodell.Microservice;
+import microserviceMetamodell.MicroserviceMetamodellPackage;
+import microserviceMetamodell.ModelElement;
+import microserviceMetamodell.ModelElementImplementation;
+import microserviceMetamodell.OpenHostService;
+import microserviceMetamodell.Persistable;
+import microserviceMetamodell.PublishedLanguage;
+import microserviceMetamodell.RelationshipRole;
+import microserviceMetamodell.Repository;
+import microserviceMetamodell.RestEndpoint;
+import microserviceMetamodell.Service;
+import microserviceMetamodell.SharedKernel;
+import microserviceMetamodell.SynchronousInterface;
+import microserviceMetamodell.SystemModel;
+import microserviceMetamodell.TechnicalLayer;
+import microserviceMetamodell.UpstreamDownstreamRelationship;
+import microserviceMetamodell.UpstreamRole;
+import microserviceMetamodell.ValueObject;
+import microserviceMetamodell.ValueObjectNode;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -68,32 +104,156 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 	protected MicroserviceMetamodellSwitch<Adapter> modelSwitch =
 		new MicroserviceMetamodellSwitch<Adapter>() {
 			@Override
-			public Adapter caseDomainObject(DomainObject object) {
-				return createDomainObjectAdapter();
+			public Adapter caseSystemModel(SystemModel object) {
+				return createSystemModelAdapter();
 			}
 			@Override
-			public Adapter caseDomainObjectController(DomainObjectController object) {
-				return createDomainObjectControllerAdapter();
+			public Adapter caseDomainModel(DomainModel object) {
+				return createDomainModelAdapter();
+			}
+			@Override
+			public Adapter caseDomainModelLayer(DomainModelLayer object) {
+				return createDomainModelLayerAdapter();
+			}
+			@Override
+			public Adapter caseInfrastructureLayer(InfrastructureLayer object) {
+				return createInfrastructureLayerAdapter();
+			}
+			@Override
+			public Adapter caseTechnicalLayer(TechnicalLayer object) {
+				return createTechnicalLayerAdapter();
+			}
+			@Override
+			public Adapter caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			@Override
+			public Adapter caseValueObject(ValueObject object) {
+				return createValueObjectAdapter();
+			}
+			@Override
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
+			}
+			@Override
+			public Adapter caseAggregate(Aggregate object) {
+				return createAggregateAdapter();
+			}
+			@Override
+			public Adapter caseFactory(Factory object) {
+				return createFactoryAdapter();
+			}
+			@Override
+			public Adapter caseRepository(Repository object) {
+				return createRepositoryAdapter();
+			}
+			@Override
+			public Adapter caseDomainEvent(DomainEvent object) {
+				return createDomainEventAdapter();
+			}
+			@Override
+			public Adapter caseModule(microserviceMetamodell.Module object) {
+				return createModuleAdapter();
+			}
+			@Override
+			public Adapter caseBoundedContext(BoundedContext object) {
+				return createBoundedContextAdapter();
+			}
+			@Override
+			public Adapter caseBehaviour(Behaviour object) {
+				return createBehaviourAdapter();
+			}
+			@Override
+			public Adapter caseSharedKernel(SharedKernel object) {
+				return createSharedKernelAdapter();
+			}
+			@Override
+			public Adapter caseCustomerSupplier(CustomerSupplier object) {
+				return createCustomerSupplierAdapter();
+			}
+			@Override
+			public Adapter caseConformist(Conformist object) {
+				return createConformistAdapter();
+			}
+			@Override
+			public Adapter caseAnticorruptionLayer(AnticorruptionLayer object) {
+				return createAnticorruptionLayerAdapter();
+			}
+			@Override
+			public Adapter caseOpenHostService(OpenHostService object) {
+				return createOpenHostServiceAdapter();
+			}
+			@Override
+			public Adapter casePublishedLanguage(PublishedLanguage object) {
+				return createPublishedLanguageAdapter();
+			}
+			@Override
+			public Adapter caseBoundedContextRelationship(BoundedContextRelationship object) {
+				return createBoundedContextRelationshipAdapter();
+			}
+			@Override
+			public Adapter caseUpstreamRole(UpstreamRole object) {
+				return createUpstreamRoleAdapter();
+			}
+			@Override
+			public Adapter caseDownstreamRole(DownstreamRole object) {
+				return createDownstreamRoleAdapter();
+			}
+			@Override
+			public Adapter caseRelationshipRole(RelationshipRole object) {
+				return createRelationshipRoleAdapter();
+			}
+			@Override
+			public Adapter caseUpstreamDownstreamRelationship(UpstreamDownstreamRelationship object) {
+				return createUpstreamDownstreamRelationshipAdapter();
+			}
+			@Override
+			public Adapter caseModelElement(ModelElement object) {
+				return createModelElementAdapter();
+			}
+			@Override
+			public Adapter caseFactorizeable(Factorizeable object) {
+				return createFactorizeableAdapter();
+			}
+			@Override
+			public Adapter caseMicroservice(Microservice object) {
+				return createMicroserviceAdapter();
+			}
+			@Override
+			public Adapter caseInterface(Interface object) {
+				return createInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseSynchronousInterface(SynchronousInterface object) {
+				return createSynchronousInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseAsynchronousInterface(AsynchronousInterface object) {
+				return createAsynchronousInterfaceAdapter();
 			}
 			@Override
 			public Adapter caseRestEndpoint(RestEndpoint object) {
 				return createRestEndpointAdapter();
 			}
 			@Override
-			public Adapter caseDomainObjectService(DomainObjectService object) {
-				return createDomainObjectServiceAdapter();
+			public Adapter caseModelElementImplementation(ModelElementImplementation object) {
+				return createModelElementImplementationAdapter();
 			}
 			@Override
-			public Adapter caseDomainObjectRepository(DomainObjectRepository object) {
-				return createDomainObjectRepositoryAdapter();
+			public Adapter caseValueObjectNode(ValueObjectNode object) {
+				return createValueObjectNodeAdapter();
 			}
 			@Override
-			public Adapter caseSystemModel(SystemModel object) {
-				return createSystemModelAdapter();
+			public Adapter caseEntityNode(EntityNode object) {
+				return createEntityNodeAdapter();
 			}
 			@Override
-			public Adapter caseDomainWebservice(DomainWebservice object) {
-				return createDomainWebserviceAdapter();
+			public Adapter caseAggregateNode(AggregateNode object) {
+				return createAggregateNodeAdapter();
+			}
+			@Override
+			public Adapter casePersistable(Persistable object) {
+				return createPersistableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -116,34 +276,6 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainObject <em>Domain Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see microserviceMetamodell.DomainObject
-	 * @generated
-	 */
-	public Adapter createDomainObjectAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainObjectController <em>Domain Object Controller</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see microserviceMetamodell.DomainObjectController
-	 * @generated
-	 */
-	public Adapter createDomainObjectControllerAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.RestEndpoint <em>Rest Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -158,30 +290,44 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainObjectService <em>Domain Object Service</em>}'.
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.ModelElementImplementation <em>Model Element Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see microserviceMetamodell.DomainObjectService
+	 * @see microserviceMetamodell.ModelElementImplementation
 	 * @generated
 	 */
-	public Adapter createDomainObjectServiceAdapter() {
+	public Adapter createModelElementImplementationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainObjectRepository <em>Domain Object Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.ValueObjectNode <em>Value Object Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see microserviceMetamodell.DomainObjectRepository
+	 * @see microserviceMetamodell.ValueObjectNode
 	 * @generated
 	 */
-	public Adapter createDomainObjectRepositoryAdapter() {
+	public Adapter createValueObjectNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.EntityNode <em>Entity Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.EntityNode
+	 * @generated
+	 */
+	public Adapter createEntityNodeAdapter() {
 		return null;
 	}
 
@@ -200,16 +346,464 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainWebservice <em>Domain Webservice</em>}'.
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainModel <em>Domain Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see microserviceMetamodell.DomainWebservice
+	 * @see microserviceMetamodell.DomainModel
 	 * @generated
 	 */
-	public Adapter createDomainWebserviceAdapter() {
+	public Adapter createDomainModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainModelLayer <em>Domain Model Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.DomainModelLayer
+	 * @generated
+	 */
+	public Adapter createDomainModelLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.InfrastructureLayer <em>Infrastructure Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.InfrastructureLayer
+	 * @generated
+	 */
+	public Adapter createInfrastructureLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.TechnicalLayer <em>Technical Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.TechnicalLayer
+	 * @generated
+	 */
+	public Adapter createTechnicalLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Entity
+	 * @generated
+	 */
+	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.ValueObject <em>Value Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.ValueObject
+	 * @generated
+	 */
+	public Adapter createValueObjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Service
+	 * @generated
+	 */
+	public Adapter createServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Aggregate <em>Aggregate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Aggregate
+	 * @generated
+	 */
+	public Adapter createAggregateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Factory <em>Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Factory
+	 * @generated
+	 */
+	public Adapter createFactoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Repository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Repository
+	 * @generated
+	 */
+	public Adapter createRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DomainEvent <em>Domain Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.DomainEvent
+	 * @generated
+	 */
+	public Adapter createDomainEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Module <em>Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Module
+	 * @generated
+	 */
+	public Adapter createModuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.BoundedContext <em>Bounded Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.BoundedContext
+	 * @generated
+	 */
+	public Adapter createBoundedContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Behaviour <em>Behaviour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Behaviour
+	 * @generated
+	 */
+	public Adapter createBehaviourAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.SharedKernel <em>Shared Kernel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.SharedKernel
+	 * @generated
+	 */
+	public Adapter createSharedKernelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.CustomerSupplier <em>Customer Supplier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.CustomerSupplier
+	 * @generated
+	 */
+	public Adapter createCustomerSupplierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Conformist <em>Conformist</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Conformist
+	 * @generated
+	 */
+	public Adapter createConformistAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.AnticorruptionLayer <em>Anticorruption Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.AnticorruptionLayer
+	 * @generated
+	 */
+	public Adapter createAnticorruptionLayerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.OpenHostService <em>Open Host Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.OpenHostService
+	 * @generated
+	 */
+	public Adapter createOpenHostServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.PublishedLanguage <em>Published Language</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.PublishedLanguage
+	 * @generated
+	 */
+	public Adapter createPublishedLanguageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.BoundedContextRelationship <em>Bounded Context Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.BoundedContextRelationship
+	 * @generated
+	 */
+	public Adapter createBoundedContextRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.UpstreamRole <em>Upstream Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.UpstreamRole
+	 * @generated
+	 */
+	public Adapter createUpstreamRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DownstreamRole <em>Downstream Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.DownstreamRole
+	 * @generated
+	 */
+	public Adapter createDownstreamRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.RelationshipRole <em>Relationship Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.RelationshipRole
+	 * @generated
+	 */
+	public Adapter createRelationshipRoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.UpstreamDownstreamRelationship <em>Upstream Downstream Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.UpstreamDownstreamRelationship
+	 * @generated
+	 */
+	public Adapter createUpstreamDownstreamRelationshipAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.ModelElement <em>Model Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.ModelElement
+	 * @generated
+	 */
+	public Adapter createModelElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Factorizeable <em>Factorizeable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Factorizeable
+	 * @generated
+	 */
+	public Adapter createFactorizeableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.AggregateNode <em>Aggregate Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.AggregateNode
+	 * @generated
+	 */
+	public Adapter createAggregateNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Persistable <em>Persistable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Persistable
+	 * @generated
+	 */
+	public Adapter createPersistableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Microservice <em>Microservice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Microservice
+	 * @generated
+	 */
+	public Adapter createMicroserviceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Interface <em>Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Interface
+	 * @generated
+	 */
+	public Adapter createInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.SynchronousInterface <em>Synchronous Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.SynchronousInterface
+	 * @generated
+	 */
+	public Adapter createSynchronousInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.AsynchronousInterface <em>Asynchronous Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.AsynchronousInterface
+	 * @generated
+	 */
+	public Adapter createAsynchronousInterfaceAdapter() {
 		return null;
 	}
 

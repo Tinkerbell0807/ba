@@ -2,8 +2,6 @@
  */
 package microserviceMetamodell;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link microserviceMetamodell.SystemModel#getWebservices <em>Webservices</em>}</li>
  *   <li>{@link microserviceMetamodell.SystemModel#getDescription <em>Description</em>}</li>
+ *   <li>{@link microserviceMetamodell.SystemModel#getDomainModelLayer <em>Domain Model Layer</em>}</li>
+ *   <li>{@link microserviceMetamodell.SystemModel#getTechnicalLayer <em>Technical Layer</em>}</li>
+ *   <li>{@link microserviceMetamodell.SystemModel#getInfrastructureLayer <em>Infrastructure Layer</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSystemModel()
@@ -24,18 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface SystemModel extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Webservices</b></em>' containment reference list.
-	 * The list contents are of type {@link microserviceMetamodell.DomainWebservice}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Webservices</em>' containment reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSystemModel_Webservices()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<DomainWebservice> getWebservices();
-
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,5 +45,71 @@ public interface SystemModel extends EObject {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Domain Model Layer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Domain Model Layer</em>' containment reference.
+	 * @see #setDomainModelLayer(DomainModelLayer)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSystemModel_DomainModelLayer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DomainModelLayer getDomainModelLayer();
+
+	/**
+	 * Sets the value of the '{@link microserviceMetamodell.SystemModel#getDomainModelLayer <em>Domain Model Layer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Domain Model Layer</em>' containment reference.
+	 * @see #getDomainModelLayer()
+	 * @generated
+	 */
+	void setDomainModelLayer(DomainModelLayer value);
+
+	/**
+	 * Returns the value of the '<em><b>Technical Layer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Technical Layer</em>' containment reference.
+	 * @see #setTechnicalLayer(TechnicalLayer)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSystemModel_TechnicalLayer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	TechnicalLayer getTechnicalLayer();
+
+	/**
+	 * Sets the value of the '{@link microserviceMetamodell.SystemModel#getTechnicalLayer <em>Technical Layer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Technical Layer</em>' containment reference.
+	 * @see #getTechnicalLayer()
+	 * @generated
+	 */
+	void setTechnicalLayer(TechnicalLayer value);
+
+	/**
+	 * Returns the value of the '<em><b>Infrastructure Layer</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Infrastructure Layer</em>' containment reference.
+	 * @see #setInfrastructureLayer(InfrastructureLayer)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSystemModel_InfrastructureLayer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	InfrastructureLayer getInfrastructureLayer();
+
+	/**
+	 * Sets the value of the '{@link microserviceMetamodell.SystemModel#getInfrastructureLayer <em>Infrastructure Layer</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Infrastructure Layer</em>' containment reference.
+	 * @see #getInfrastructureLayer()
+	 * @generated
+	 */
+	void setInfrastructureLayer(InfrastructureLayer value);
 
 } // SystemModel

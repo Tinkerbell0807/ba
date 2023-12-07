@@ -22,24 +22,6 @@ public interface MicroserviceMetamodellFactory extends EFactory {
 	MicroserviceMetamodellFactory eINSTANCE = microserviceMetamodell.impl.MicroserviceMetamodellFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Domain Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Object</em>'.
-	 * @generated
-	 */
-	DomainObject createDomainObject();
-
-	/**
-	 * Returns a new object of class '<em>Domain Object Controller</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Object Controller</em>'.
-	 * @generated
-	 */
-	DomainObjectController createDomainObjectController();
-
-	/**
 	 * Returns a new object of class '<em>Rest Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,22 +31,31 @@ public interface MicroserviceMetamodellFactory extends EFactory {
 	RestEndpoint createRestEndpoint();
 
 	/**
-	 * Returns a new object of class '<em>Domain Object Service</em>'.
+	 * Returns a new object of class '<em>Model Element Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Object Service</em>'.
+	 * @return a new object of class '<em>Model Element Implementation</em>'.
 	 * @generated
 	 */
-	DomainObjectService createDomainObjectService();
+	ModelElementImplementation createModelElementImplementation();
 
 	/**
-	 * Returns a new object of class '<em>Domain Object Repository</em>'.
+	 * Returns a new object of class '<em>Value Object Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Object Repository</em>'.
+	 * @return a new object of class '<em>Value Object Node</em>'.
 	 * @generated
 	 */
-	DomainObjectRepository createDomainObjectRepository();
+	ValueObjectNode createValueObjectNode();
+
+	/**
+	 * Returns a new object of class '<em>Entity Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entity Node</em>'.
+	 * @generated
+	 */
+	EntityNode createEntityNode();
 
 	/**
 	 * Returns a new object of class '<em>System Model</em>'.
@@ -76,13 +67,211 @@ public interface MicroserviceMetamodellFactory extends EFactory {
 	SystemModel createSystemModel();
 
 	/**
-	 * Returns a new object of class '<em>Domain Webservice</em>'.
+	 * Returns a new object of class '<em>Domain Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Domain Webservice</em>'.
+	 * @return a new object of class '<em>Domain Model</em>'.
 	 * @generated
 	 */
-	DomainWebservice createDomainWebservice();
+	DomainModel createDomainModel();
+
+	/**
+	 * Returns a new object of class '<em>Domain Model Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Domain Model Layer</em>'.
+	 * @generated
+	 */
+	DomainModelLayer createDomainModelLayer();
+
+	/**
+	 * Returns a new object of class '<em>Infrastructure Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infrastructure Layer</em>'.
+	 * @generated
+	 */
+	InfrastructureLayer createInfrastructureLayer();
+
+	/**
+	 * Returns a new object of class '<em>Technical Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Technical Layer</em>'.
+	 * @generated
+	 */
+	TechnicalLayer createTechnicalLayer();
+
+	/**
+	 * Returns a new object of class '<em>Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entity</em>'.
+	 * @generated
+	 */
+	Entity createEntity();
+
+	/**
+	 * Returns a new object of class '<em>Value Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Value Object</em>'.
+	 * @generated
+	 */
+	ValueObject createValueObject();
+
+	/**
+	 * Returns a new object of class '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service</em>'.
+	 * @generated
+	 */
+	Service createService();
+
+	/**
+	 * Returns a new object of class '<em>Aggregate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Aggregate</em>'.
+	 * @generated
+	 */
+	Aggregate createAggregate();
+
+	/**
+	 * Returns a new object of class '<em>Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Factory</em>'.
+	 * @generated
+	 */
+	Factory createFactory();
+
+	/**
+	 * Returns a new object of class '<em>Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Repository</em>'.
+	 * @generated
+	 */
+	Repository createRepository();
+
+	/**
+	 * Returns a new object of class '<em>Domain Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Domain Event</em>'.
+	 * @generated
+	 */
+	DomainEvent createDomainEvent();
+
+	/**
+	 * Returns a new object of class '<em>Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Module</em>'.
+	 * @generated
+	 */
+	Module createModule();
+
+	/**
+	 * Returns a new object of class '<em>Bounded Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bounded Context</em>'.
+	 * @generated
+	 */
+	BoundedContext createBoundedContext();
+
+	/**
+	 * Returns a new object of class '<em>Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Behaviour</em>'.
+	 * @generated
+	 */
+	Behaviour createBehaviour();
+
+	/**
+	 * Returns a new object of class '<em>Shared Kernel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Shared Kernel</em>'.
+	 * @generated
+	 */
+	SharedKernel createSharedKernel();
+
+	/**
+	 * Returns a new object of class '<em>Customer Supplier</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Customer Supplier</em>'.
+	 * @generated
+	 */
+	CustomerSupplier createCustomerSupplier();
+
+	/**
+	 * Returns a new object of class '<em>Conformist</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conformist</em>'.
+	 * @generated
+	 */
+	Conformist createConformist();
+
+	/**
+	 * Returns a new object of class '<em>Anticorruption Layer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Anticorruption Layer</em>'.
+	 * @generated
+	 */
+	AnticorruptionLayer createAnticorruptionLayer();
+
+	/**
+	 * Returns a new object of class '<em>Open Host Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Open Host Service</em>'.
+	 * @generated
+	 */
+	OpenHostService createOpenHostService();
+
+	/**
+	 * Returns a new object of class '<em>Published Language</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Published Language</em>'.
+	 * @generated
+	 */
+	PublishedLanguage createPublishedLanguage();
+
+	/**
+	 * Returns a new object of class '<em>Microservice</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Microservice</em>'.
+	 * @generated
+	 */
+	Microservice createMicroservice();
+
+	/**
+	 * Returns a new object of class '<em>Synchronous Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Synchronous Interface</em>'.
+	 * @generated
+	 */
+	SynchronousInterface createSynchronousInterface();
+
+	/**
+	 * Returns a new object of class '<em>Asynchronous Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Asynchronous Interface</em>'.
+	 * @generated
+	 */
+	AsynchronousInterface createAsynchronousInterface();
 
 	/**
 	 * Returns the package supported by this factory.

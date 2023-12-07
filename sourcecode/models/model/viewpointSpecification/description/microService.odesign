@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="microService" version="12.0.0.2017041100">
-  <ownedViewpoints name="MyViewpoint" modelFileExtension="*.microservicemetamodell">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SystemModelDescription" domainClass="microserviceMetamodell::SystemModel" enablePopupBars="true">
+  <ownedViewpoints name="DomainModelViewpoint" modelFileExtension="*.microservicemetamodell">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ModelDescription" domainClass="microserviceMetamodell::SystemModel" enablePopupBars="true">
       <metamodel href="http://microservice.com/microserviceMetamodell#/"/>
-      <defaultLayer name="domainModelLayer">
-        <nodeMappings name="systemModel" semanticCandidatesExpression="aql:self" domainClass="microserviceMetamodell::SystemModel">
-          <style xsi:type="style:NoteDescription" labelSize="14" labelExpression="feature:description" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="serviceMaintainedBy" label="serviceMaintainedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']" targetFinderExpression="aql:self.domainObjectServices">
+      <defaultLayer name="outdatedLayer">
+        <edgeMappings name="serviceMaintainedBy" label="serviceMaintainedBy" sourceMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']" targetMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']" targetFinderExpression="aql:self.domainObjectServices">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -19,7 +12,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="repositoryMaintainedBy" label="repositoryMaintainedBy" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainRepositoryNode']" targetFinderExpression="aql:self.domainObjectRepositories">
+        <edgeMappings name="repositoryMaintainedBy" label="repositoryMaintainedBy" sourceMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']" targetMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainRepositoryNode']" targetFinderExpression="aql:self.domainObjectRepositories">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -27,7 +20,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="calls" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']/@borderedNodeMappings[name='restEndpointNode']" targetFinderExpression="aql:self.calls">
+        <edgeMappings name="calls" sourceMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']" targetMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']/@borderedNodeMappings[name='restEndpointNode']" targetFinderExpression="aql:self.calls">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -103,7 +96,7 @@
           </style>
         </containerMappings>
         <toolSections name="Objekte">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="WebserviceCreation" label="Webservice" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="WebserviceCreation" label="Webservice" containerMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -115,7 +108,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DomainObject" label="DomainObject" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DomainObject" label="DomainObject" containerMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -126,7 +119,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Controller" label="Controller" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::DomainObject)" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']" extraMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Controller" label="Controller" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::DomainObject)" nodeMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']" extraMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -140,7 +133,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestEndpoint" label="RestEndpoint" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::DomainObjectController)" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']/@borderedNodeMappings[name='restEndpointNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RestEndpoint" label="RestEndpoint" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::DomainObjectController)" nodeMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainObjectControllerNode']/@borderedNodeMappings[name='restEndpointNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -151,7 +144,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Service" label="Service" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::DomainObject)" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Service" label="Service" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::DomainObject)" nodeMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainServiceNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -165,7 +158,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Repository" label="Repository" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainRepositoryNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Repository" label="Repository" nodeMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@containerMappings[name='domainWebserviceContainer']/@subContainerMappings[name='domainObjectContainer']/@subNodeMappings[name='domainRepositoryNode']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -181,7 +174,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Verbindungen">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Controller-Service Dependency" label="Controller-Service Dependency" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@edgeMappings[name='serviceMaintainedBy']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Controller-Service Dependency" label="Controller-Service Dependency" edgeMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@edgeMappings[name='serviceMaintainedBy']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -192,7 +185,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Service-Repository Dependency" label="Service-Repository Dependency" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@edgeMappings[name='repositoryMaintainedBy']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Service-Repository Dependency" label="Service-Repository Dependency" edgeMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@edgeMappings[name='repositoryMaintainedBy']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -203,7 +196,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="REST Call" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemModelDescription']/@defaultLayer/@edgeMappings[name='calls']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="REST Call" edgeMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer/@edgeMappings[name='calls']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -215,6 +208,284 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+      </defaultLayer>
+      <additionalLayers name="domainModelLayerElements" optional="false">
+        <edgeMappings name="factoryFor" sourceMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='factory']" targetMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service'] //@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='repository'] //@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='entity']" targetFinderExpression="aql:self.factoryFor">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="repositoryFor" sourceMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='repository']" targetMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='entity'] //@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']" targetFinderExpression="aql:self.repositoryFor">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="boundedContextRelationship" sourceMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']" targetMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']" targetFinderExpression="aql:self.boundedContextRelationships">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="serviceReferences" sourceMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']" targetMapping="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='entity'] //@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate'] //@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='factory'] //@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='repository'] //@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']" targetFinderExpression="aql:self.referencedElements">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="domainModelLayer" domainClass="microserviceMetamodell::DomainModelLayer">
+          <subContainerMappings name="boundedContext" domainClass="microserviceMetamodell::BoundedContext">
+            <subContainerMappings name="module" semanticCandidatesExpression="aql:self.domainModel.modules" domainClass="Module">
+              <subContainerMappings name="entity" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Entity" childrenPresentation="VerticalStack">
+                <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObject" domainClass="microserviceMetamodell::ValueObject" childrenPresentation="VerticalStack">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/ValueIcon32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                  </style>
+                </subContainerMappings>
+                <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/Behaviour32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/EntityIcon32px.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="service" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Service" childrenPresentation="VerticalStack">
+                <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/Behaviour32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/ServiceIcon32px.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="repository" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Repository" childrenPresentation="VerticalStack">
+                <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/Behaviour32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/RepoIcon32px.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="factory" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Factory" childrenPresentation="VerticalStack">
+                <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/Behaviour32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/FactoryIcon32px.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="aggregate" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Aggregate" childrenPresentation="VerticalStack">
+                <subContainerMappings name="entity" semanticCandidatesExpression="aql:self.aggregateRoot" domainClass="microserviceMetamodell::AggregateNode" childrenPresentation="VerticalStack">
+                  <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObject" domainClass="microserviceMetamodell::ValueObject" childrenPresentation="VerticalStack">
+                    <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/ValueIcon32px.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                      <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                    </style>
+                  </subContainerMappings>
+                  <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+                    <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/Behaviour32px.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                      <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    </style>
+                  </subContainerMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/EntityIcon32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+                  </style>
+                </subContainerMappings>
+                <subContainerMappings name="valueObjectNode" semanticCandidatesExpression="aql:self.aggregateNode" domainClass="microserviceMetamodell::ValueObjectNode">
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/ValueIcon32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+                  </style>
+                </subContainerMappings>
+                <subContainerMappings name="entityNode" semanticCandidatesExpression="aql:self.aggregateNode" domainClass="microserviceMetamodell::EntityNode" childrenPresentation="VerticalStack">
+                  <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObject" domainClass="microserviceMetamodell::ValueObject" childrenPresentation="VerticalStack">
+                    <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/ValueIcon32px.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                      <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                    </style>
+                  </subContainerMappings>
+                  <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+                    <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/Behaviour32px.png">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                      <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    </style>
+                  </subContainerMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/EntityIcon32px.png">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/AggregateIcon32px.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::ValueObject">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/ValueIcon32px.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.moduleName" labelAlignment="LEFT">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.contextName">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="Domain Model Layer">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Domain Layer Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="ContextCreation" label="Create Context" containerMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::BoundedContext" referenceName="boundedcontext">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="domainName" valueExpression="DefaultDomain"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="hostUrl" valueExpression="DefaultHostUrl"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="ModelCreation" label="Create Domain Model" containerMappings="//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::BoundedContext" referenceName="boundedcontext">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="domainName" valueExpression="DefaultDomain"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="hostUrl" valueExpression="DefaultHostUrl"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="TechnicalModelViewpoint" modelFileExtension="*.microservicemetamodell">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ModelDescription" domainClass="microserviceMetamodell::SystemModel" enablePopupBars="true">
+      <defaultLayer name="technicalModelLayerElements">
+        <containerMappings name="technicalLayer" domainClass="microserviceMetamodell::TechnicalLayer">
+          <subContainerMappings name="microservice" semanticCandidatesExpression="aql:self.microservices" domainClass="microserviceMetamodell::Microservice" childrenPresentation="List">
+            <borderedNodeMappings name="synchronousInterface" semanticCandidatesExpression="aql:self.interfaces" domainClass="microserviceMetamodell::SynchronousInterface">
+              <borderedNodeMappings name="endpoints" semanticCandidatesExpression="aql:self.restEndpoints" domainClass="microserviceMetamodell::RestEndpoint">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </borderedNodeMappings>
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.interfaceName" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="12">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </borderedNodeMappings>
+            <borderedNodeMappings name="asynchronousInterface" semanticCandidatesExpression="aql:self.interfaces" domainClass="microserviceMetamodell::AsynchronousInterface">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.interfaceName" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="16" height="12">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </borderedNodeMappings>
+            <subNodeMappings name="implementations" semanticCandidatesExpression="aql:self.modelElementImplementations" domainClass="microserviceMetamodell::ModelElementImplementation">
+              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.className" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.serviceName">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="Technical Layer">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>

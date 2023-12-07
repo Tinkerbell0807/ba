@@ -2,17 +2,51 @@
  */
 package microserviceMetamodell.impl;
 
-import microserviceMetamodell.DomainObject;
-import microserviceMetamodell.DomainObjectController;
-import microserviceMetamodell.DomainObjectRepository;
-import microserviceMetamodell.DomainObjectService;
-import microserviceMetamodell.DomainWebservice;
+import microserviceMetamodell.Aggregate;
+import microserviceMetamodell.AggregateNode;
+import microserviceMetamodell.AnticorruptionLayer;
+import microserviceMetamodell.AsynchronousInterface;
+import microserviceMetamodell.AsynchronousInterfaceRole;
+import microserviceMetamodell.Behaviour;
+import microserviceMetamodell.BoundedContext;
+import microserviceMetamodell.BoundedContextRelationship;
+import microserviceMetamodell.Conformist;
+import microserviceMetamodell.CustomerSupplier;
+import microserviceMetamodell.DomainEvent;
+import microserviceMetamodell.DomainModel;
+import microserviceMetamodell.DomainModelLayer;
+import microserviceMetamodell.DownstreamRole;
+import microserviceMetamodell.Entity;
+import microserviceMetamodell.EntityNode;
+import microserviceMetamodell.Factorizeable;
+import microserviceMetamodell.Factory;
 import microserviceMetamodell.HttpMethod;
+import microserviceMetamodell.ImplementationTechnology;
+import microserviceMetamodell.InfrastructureLayer;
+import microserviceMetamodell.Interface;
+import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
+import microserviceMetamodell.ModelElement;
+import microserviceMetamodell.ModelElementImplementation;
+import microserviceMetamodell.OpenHostService;
+import microserviceMetamodell.Persistable;
+import microserviceMetamodell.PublishedLanguage;
+import microserviceMetamodell.RelationshipRole;
+import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
+import microserviceMetamodell.Service;
+import microserviceMetamodell.SharedKernel;
+import microserviceMetamodell.SynchronousInterface;
 import microserviceMetamodell.SystemModel;
 
+import microserviceMetamodell.TechnicalLayer;
+import microserviceMetamodell.TopologyType;
+import microserviceMetamodell.UpstreamDownstreamRelationship;
+import microserviceMetamodell.UpstreamRole;
+import microserviceMetamodell.ValueObject;
+import microserviceMetamodell.ValueObjectNode;
+import microserviceMetamodell.WorkflowRole;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -33,20 +67,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass domainObjectEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass domainObjectControllerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass restEndpointEClass = null;
 
 	/**
@@ -54,14 +74,21 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass domainObjectServiceEClass = null;
+	private EClass modelElementImplementationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass domainObjectRepositoryEClass = null;
+	private EClass valueObjectNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entityNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,7 +102,231 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass domainWebserviceEClass = null;
+	private EClass domainModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainModelLayerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass infrastructureLayerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass technicalLayerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueObjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass aggregateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass factoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass repositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass domainEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass moduleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boundedContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass behaviourEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sharedKernelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass customerSupplierEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conformistEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass anticorruptionLayerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass openHostServiceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass publishedLanguageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boundedContextRelationshipEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass upstreamRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass downstreamRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relationshipRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass upstreamDownstreamRelationshipEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modelElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass factorizeableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass aggregateNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass persistableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass microserviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass synchronousInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass asynchronousInterfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,6 +334,34 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * @generated
 	 */
 	private EEnum httpMethodEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum asynchronousInterfaceRoleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum topologyTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum workflowRoleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum implementationTechnologyEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -149,87 +428,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDomainObject() {
-		return domainObjectEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDomainObject_ObjectName() {
-		return (EAttribute)domainObjectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainObject_DomainObjectRepository() {
-		return (EReference)domainObjectEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainObject_DomainObjectService() {
-		return (EReference)domainObjectEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainObject_DomainObjectController() {
-		return (EReference)domainObjectEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDomainObjectController() {
-		return domainObjectControllerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainObjectController_RestEndpoints() {
-		return (EReference)domainObjectControllerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDomainObjectController_ObjectName() {
-		return (EAttribute)domainObjectControllerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDomainObjectController_DomainObjectServices() {
-		return (EReference)domainObjectControllerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRestEndpoint() {
 		return restEndpointEClass;
 	}
@@ -240,15 +438,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * @generated
 	 */
 	public EAttribute getRestEndpoint_HttpMethod() {
-		return (EAttribute)restEndpointEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRestEndpoint_Path() {
 		return (EAttribute)restEndpointEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -257,8 +446,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDomainObjectService() {
-		return domainObjectServiceEClass;
+	public EAttribute getRestEndpoint_Path() {
+		return (EAttribute)restEndpointEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -266,8 +455,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDomainObjectService_ObjectName() {
-		return (EAttribute)domainObjectServiceEClass.getEStructuralFeatures().get(0);
+	public EClass getModelElementImplementation() {
+		return modelElementImplementationEClass;
 	}
 
 	/**
@@ -275,8 +464,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainObjectService_DomainObjectRepositories() {
-		return (EReference)domainObjectServiceEClass.getEStructuralFeatures().get(1);
+	public EReference getModelElementImplementation_CorrespondingModelElement() {
+		return (EReference)modelElementImplementationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -284,8 +473,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainObjectService_Calls() {
-		return (EReference)domainObjectServiceEClass.getEStructuralFeatures().get(2);
+	public EAttribute getModelElementImplementation_ClassName() {
+		return (EAttribute)modelElementImplementationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -293,8 +482,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDomainObjectRepository() {
-		return domainObjectRepositoryEClass;
+	public EClass getValueObjectNode() {
+		return valueObjectNodeEClass;
 	}
 
 	/**
@@ -302,8 +491,35 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDomainObjectRepository_ObjectName() {
-		return (EAttribute)domainObjectRepositoryEClass.getEStructuralFeatures().get(0);
+	public EReference getValueObjectNode_ValueObjectNodes() {
+		return (EReference)valueObjectNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValueObjectNode_ReferencedEntities() {
+		return (EReference)valueObjectNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntityNode() {
+		return entityNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntityNode_ValueObjectNodes() {
+		return (EReference)entityNodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -320,17 +536,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystemModel_Webservices() {
-		return (EReference)systemModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSystemModel_Description() {
-		return (EAttribute)systemModelEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)systemModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -338,8 +545,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDomainWebservice() {
-		return domainWebserviceEClass;
+	public EReference getSystemModel_DomainModelLayer() {
+		return (EReference)systemModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -347,8 +554,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainWebservice_DomainObjectControllers() {
-		return (EReference)domainWebserviceEClass.getEStructuralFeatures().get(0);
+	public EReference getSystemModel_TechnicalLayer() {
+		return (EReference)systemModelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -356,8 +563,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainWebservice_DomainObjectServices() {
-		return (EReference)domainWebserviceEClass.getEStructuralFeatures().get(1);
+	public EReference getSystemModel_InfrastructureLayer() {
+		return (EReference)systemModelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -365,8 +572,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainWebservice_DomainObjectRepositories() {
-		return (EReference)domainWebserviceEClass.getEStructuralFeatures().get(2);
+	public EClass getDomainModel() {
+		return domainModelEClass;
 	}
 
 	/**
@@ -374,8 +581,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDomainWebservice_DomainName() {
-		return (EAttribute)domainWebserviceEClass.getEStructuralFeatures().get(3);
+	public EReference getDomainModel_DomainEvents() {
+		return (EReference)domainModelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -383,8 +590,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainWebservice_DomainObjects() {
-		return (EReference)domainWebserviceEClass.getEStructuralFeatures().get(4);
+	public EReference getDomainModel_Modules() {
+		return (EReference)domainModelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -392,8 +599,728 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDomainWebservice_HostUrl() {
-		return (EAttribute)domainWebserviceEClass.getEStructuralFeatures().get(5);
+	public EReference getDomainModel_BoundedContext() {
+		return (EReference)domainModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainModel_ModelName() {
+		return (EAttribute)domainModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDomainModelLayer() {
+		return domainModelLayerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainModelLayer_BoundedContexts() {
+		return (EReference)domainModelLayerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainModelLayer_DomainModels() {
+		return (EReference)domainModelLayerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainModelLayer_DomainEvents() {
+		return (EReference)domainModelLayerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInfrastructureLayer() {
+		return infrastructureLayerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTechnicalLayer() {
+		return technicalLayerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTechnicalLayer_Microservices() {
+		return (EReference)technicalLayerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntity() {
+		return entityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntity_ValueObjects() {
+		return (EReference)entityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntity_Behaviours() {
+		return (EReference)entityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValueObject() {
+		return valueObjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValueObject_ReferencedEntities() {
+		return (EReference)valueObjectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValueObject_ValueObjects() {
+		return (EReference)valueObjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getService() {
+		return serviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_Behaviours() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_ReferencedElements() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAggregate() {
+		return aggregateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAggregate_AggregateRoot() {
+		return (EReference)aggregateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAggregate_AggregateNode() {
+		return (EReference)aggregateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFactory() {
+		return factoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFactory_Behaviours() {
+		return (EReference)factoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFactory_FactoryFor() {
+		return (EReference)factoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRepository() {
+		return repositoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRepository_Behaviours() {
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRepository_RepositoryFor() {
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDomainEvent() {
+		return domainEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDomainEvent_DomainModel() {
+		return (EReference)domainEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDomainEvent_EventName() {
+		return (EAttribute)domainEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModule() {
+		return moduleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModule_ModelElements() {
+		return (EReference)moduleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModule_ModuleName() {
+		return (EAttribute)moduleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBoundedContext() {
+		return boundedContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoundedContext_DomainModel() {
+		return (EReference)boundedContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoundedContext_ContextName() {
+		return (EAttribute)boundedContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoundedContext_CorrespodingMicroservice() {
+		return (EReference)boundedContextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoundedContext_BoundedContextRelationships() {
+		return (EReference)boundedContextEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBehaviour() {
+		return behaviourEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBehaviour_BehaviourName() {
+		return (EAttribute)behaviourEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSharedKernel() {
+		return sharedKernelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCustomerSupplier() {
+		return customerSupplierEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConformist() {
+		return conformistEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnticorruptionLayer() {
+		return anticorruptionLayerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOpenHostService() {
+		return openHostServiceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPublishedLanguage() {
+		return publishedLanguageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBoundedContextRelationship() {
+		return boundedContextRelationshipEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoundedContextRelationship_Interface() {
+		return (EReference)boundedContextRelationshipEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBoundedContextRelationship_RelatedContext() {
+		return (EReference)boundedContextRelationshipEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUpstreamRole() {
+		return upstreamRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDownstreamRole() {
+		return downstreamRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelationshipRole() {
+		return relationshipRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUpstreamDownstreamRelationship() {
+		return upstreamDownstreamRelationshipEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUpstreamDownstreamRelationship_Downstream() {
+		return (EReference)upstreamDownstreamRelationshipEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUpstreamDownstreamRelationship_Upstream() {
+		return (EReference)upstreamDownstreamRelationshipEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModelElement() {
+		return modelElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModelElement_IsImplementedTrough() {
+		return (EReference)modelElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModelElement_ElementName() {
+		return (EAttribute)modelElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFactorizeable() {
+		return factorizeableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAggregateNode() {
+		return aggregateNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAggregateNode_ElementName() {
+		return (EAttribute)aggregateNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPersistable() {
+		return persistableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMicroservice() {
+		return microserviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMicroservice_Interfaces() {
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMicroservice_ModelElementImplementations() {
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMicroservice_ServiceName() {
+		return (EAttribute)microserviceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMicroservice_WorkflowRole() {
+		return (EAttribute)microserviceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMicroservice_CorrespodingContext() {
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMicroservice_ImplementationTechnology() {
+		return (EAttribute)microserviceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMicroservice_SendsRequestTo() {
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInterface() {
+		return interfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_InterfaceFor() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_BoundedContextRelationship() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInterface_InterfaceName() {
+		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSynchronousInterface() {
+		return synchronousInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSynchronousInterface_RestEndpoints() {
+		return (EReference)synchronousInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynchronousInterface_Version() {
+		return (EAttribute)synchronousInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAsynchronousInterface() {
+		return asynchronousInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAsynchronousInterface_InterfaceRole() {
+		return (EAttribute)asynchronousInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAsynchronousInterface_TopologyType() {
+		return (EAttribute)asynchronousInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAsynchronousInterface_DomainEvent() {
+		return (EReference)asynchronousInterfaceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -403,6 +1330,42 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 */
 	public EEnum getHttpMethod() {
 		return httpMethodEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAsynchronousInterfaceRole() {
+		return asynchronousInterfaceRoleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTopologyType() {
+		return topologyTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getWorkflowRole() {
+		return workflowRoleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getImplementationTechnology() {
+		return implementationTechnologyEEnum;
 	}
 
 	/**
@@ -433,43 +1396,150 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		isCreated = true;
 
 		// Create classes and their features
-		domainObjectEClass = createEClass(DOMAIN_OBJECT);
-		createEAttribute(domainObjectEClass, DOMAIN_OBJECT__OBJECT_NAME);
-		createEReference(domainObjectEClass, DOMAIN_OBJECT__DOMAIN_OBJECT_REPOSITORY);
-		createEReference(domainObjectEClass, DOMAIN_OBJECT__DOMAIN_OBJECT_SERVICE);
-		createEReference(domainObjectEClass, DOMAIN_OBJECT__DOMAIN_OBJECT_CONTROLLER);
+		systemModelEClass = createEClass(SYSTEM_MODEL);
+		createEAttribute(systemModelEClass, SYSTEM_MODEL__DESCRIPTION);
+		createEReference(systemModelEClass, SYSTEM_MODEL__DOMAIN_MODEL_LAYER);
+		createEReference(systemModelEClass, SYSTEM_MODEL__TECHNICAL_LAYER);
+		createEReference(systemModelEClass, SYSTEM_MODEL__INFRASTRUCTURE_LAYER);
 
-		domainObjectControllerEClass = createEClass(DOMAIN_OBJECT_CONTROLLER);
-		createEReference(domainObjectControllerEClass, DOMAIN_OBJECT_CONTROLLER__REST_ENDPOINTS);
-		createEAttribute(domainObjectControllerEClass, DOMAIN_OBJECT_CONTROLLER__OBJECT_NAME);
-		createEReference(domainObjectControllerEClass, DOMAIN_OBJECT_CONTROLLER__DOMAIN_OBJECT_SERVICES);
+		domainModelEClass = createEClass(DOMAIN_MODEL);
+		createEReference(domainModelEClass, DOMAIN_MODEL__DOMAIN_EVENTS);
+		createEReference(domainModelEClass, DOMAIN_MODEL__MODULES);
+		createEReference(domainModelEClass, DOMAIN_MODEL__BOUNDED_CONTEXT);
+		createEAttribute(domainModelEClass, DOMAIN_MODEL__MODEL_NAME);
+
+		domainModelLayerEClass = createEClass(DOMAIN_MODEL_LAYER);
+		createEReference(domainModelLayerEClass, DOMAIN_MODEL_LAYER__BOUNDED_CONTEXTS);
+		createEReference(domainModelLayerEClass, DOMAIN_MODEL_LAYER__DOMAIN_MODELS);
+		createEReference(domainModelLayerEClass, DOMAIN_MODEL_LAYER__DOMAIN_EVENTS);
+
+		infrastructureLayerEClass = createEClass(INFRASTRUCTURE_LAYER);
+
+		technicalLayerEClass = createEClass(TECHNICAL_LAYER);
+		createEReference(technicalLayerEClass, TECHNICAL_LAYER__MICROSERVICES);
+
+		entityEClass = createEClass(ENTITY);
+		createEReference(entityEClass, ENTITY__VALUE_OBJECTS);
+		createEReference(entityEClass, ENTITY__BEHAVIOURS);
+
+		valueObjectEClass = createEClass(VALUE_OBJECT);
+		createEReference(valueObjectEClass, VALUE_OBJECT__REFERENCED_ENTITIES);
+		createEReference(valueObjectEClass, VALUE_OBJECT__VALUE_OBJECTS);
+
+		serviceEClass = createEClass(SERVICE);
+		createEReference(serviceEClass, SERVICE__BEHAVIOURS);
+		createEReference(serviceEClass, SERVICE__REFERENCED_ELEMENTS);
+
+		aggregateEClass = createEClass(AGGREGATE);
+		createEReference(aggregateEClass, AGGREGATE__AGGREGATE_ROOT);
+		createEReference(aggregateEClass, AGGREGATE__AGGREGATE_NODE);
+
+		factoryEClass = createEClass(FACTORY);
+		createEReference(factoryEClass, FACTORY__BEHAVIOURS);
+		createEReference(factoryEClass, FACTORY__FACTORY_FOR);
+
+		repositoryEClass = createEClass(REPOSITORY);
+		createEReference(repositoryEClass, REPOSITORY__BEHAVIOURS);
+		createEReference(repositoryEClass, REPOSITORY__REPOSITORY_FOR);
+
+		domainEventEClass = createEClass(DOMAIN_EVENT);
+		createEReference(domainEventEClass, DOMAIN_EVENT__DOMAIN_MODEL);
+		createEAttribute(domainEventEClass, DOMAIN_EVENT__EVENT_NAME);
+
+		moduleEClass = createEClass(MODULE);
+		createEReference(moduleEClass, MODULE__MODEL_ELEMENTS);
+		createEAttribute(moduleEClass, MODULE__MODULE_NAME);
+
+		boundedContextEClass = createEClass(BOUNDED_CONTEXT);
+		createEReference(boundedContextEClass, BOUNDED_CONTEXT__DOMAIN_MODEL);
+		createEAttribute(boundedContextEClass, BOUNDED_CONTEXT__CONTEXT_NAME);
+		createEReference(boundedContextEClass, BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE);
+		createEReference(boundedContextEClass, BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS);
+
+		behaviourEClass = createEClass(BEHAVIOUR);
+		createEAttribute(behaviourEClass, BEHAVIOUR__BEHAVIOUR_NAME);
+
+		sharedKernelEClass = createEClass(SHARED_KERNEL);
+
+		customerSupplierEClass = createEClass(CUSTOMER_SUPPLIER);
+
+		conformistEClass = createEClass(CONFORMIST);
+
+		anticorruptionLayerEClass = createEClass(ANTICORRUPTION_LAYER);
+
+		openHostServiceEClass = createEClass(OPEN_HOST_SERVICE);
+
+		publishedLanguageEClass = createEClass(PUBLISHED_LANGUAGE);
+
+		boundedContextRelationshipEClass = createEClass(BOUNDED_CONTEXT_RELATIONSHIP);
+		createEReference(boundedContextRelationshipEClass, BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE);
+		createEReference(boundedContextRelationshipEClass, BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT);
+
+		upstreamRoleEClass = createEClass(UPSTREAM_ROLE);
+
+		downstreamRoleEClass = createEClass(DOWNSTREAM_ROLE);
+
+		relationshipRoleEClass = createEClass(RELATIONSHIP_ROLE);
+
+		upstreamDownstreamRelationshipEClass = createEClass(UPSTREAM_DOWNSTREAM_RELATIONSHIP);
+		createEReference(upstreamDownstreamRelationshipEClass, UPSTREAM_DOWNSTREAM_RELATIONSHIP__DOWNSTREAM);
+		createEReference(upstreamDownstreamRelationshipEClass, UPSTREAM_DOWNSTREAM_RELATIONSHIP__UPSTREAM);
+
+		modelElementEClass = createEClass(MODEL_ELEMENT);
+		createEReference(modelElementEClass, MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH);
+		createEAttribute(modelElementEClass, MODEL_ELEMENT__ELEMENT_NAME);
+
+		factorizeableEClass = createEClass(FACTORIZEABLE);
+
+		microserviceEClass = createEClass(MICROSERVICE);
+		createEReference(microserviceEClass, MICROSERVICE__INTERFACES);
+		createEReference(microserviceEClass, MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS);
+		createEAttribute(microserviceEClass, MICROSERVICE__SERVICE_NAME);
+		createEAttribute(microserviceEClass, MICROSERVICE__WORKFLOW_ROLE);
+		createEReference(microserviceEClass, MICROSERVICE__CORRESPODING_CONTEXT);
+		createEAttribute(microserviceEClass, MICROSERVICE__IMPLEMENTATION_TECHNOLOGY);
+		createEReference(microserviceEClass, MICROSERVICE__SENDS_REQUEST_TO);
+
+		interfaceEClass = createEClass(INTERFACE);
+		createEReference(interfaceEClass, INTERFACE__INTERFACE_FOR);
+		createEReference(interfaceEClass, INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP);
+		createEAttribute(interfaceEClass, INTERFACE__INTERFACE_NAME);
+
+		synchronousInterfaceEClass = createEClass(SYNCHRONOUS_INTERFACE);
+		createEReference(synchronousInterfaceEClass, SYNCHRONOUS_INTERFACE__REST_ENDPOINTS);
+		createEAttribute(synchronousInterfaceEClass, SYNCHRONOUS_INTERFACE__VERSION);
+
+		asynchronousInterfaceEClass = createEClass(ASYNCHRONOUS_INTERFACE);
+		createEAttribute(asynchronousInterfaceEClass, ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE);
+		createEAttribute(asynchronousInterfaceEClass, ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE);
+		createEReference(asynchronousInterfaceEClass, ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT);
 
 		restEndpointEClass = createEClass(REST_ENDPOINT);
-		createEAttribute(restEndpointEClass, REST_ENDPOINT__HTTP_METHOD);
 		createEAttribute(restEndpointEClass, REST_ENDPOINT__PATH);
+		createEAttribute(restEndpointEClass, REST_ENDPOINT__HTTP_METHOD);
 
-		domainObjectServiceEClass = createEClass(DOMAIN_OBJECT_SERVICE);
-		createEAttribute(domainObjectServiceEClass, DOMAIN_OBJECT_SERVICE__OBJECT_NAME);
-		createEReference(domainObjectServiceEClass, DOMAIN_OBJECT_SERVICE__DOMAIN_OBJECT_REPOSITORIES);
-		createEReference(domainObjectServiceEClass, DOMAIN_OBJECT_SERVICE__CALLS);
+		modelElementImplementationEClass = createEClass(MODEL_ELEMENT_IMPLEMENTATION);
+		createEReference(modelElementImplementationEClass, MODEL_ELEMENT_IMPLEMENTATION__CORRESPONDING_MODEL_ELEMENT);
+		createEAttribute(modelElementImplementationEClass, MODEL_ELEMENT_IMPLEMENTATION__CLASS_NAME);
 
-		domainObjectRepositoryEClass = createEClass(DOMAIN_OBJECT_REPOSITORY);
-		createEAttribute(domainObjectRepositoryEClass, DOMAIN_OBJECT_REPOSITORY__OBJECT_NAME);
+		valueObjectNodeEClass = createEClass(VALUE_OBJECT_NODE);
+		createEReference(valueObjectNodeEClass, VALUE_OBJECT_NODE__VALUE_OBJECT_NODES);
+		createEReference(valueObjectNodeEClass, VALUE_OBJECT_NODE__REFERENCED_ENTITIES);
 
-		systemModelEClass = createEClass(SYSTEM_MODEL);
-		createEReference(systemModelEClass, SYSTEM_MODEL__WEBSERVICES);
-		createEAttribute(systemModelEClass, SYSTEM_MODEL__DESCRIPTION);
+		entityNodeEClass = createEClass(ENTITY_NODE);
+		createEReference(entityNodeEClass, ENTITY_NODE__VALUE_OBJECT_NODES);
 
-		domainWebserviceEClass = createEClass(DOMAIN_WEBSERVICE);
-		createEReference(domainWebserviceEClass, DOMAIN_WEBSERVICE__DOMAIN_OBJECT_CONTROLLERS);
-		createEReference(domainWebserviceEClass, DOMAIN_WEBSERVICE__DOMAIN_OBJECT_SERVICES);
-		createEReference(domainWebserviceEClass, DOMAIN_WEBSERVICE__DOMAIN_OBJECT_REPOSITORIES);
-		createEAttribute(domainWebserviceEClass, DOMAIN_WEBSERVICE__DOMAIN_NAME);
-		createEReference(domainWebserviceEClass, DOMAIN_WEBSERVICE__DOMAIN_OBJECTS);
-		createEAttribute(domainWebserviceEClass, DOMAIN_WEBSERVICE__HOST_URL);
+		aggregateNodeEClass = createEClass(AGGREGATE_NODE);
+		createEAttribute(aggregateNodeEClass, AGGREGATE_NODE__ELEMENT_NAME);
+
+		persistableEClass = createEClass(PERSISTABLE);
 
 		// Create enums
 		httpMethodEEnum = createEEnum(HTTP_METHOD);
+		asynchronousInterfaceRoleEEnum = createEEnum(ASYNCHRONOUS_INTERFACE_ROLE);
+		topologyTypeEEnum = createEEnum(TOPOLOGY_TYPE);
+		workflowRoleEEnum = createEEnum(WORKFLOW_ROLE);
+		implementationTechnologyEEnum = createEEnum(IMPLEMENTATION_TECHNOLOGY);
 	}
 
 	/**
@@ -500,48 +1570,194 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		entityEClass.getESuperTypes().add(this.getModelElement());
+		entityEClass.getESuperTypes().add(this.getFactorizeable());
+		entityEClass.getESuperTypes().add(this.getPersistable());
+		valueObjectEClass.getESuperTypes().add(this.getModelElement());
+		valueObjectEClass.getESuperTypes().add(this.getFactorizeable());
+		serviceEClass.getESuperTypes().add(this.getModelElement());
+		serviceEClass.getESuperTypes().add(this.getFactorizeable());
+		aggregateEClass.getESuperTypes().add(this.getFactorizeable());
+		aggregateEClass.getESuperTypes().add(this.getModelElement());
+		aggregateEClass.getESuperTypes().add(this.getPersistable());
+		factoryEClass.getESuperTypes().add(this.getModelElement());
+		repositoryEClass.getESuperTypes().add(this.getModelElement());
+		repositoryEClass.getESuperTypes().add(this.getFactorizeable());
+		sharedKernelEClass.getESuperTypes().add(this.getBoundedContextRelationship());
+		customerSupplierEClass.getESuperTypes().add(this.getUpstreamDownstreamRelationship());
+		conformistEClass.getESuperTypes().add(this.getDownstreamRole());
+		anticorruptionLayerEClass.getESuperTypes().add(this.getDownstreamRole());
+		openHostServiceEClass.getESuperTypes().add(this.getUpstreamRole());
+		publishedLanguageEClass.getESuperTypes().add(this.getUpstreamRole());
+		upstreamRoleEClass.getESuperTypes().add(this.getRelationshipRole());
+		downstreamRoleEClass.getESuperTypes().add(this.getRelationshipRole());
+		upstreamDownstreamRelationshipEClass.getESuperTypes().add(this.getBoundedContextRelationship());
+		synchronousInterfaceEClass.getESuperTypes().add(this.getInterface());
+		asynchronousInterfaceEClass.getESuperTypes().add(this.getInterface());
+		valueObjectNodeEClass.getESuperTypes().add(this.getAggregateNode());
+		entityNodeEClass.getESuperTypes().add(this.getAggregateNode());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(domainObjectEClass, DomainObject.class, "DomainObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDomainObject_ObjectName(), ecorePackage.getEString(), "objectName", null, 0, 1, DomainObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainObject_DomainObjectRepository(), this.getDomainObjectRepository(), null, "domainObjectRepository", null, 0, 1, DomainObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainObject_DomainObjectService(), this.getDomainObjectService(), null, "domainObjectService", null, 0, 1, DomainObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainObject_DomainObjectController(), this.getDomainObjectController(), null, "domainObjectController", null, 0, 1, DomainObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(systemModelEClass, SystemModel.class, "SystemModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSystemModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, SystemModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystemModel_DomainModelLayer(), this.getDomainModelLayer(), null, "domainModelLayer", null, 0, 1, SystemModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystemModel_TechnicalLayer(), this.getTechnicalLayer(), null, "technicalLayer", null, 0, 1, SystemModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystemModel_InfrastructureLayer(), this.getInfrastructureLayer(), null, "infrastructureLayer", null, 0, 1, SystemModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(domainObjectControllerEClass, DomainObjectController.class, "DomainObjectController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDomainObjectController_RestEndpoints(), this.getRestEndpoint(), null, "restEndpoints", null, 0, -1, DomainObjectController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDomainObjectController_ObjectName(), ecorePackage.getEString(), "objectName", null, 0, 1, DomainObjectController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainObjectController_DomainObjectServices(), this.getDomainObjectService(), null, "domainObjectServices", null, 0, -1, DomainObjectController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(domainModelEClass, DomainModel.class, "DomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDomainModel_DomainEvents(), this.getDomainEvent(), this.getDomainEvent_DomainModel(), "domainEvents", null, 0, -1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainModel_Modules(), this.getModule(), null, "modules", null, 1, -1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainModel_BoundedContext(), this.getBoundedContext(), this.getBoundedContext_DomainModel(), "boundedContext", null, 1, 1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDomainModel_ModelName(), ecorePackage.getEString(), "modelName", null, 0, 1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domainModelLayerEClass, DomainModelLayer.class, "DomainModelLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDomainModelLayer_BoundedContexts(), this.getBoundedContext(), null, "boundedContexts", null, 0, -1, DomainModelLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainModelLayer_DomainModels(), this.getDomainModel(), null, "domainModels", null, 0, -1, DomainModelLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomainModelLayer_DomainEvents(), this.getDomainEvent(), null, "domainEvents", null, 0, -1, DomainModelLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(infrastructureLayerEClass, InfrastructureLayer.class, "InfrastructureLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(technicalLayerEClass, TechnicalLayer.class, "TechnicalLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTechnicalLayer_Microservices(), this.getMicroservice(), null, "microservices", null, 0, -1, TechnicalLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntity_ValueObjects(), this.getValueObject(), null, "valueObjects", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntity_Behaviours(), this.getBehaviour(), null, "behaviours", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueObjectEClass, ValueObject.class, "ValueObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValueObject_ReferencedEntities(), this.getEntity(), null, "referencedEntities", null, 0, -1, ValueObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValueObject_ValueObjects(), this.getValueObject(), null, "valueObjects", null, 0, -1, ValueObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getService_Behaviours(), this.getBehaviour(), null, "behaviours", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_ReferencedElements(), this.getModelElement(), null, "referencedElements", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(aggregateEClass, Aggregate.class, "Aggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAggregate_AggregateRoot(), this.getEntityNode(), null, "aggregateRoot", null, 1, 1, Aggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregate_AggregateNode(), this.getAggregateNode(), null, "aggregateNode", null, 1, -1, Aggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(factoryEClass, Factory.class, "Factory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFactory_Behaviours(), this.getBehaviour(), null, "behaviours", null, 0, -1, Factory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFactory_FactoryFor(), this.getFactorizeable(), null, "factoryFor", null, 1, 1, Factory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRepository_Behaviours(), this.getBehaviour(), null, "behaviours", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRepository_RepositoryFor(), this.getPersistable(), null, "repositoryFor", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(domainEventEClass, DomainEvent.class, "DomainEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDomainEvent_DomainModel(), this.getDomainModel(), this.getDomainModel_DomainEvents(), "domainModel", null, 1, 1, DomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDomainEvent_EventName(), ecorePackage.getEString(), "eventName", null, 0, 1, DomainEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(moduleEClass, microserviceMetamodell.Module.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModule_ModelElements(), this.getModelElement(), null, "modelElements", null, 0, -1, microserviceMetamodell.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModule_ModuleName(), ecorePackage.getEString(), "moduleName", null, 0, 1, microserviceMetamodell.Module.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(boundedContextEClass, BoundedContext.class, "BoundedContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBoundedContext_DomainModel(), this.getDomainModel(), this.getDomainModel_BoundedContext(), "domainModel", null, 1, 1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoundedContext_ContextName(), ecorePackage.getEString(), "contextName", null, 0, 1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoundedContext_CorrespodingMicroservice(), this.getMicroservice(), this.getMicroservice_CorrespodingContext(), "correspodingMicroservice", null, 0, 1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoundedContext_BoundedContextRelationships(), this.getBoundedContextRelationship(), null, "boundedContextRelationships", null, 0, -1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(behaviourEClass, Behaviour.class, "Behaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBehaviour_BehaviourName(), ecorePackage.getEString(), "behaviourName", null, 0, 1, Behaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sharedKernelEClass, SharedKernel.class, "SharedKernel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(customerSupplierEClass, CustomerSupplier.class, "CustomerSupplier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(conformistEClass, Conformist.class, "Conformist", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(anticorruptionLayerEClass, AnticorruptionLayer.class, "AnticorruptionLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(openHostServiceEClass, OpenHostService.class, "OpenHostService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(publishedLanguageEClass, PublishedLanguage.class, "PublishedLanguage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(boundedContextRelationshipEClass, BoundedContextRelationship.class, "BoundedContextRelationship", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBoundedContextRelationship_Interface(), this.getInterface(), this.getInterface_BoundedContextRelationship(), "interface", null, 0, 1, BoundedContextRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoundedContextRelationship_RelatedContext(), this.getBoundedContext(), null, "relatedContext", null, 0, 1, BoundedContextRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(upstreamRoleEClass, UpstreamRole.class, "UpstreamRole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(downstreamRoleEClass, DownstreamRole.class, "DownstreamRole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(relationshipRoleEClass, RelationshipRole.class, "RelationshipRole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(upstreamDownstreamRelationshipEClass, UpstreamDownstreamRelationship.class, "UpstreamDownstreamRelationship", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUpstreamDownstreamRelationship_Downstream(), this.getRelationshipRole(), null, "downstream", null, 0, 1, UpstreamDownstreamRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUpstreamDownstreamRelationship_Upstream(), this.getRelationshipRole(), null, "upstream", null, 0, 1, UpstreamDownstreamRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModelElement_IsImplementedTrough(), this.getModelElementImplementation(), this.getModelElementImplementation_CorrespondingModelElement(), "isImplementedTrough", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModelElement_ElementName(), ecorePackage.getEString(), "elementName", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(factorizeableEClass, Factorizeable.class, "Factorizeable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(microserviceEClass, Microservice.class, "Microservice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMicroservice_Interfaces(), this.getInterface(), null, "interfaces", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMicroservice_ModelElementImplementations(), this.getModelElementImplementation(), null, "modelElementImplementations", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMicroservice_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMicroservice_WorkflowRole(), this.getWorkflowRole(), "workflowRole", "CHOREOGRAPH", 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMicroservice_CorrespodingContext(), this.getBoundedContext(), this.getBoundedContext_CorrespodingMicroservice(), "correspodingContext", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMicroservice_ImplementationTechnology(), this.getImplementationTechnology(), "implementationTechnology", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMicroservice_SendsRequestTo(), this.getRestEndpoint(), null, "sendsRequestTo", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInterface_InterfaceFor(), this.getModelElementImplementation(), null, "interfaceFor", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterface_BoundedContextRelationship(), this.getBoundedContextRelationship(), this.getBoundedContextRelationship_Interface(), "boundedContextRelationship", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInterface_InterfaceName(), ecorePackage.getEString(), "interfaceName", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(synchronousInterfaceEClass, SynchronousInterface.class, "SynchronousInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSynchronousInterface_RestEndpoints(), this.getRestEndpoint(), null, "restEndpoints", null, 0, -1, SynchronousInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSynchronousInterface_Version(), ecorePackage.getEString(), "version", null, 0, 1, SynchronousInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(asynchronousInterfaceEClass, AsynchronousInterface.class, "AsynchronousInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAsynchronousInterface_InterfaceRole(), this.getAsynchronousInterfaceRole(), "interfaceRole", null, 0, 1, AsynchronousInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAsynchronousInterface_TopologyType(), this.getTopologyType(), "topologyType", null, 0, 1, AsynchronousInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAsynchronousInterface_DomainEvent(), this.getDomainEvent(), null, "domainEvent", null, 0, 1, AsynchronousInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(restEndpointEClass, RestEndpoint.class, "RestEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRestEndpoint_HttpMethod(), this.getHttpMethod(), "httpMethod", null, 0, 1, RestEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRestEndpoint_Path(), ecorePackage.getEString(), "path", null, 0, 1, RestEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRestEndpoint_HttpMethod(), this.getHttpMethod(), "httpMethod", null, 0, 1, RestEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(domainObjectServiceEClass, DomainObjectService.class, "DomainObjectService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDomainObjectService_ObjectName(), ecorePackage.getEString(), "objectName", null, 0, 1, DomainObjectService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainObjectService_DomainObjectRepositories(), this.getDomainObjectRepository(), null, "domainObjectRepositories", null, 0, -1, DomainObjectService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainObjectService_Calls(), this.getRestEndpoint(), null, "calls", null, 0, -1, DomainObjectService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(modelElementImplementationEClass, ModelElementImplementation.class, "ModelElementImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModelElementImplementation_CorrespondingModelElement(), this.getModelElement(), this.getModelElement_IsImplementedTrough(), "correspondingModelElement", null, 0, 1, ModelElementImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModelElementImplementation_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, ModelElementImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(domainObjectRepositoryEClass, DomainObjectRepository.class, "DomainObjectRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDomainObjectRepository_ObjectName(), ecorePackage.getEString(), "objectName", null, 0, 1, DomainObjectRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(valueObjectNodeEClass, ValueObjectNode.class, "ValueObjectNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValueObjectNode_ValueObjectNodes(), this.getValueObjectNode(), null, "valueObjectNodes", null, 0, -1, ValueObjectNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValueObjectNode_ReferencedEntities(), this.getEntityNode(), null, "referencedEntities", null, 0, -1, ValueObjectNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(systemModelEClass, SystemModel.class, "SystemModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSystemModel_Webservices(), this.getDomainWebservice(), null, "webservices", null, 0, -1, SystemModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystemModel_Description(), ecorePackage.getEString(), "description", null, 0, 1, SystemModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(entityNodeEClass, EntityNode.class, "EntityNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntityNode_ValueObjectNodes(), this.getValueObjectNode(), null, "valueObjectNodes", null, 0, -1, EntityNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(domainWebserviceEClass, DomainWebservice.class, "DomainWebservice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDomainWebservice_DomainObjectControllers(), this.getDomainObjectController(), null, "domainObjectControllers", null, 0, -1, DomainWebservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainWebservice_DomainObjectServices(), this.getDomainObjectService(), null, "domainObjectServices", null, 0, -1, DomainWebservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainWebservice_DomainObjectRepositories(), this.getDomainObjectRepository(), null, "domainObjectRepositories", null, 0, -1, DomainWebservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDomainWebservice_DomainName(), ecorePackage.getEString(), "domainName", null, 0, 1, DomainWebservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainWebservice_DomainObjects(), this.getDomainObject(), null, "domainObjects", null, 0, -1, DomainWebservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDomainWebservice_HostUrl(), ecorePackage.getEString(), "hostUrl", null, 0, 1, DomainWebservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(aggregateNodeEClass, AggregateNode.class, "AggregateNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAggregateNode_ElementName(), ecorePackage.getEString(), "elementName", null, 0, 1, AggregateNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(persistableEClass, Persistable.class, "Persistable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(httpMethodEEnum, HttpMethod.class, "HttpMethod");
 		addEEnumLiteral(httpMethodEEnum, HttpMethod.GET);
 		addEEnumLiteral(httpMethodEEnum, HttpMethod.POST);
 		addEEnumLiteral(httpMethodEEnum, HttpMethod.DELETE);
+		addEEnumLiteral(httpMethodEEnum, HttpMethod.PUT);
+
+		initEEnum(asynchronousInterfaceRoleEEnum, AsynchronousInterfaceRole.class, "AsynchronousInterfaceRole");
+		addEEnumLiteral(asynchronousInterfaceRoleEEnum, AsynchronousInterfaceRole.PRODUCER);
+		addEEnumLiteral(asynchronousInterfaceRoleEEnum, AsynchronousInterfaceRole.CONSUMER);
+
+		initEEnum(topologyTypeEEnum, TopologyType.class, "TopologyType");
+		addEEnumLiteral(topologyTypeEEnum, TopologyType.BROKER);
+		addEEnumLiteral(topologyTypeEEnum, TopologyType.MEDIATOR);
+
+		initEEnum(workflowRoleEEnum, WorkflowRole.class, "WorkflowRole");
+		addEEnumLiteral(workflowRoleEEnum, WorkflowRole.ORCHESTRATOR);
+		addEEnumLiteral(workflowRoleEEnum, WorkflowRole.ORCHESTRATED);
+		addEEnumLiteral(workflowRoleEEnum, WorkflowRole.CHOREOGRAPH);
+
+		initEEnum(implementationTechnologyEEnum, ImplementationTechnology.class, "ImplementationTechnology");
+		addEEnumLiteral(implementationTechnologyEEnum, ImplementationTechnology.JAVA_SPRING);
 
 		// Create resource
 		createResource(eNS_URI);

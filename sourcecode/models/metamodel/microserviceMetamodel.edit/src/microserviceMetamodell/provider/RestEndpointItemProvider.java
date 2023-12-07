@@ -5,8 +5,6 @@ package microserviceMetamodell.provider;
 
 import java.util.Collection;
 import java.util.List;
-
-import microserviceMetamodell.HttpMethod;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.RestEndpoint;
 
@@ -61,8 +59,8 @@ public class RestEndpointItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHttpMethodPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
+			addHttpMethodPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -130,8 +128,7 @@ public class RestEndpointItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		HttpMethod labelValue = ((RestEndpoint)object).getHttpMethod();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((RestEndpoint)object).getPath();
 		return label == null || label.length() == 0 ?
 			getString("_UI_RestEndpoint_type") :
 			getString("_UI_RestEndpoint_type") + " " + label;
@@ -150,8 +147,8 @@ public class RestEndpointItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RestEndpoint.class)) {
-			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
 			case MicroserviceMetamodellPackage.REST_ENDPOINT__PATH:
+			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

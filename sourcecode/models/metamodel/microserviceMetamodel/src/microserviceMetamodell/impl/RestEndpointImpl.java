@@ -21,33 +21,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link microserviceMetamodell.impl.RestEndpointImpl#getHttpMethod <em>Http Method</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.RestEndpointImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.RestEndpointImpl#getHttpMethod <em>Http Method</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RestEndpointImpl extends MinimalEObjectImpl.Container implements RestEndpoint {
-	/**
-	 * The default value of the '{@link #getHttpMethod() <em>Http Method</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHttpMethod()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final HttpMethod HTTP_METHOD_EDEFAULT = HttpMethod.GET;
-
-	/**
-	 * The cached value of the '{@link #getHttpMethod() <em>Http Method</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHttpMethod()
-	 * @generated
-	 * @ordered
-	 */
-	protected HttpMethod httpMethod = HTTP_METHOD_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -67,6 +47,26 @@ public class RestEndpointImpl extends MinimalEObjectImpl.Container implements Re
 	 * @ordered
 	 */
 	protected String path = PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHttpMethod() <em>Http Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHttpMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final HttpMethod HTTP_METHOD_EDEFAULT = HttpMethod.GET;
+
+	/**
+	 * The cached value of the '{@link #getHttpMethod() <em>Http Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHttpMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected HttpMethod httpMethod = HTTP_METHOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,10 +137,10 @@ public class RestEndpointImpl extends MinimalEObjectImpl.Container implements Re
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
-				return getHttpMethod();
 			case MicroserviceMetamodellPackage.REST_ENDPOINT__PATH:
 				return getPath();
+			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
+				return getHttpMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,11 +153,11 @@ public class RestEndpointImpl extends MinimalEObjectImpl.Container implements Re
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
-				setHttpMethod((HttpMethod)newValue);
-				return;
 			case MicroserviceMetamodellPackage.REST_ENDPOINT__PATH:
 				setPath((String)newValue);
+				return;
+			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
+				setHttpMethod((HttpMethod)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -171,11 +171,11 @@ public class RestEndpointImpl extends MinimalEObjectImpl.Container implements Re
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
-				setHttpMethod(HTTP_METHOD_EDEFAULT);
-				return;
 			case MicroserviceMetamodellPackage.REST_ENDPOINT__PATH:
 				setPath(PATH_EDEFAULT);
+				return;
+			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
+				setHttpMethod(HTTP_METHOD_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -189,10 +189,10 @@ public class RestEndpointImpl extends MinimalEObjectImpl.Container implements Re
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
-				return httpMethod != HTTP_METHOD_EDEFAULT;
 			case MicroserviceMetamodellPackage.REST_ENDPOINT__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case MicroserviceMetamodellPackage.REST_ENDPOINT__HTTP_METHOD:
+				return httpMethod != HTTP_METHOD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -207,10 +207,10 @@ public class RestEndpointImpl extends MinimalEObjectImpl.Container implements Re
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (httpMethod: ");
-		result.append(httpMethod);
-		result.append(", path: ");
+		result.append(" (path: ");
 		result.append(path);
+		result.append(", httpMethod: ");
+		result.append(httpMethod);
 		result.append(')');
 		return result.toString();
 	}

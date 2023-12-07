@@ -46,7 +46,15 @@ public enum HttpMethod implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DELETE(0, "DELETE", "DELETE");
+	DELETE(0, "DELETE", "DELETE"), /**
+	 * The '<em><b>PUT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PUT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PUT(3, "PUT", "PUT");
 
 	/**
 	 * The '<em><b>GET</b></em>' literal value.
@@ -82,6 +90,17 @@ public enum HttpMethod implements Enumerator {
 	public static final int DELETE_VALUE = 0;
 
 	/**
+	 * The '<em><b>PUT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PUT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PUT_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Http Method</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +111,7 @@ public enum HttpMethod implements Enumerator {
 			GET,
 			POST,
 			DELETE,
+			PUT,
 		};
 
 	/**
@@ -149,6 +169,7 @@ public enum HttpMethod implements Enumerator {
 	public static HttpMethod get(int value) {
 		switch (value) {
 			case GET_VALUE: return GET;
+			case PUT_VALUE: return PUT;
 		}
 		return null;
 	}

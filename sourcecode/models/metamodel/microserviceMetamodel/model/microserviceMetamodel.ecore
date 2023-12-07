@@ -10,54 +10,58 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domainmodellayer" eType="#//DomainModelLayer"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainModelLayer" eType="#//DomainModelLayer"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="technicallayer" upperBound="-1"
-        eType="#//TechnicalLayer" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructurelayer" upperBound="-1"
-        eType="#//InfrastructureLayer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="technicalLayer" eType="#//TechnicalLayer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructureLayer" eType="#//InfrastructureLayer"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domainevent" upperBound="-1"
-        eType="#//DomainEvent" eOpposite="#//DomainEvent/domainmodel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
-        eType="#//Module" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelement" upperBound="-1"
-        eType="#//ModelElement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedcontextrelationship"
-        lowerBound="1" eType="#//BoundedContext" eOpposite="#//BoundedContext/domainmodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainEvents" upperBound="-1"
+        eType="#//DomainEvent" eOpposite="#//DomainEvent/domainModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" lowerBound="1"
+        upperBound="-1" eType="#//Module" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedContext" lowerBound="1"
+        eType="#//BoundedContext" eOpposite="#//BoundedContext/domainModel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainModelLayer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedcontext" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedContexts" upperBound="-1"
         eType="#//BoundedContext" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainModels" upperBound="-1"
+        eType="#//DomainModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainEvents" upperBound="-1"
+        eType="#//DomainEvent" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureLayer"/>
   <eClassifiers xsi:type="ecore:EClass" name="TechnicalLayer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="microservice" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="microservices" upperBound="-1"
         eType="#//Microservice" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//ModelElement #//Factorizeable #//AggregateNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valueobject" upperBound="-1"
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//ModelElement #//Factorizeable #//Persistable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueObjects" upperBound="-1"
         eType="#//ValueObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
         eType="#//Behaviour" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValueObject" eSuperTypes="#//ModelElement #//Factorizeable #//AggregateNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" upperBound="-1"
+  <eClassifiers xsi:type="ecore:EClass" name="ValueObject" eSuperTypes="#//ModelElement #//Factorizeable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedEntities" upperBound="-1"
         eType="#//Entity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valueobject" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueObjects" upperBound="-1"
         eType="#//ValueObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" eSuperTypes="#//ModelElement #//Factorizeable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
         eType="#//Behaviour" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelement" eType="#//ModelElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedElements" upperBound="-1"
+        eType="#//ModelElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Aggregate" eSuperTypes="#//Factorizeable #//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregateroot" lowerBound="1"
-        eType="#//AggregateRoot" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Aggregate" eSuperTypes="#//Factorizeable #//ModelElement #//Persistable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregateRoot" lowerBound="1"
+        eType="#//EntityNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregateNode" lowerBound="1"
+        upperBound="-1" eType="#//AggregateNode" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Factory" eSuperTypes="#//ModelElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
@@ -66,32 +70,28 @@
         eType="#//Factorizeable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//ModelElement #//Factorizeable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviour" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
         eType="#//Behaviour" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//Entity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregate" eType="#//Aggregate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryFor" eType="#//Persistable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DomainEvent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domainmodel" lowerBound="1"
-        eType="#//DomainModel" eOpposite="#//DomainModel/domainevent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainModel" lowerBound="1"
+        eType="#//DomainModel" eOpposite="#//DomainModel/domainEvents"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
-        eType="#//Module" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelement" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelElements" upperBound="-1"
         eType="#//ModelElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="moduleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BoundedContext">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedcontextrelationship"
-        upperBound="-1" eType="#//BoundedContextRelationship" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domainmodel" eType="#//DomainModel"
-        eOpposite="#//DomainModel/boundedcontextrelationship"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainModel" lowerBound="1"
+        eType="#//DomainModel" eOpposite="#//DomainModel/boundedContext"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregateRoot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rootEntity" lowerBound="1"
-        eType="#//Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correspodingMicroservice"
+        eType="#//Microservice" eOpposite="#//Microservice/correspodingContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedContextRelationships"
+        upperBound="-1" eType="#//BoundedContextRelationship" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Behaviour">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="behaviourName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -104,7 +104,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="PublishedLanguage" eSuperTypes="#//UpstreamRole"/>
   <eClassifiers xsi:type="ecore:EClass" name="BoundedContextRelationship" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="#//Interface"
-        eOpposite="#//Interface/boundedcontextrelationship"/>
+        eOpposite="#//Interface/boundedContextRelationship"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContext" eType="#//BoundedContext"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UpstreamRole" abstract="true" eSuperTypes="#//RelationshipRole"/>
   <eClassifiers xsi:type="ecore:EClass" name="DownstreamRole" abstract="true" eSuperTypes="#//RelationshipRole"/>
@@ -117,29 +118,29 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelementimplementation"
-        eType="#//ModelElementImplementation" eOpposite="#//ModelElementImplementation/modelelement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isImplementedTrough" eType="#//ModelElementImplementation"
+        eOpposite="#//ModelElementImplementation/correspondingModelElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//Module"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Factorizeable" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregateNode" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatenode" upperBound="-1"
-        eType="#//AggregateNode"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Microservice">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
         eType="#//Interface" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelementimplementation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelElementImplementations"
         upperBound="-1" eType="#//ModelElementImplementation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowRole" eType="#//WorkflowRole"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowRole" eType="#//WorkflowRole"
+        defaultValueLiteral="CHOREOGRAPH"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correspodingContext" eType="#//BoundedContext"
+        eOpposite="#//BoundedContext/correspodingMicroservice"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationTechnology"
+        eType="#//ImplementationTechnology"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" eType="#//RestEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelementimplementation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceFor" upperBound="-1"
         eType="#//ModelElementImplementation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domainevent" eType="#//DomainEvent"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedcontextrelationship"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedContextRelationship"
         eType="#//BoundedContextRelationship" eOpposite="#//BoundedContextRelationship/interface"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -151,14 +152,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="AsynchronousInterface" eSuperTypes="#//Interface">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceRole" eType="#//AsynchronousInterfaceRole"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="topologyType" eType="#//TopologyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domainEvent" eType="#//DomainEvent"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RestEndpoint">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="httpMethod" eType="#//HttpMethod"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="httpMethod" eType="#//HttpMethod"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElementImplementation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelelement" eType="#//ModelElement"
-        eOpposite="#//ModelElement/modelelementimplementation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingModelElement"
+        eType="#//ModelElement" eOpposite="#//ModelElement/isImplementedTrough"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AsynchronousInterfaceRole">
     <eLiterals name="PRODUCER"/>
@@ -173,4 +176,26 @@
     <eLiterals name="ORCHESTRATED" value="1"/>
     <eLiterals name="CHOREOGRAPH" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueObjectNode" eSuperTypes="#//AggregateNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueObjectNodes" upperBound="-1"
+        eType="#//ValueObjectNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedEntities" upperBound="-1"
+        eType="#//EntityNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityNode" eSuperTypes="#//AggregateNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueObjectNodes" upperBound="-1"
+        eType="#//ValueObjectNode" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateNode" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Persistable" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ImplementationTechnology">
+    <eLiterals name="JAVA_SPRING"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeployementAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalDependency"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventConfiguration"/>
 </ecore:EPackage>

@@ -102,7 +102,9 @@ public class SystemModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__WEBSERVICES);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__DOMAIN_MODEL_LAYER);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__TECHNICAL_LAYER);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__INFRASTRUCTURE_LAYER);
 		}
 		return childrenFeatures;
 	}
@@ -161,7 +163,9 @@ public class SystemModelItemProvider
 			case MicroserviceMetamodellPackage.SYSTEM_MODEL__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case MicroserviceMetamodellPackage.SYSTEM_MODEL__WEBSERVICES:
+			case MicroserviceMetamodellPackage.SYSTEM_MODEL__DOMAIN_MODEL_LAYER:
+			case MicroserviceMetamodellPackage.SYSTEM_MODEL__TECHNICAL_LAYER:
+			case MicroserviceMetamodellPackage.SYSTEM_MODEL__INFRASTRUCTURE_LAYER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,8 +185,18 @@ public class SystemModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__WEBSERVICES,
-				 MicroserviceMetamodellFactory.eINSTANCE.createDomainWebservice()));
+				(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__DOMAIN_MODEL_LAYER,
+				 MicroserviceMetamodellFactory.eINSTANCE.createDomainModelLayer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__TECHNICAL_LAYER,
+				 MicroserviceMetamodellFactory.eINSTANCE.createTechnicalLayer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.SYSTEM_MODEL__INFRASTRUCTURE_LAYER,
+				 MicroserviceMetamodellFactory.eINSTANCE.createInfrastructureLayer()));
 	}
 
 	/**

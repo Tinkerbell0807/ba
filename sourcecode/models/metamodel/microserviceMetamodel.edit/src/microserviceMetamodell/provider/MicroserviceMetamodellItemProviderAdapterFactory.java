@@ -72,52 +72,6 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainObject} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DomainObjectItemProvider domainObjectItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.DomainObject}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDomainObjectAdapter() {
-		if (domainObjectItemProvider == null) {
-			domainObjectItemProvider = new DomainObjectItemProvider(this);
-		}
-
-		return domainObjectItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainObjectController} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DomainObjectControllerItemProvider domainObjectControllerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.DomainObjectController}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDomainObjectControllerAdapter() {
-		if (domainObjectControllerItemProvider == null) {
-			domainObjectControllerItemProvider = new DomainObjectControllerItemProvider(this);
-		}
-
-		return domainObjectControllerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.RestEndpoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,49 +95,72 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainObjectService} instances.
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ModelElementImplementation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DomainObjectServiceItemProvider domainObjectServiceItemProvider;
+	protected ModelElementImplementationItemProvider modelElementImplementationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.DomainObjectService}.
+	 * This creates an adapter for a {@link microserviceMetamodell.ModelElementImplementation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDomainObjectServiceAdapter() {
-		if (domainObjectServiceItemProvider == null) {
-			domainObjectServiceItemProvider = new DomainObjectServiceItemProvider(this);
+	public Adapter createModelElementImplementationAdapter() {
+		if (modelElementImplementationItemProvider == null) {
+			modelElementImplementationItemProvider = new ModelElementImplementationItemProvider(this);
 		}
 
-		return domainObjectServiceItemProvider;
+		return modelElementImplementationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainObjectRepository} instances.
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ValueObjectNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DomainObjectRepositoryItemProvider domainObjectRepositoryItemProvider;
+	protected ValueObjectNodeItemProvider valueObjectNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.DomainObjectRepository}.
+	 * This creates an adapter for a {@link microserviceMetamodell.ValueObjectNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDomainObjectRepositoryAdapter() {
-		if (domainObjectRepositoryItemProvider == null) {
-			domainObjectRepositoryItemProvider = new DomainObjectRepositoryItemProvider(this);
+	public Adapter createValueObjectNodeAdapter() {
+		if (valueObjectNodeItemProvider == null) {
+			valueObjectNodeItemProvider = new ValueObjectNodeItemProvider(this);
 		}
 
-		return domainObjectRepositoryItemProvider;
+		return valueObjectNodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.EntityNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntityNodeItemProvider entityNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.EntityNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntityNodeAdapter() {
+		if (entityNodeItemProvider == null) {
+			entityNodeItemProvider = new EntityNodeItemProvider(this);
+		}
+
+		return entityNodeItemProvider;
 	}
 
 	/**
@@ -210,26 +187,532 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainWebservice} instances.
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DomainWebserviceItemProvider domainWebserviceItemProvider;
+	protected DomainModelItemProvider domainModelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.DomainWebservice}.
+	 * This creates an adapter for a {@link microserviceMetamodell.DomainModel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDomainWebserviceAdapter() {
-		if (domainWebserviceItemProvider == null) {
-			domainWebserviceItemProvider = new DomainWebserviceItemProvider(this);
+	public Adapter createDomainModelAdapter() {
+		if (domainModelItemProvider == null) {
+			domainModelItemProvider = new DomainModelItemProvider(this);
 		}
 
-		return domainWebserviceItemProvider;
+		return domainModelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainModelLayer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DomainModelLayerItemProvider domainModelLayerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.DomainModelLayer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDomainModelLayerAdapter() {
+		if (domainModelLayerItemProvider == null) {
+			domainModelLayerItemProvider = new DomainModelLayerItemProvider(this);
+		}
+
+		return domainModelLayerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.InfrastructureLayer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfrastructureLayerItemProvider infrastructureLayerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.InfrastructureLayer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfrastructureLayerAdapter() {
+		if (infrastructureLayerItemProvider == null) {
+			infrastructureLayerItemProvider = new InfrastructureLayerItemProvider(this);
+		}
+
+		return infrastructureLayerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.TechnicalLayer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TechnicalLayerItemProvider technicalLayerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.TechnicalLayer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTechnicalLayerAdapter() {
+		if (technicalLayerItemProvider == null) {
+			technicalLayerItemProvider = new TechnicalLayerItemProvider(this);
+		}
+
+		return technicalLayerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Entity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntityItemProvider entityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Entity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntityAdapter() {
+		if (entityItemProvider == null) {
+			entityItemProvider = new EntityItemProvider(this);
+		}
+
+		return entityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ValueObject} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueObjectItemProvider valueObjectItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.ValueObject}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueObjectAdapter() {
+		if (valueObjectItemProvider == null) {
+			valueObjectItemProvider = new ValueObjectItemProvider(this);
+		}
+
+		return valueObjectItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Service} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServiceItemProvider serviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Service}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServiceAdapter() {
+		if (serviceItemProvider == null) {
+			serviceItemProvider = new ServiceItemProvider(this);
+		}
+
+		return serviceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Aggregate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AggregateItemProvider aggregateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Aggregate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAggregateAdapter() {
+		if (aggregateItemProvider == null) {
+			aggregateItemProvider = new AggregateItemProvider(this);
+		}
+
+		return aggregateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Factory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FactoryItemProvider factoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Factory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFactoryAdapter() {
+		if (factoryItemProvider == null) {
+			factoryItemProvider = new FactoryItemProvider(this);
+		}
+
+		return factoryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Repository} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RepositoryItemProvider repositoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Repository}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRepositoryAdapter() {
+		if (repositoryItemProvider == null) {
+			repositoryItemProvider = new RepositoryItemProvider(this);
+		}
+
+		return repositoryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DomainEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DomainEventItemProvider domainEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.DomainEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDomainEventAdapter() {
+		if (domainEventItemProvider == null) {
+			domainEventItemProvider = new DomainEventItemProvider(this);
+		}
+
+		return domainEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Module} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModuleItemProvider moduleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Module}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModuleAdapter() {
+		if (moduleItemProvider == null) {
+			moduleItemProvider = new ModuleItemProvider(this);
+		}
+
+		return moduleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.BoundedContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoundedContextItemProvider boundedContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.BoundedContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoundedContextAdapter() {
+		if (boundedContextItemProvider == null) {
+			boundedContextItemProvider = new BoundedContextItemProvider(this);
+		}
+
+		return boundedContextItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Behaviour} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BehaviourItemProvider behaviourItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Behaviour}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBehaviourAdapter() {
+		if (behaviourItemProvider == null) {
+			behaviourItemProvider = new BehaviourItemProvider(this);
+		}
+
+		return behaviourItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.SharedKernel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SharedKernelItemProvider sharedKernelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.SharedKernel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSharedKernelAdapter() {
+		if (sharedKernelItemProvider == null) {
+			sharedKernelItemProvider = new SharedKernelItemProvider(this);
+		}
+
+		return sharedKernelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.CustomerSupplier} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CustomerSupplierItemProvider customerSupplierItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.CustomerSupplier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCustomerSupplierAdapter() {
+		if (customerSupplierItemProvider == null) {
+			customerSupplierItemProvider = new CustomerSupplierItemProvider(this);
+		}
+
+		return customerSupplierItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Conformist} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConformistItemProvider conformistItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Conformist}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConformistAdapter() {
+		if (conformistItemProvider == null) {
+			conformistItemProvider = new ConformistItemProvider(this);
+		}
+
+		return conformistItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.AnticorruptionLayer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnticorruptionLayerItemProvider anticorruptionLayerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.AnticorruptionLayer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnticorruptionLayerAdapter() {
+		if (anticorruptionLayerItemProvider == null) {
+			anticorruptionLayerItemProvider = new AnticorruptionLayerItemProvider(this);
+		}
+
+		return anticorruptionLayerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.OpenHostService} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OpenHostServiceItemProvider openHostServiceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.OpenHostService}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOpenHostServiceAdapter() {
+		if (openHostServiceItemProvider == null) {
+			openHostServiceItemProvider = new OpenHostServiceItemProvider(this);
+		}
+
+		return openHostServiceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.PublishedLanguage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PublishedLanguageItemProvider publishedLanguageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.PublishedLanguage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPublishedLanguageAdapter() {
+		if (publishedLanguageItemProvider == null) {
+			publishedLanguageItemProvider = new PublishedLanguageItemProvider(this);
+		}
+
+		return publishedLanguageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Microservice} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MicroserviceItemProvider microserviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Microservice}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMicroserviceAdapter() {
+		if (microserviceItemProvider == null) {
+			microserviceItemProvider = new MicroserviceItemProvider(this);
+		}
+
+		return microserviceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.SynchronousInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SynchronousInterfaceItemProvider synchronousInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.SynchronousInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSynchronousInterfaceAdapter() {
+		if (synchronousInterfaceItemProvider == null) {
+			synchronousInterfaceItemProvider = new SynchronousInterfaceItemProvider(this);
+		}
+
+		return synchronousInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.AsynchronousInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AsynchronousInterfaceItemProvider asynchronousInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.AsynchronousInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAsynchronousInterfaceAdapter() {
+		if (asynchronousInterfaceItemProvider == null) {
+			asynchronousInterfaceItemProvider = new AsynchronousInterfaceItemProvider(this);
+		}
+
+		return asynchronousInterfaceItemProvider;
 	}
 
 	/**
@@ -331,13 +814,34 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 	 * @generated
 	 */
 	public void dispose() {
-		if (domainObjectItemProvider != null) domainObjectItemProvider.dispose();
-		if (domainObjectControllerItemProvider != null) domainObjectControllerItemProvider.dispose();
-		if (restEndpointItemProvider != null) restEndpointItemProvider.dispose();
-		if (domainObjectServiceItemProvider != null) domainObjectServiceItemProvider.dispose();
-		if (domainObjectRepositoryItemProvider != null) domainObjectRepositoryItemProvider.dispose();
 		if (systemModelItemProvider != null) systemModelItemProvider.dispose();
-		if (domainWebserviceItemProvider != null) domainWebserviceItemProvider.dispose();
+		if (domainModelItemProvider != null) domainModelItemProvider.dispose();
+		if (domainModelLayerItemProvider != null) domainModelLayerItemProvider.dispose();
+		if (infrastructureLayerItemProvider != null) infrastructureLayerItemProvider.dispose();
+		if (technicalLayerItemProvider != null) technicalLayerItemProvider.dispose();
+		if (entityItemProvider != null) entityItemProvider.dispose();
+		if (valueObjectItemProvider != null) valueObjectItemProvider.dispose();
+		if (serviceItemProvider != null) serviceItemProvider.dispose();
+		if (aggregateItemProvider != null) aggregateItemProvider.dispose();
+		if (factoryItemProvider != null) factoryItemProvider.dispose();
+		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
+		if (domainEventItemProvider != null) domainEventItemProvider.dispose();
+		if (moduleItemProvider != null) moduleItemProvider.dispose();
+		if (boundedContextItemProvider != null) boundedContextItemProvider.dispose();
+		if (behaviourItemProvider != null) behaviourItemProvider.dispose();
+		if (sharedKernelItemProvider != null) sharedKernelItemProvider.dispose();
+		if (customerSupplierItemProvider != null) customerSupplierItemProvider.dispose();
+		if (conformistItemProvider != null) conformistItemProvider.dispose();
+		if (anticorruptionLayerItemProvider != null) anticorruptionLayerItemProvider.dispose();
+		if (openHostServiceItemProvider != null) openHostServiceItemProvider.dispose();
+		if (publishedLanguageItemProvider != null) publishedLanguageItemProvider.dispose();
+		if (microserviceItemProvider != null) microserviceItemProvider.dispose();
+		if (synchronousInterfaceItemProvider != null) synchronousInterfaceItemProvider.dispose();
+		if (asynchronousInterfaceItemProvider != null) asynchronousInterfaceItemProvider.dispose();
+		if (restEndpointItemProvider != null) restEndpointItemProvider.dispose();
+		if (modelElementImplementationItemProvider != null) modelElementImplementationItemProvider.dispose();
+		if (valueObjectNodeItemProvider != null) valueObjectNodeItemProvider.dispose();
+		if (entityNodeItemProvider != null) entityNodeItemProvider.dispose();
 	}
 
 }

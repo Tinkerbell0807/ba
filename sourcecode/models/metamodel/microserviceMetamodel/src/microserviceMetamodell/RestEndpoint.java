@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link microserviceMetamodell.RestEndpoint#getHttpMethod <em>Http Method</em>}</li>
  *   <li>{@link microserviceMetamodell.RestEndpoint#getPath <em>Path</em>}</li>
+ *   <li>{@link microserviceMetamodell.RestEndpoint#getHttpMethod <em>Http Method</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getRestEndpoint()
