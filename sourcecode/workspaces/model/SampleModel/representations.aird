@@ -1,10 +1,442 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" uid="_gPEucJTnEe6zPfj-W0oZXQ" selectedViews="_g1yJIJTnEe6zPfj-W0oZXQ _g2G5QJTnEe6zPfj-W0oZXQ" version="15.2.0.202303281325">
-  <semanticResources>SampleModel.microservicemetamodell</semanticResources>
-  <ownedViews xmi:type="viewpoint:DView" uid="_g1yJIJTnEe6zPfj-W0oZXQ">
-    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='TechnicalModelViewpoint']"/>
-  </ownedViews>
-  <ownedViews xmi:type="viewpoint:DView" uid="_g2G5QJTnEe6zPfj-W0oZXQ">
-    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']"/>
-  </ownedViews>
-</viewpoint:DAnalysis>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_gPEucJTnEe6zPfj-W0oZXQ" selectedViews="_g1yJIJTnEe6zPfj-W0oZXQ _g2G5QJTnEe6zPfj-W0oZXQ" version="15.2.0.202303281325">
+    <semanticResources>SampleModel.microservicemetamodell</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_g1yJIJTnEe6zPfj-W0oZXQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='TechnicalModelViewpoint']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_g2G5QJTnEe6zPfj-W0oZXQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_rTXQYJTpEe6mW8CwxXt0KA" name="DomainModelDescription" repPath="#_rS59YJTpEe6mW8CwxXt0KA" changeId="1701944187304">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']"/>
+        <target xmi:type="microserviceMetamodell:SystemModel" href="SampleModel.microservicemetamodell#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_rS59YJTpEe6mW8CwxXt0KA">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_rT2_oJTpEe6mW8CwxXt0KA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_rT2_oZTpEe6mW8CwxXt0KA" type="Sirius" element="_rS59YJTpEe6mW8CwxXt0KA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_rXHvAJTpEe6mW8CwxXt0KA" type="2002" element="_rUG3QJTpEe6mW8CwxXt0KA">
+          <children xmi:type="notation:Node" xmi:id="_rXOcsJTpEe6mW8CwxXt0KA" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_rXPq0JTpEe6mW8CwxXt0KA" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_rXWYgJTpEe6mW8CwxXt0KA" type="3008" element="_rUvwcJTpEe6mW8CwxXt0KA">
+              <children xmi:type="notation:Node" xmi:id="_rXW_kJTpEe6mW8CwxXt0KA" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_rXW_kZTpEe6mW8CwxXt0KA" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_rXZb1JTpEe6mW8CwxXt0KA" type="3008" element="_rWQMUJTpEe6mW8CwxXt0KA">
+                  <children xmi:type="notation:Node" xmi:id="_rXaC4JTpEe6mW8CwxXt0KA" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_rXaC4ZTpEe6mW8CwxXt0KA" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_rXbRA5TpEe6mW8CwxXt0KA" type="3008" element="_rWTPoJTpEe6mW8CwxXt0KA">
+                      <children xmi:type="notation:Node" xmi:id="_rXb4EJTpEe6mW8CwxXt0KA" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_rXb4EZTpEe6mW8CwxXt0KA" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_rXb4EpTpEe6mW8CwxXt0KA"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_rXb4E5TpEe6mW8CwxXt0KA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_rXbRBJTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXbRBZTpEe6mW8CwxXt0KA" x="135" y="29"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_rXcfIJTpEe6mW8CwxXt0KA" type="3008" element="_rWWS8JTpEe6mW8CwxXt0KA">
+                      <children xmi:type="notation:Node" xmi:id="_rXdGMJTpEe6mW8CwxXt0KA" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_rXdtQJTpEe6mW8CwxXt0KA" type="7002">
+                        <children xmi:type="notation:Node" xmi:id="_rXe7YJTpEe6mW8CwxXt0KA" type="3008" element="_rWW6AJTpEe6mW8CwxXt0KA">
+                          <children xmi:type="notation:Node" xmi:id="_rXe7Y5TpEe6mW8CwxXt0KA" type="5005"/>
+                          <children xmi:type="notation:Node" xmi:id="_rXficJTpEe6mW8CwxXt0KA" type="7002">
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_rXficZTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_rXficpTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:DrawerStyle" xmi:id="_rXfic5TpEe6mW8CwxXt0KA"/>
+                          </children>
+                          <styles xmi:type="notation:ShapeStyle" xmi:id="_rXe7YZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXe7YpTpEe6mW8CwxXt0KA"/>
+                        </children>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_rXdtQZTpEe6mW8CwxXt0KA"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_rXdtQpTpEe6mW8CwxXt0KA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_rXcfIZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXcfIpTpEe6mW8CwxXt0KA" x="245" y="119"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_rXdtQ5TpEe6mW8CwxXt0KA" type="3008" element="_rWYIIZTpEe6mW8CwxXt0KA">
+                      <children xmi:type="notation:Node" xmi:id="_rXeUUJTpEe6mW8CwxXt0KA" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_rXeUUZTpEe6mW8CwxXt0KA" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_rXeUUpTpEe6mW8CwxXt0KA"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_rXeUU5TpEe6mW8CwxXt0KA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_rXdtRJTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXdtRZTpEe6mW8CwxXt0KA" x="30" y="119"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_rXaC4pTpEe6mW8CwxXt0KA"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_rXaC45TpEe6mW8CwxXt0KA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_rXZb1ZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXZb1pTpEe6mW8CwxXt0KA" x="29" y="29"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_rXap8JTpEe6mW8CwxXt0KA" type="3008" element="_rWRacZTpEe6mW8CwxXt0KA">
+                  <children xmi:type="notation:Node" xmi:id="_rXap85TpEe6mW8CwxXt0KA" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_rXbRAJTpEe6mW8CwxXt0KA" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_rXgJgJTpEe6mW8CwxXt0KA" type="3008" element="_rWZ9UJTpEe6mW8CwxXt0KA">
+                      <children xmi:type="notation:Node" xmi:id="_rXgwkJTpEe6mW8CwxXt0KA" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_rXgwkZTpEe6mW8CwxXt0KA" type="7002">
+                        <children xmi:type="notation:Node" xmi:id="_rXgwlJTpEe6mW8CwxXt0KA" type="3008" element="_rWbLcJTpEe6mW8CwxXt0KA">
+                          <children xmi:type="notation:Node" xmi:id="_rXhXoJTpEe6mW8CwxXt0KA" type="5005"/>
+                          <children xmi:type="notation:Node" xmi:id="_rXhXoZTpEe6mW8CwxXt0KA" type="7002">
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_rXhXopTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_rXhXo5TpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:DrawerStyle" xmi:id="_rXhXpJTpEe6mW8CwxXt0KA"/>
+                          </children>
+                          <styles xmi:type="notation:ShapeStyle" xmi:id="_rXgwlZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXgwlpTpEe6mW8CwxXt0KA"/>
+                        </children>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_rXgwkpTpEe6mW8CwxXt0KA"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_rXgwk5TpEe6mW8CwxXt0KA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_rXgJgZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXgJgpTpEe6mW8CwxXt0KA" x="30" y="29"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_rXbRAZTpEe6mW8CwxXt0KA"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_rXbRApTpEe6mW8CwxXt0KA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_rXap8ZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXap8pTpEe6mW8CwxXt0KA" x="549" y="29"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_rXW_kpTpEe6mW8CwxXt0KA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_rXW_k5TpEe6mW8CwxXt0KA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_rXWYgZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXWYgpTpEe6mW8CwxXt0KA" x="26" y="29"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_rXXmoJTpEe6mW8CwxXt0KA" type="3008" element="_rWNwEJTpEe6mW8CwxXt0KA">
+              <children xmi:type="notation:Node" xmi:id="_rXYNsJTpEe6mW8CwxXt0KA" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_rXYNsZTpEe6mW8CwxXt0KA" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_rXhXpZTpEe6mW8CwxXt0KA" type="3008" element="_rWcZkJTpEe6mW8CwxXt0KA">
+                  <children xmi:type="notation:Node" xmi:id="_rXh-sJTpEe6mW8CwxXt0KA" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_rXh-sZTpEe6mW8CwxXt0KA" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_rXh-tJTpEe6mW8CwxXt0KA" type="3008" element="_rWdnsJTpEe6mW8CwxXt0KA">
+                      <children xmi:type="notation:Node" xmi:id="_rXilwJTpEe6mW8CwxXt0KA" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_rXilwZTpEe6mW8CwxXt0KA" type="7002">
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_rXilwpTpEe6mW8CwxXt0KA"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_rXilw5TpEe6mW8CwxXt0KA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_rXh-tZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXh-tpTpEe6mW8CwxXt0KA" x="30" y="29"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_rXilxJTpEe6mW8CwxXt0KA" type="3008" element="_rWfc4JTpEe6mW8CwxXt0KA">
+                      <children xmi:type="notation:Node" xmi:id="_rXjM0JTpEe6mW8CwxXt0KA" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_rXjM0ZTpEe6mW8CwxXt0KA" type="7002">
+                        <children xmi:type="notation:Node" xmi:id="_rXjz4JTpEe6mW8CwxXt0KA" type="3008" element="_rWhSEJTpEe6mW8CwxXt0KA">
+                          <children xmi:type="notation:Node" xmi:id="_rXka8JTpEe6mW8CwxXt0KA" type="5005"/>
+                          <children xmi:type="notation:Node" xmi:id="_rXlCAJTpEe6mW8CwxXt0KA" type="7002">
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_rXlCAZTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_rXlCApTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:DrawerStyle" xmi:id="_rXlCA5TpEe6mW8CwxXt0KA"/>
+                          </children>
+                          <styles xmi:type="notation:ShapeStyle" xmi:id="_rXjz4ZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXjz4pTpEe6mW8CwxXt0KA"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_rXlCBJTpEe6mW8CwxXt0KA" type="3008" element="_rWjHQJTpEe6mW8CwxXt0KA">
+                          <children xmi:type="notation:Node" xmi:id="_rXlpEJTpEe6mW8CwxXt0KA" type="5005"/>
+                          <children xmi:type="notation:Node" xmi:id="_rXmQIJTpEe6mW8CwxXt0KA" type="7002">
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_rXmQIZTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_rXmQIpTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:DrawerStyle" xmi:id="_rXmQI5TpEe6mW8CwxXt0KA"/>
+                          </children>
+                          <styles xmi:type="notation:ShapeStyle" xmi:id="_rXlCBZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXlCBpTpEe6mW8CwxXt0KA" y="40"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_rXmQJJTpEe6mW8CwxXt0KA" type="3008" element="_rWkVYJTpEe6mW8CwxXt0KA">
+                          <children xmi:type="notation:Node" xmi:id="_rXm3MJTpEe6mW8CwxXt0KA" type="5005"/>
+                          <children xmi:type="notation:Node" xmi:id="_rXm3MZTpEe6mW8CwxXt0KA" type="7002">
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_rXm3MpTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_rXm3M5TpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:DrawerStyle" xmi:id="_rXm3NJTpEe6mW8CwxXt0KA"/>
+                          </children>
+                          <styles xmi:type="notation:ShapeStyle" xmi:id="_rXmQJZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXmQJpTpEe6mW8CwxXt0KA" y="80"/>
+                        </children>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_rXjM0pTpEe6mW8CwxXt0KA"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_rXjM05TpEe6mW8CwxXt0KA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_rXilxZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXilxpTpEe6mW8CwxXt0KA" x="200" y="29"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_rXh-spTpEe6mW8CwxXt0KA"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_rXh-s5TpEe6mW8CwxXt0KA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_rXhXppTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXhXp5TpEe6mW8CwxXt0KA" x="30" y="29"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_rXYNspTpEe6mW8CwxXt0KA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_rXYNs5TpEe6mW8CwxXt0KA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_rXXmoZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXXmopTpEe6mW8CwxXt0KA" x="815" y="29"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_rXY0wJTpEe6mW8CwxXt0KA" type="3008" element="_rWOXIZTpEe6mW8CwxXt0KA">
+              <children xmi:type="notation:Node" xmi:id="_rXZb0JTpEe6mW8CwxXt0KA" type="5005"/>
+              <children xmi:type="notation:Node" xmi:id="_rXZb0ZTpEe6mW8CwxXt0KA" type="7002">
+                <children xmi:type="notation:Node" xmi:id="_rXneQJTpEe6mW8CwxXt0KA" type="3008" element="_rWljgJTpEe6mW8CwxXt0KA">
+                  <children xmi:type="notation:Node" xmi:id="_rXoFUJTpEe6mW8CwxXt0KA" type="5005"/>
+                  <children xmi:type="notation:Node" xmi:id="_rXoFUZTpEe6mW8CwxXt0KA" type="7002">
+                    <children xmi:type="notation:Node" xmi:id="_rXoFVJTpEe6mW8CwxXt0KA" type="3008" element="_rWmxoJTpEe6mW8CwxXt0KA">
+                      <children xmi:type="notation:Node" xmi:id="_rXosYJTpEe6mW8CwxXt0KA" type="5005"/>
+                      <children xmi:type="notation:Node" xmi:id="_rXosYZTpEe6mW8CwxXt0KA" type="7002">
+                        <children xmi:type="notation:Node" xmi:id="_rXpTcJTpEe6mW8CwxXt0KA" type="3008" element="_rWn_wJTpEe6mW8CwxXt0KA">
+                          <children xmi:type="notation:Node" xmi:id="_rXpTc5TpEe6mW8CwxXt0KA" type="5005"/>
+                          <children xmi:type="notation:Node" xmi:id="_rXp6gJTpEe6mW8CwxXt0KA" type="7002">
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_rXp6gZTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_rXp6gpTpEe6mW8CwxXt0KA"/>
+                            <styles xmi:type="notation:DrawerStyle" xmi:id="_rXp6g5TpEe6mW8CwxXt0KA"/>
+                          </children>
+                          <styles xmi:type="notation:ShapeStyle" xmi:id="_rXpTcZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXpTcpTpEe6mW8CwxXt0KA"/>
+                        </children>
+                        <styles xmi:type="notation:SortingStyle" xmi:id="_rXosYpTpEe6mW8CwxXt0KA"/>
+                        <styles xmi:type="notation:FilteringStyle" xmi:id="_rXosY5TpEe6mW8CwxXt0KA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_rXoFVZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXoFVpTpEe6mW8CwxXt0KA" x="30" y="29"/>
+                    </children>
+                    <styles xmi:type="notation:SortingStyle" xmi:id="_rXoFUpTpEe6mW8CwxXt0KA"/>
+                    <styles xmi:type="notation:FilteringStyle" xmi:id="_rXoFU5TpEe6mW8CwxXt0KA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_rXneQZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXneQpTpEe6mW8CwxXt0KA" x="30" y="29"/>
+                </children>
+                <styles xmi:type="notation:SortingStyle" xmi:id="_rXZb0pTpEe6mW8CwxXt0KA"/>
+                <styles xmi:type="notation:FilteringStyle" xmi:id="_rXZb05TpEe6mW8CwxXt0KA"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_rXY0wZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXY0wpTpEe6mW8CwxXt0KA" x="1320" y="29"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_rXPq0ZTpEe6mW8CwxXt0KA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_rXPq0pTpEe6mW8CwxXt0KA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_rXHvAZTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="14"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rXHvApTpEe6mW8CwxXt0KA"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_rT2_opTpEe6mW8CwxXt0KA"/>
+        <edges xmi:type="notation:Edge" xmi:id="_rX3V4JTpEe6mW8CwxXt0KA" type="4001" element="_rWwioJTpEe6mW8CwxXt0KA" source="_rXdtQ5TpEe6mW8CwxXt0KA" target="_rXbRA5TpEe6mW8CwxXt0KA">
+          <children xmi:type="notation:Node" xmi:id="_rX4kAJTpEe6mW8CwxXt0KA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rX4kAZTpEe6mW8CwxXt0KA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_rX6ZMJTpEe6mW8CwxXt0KA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rX6ZMZTpEe6mW8CwxXt0KA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_rX7AQJTpEe6mW8CwxXt0KA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rX7AQZTpEe6mW8CwxXt0KA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_rX3V4ZTpEe6mW8CwxXt0KA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_rX3V4pTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rX3V45TpEe6mW8CwxXt0KA" points="[-1, 0, -131, 60]$[129, -60, -1, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rYGmcJTpEe6mW8CwxXt0KA" id="(0.5054347826086957,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rYGmcZTpEe6mW8CwxXt0KA" id="(0.5058823529411764,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_rYHNgJTpEe6mW8CwxXt0KA" type="4001" element="_rW0NAJTpEe6mW8CwxXt0KA" source="_rXcfIJTpEe6mW8CwxXt0KA" target="_rXbRA5TpEe6mW8CwxXt0KA">
+          <children xmi:type="notation:Node" xmi:id="_rYHNhJTpEe6mW8CwxXt0KA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rYHNhZTpEe6mW8CwxXt0KA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_rYHNhpTpEe6mW8CwxXt0KA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rYHNh5TpEe6mW8CwxXt0KA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_rYHNiJTpEe6mW8CwxXt0KA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rYHNiZTpEe6mW8CwxXt0KA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_rYHNgZTpEe6mW8CwxXt0KA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_rYHNgpTpEe6mW8CwxXt0KA" fontName="Cantarell" fontHeight="12"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rYHNg5TpEe6mW8CwxXt0KA" points="[-1, 0, 129, 60]$[-131, -60, -1, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rYIboJTpEe6mW8CwxXt0KA" id="(0.5047169811320755,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rYIboZTpEe6mW8CwxXt0KA" id="(0.5058823529411764,1.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_rW3QUJTpEe6mW8CwxXt0KA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_rW33YJTpEe6mW8CwxXt0KA"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rUG3QJTpEe6mW8CwxXt0KA" name="Domain Model Layer">
+      <target xmi:type="microserviceMetamodell:DomainModelLayer" href="SampleModel.microservicemetamodell#//@domainModelLayer"/>
+      <semanticElements xmi:type="microserviceMetamodell:DomainModelLayer" href="SampleModel.microservicemetamodell#//@domainModelLayer"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rUpCwJTpEe6mW8CwxXt0KA" labelSize="14" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rUvwcJTpEe6mW8CwxXt0KA" name="Customer">
+        <target xmi:type="microserviceMetamodell:BoundedContext" href="SampleModel.microservicemetamodell#//@domainModelLayer/@boundedContexts.0"/>
+        <semanticElements xmi:type="microserviceMetamodell:BoundedContext" href="SampleModel.microservicemetamodell#//@domainModelLayer/@boundedContexts.0"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWNJAJTpEe6mW8CwxXt0KA" labelSize="14" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWQMUJTpEe6mW8CwxXt0KA" name="customer">
+          <target xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0"/>
+          <semanticElements xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWQzYJTpEe6mW8CwxXt0KA" labelSize="14" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']"/>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWTPoJTpEe6mW8CwxXt0KA" name="CustomerEntity" incomingEdges="_rWwioJTpEe6mW8CwxXt0KA _rW0NAJTpEe6mW8CwxXt0KA" childrenPresentation="VerticalStack">
+            <target xmi:type="microserviceMetamodell:Entity" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0"/>
+            <semanticElements xmi:type="microserviceMetamodell:Entity" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWT2sJTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/EntityIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="138,226,52" foregroundColor="138,226,52">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='entity']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='entity']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWWS8JTpEe6mW8CwxXt0KA" name="CustomerRepository" outgoingEdges="_rW0NAJTpEe6mW8CwxXt0KA" childrenPresentation="VerticalStack">
+            <target xmi:type="microserviceMetamodell:Repository" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.2"/>
+            <semanticElements xmi:type="microserviceMetamodell:Repository" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.2"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWWS8ZTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/RepoIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="253,206,137" foregroundColor="253,206,137">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='repository']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='repository']"/>
+            <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWW6AJTpEe6mW8CwxXt0KA" name="searchForCustomer">
+              <target xmi:type="microserviceMetamodell:Behaviour" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.2/@behaviours.0"/>
+              <semanticElements xmi:type="microserviceMetamodell:Behaviour" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.2/@behaviours.0"/>
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWXhEJTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/Behaviour32px.png" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+                <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='repository']/@subContainerMappings[name='behaviour']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='repository']/@subContainerMappings[name='behaviour']"/>
+            </ownedDiagramElements>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWYIIZTpEe6mW8CwxXt0KA" name="CustomerFactory" outgoingEdges="_rWwioJTpEe6mW8CwxXt0KA" childrenPresentation="VerticalStack">
+            <target xmi:type="microserviceMetamodell:Factory" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.1"/>
+            <semanticElements xmi:type="microserviceMetamodell:Factory" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.1"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWYvMJTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/FactoryIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='factory']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='factory']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWRacZTpEe6mW8CwxXt0KA" name="login">
+          <target xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.1"/>
+          <semanticElements xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.1"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWSBgJTpEe6mW8CwxXt0KA" labelSize="14" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']"/>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWZ9UJTpEe6mW8CwxXt0KA" name="LoginService" childrenPresentation="VerticalStack">
+            <target xmi:type="microserviceMetamodell:Service" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.1/@modelElements.0"/>
+            <semanticElements xmi:type="microserviceMetamodell:Service" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.1/@modelElements.0"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWZ9UZTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/ServiceIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="114,159,207" foregroundColor="114,159,207">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']"/>
+            <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWbLcJTpEe6mW8CwxXt0KA" name="loginUser">
+              <target xmi:type="microserviceMetamodell:Behaviour" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.1/@modelElements.0/@behaviours.0"/>
+              <semanticElements xmi:type="microserviceMetamodell:Behaviour" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.1/@modelElements.0/@behaviours.0"/>
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWbLcZTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/Behaviour32px.png" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+                <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']/@subContainerMappings[name='behaviour']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']/@subContainerMappings[name='behaviour']"/>
+            </ownedDiagramElements>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWNwEJTpEe6mW8CwxXt0KA" name="Order">
+        <target xmi:type="microserviceMetamodell:BoundedContext" href="SampleModel.microservicemetamodell#//@domainModelLayer/@boundedContexts.1"/>
+        <semanticElements xmi:type="microserviceMetamodell:BoundedContext" href="SampleModel.microservicemetamodell#//@domainModelLayer/@boundedContexts.1"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWNwEZTpEe6mW8CwxXt0KA" labelSize="14" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWcZkJTpEe6mW8CwxXt0KA" name="order">
+          <target xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0"/>
+          <semanticElements xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWdAoJTpEe6mW8CwxXt0KA" labelSize="14" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']"/>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWdnsJTpEe6mW8CwxXt0KA" name="OrderEntity" childrenPresentation="VerticalStack">
+            <target xmi:type="microserviceMetamodell:Entity" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.0"/>
+            <semanticElements xmi:type="microserviceMetamodell:Entity" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.0"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWdnsZTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/EntityIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="138,226,52" foregroundColor="138,226,52">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='entity']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='entity']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWfc4JTpEe6mW8CwxXt0KA" name="OrderAggregate" childrenPresentation="VerticalStack">
+            <target xmi:type="microserviceMetamodell:Aggregate" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1"/>
+            <semanticElements xmi:type="microserviceMetamodell:Aggregate" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWgD8JTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/AggregateIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="252,233,79" foregroundColor="252,233,79">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']"/>
+            <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWhSEJTpEe6mW8CwxXt0KA" name="RootEntity" childrenPresentation="VerticalStack">
+              <target xmi:type="microserviceMetamodell:EntityNode" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1/@aggregateRoot"/>
+              <semanticElements xmi:type="microserviceMetamodell:EntityNode" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1/@aggregateRoot"/>
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWhSEZTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/EntityIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="138,226,52" foregroundColor="138,226,52">
+                <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']/@subContainerMappings[name='entity']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']/@subContainerMappings[name='entity']"/>
+            </ownedDiagramElements>
+            <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWjHQJTpEe6mW8CwxXt0KA" name="ValueObjectNode">
+              <target xmi:type="microserviceMetamodell:ValueObjectNode" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1/@aggregateNode.0"/>
+              <semanticElements xmi:type="microserviceMetamodell:ValueObjectNode" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1/@aggregateNode.0"/>
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWjuUJTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/ValueIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="217,196,215" foregroundColor="217,196,215">
+                <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']/@subContainerMappings[name='valueObjectNode']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']/@subContainerMappings[name='valueObjectNode']"/>
+            </ownedDiagramElements>
+            <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWkVYJTpEe6mW8CwxXt0KA" name="EntityNode" childrenPresentation="VerticalStack">
+              <target xmi:type="microserviceMetamodell:EntityNode" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1/@aggregateNode.1"/>
+              <semanticElements xmi:type="microserviceMetamodell:EntityNode" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1/@aggregateNode.1"/>
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWkVYZTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/EntityIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="138,226,52" foregroundColor="138,226,52">
+                <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']/@subContainerMappings[name='entityNode']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='aggregate']/@subContainerMappings[name='entityNode']"/>
+            </ownedDiagramElements>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWOXIZTpEe6mW8CwxXt0KA" name="GDPR">
+        <target xmi:type="microserviceMetamodell:BoundedContext" href="SampleModel.microservicemetamodell#//@domainModelLayer/@boundedContexts.2"/>
+        <semanticElements xmi:type="microserviceMetamodell:BoundedContext" href="SampleModel.microservicemetamodell#//@domainModelLayer/@boundedContexts.2"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWOXIpTpEe6mW8CwxXt0KA" labelSize="14" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWljgJTpEe6mW8CwxXt0KA" name="gdpr">
+          <target xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.2/@modules.0"/>
+          <semanticElements xmi:type="microserviceMetamodell:Module" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.2/@modules.0"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWmKkJTpEe6mW8CwxXt0KA" labelSize="14" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']"/>
+          <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWmxoJTpEe6mW8CwxXt0KA" name="DataDeletionService" childrenPresentation="VerticalStack">
+            <target xmi:type="microserviceMetamodell:Service" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0"/>
+            <semanticElements xmi:type="microserviceMetamodell:Service" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0"/>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWnYsJTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/ServiceIcon32px.png" borderSize="1" borderSizeComputationExpression="1" backgroundColor="114,159,207" foregroundColor="114,159,207">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']"/>
+            <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_rWn_wJTpEe6mW8CwxXt0KA" name="deleteAllDataForCustomer">
+              <target xmi:type="microserviceMetamodell:Behaviour" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0/@behaviours.0"/>
+              <semanticElements xmi:type="microserviceMetamodell:Behaviour" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0/@behaviours.0"/>
+              <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_rWpN4JTpEe6mW8CwxXt0KA" labelSize="14" iconPath="/microService.design/ressources/icons/Behaviour32px.png" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+                <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']/@subContainerMappings[name='behaviour']/@style"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@containerMappings[name='domainModelLayer']/@subContainerMappings[name='boundedContext']/@subContainerMappings[name='module']/@subContainerMappings[name='service']/@subContainerMappings[name='behaviour']"/>
+            </ownedDiagramElements>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rWwioJTpEe6mW8CwxXt0KA" sourceNode="_rWYIIZTpEe6mW8CwxXt0KA" targetNode="_rWTPoJTpEe6mW8CwxXt0KA">
+      <target xmi:type="microserviceMetamodell:Factory" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rWyX0JTpEe6mW8CwxXt0KA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@edgeMappings[name='factoryFor']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_rWy-4JTpEe6mW8CwxXt0KA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@edgeMappings[name='factoryFor']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rW0NAJTpEe6mW8CwxXt0KA" sourceNode="_rWWS8JTpEe6mW8CwxXt0KA" targetNode="_rWTPoJTpEe6mW8CwxXt0KA">
+      <target xmi:type="microserviceMetamodell:Repository" href="SampleModel.microservicemetamodell#//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.2"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rW0NAZTpEe6mW8CwxXt0KA" size="2">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@edgeMappings[name='repositoryFor']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_rW0NApTpEe6mW8CwxXt0KA" labelSize="12"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']/@edgeMappings[name='repositoryFor']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_rTDHUJTpEe6mW8CwxXt0KA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/microService.design/description/microService.odesign#//@ownedViewpoints[name='DomainModelViewpoint']/@ownedRepresentations[name='ModelDescription']/@additionalLayers[name='domainModelLayerElements']"/>
+    <target xmi:type="microserviceMetamodell:SystemModel" href="SampleModel.microservicemetamodell#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
