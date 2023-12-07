@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
+<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
   <domainModelLayer>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="ExampleContext A"/>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="ExampleContext B"/>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.2" contextName="ExampleContext C"/>
-    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="DomainModel A"/>
-    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="DomainModel B"/>
-    <domainModels domainEvents="//@domainModelLayer/@domainEvents.2" boundedContext="//@domainModelLayer/@boundedContexts.2" modelName="DomainModel C"/>
-    <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="SomeEvent A"/>
-    <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="SomeEvent B"/>
-    <domainEvents domainModel="//@domainModelLayer/@domainModels.2" eventName="SomeEvent C"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="Customer"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="Order"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.2" contextName="GDPR"/>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="Customer">
+      <modules moduleName="customer">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="CustomerEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Factory" elementName="CustomerFactory" factoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="CustomerRepository" repositoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0">
+          <behaviours behaviourName="searchForCustomer"/>
+        </modelElements>
+      </modules>
+      <modules moduleName="login">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="LoginService">
+          <behaviours behaviourName="loginUser"/>
+        </modelElements>
+      </modules>
+    </domainModels>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="Order">
+      <modules moduleName="order">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="OrderEntity">
+          <valueObjects elementName="OrderDetails"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Aggregate" elementName="OrderAggregate">
+          <aggregateRoot elementName="RootEntity"/>
+          <aggregateNode xsi:type="microserviceMetamodell:ValueObjectNode" elementName="ValueObjectNode"/>
+          <aggregateNode xsi:type="microserviceMetamodell:EntityNode" elementName="EntityNode"/>
+        </modelElements>
+      </modules>
+    </domainModels>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.2" boundedContext="//@domainModelLayer/@boundedContexts.2" modelName="GDPRDomainModel">
+      <modules moduleName="gdpr">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="DataDeletionService">
+          <behaviours behaviourName="deleteAllDataForCustomer"/>
+        </modelElements>
+      </modules>
+    </domainModels>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="CustomerCreated"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="OrderCreated"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.2" eventName="DataDeletionRequested"/>
   </domainModelLayer>
 </microserviceMetamodell:SystemModel>
