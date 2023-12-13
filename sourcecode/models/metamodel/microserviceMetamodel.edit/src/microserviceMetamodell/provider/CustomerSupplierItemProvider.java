@@ -5,13 +5,16 @@ package microserviceMetamodell.provider;
 
 import java.util.Collection;
 import java.util.List;
-
+import microserviceMetamodell.CustomerSupplier;
+import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link microserviceMetamodell.CustomerSupplier} object.
@@ -19,7 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomerSupplierItemProvider extends UpstreamDownstreamRelationshipItemProvider {
+public class CustomerSupplierItemProvider extends BoundedContextRelationshipItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -46,6 +49,37 @@ public class CustomerSupplierItemProvider extends UpstreamDownstreamRelationship
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns CustomerSupplier.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,7 +98,10 @@ public class CustomerSupplierItemProvider extends UpstreamDownstreamRelationship
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CustomerSupplier_type");
+		String label = ((CustomerSupplier)object).getRelationshipName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CustomerSupplier_type") :
+			getString("_UI_CustomerSupplier_type") + " " + label;
 	}
 
 
@@ -78,6 +115,13 @@ public class CustomerSupplierItemProvider extends UpstreamDownstreamRelationship
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(CustomerSupplier.class)) {
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__DOWNSTREAM:
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -91,29 +135,26 @@ public class CustomerSupplierItemProvider extends UpstreamDownstreamRelationship
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
 
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM,
+				 MicroserviceMetamodellFactory.eINSTANCE.createConformist()));
 
-		boolean qualify =
-			childFeature == MicroserviceMetamodellPackage.Literals.UPSTREAM_DOWNSTREAM_RELATIONSHIP__DOWNSTREAM ||
-			childFeature == MicroserviceMetamodellPackage.Literals.UPSTREAM_DOWNSTREAM_RELATIONSHIP__UPSTREAM;
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM,
+				 MicroserviceMetamodellFactory.eINSTANCE.createAnticorruptionLayer()));
 
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM,
+				 MicroserviceMetamodellFactory.eINSTANCE.createOpenHostService()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM,
+				 MicroserviceMetamodellFactory.eINSTANCE.createPublishedLanguage()));
 	}
 
 }

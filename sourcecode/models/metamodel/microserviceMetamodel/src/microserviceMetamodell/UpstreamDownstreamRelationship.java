@@ -2,6 +2,7 @@
  */
 package microserviceMetamodell;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package microserviceMetamodell;
  * @model abstract="true"
  * @generated
  */
-public interface UpstreamDownstreamRelationship extends BoundedContextRelationship {
+public interface UpstreamDownstreamRelationship extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Downstream</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

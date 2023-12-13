@@ -8,17 +8,23 @@ import microserviceMetamodell.AsynchronousInterface;
 import microserviceMetamodell.AsynchronousInterfaceRole;
 import microserviceMetamodell.Behaviour;
 import microserviceMetamodell.BoundedContext;
+import microserviceMetamodell.Broker;
+import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.CloudConfiguration;
 import microserviceMetamodell.Conformist;
 import microserviceMetamodell.CustomerSupplier;
+import microserviceMetamodell.DeployementAbstraction;
 import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.DomainModel;
 import microserviceMetamodell.DomainModelLayer;
 import microserviceMetamodell.Entity;
 import microserviceMetamodell.EntityNode;
+import microserviceMetamodell.ExternalDependency;
 import microserviceMetamodell.Factory;
 import microserviceMetamodell.HttpMethod;
 import microserviceMetamodell.ImplementationTechnology;
 import microserviceMetamodell.InfrastructureLayer;
+import microserviceMetamodell.KafkaConfiguration;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
@@ -29,10 +35,11 @@ import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
 import microserviceMetamodell.Service;
 import microserviceMetamodell.SharedKernel;
+import microserviceMetamodell.SharedModule;
 import microserviceMetamodell.SynchronousInterface;
 import microserviceMetamodell.SystemModel;
 import microserviceMetamodell.TechnicalLayer;
-import microserviceMetamodell.TopologyType;
+import microserviceMetamodell.Topic;
 import microserviceMetamodell.ValueObject;
 import microserviceMetamodell.ValueObjectNode;
 import microserviceMetamodell.WorkflowRole;
@@ -117,6 +124,14 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 			case MicroserviceMetamodellPackage.MODEL_ELEMENT_IMPLEMENTATION: return createModelElementImplementation();
 			case MicroserviceMetamodellPackage.VALUE_OBJECT_NODE: return createValueObjectNode();
 			case MicroserviceMetamodellPackage.ENTITY_NODE: return createEntityNode();
+			case MicroserviceMetamodellPackage.DEPLOYEMENT_ABSTRACTION: return createDeployementAbstraction();
+			case MicroserviceMetamodellPackage.CLOUD_CONFIGURATION: return createCloudConfiguration();
+			case MicroserviceMetamodellPackage.EXTERNAL_DEPENDENCY: return createExternalDependency();
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION: return createBuildConfiguration();
+			case MicroserviceMetamodellPackage.SHARED_MODULE: return createSharedModule();
+			case MicroserviceMetamodellPackage.KAFKA_CONFIGURATION: return createKafkaConfiguration();
+			case MicroserviceMetamodellPackage.TOPIC: return createTopic();
+			case MicroserviceMetamodellPackage.BROKER: return createBroker();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -134,8 +149,6 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 				return createHttpMethodFromString(eDataType, initialValue);
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE_ROLE:
 				return createAsynchronousInterfaceRoleFromString(eDataType, initialValue);
-			case MicroserviceMetamodellPackage.TOPOLOGY_TYPE:
-				return createTopologyTypeFromString(eDataType, initialValue);
 			case MicroserviceMetamodellPackage.WORKFLOW_ROLE:
 				return createWorkflowRoleFromString(eDataType, initialValue);
 			case MicroserviceMetamodellPackage.IMPLEMENTATION_TECHNOLOGY:
@@ -157,8 +170,6 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 				return convertHttpMethodToString(eDataType, instanceValue);
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE_ROLE:
 				return convertAsynchronousInterfaceRoleToString(eDataType, instanceValue);
-			case MicroserviceMetamodellPackage.TOPOLOGY_TYPE:
-				return convertTopologyTypeToString(eDataType, instanceValue);
 			case MicroserviceMetamodellPackage.WORKFLOW_ROLE:
 				return convertWorkflowRoleToString(eDataType, instanceValue);
 			case MicroserviceMetamodellPackage.IMPLEMENTATION_TECHNOLOGY:
@@ -206,6 +217,86 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	public EntityNode createEntityNode() {
 		EntityNodeImpl entityNode = new EntityNodeImpl();
 		return entityNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeployementAbstraction createDeployementAbstraction() {
+		DeployementAbstractionImpl deployementAbstraction = new DeployementAbstractionImpl();
+		return deployementAbstraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConfiguration createCloudConfiguration() {
+		CloudConfigurationImpl cloudConfiguration = new CloudConfigurationImpl();
+		return cloudConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExternalDependency createExternalDependency() {
+		ExternalDependencyImpl externalDependency = new ExternalDependencyImpl();
+		return externalDependency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildConfiguration createBuildConfiguration() {
+		BuildConfigurationImpl buildConfiguration = new BuildConfigurationImpl();
+		return buildConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SharedModule createSharedModule() {
+		SharedModuleImpl sharedModule = new SharedModuleImpl();
+		return sharedModule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public KafkaConfiguration createKafkaConfiguration() {
+		KafkaConfigurationImpl kafkaConfiguration = new KafkaConfigurationImpl();
+		return kafkaConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Topic createTopic() {
+		TopicImpl topic = new TopicImpl();
+		return topic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Broker createBroker() {
+		BrokerImpl broker = new BrokerImpl();
+		return broker;
 	}
 
 	/**
@@ -485,26 +576,6 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	 * @generated
 	 */
 	public String convertAsynchronousInterfaceRoleToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TopologyType createTopologyTypeFromString(EDataType eDataType, String initialValue) {
-		TopologyType result = TopologyType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTopologyTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

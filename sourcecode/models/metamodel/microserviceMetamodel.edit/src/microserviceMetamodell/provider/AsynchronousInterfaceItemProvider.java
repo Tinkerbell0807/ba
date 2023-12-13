@@ -46,8 +46,8 @@ public class AsynchronousInterfaceItemProvider extends InterfaceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addInterfaceRolePropertyDescriptor(object);
-			addTopologyTypePropertyDescriptor(object);
-			addDomainEventPropertyDescriptor(object);
+			addDomainEventsPropertyDescriptor(object);
+			addTopicPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,41 +75,41 @@ public class AsynchronousInterfaceItemProvider extends InterfaceItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Topology Type feature.
+	 * This adds a property descriptor for the Domain Events feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTopologyTypePropertyDescriptor(Object object) {
+	protected void addDomainEventsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AsynchronousInterface_topologyType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AsynchronousInterface_topologyType_feature", "_UI_AsynchronousInterface_type"),
-				 MicroserviceMetamodellPackage.Literals.ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE,
+				 getString("_UI_AsynchronousInterface_domainEvents_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AsynchronousInterface_domainEvents_feature", "_UI_AsynchronousInterface_type"),
+				 MicroserviceMetamodellPackage.Literals.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Domain Event feature.
+	 * This adds a property descriptor for the Topic feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDomainEventPropertyDescriptor(Object object) {
+	protected void addTopicPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AsynchronousInterface_domainEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AsynchronousInterface_domainEvent_feature", "_UI_AsynchronousInterface_type"),
-				 MicroserviceMetamodellPackage.Literals.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT,
+				 getString("_UI_AsynchronousInterface_topic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AsynchronousInterface_topic_feature", "_UI_AsynchronousInterface_type"),
+				 MicroserviceMetamodellPackage.Literals.ASYNCHRONOUS_INTERFACE__TOPIC,
 				 true,
 				 false,
 				 true,
@@ -157,7 +157,6 @@ public class AsynchronousInterfaceItemProvider extends InterfaceItemProvider {
 
 		switch (notification.getFeatureID(AsynchronousInterface.class)) {
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE:
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link microserviceMetamodell.DomainModel#getModules <em>Modules</em>}</li>
  *   <li>{@link microserviceMetamodell.DomainModel#getBoundedContext <em>Bounded Context</em>}</li>
  *   <li>{@link microserviceMetamodell.DomainModel#getModelName <em>Model Name</em>}</li>
+ *   <li>{@link microserviceMetamodell.DomainModel#getSharedModules <em>Shared Modules</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getDomainModel()
@@ -97,5 +98,17 @@ public interface DomainModel extends EObject {
 	 * @generated
 	 */
 	void setModelName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Shared Modules</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.SharedModule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Shared Modules</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getDomainModel_SharedModules()
+	 * @model
+	 * @generated
+	 */
+	EList<SharedModule> getSharedModules();
 
 } // DomainModel

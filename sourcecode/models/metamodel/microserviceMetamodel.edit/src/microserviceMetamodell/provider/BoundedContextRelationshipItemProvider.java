@@ -6,6 +6,7 @@ package microserviceMetamodell.provider;
 import java.util.Collection;
 import java.util.List;
 
+import microserviceMetamodell.BoundedContextRelationship;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -20,7 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link microserviceMetamodell.BoundedContextRelationship} object.
@@ -58,7 +61,7 @@ public class BoundedContextRelationshipItemProvider
 			super.getPropertyDescriptors(object);
 
 			addInterfacePropertyDescriptor(object);
-			addRelatedContextPropertyDescriptor(object);
+			addRelationshipNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,23 +89,23 @@ public class BoundedContextRelationshipItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Related Context feature.
+	 * This adds a property descriptor for the Relationship Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRelatedContextPropertyDescriptor(Object object) {
+	protected void addRelationshipNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BoundedContextRelationship_relatedContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BoundedContextRelationship_relatedContext_feature", "_UI_BoundedContextRelationship_type"),
-				 MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT,
+				 getString("_UI_BoundedContextRelationship_relationshipName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BoundedContextRelationship_relationshipName_feature", "_UI_BoundedContextRelationship_type"),
+				 MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -115,7 +118,10 @@ public class BoundedContextRelationshipItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BoundedContextRelationship_type");
+		String label = ((BoundedContextRelationship)object).getRelationshipName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BoundedContextRelationship_type") :
+			getString("_UI_BoundedContextRelationship_type") + " " + label;
 	}
 
 
@@ -129,6 +135,12 @@ public class BoundedContextRelationshipItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(BoundedContextRelationship.class)) {
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

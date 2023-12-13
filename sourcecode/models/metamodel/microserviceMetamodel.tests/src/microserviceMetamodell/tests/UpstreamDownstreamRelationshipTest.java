@@ -2,6 +2,7 @@
  */
 package microserviceMetamodell.tests;
 
+import junit.framework.TestCase;
 import microserviceMetamodell.UpstreamDownstreamRelationship;
 
 /**
@@ -10,7 +11,15 @@ import microserviceMetamodell.UpstreamDownstreamRelationship;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class UpstreamDownstreamRelationshipTest extends BoundedContextRelationshipTest {
+public abstract class UpstreamDownstreamRelationshipTest extends TestCase {
+
+	/**
+	 * The fixture for this Upstream Downstream Relationship test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UpstreamDownstreamRelationship fixture = null;
 
 	/**
 	 * Constructs a new Upstream Downstream Relationship test case with the given name.
@@ -23,6 +32,16 @@ public abstract class UpstreamDownstreamRelationshipTest extends BoundedContextR
 	}
 
 	/**
+	 * Sets the fixture for this Upstream Downstream Relationship test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(UpstreamDownstreamRelationship fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Upstream Downstream Relationship test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,7 +49,7 @@ public abstract class UpstreamDownstreamRelationshipTest extends BoundedContextR
 	 */
 	@Override
 	protected UpstreamDownstreamRelationship getFixture() {
-		return (UpstreamDownstreamRelationship)fixture;
+		return fixture;
 	}
 
 } //UpstreamDownstreamRelationshipTest

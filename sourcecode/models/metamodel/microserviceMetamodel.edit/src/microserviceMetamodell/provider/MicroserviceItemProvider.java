@@ -68,6 +68,8 @@ public class MicroserviceItemProvider
 			addCorrespodingContextPropertyDescriptor(object);
 			addImplementationTechnologyPropertyDescriptor(object);
 			addSendsRequestToPropertyDescriptor(object);
+			addDeployementAbstractionPropertyDescriptor(object);
+			addBuildConfigurationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -174,6 +176,50 @@ public class MicroserviceItemProvider
 				 getString("_UI_Microservice_sendsRequestTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Microservice_sendsRequestTo_feature", "_UI_Microservice_type"),
 				 MicroserviceMetamodellPackage.Literals.MICROSERVICE__SENDS_REQUEST_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Deployement Abstraction feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDeployementAbstractionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Microservice_deployementAbstraction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Microservice_deployementAbstraction_feature", "_UI_Microservice_type"),
+				 MicroserviceMetamodellPackage.Literals.MICROSERVICE__DEPLOYEMENT_ABSTRACTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Build Configuration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBuildConfigurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Microservice_buildConfiguration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Microservice_buildConfiguration_feature", "_UI_Microservice_type"),
+				 MicroserviceMetamodellPackage.Literals.MICROSERVICE__BUILD_CONFIGURATION,
 				 true,
 				 false,
 				 true,

@@ -3,7 +3,6 @@
 package microserviceMetamodell.impl;
 
 import java.util.Collection;
-
 import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.BoundedContextRelationship;
 import microserviceMetamodell.DomainModel;
@@ -12,16 +11,13 @@ import microserviceMetamodell.MicroserviceMetamodellPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +77,7 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 	protected Microservice correspodingMicroservice;
 
 	/**
-	 * The cached value of the '{@link #getBoundedContextRelationships() <em>Bounded Context Relationships</em>}' containment reference list.
+	 * The cached value of the '{@link #getBoundedContextRelationships() <em>Bounded Context Relationships</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBoundedContextRelationships()
@@ -257,7 +253,7 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<BoundedContextRelationship> getBoundedContextRelationships() {
 		if (boundedContextRelationships == null) {
-			boundedContextRelationships = new EObjectContainmentEList<BoundedContextRelationship>(BoundedContextRelationship.class, this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS);
+			boundedContextRelationships = new EObjectResolvingEList<BoundedContextRelationship>(BoundedContextRelationship.class, this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS);
 		}
 		return boundedContextRelationships;
 	}
@@ -295,8 +291,6 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 				return basicSetDomainModel(null, msgs);
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE:
 				return basicSetCorrespodingMicroservice(null, msgs);
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS:
-				return ((InternalEList<?>)getBoundedContextRelationships()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

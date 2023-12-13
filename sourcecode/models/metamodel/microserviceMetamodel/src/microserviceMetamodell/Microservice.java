@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link microserviceMetamodell.Microservice#getCorrespodingContext <em>Correspoding Context</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getImplementationTechnology <em>Implementation Technology</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getSendsRequestTo <em>Sends Request To</em>}</li>
+ *   <li>{@link microserviceMetamodell.Microservice#getDeployementAbstraction <em>Deployement Abstraction</em>}</li>
+ *   <li>{@link microserviceMetamodell.Microservice#getBuildConfiguration <em>Build Configuration</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice()
@@ -171,5 +173,53 @@ public interface Microservice extends EObject {
 	 * @generated
 	 */
 	void setSendsRequestTo(RestEndpoint value);
+
+	/**
+	 * Returns the value of the '<em><b>Deployement Abstraction</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.DeployementAbstraction#getMicroservice <em>Microservice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deployement Abstraction</em>' reference.
+	 * @see #setDeployementAbstraction(DeployementAbstraction)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_DeployementAbstraction()
+	 * @see microserviceMetamodell.DeployementAbstraction#getMicroservice
+	 * @model opposite="microservice"
+	 * @generated
+	 */
+	DeployementAbstraction getDeployementAbstraction();
+
+	/**
+	 * Sets the value of the '{@link microserviceMetamodell.Microservice#getDeployementAbstraction <em>Deployement Abstraction</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deployement Abstraction</em>' reference.
+	 * @see #getDeployementAbstraction()
+	 * @generated
+	 */
+	void setDeployementAbstraction(DeployementAbstraction value);
+
+	/**
+	 * Returns the value of the '<em><b>Build Configuration</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.BuildConfiguration#getMicroservice <em>Microservice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Build Configuration</em>' reference.
+	 * @see #setBuildConfiguration(BuildConfiguration)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_BuildConfiguration()
+	 * @see microserviceMetamodell.BuildConfiguration#getMicroservice
+	 * @model opposite="microservice"
+	 * @generated
+	 */
+	BuildConfiguration getBuildConfiguration();
+
+	/**
+	 * Sets the value of the '{@link microserviceMetamodell.Microservice#getBuildConfiguration <em>Build Configuration</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Build Configuration</em>' reference.
+	 * @see #getBuildConfiguration()
+	 * @generated
+	 */
+	void setBuildConfiguration(BuildConfiguration value);
 
 } // Microservice

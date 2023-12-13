@@ -65,7 +65,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getRestEndpoint()
 	 * @generated
 	 */
-	int REST_ENDPOINT = 32;
+	int REST_ENDPOINT = 30;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.ModelElementImplementationImpl <em>Model Element Implementation</em>}' class.
@@ -75,7 +75,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getModelElementImplementation()
 	 * @generated
 	 */
-	int MODEL_ELEMENT_IMPLEMENTATION = 33;
+	int MODEL_ELEMENT_IMPLEMENTATION = 31;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.SystemModelImpl <em>System Model</em>}' class.
@@ -188,13 +188,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int DOMAIN_MODEL__MODEL_NAME = 3;
 
 	/**
+	 * The feature id for the '<em><b>Shared Modules</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL__SHARED_MODULES = 4;
+
+	/**
 	 * The number of structural features of the '<em>Domain Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_MODEL_FEATURE_COUNT = 4;
+	int DOMAIN_MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Domain Model</em>' class.
@@ -243,13 +252,31 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int DOMAIN_MODEL_LAYER__DOMAIN_EVENTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Bounded Context Relationships</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Shared Modules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN_MODEL_LAYER__SHARED_MODULES = 4;
+
+	/**
 	 * The number of structural features of the '<em>Domain Model Layer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_MODEL_LAYER_FEATURE_COUNT = 3;
+	int DOMAIN_MODEL_LAYER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Domain Model Layer</em>' class.
@@ -271,13 +298,58 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int INFRASTRUCTURE_LAYER = 3;
 
 	/**
+	 * The feature id for the '<em><b>Cloud Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_LAYER__CLOUD_CONFIGURATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Deployement Abstractions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Build Configuration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>External Dependency</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Eventing Configurations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Infrastructure Layer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_LAYER_FEATURE_COUNT = 0;
+	int INFRASTRUCTURE_LAYER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Infrastructure Layer</em>' class.
@@ -333,7 +405,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getModelElement()
 	 * @generated
 	 */
-	int MODEL_ELEMENT = 26;
+	int MODEL_ELEMENT = 24;
 
 	/**
 	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
@@ -571,7 +643,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getFactorizeable()
 	 * @generated
 	 */
-	int FACTORIZEABLE = 27;
+	int FACTORIZEABLE = 25;
 
 	/**
 	 * The number of structural features of the '<em>Factorizeable</em>' class.
@@ -858,13 +930,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int MODULE__MODULE_NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Submodules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__SUBMODULES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Module</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = 2;
+	int MODULE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Module</em>' class.
@@ -913,7 +994,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Bounded Context Relationships</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Bounded Context Relationships</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -996,13 +1077,13 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Related Context</b></em>' reference.
+	 * The feature id for the '<em><b>Relationship Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT = 1;
+	int BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Bounded Context Relationship</em>' class.
@@ -1042,13 +1123,40 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int SHARED_KERNEL__INTERFACE = BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE;
 
 	/**
-	 * The feature id for the '<em><b>Related Context</b></em>' reference.
+	 * The feature id for the '<em><b>Relationship Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHARED_KERNEL__RELATED_CONTEXT = BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT;
+	int SHARED_KERNEL__RELATIONSHIP_NAME = BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Related Contexts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_KERNEL__RELATED_CONTEXTS = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Shared Modules</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_KERNEL__SHARED_MODULES = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Implementing Lib</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_KERNEL__IMPLEMENTING_LIB = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Shared Kernel</em>' class.
@@ -1057,7 +1165,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHARED_KERNEL_FEATURE_COUNT = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 0;
+	int SHARED_KERNEL_FEATURE_COUNT = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Shared Kernel</em>' class.
@@ -1067,70 +1175,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @ordered
 	 */
 	int SHARED_KERNEL_OPERATION_COUNT = BOUNDED_CONTEXT_RELATIONSHIP_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link microserviceMetamodell.impl.UpstreamDownstreamRelationshipImpl <em>Upstream Downstream Relationship</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see microserviceMetamodell.impl.UpstreamDownstreamRelationshipImpl
-	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getUpstreamDownstreamRelationship()
-	 * @generated
-	 */
-	int UPSTREAM_DOWNSTREAM_RELATIONSHIP = 25;
-
-	/**
-	 * The feature id for the '<em><b>Interface</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPSTREAM_DOWNSTREAM_RELATIONSHIP__INTERFACE = BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE;
-
-	/**
-	 * The feature id for the '<em><b>Related Context</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPSTREAM_DOWNSTREAM_RELATIONSHIP__RELATED_CONTEXT = BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Downstream</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPSTREAM_DOWNSTREAM_RELATIONSHIP__DOWNSTREAM = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Upstream</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPSTREAM_DOWNSTREAM_RELATIONSHIP__UPSTREAM = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Upstream Downstream Relationship</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPSTREAM_DOWNSTREAM_RELATIONSHIP_FEATURE_COUNT = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Upstream Downstream Relationship</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UPSTREAM_DOWNSTREAM_RELATIONSHIP_OPERATION_COUNT = BOUNDED_CONTEXT_RELATIONSHIP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.CustomerSupplierImpl <em>Customer Supplier</em>}' class.
@@ -1149,16 +1193,16 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_SUPPLIER__INTERFACE = UPSTREAM_DOWNSTREAM_RELATIONSHIP__INTERFACE;
+	int CUSTOMER_SUPPLIER__INTERFACE = BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE;
 
 	/**
-	 * The feature id for the '<em><b>Related Context</b></em>' reference.
+	 * The feature id for the '<em><b>Relationship Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_SUPPLIER__RELATED_CONTEXT = UPSTREAM_DOWNSTREAM_RELATIONSHIP__RELATED_CONTEXT;
+	int CUSTOMER_SUPPLIER__RELATIONSHIP_NAME = BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Downstream</b></em>' containment reference.
@@ -1167,7 +1211,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_SUPPLIER__DOWNSTREAM = UPSTREAM_DOWNSTREAM_RELATIONSHIP__DOWNSTREAM;
+	int CUSTOMER_SUPPLIER__DOWNSTREAM = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Upstream</b></em>' containment reference.
@@ -1176,7 +1220,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_SUPPLIER__UPSTREAM = UPSTREAM_DOWNSTREAM_RELATIONSHIP__UPSTREAM;
+	int CUSTOMER_SUPPLIER__UPSTREAM = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Customer Supplier</em>' class.
@@ -1185,7 +1229,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_SUPPLIER_FEATURE_COUNT = UPSTREAM_DOWNSTREAM_RELATIONSHIP_FEATURE_COUNT + 0;
+	int CUSTOMER_SUPPLIER_FEATURE_COUNT = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Customer Supplier</em>' class.
@@ -1194,35 +1238,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_SUPPLIER_OPERATION_COUNT = UPSTREAM_DOWNSTREAM_RELATIONSHIP_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link microserviceMetamodell.impl.RelationshipRoleImpl <em>Relationship Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see microserviceMetamodell.impl.RelationshipRoleImpl
-	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getRelationshipRole()
-	 * @generated
-	 */
-	int RELATIONSHIP_ROLE = 24;
-
-	/**
-	 * The number of structural features of the '<em>Relationship Role</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATIONSHIP_ROLE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Relationship Role</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATIONSHIP_ROLE_OPERATION_COUNT = 0;
+	int CUSTOMER_SUPPLIER_OPERATION_COUNT = BOUNDED_CONTEXT_RELATIONSHIP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.DownstreamRoleImpl <em>Downstream Role</em>}' class.
@@ -1241,7 +1257,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOWNSTREAM_ROLE_FEATURE_COUNT = RELATIONSHIP_ROLE_FEATURE_COUNT + 0;
+	int DOWNSTREAM_ROLE_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Downstream Role</em>' class.
@@ -1250,7 +1266,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOWNSTREAM_ROLE_OPERATION_COUNT = RELATIONSHIP_ROLE_OPERATION_COUNT + 0;
+	int DOWNSTREAM_ROLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.ConformistImpl <em>Conformist</em>}' class.
@@ -1325,7 +1341,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UPSTREAM_ROLE_FEATURE_COUNT = RELATIONSHIP_ROLE_FEATURE_COUNT + 0;
+	int UPSTREAM_ROLE_FEATURE_COUNT = 0;
 
 	/**
 	 * The number of operations of the '<em>Upstream Role</em>' class.
@@ -1334,7 +1350,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UPSTREAM_ROLE_OPERATION_COUNT = RELATIONSHIP_ROLE_OPERATION_COUNT + 0;
+	int UPSTREAM_ROLE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.OpenHostServiceImpl <em>Open Host Service</em>}' class.
@@ -1400,7 +1416,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getAggregateNode()
 	 * @generated
 	 */
-	int AGGREGATE_NODE = 36;
+	int AGGREGATE_NODE = 34;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.ValueObjectNodeImpl <em>Value Object Node</em>}' class.
@@ -1410,7 +1426,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getValueObjectNode()
 	 * @generated
 	 */
-	int VALUE_OBJECT_NODE = 34;
+	int VALUE_OBJECT_NODE = 32;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.EntityNodeImpl <em>Entity Node</em>}' class.
@@ -1420,7 +1436,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getEntityNode()
 	 * @generated
 	 */
-	int ENTITY_NODE = 35;
+	int ENTITY_NODE = 33;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.Persistable <em>Persistable</em>}' class.
@@ -1430,7 +1446,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getPersistable()
 	 * @generated
 	 */
-	int PERSISTABLE = 37;
+	int PERSISTABLE = 35;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.MicroserviceImpl <em>Microservice</em>}' class.
@@ -1440,7 +1456,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getMicroservice()
 	 * @generated
 	 */
-	int MICROSERVICE = 28;
+	int MICROSERVICE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Interfaces</b></em>' containment reference list.
@@ -1506,13 +1522,31 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int MICROSERVICE__SENDS_REQUEST_TO = 6;
 
 	/**
+	 * The feature id for the '<em><b>Deployement Abstraction</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MICROSERVICE__DEPLOYEMENT_ABSTRACTION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Build Configuration</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MICROSERVICE__BUILD_CONFIGURATION = 8;
+
+	/**
 	 * The number of structural features of the '<em>Microservice</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MICROSERVICE_FEATURE_COUNT = 7;
+	int MICROSERVICE_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Microservice</em>' class.
@@ -1531,7 +1565,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 29;
+	int INTERFACE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Interface For</b></em>' reference list.
@@ -1586,7 +1620,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getSynchronousInterface()
 	 * @generated
 	 */
-	int SYNCHRONOUS_INTERFACE = 30;
+	int SYNCHRONOUS_INTERFACE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Interface For</b></em>' reference list.
@@ -1659,7 +1693,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getAsynchronousInterface()
 	 * @generated
 	 */
-	int ASYNCHRONOUS_INTERFACE = 31;
+	int ASYNCHRONOUS_INTERFACE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Interface For</b></em>' reference list.
@@ -1698,22 +1732,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE = INTERFACE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Topology Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Domain Events</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE = INTERFACE_FEATURE_COUNT + 1;
+	int ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS = INTERFACE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Domain Event</b></em>' reference.
+	 * The feature id for the '<em><b>Topic</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT = INTERFACE_FEATURE_COUNT + 2;
+	int ASYNCHRONOUS_INTERFACE__TOPIC = INTERFACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Asynchronous Interface</em>' class.
@@ -1932,6 +1966,347 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int PERSISTABLE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.DeployementAbstractionImpl <em>Deployement Abstraction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.DeployementAbstractionImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getDeployementAbstraction()
+	 * @generated
+	 */
+	int DEPLOYEMENT_ABSTRACTION = 36;
+
+	/**
+	 * The feature id for the '<em><b>Microservice</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYEMENT_ABSTRACTION__MICROSERVICE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Deployement Abstraction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYEMENT_ABSTRACTION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Deployement Abstraction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYEMENT_ABSTRACTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.CloudConfigurationImpl <em>Cloud Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.CloudConfigurationImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getCloudConfiguration()
+	 * @generated
+	 */
+	int CLOUD_CONFIGURATION = 37;
+
+	/**
+	 * The number of structural features of the '<em>Cloud Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONFIGURATION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Cloud Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONFIGURATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.ExternalDependencyImpl <em>External Dependency</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.ExternalDependencyImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getExternalDependency()
+	 * @generated
+	 */
+	int EXTERNAL_DEPENDENCY = 38;
+
+	/**
+	 * The feature id for the '<em><b>Shared Kernel</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY__SHARED_KERNEL = 0;
+
+	/**
+	 * The number of structural features of the '<em>External Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>External Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_DEPENDENCY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.BuildConfigurationImpl <em>Build Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.BuildConfigurationImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getBuildConfiguration()
+	 * @generated
+	 */
+	int BUILD_CONFIGURATION = 39;
+
+	/**
+	 * The feature id for the '<em><b>Microservice</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONFIGURATION__MICROSERVICE = 0;
+
+	/**
+	 * The feature id for the '<em><b>External Dependency</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Build Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONFIGURATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Build Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONFIGURATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.SharedModuleImpl <em>Shared Module</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.SharedModuleImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getSharedModule()
+	 * @generated
+	 */
+	int SHARED_MODULE = 40;
+
+	/**
+	 * The feature id for the '<em><b>Model Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_MODULE__MODEL_ELEMENTS = MODULE__MODEL_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Module Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_MODULE__MODULE_NAME = MODULE__MODULE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Submodules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_MODULE__SUBMODULES = MODULE__SUBMODULES;
+
+	/**
+	 * The number of structural features of the '<em>Shared Module</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Shared Module</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHARED_MODULE_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.KafkaConfigurationImpl <em>Kafka Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.KafkaConfigurationImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getKafkaConfiguration()
+	 * @generated
+	 */
+	int KAFKA_CONFIGURATION = 41;
+
+	/**
+	 * The feature id for the '<em><b>Topics</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KAFKA_CONFIGURATION__TOPICS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Brokers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KAFKA_CONFIGURATION__BROKERS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Kafka Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KAFKA_CONFIGURATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Kafka Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KAFKA_CONFIGURATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.TopicImpl <em>Topic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.TopicImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getTopic()
+	 * @generated
+	 */
+	int TOPIC = 42;
+
+	/**
+	 * The feature id for the '<em><b>Topic Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC__TOPIC_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Topic Name Abbreviation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC__TOPIC_NAME_ABBREVIATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Asynchronous Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC__ASYNCHRONOUS_INTERFACES = 2;
+
+	/**
+	 * The number of structural features of the '<em>Topic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Topic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOPIC_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link microserviceMetamodell.impl.BrokerImpl <em>Broker</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see microserviceMetamodell.impl.BrokerImpl
+	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getBroker()
+	 * @generated
+	 */
+	int BROKER = 43;
+
+	/**
+	 * The feature id for the '<em><b>Broker Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROKER__BROKER_ADDRESS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Broker</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROKER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Broker</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BROKER_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link microserviceMetamodell.HttpMethod <em>Http Method</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1939,7 +2314,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getHttpMethod()
 	 * @generated
 	 */
-	int HTTP_METHOD = 38;
+	int HTTP_METHOD = 44;
 
 
 	/**
@@ -1950,17 +2325,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getAsynchronousInterfaceRole()
 	 * @generated
 	 */
-	int ASYNCHRONOUS_INTERFACE_ROLE = 39;
-
-	/**
-	 * The meta object id for the '{@link microserviceMetamodell.TopologyType <em>Topology Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see microserviceMetamodell.TopologyType
-	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getTopologyType()
-	 * @generated
-	 */
-	int TOPOLOGY_TYPE = 40;
+	int ASYNCHRONOUS_INTERFACE_ROLE = 45;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.WorkflowRole <em>Workflow Role</em>}' enum.
@@ -1970,7 +2335,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getWorkflowRole()
 	 * @generated
 	 */
-	int WORKFLOW_ROLE = 41;
+	int WORKFLOW_ROLE = 46;
 
 
 	/**
@@ -1981,7 +2346,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getImplementationTechnology()
 	 * @generated
 	 */
-	int IMPLEMENTATION_TECHNOLOGY = 42;
+	int IMPLEMENTATION_TECHNOLOGY = 47;
 
 
 	/**
@@ -2210,6 +2575,17 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EAttribute getDomainModel_ModelName();
 
 	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.DomainModel#getSharedModules <em>Shared Modules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Shared Modules</em>'.
+	 * @see microserviceMetamodell.DomainModel#getSharedModules()
+	 * @see #getDomainModel()
+	 * @generated
+	 */
+	EReference getDomainModel_SharedModules();
+
+	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.DomainModelLayer <em>Domain Model Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2253,6 +2629,28 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EReference getDomainModelLayer_DomainEvents();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.DomainModelLayer#getBoundedContextRelationships <em>Bounded Context Relationships</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bounded Context Relationships</em>'.
+	 * @see microserviceMetamodell.DomainModelLayer#getBoundedContextRelationships()
+	 * @see #getDomainModelLayer()
+	 * @generated
+	 */
+	EReference getDomainModelLayer_BoundedContextRelationships();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.DomainModelLayer#getSharedModules <em>Shared Modules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Shared Modules</em>'.
+	 * @see microserviceMetamodell.DomainModelLayer#getSharedModules()
+	 * @see #getDomainModelLayer()
+	 * @generated
+	 */
+	EReference getDomainModelLayer_SharedModules();
+
+	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.InfrastructureLayer <em>Infrastructure Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2261,6 +2659,61 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInfrastructureLayer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link microserviceMetamodell.InfrastructureLayer#getCloudConfiguration <em>Cloud Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cloud Configuration</em>'.
+	 * @see microserviceMetamodell.InfrastructureLayer#getCloudConfiguration()
+	 * @see #getInfrastructureLayer()
+	 * @generated
+	 */
+	EReference getInfrastructureLayer_CloudConfiguration();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.InfrastructureLayer#getDeployementAbstractions <em>Deployement Abstractions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Deployement Abstractions</em>'.
+	 * @see microserviceMetamodell.InfrastructureLayer#getDeployementAbstractions()
+	 * @see #getInfrastructureLayer()
+	 * @generated
+	 */
+	EReference getInfrastructureLayer_DeployementAbstractions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.InfrastructureLayer#getBuildConfiguration <em>Build Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Build Configuration</em>'.
+	 * @see microserviceMetamodell.InfrastructureLayer#getBuildConfiguration()
+	 * @see #getInfrastructureLayer()
+	 * @generated
+	 */
+	EReference getInfrastructureLayer_BuildConfiguration();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.InfrastructureLayer#getExternalDependency <em>External Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>External Dependency</em>'.
+	 * @see microserviceMetamodell.InfrastructureLayer#getExternalDependency()
+	 * @see #getInfrastructureLayer()
+	 * @generated
+	 */
+	EReference getInfrastructureLayer_ExternalDependency();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.InfrastructureLayer#getEventingConfigurations <em>Eventing Configurations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Eventing Configurations</em>'.
+	 * @see microserviceMetamodell.InfrastructureLayer#getEventingConfigurations()
+	 * @see #getInfrastructureLayer()
+	 * @generated
+	 */
+	EReference getInfrastructureLayer_EventingConfigurations();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.TechnicalLayer <em>Technical Layer</em>}'.
@@ -2540,6 +2993,17 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EAttribute getModule_ModuleName();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.Module#getSubmodules <em>Submodules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Submodules</em>'.
+	 * @see microserviceMetamodell.Module#getSubmodules()
+	 * @see #getModule()
+	 * @generated
+	 */
+	EReference getModule_Submodules();
+
+	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.BoundedContext <em>Bounded Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2583,10 +3047,10 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EReference getBoundedContext_CorrespodingMicroservice();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.BoundedContext#getBoundedContextRelationships <em>Bounded Context Relationships</em>}'.
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.BoundedContext#getBoundedContextRelationships <em>Bounded Context Relationships</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Bounded Context Relationships</em>'.
+	 * @return the meta object for the reference list '<em>Bounded Context Relationships</em>'.
 	 * @see microserviceMetamodell.BoundedContext#getBoundedContextRelationships()
 	 * @see #getBoundedContext()
 	 * @generated
@@ -2625,6 +3089,39 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EClass getSharedKernel();
 
 	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.SharedKernel#getRelatedContexts <em>Related Contexts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Related Contexts</em>'.
+	 * @see microserviceMetamodell.SharedKernel#getRelatedContexts()
+	 * @see #getSharedKernel()
+	 * @generated
+	 */
+	EReference getSharedKernel_RelatedContexts();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.SharedKernel#getSharedModules <em>Shared Modules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Shared Modules</em>'.
+	 * @see microserviceMetamodell.SharedKernel#getSharedModules()
+	 * @see #getSharedKernel()
+	 * @generated
+	 */
+	EReference getSharedKernel_SharedModules();
+
+	/**
+	 * Returns the meta object for the reference '{@link microserviceMetamodell.SharedKernel#getImplementingLib <em>Implementing Lib</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Implementing Lib</em>'.
+	 * @see microserviceMetamodell.SharedKernel#getImplementingLib()
+	 * @see #getSharedKernel()
+	 * @generated
+	 */
+	EReference getSharedKernel_ImplementingLib();
+
+	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.CustomerSupplier <em>Customer Supplier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2633,6 +3130,28 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCustomerSupplier();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link microserviceMetamodell.CustomerSupplier#getDownstream <em>Downstream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Downstream</em>'.
+	 * @see microserviceMetamodell.CustomerSupplier#getDownstream()
+	 * @see #getCustomerSupplier()
+	 * @generated
+	 */
+	EReference getCustomerSupplier_Downstream();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link microserviceMetamodell.CustomerSupplier#getUpstream <em>Upstream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Upstream</em>'.
+	 * @see microserviceMetamodell.CustomerSupplier#getUpstream()
+	 * @see #getCustomerSupplier()
+	 * @generated
+	 */
+	EReference getCustomerSupplier_Upstream();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.Conformist <em>Conformist</em>}'.
@@ -2696,15 +3215,15 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EReference getBoundedContextRelationship_Interface();
 
 	/**
-	 * Returns the meta object for the reference '{@link microserviceMetamodell.BoundedContextRelationship#getRelatedContext <em>Related Context</em>}'.
+	 * Returns the meta object for the attribute '{@link microserviceMetamodell.BoundedContextRelationship#getRelationshipName <em>Relationship Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Related Context</em>'.
-	 * @see microserviceMetamodell.BoundedContextRelationship#getRelatedContext()
+	 * @return the meta object for the attribute '<em>Relationship Name</em>'.
+	 * @see microserviceMetamodell.BoundedContextRelationship#getRelationshipName()
 	 * @see #getBoundedContextRelationship()
 	 * @generated
 	 */
-	EReference getBoundedContextRelationship_RelatedContext();
+	EAttribute getBoundedContextRelationship_RelationshipName();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.UpstreamRole <em>Upstream Role</em>}'.
@@ -2725,48 +3244,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDownstreamRole();
-
-	/**
-	 * Returns the meta object for class '{@link microserviceMetamodell.RelationshipRole <em>Relationship Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Relationship Role</em>'.
-	 * @see microserviceMetamodell.RelationshipRole
-	 * @generated
-	 */
-	EClass getRelationshipRole();
-
-	/**
-	 * Returns the meta object for class '{@link microserviceMetamodell.UpstreamDownstreamRelationship <em>Upstream Downstream Relationship</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Upstream Downstream Relationship</em>'.
-	 * @see microserviceMetamodell.UpstreamDownstreamRelationship
-	 * @generated
-	 */
-	EClass getUpstreamDownstreamRelationship();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link microserviceMetamodell.UpstreamDownstreamRelationship#getDownstream <em>Downstream</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Downstream</em>'.
-	 * @see microserviceMetamodell.UpstreamDownstreamRelationship#getDownstream()
-	 * @see #getUpstreamDownstreamRelationship()
-	 * @generated
-	 */
-	EReference getUpstreamDownstreamRelationship_Downstream();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link microserviceMetamodell.UpstreamDownstreamRelationship#getUpstream <em>Upstream</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Upstream</em>'.
-	 * @see microserviceMetamodell.UpstreamDownstreamRelationship#getUpstream()
-	 * @see #getUpstreamDownstreamRelationship()
-	 * @generated
-	 */
-	EReference getUpstreamDownstreamRelationship_Upstream();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.ModelElement <em>Model Element</em>}'.
@@ -2840,6 +3317,196 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPersistable();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.DeployementAbstraction <em>Deployement Abstraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Deployement Abstraction</em>'.
+	 * @see microserviceMetamodell.DeployementAbstraction
+	 * @generated
+	 */
+	EClass getDeployementAbstraction();
+
+	/**
+	 * Returns the meta object for the reference '{@link microserviceMetamodell.DeployementAbstraction#getMicroservice <em>Microservice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Microservice</em>'.
+	 * @see microserviceMetamodell.DeployementAbstraction#getMicroservice()
+	 * @see #getDeployementAbstraction()
+	 * @generated
+	 */
+	EReference getDeployementAbstraction_Microservice();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.CloudConfiguration <em>Cloud Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cloud Configuration</em>'.
+	 * @see microserviceMetamodell.CloudConfiguration
+	 * @generated
+	 */
+	EClass getCloudConfiguration();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.ExternalDependency <em>External Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Dependency</em>'.
+	 * @see microserviceMetamodell.ExternalDependency
+	 * @generated
+	 */
+	EClass getExternalDependency();
+
+	/**
+	 * Returns the meta object for the reference '{@link microserviceMetamodell.ExternalDependency#getSharedKernel <em>Shared Kernel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Shared Kernel</em>'.
+	 * @see microserviceMetamodell.ExternalDependency#getSharedKernel()
+	 * @see #getExternalDependency()
+	 * @generated
+	 */
+	EReference getExternalDependency_SharedKernel();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.BuildConfiguration <em>Build Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Build Configuration</em>'.
+	 * @see microserviceMetamodell.BuildConfiguration
+	 * @generated
+	 */
+	EClass getBuildConfiguration();
+
+	/**
+	 * Returns the meta object for the reference '{@link microserviceMetamodell.BuildConfiguration#getMicroservice <em>Microservice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Microservice</em>'.
+	 * @see microserviceMetamodell.BuildConfiguration#getMicroservice()
+	 * @see #getBuildConfiguration()
+	 * @generated
+	 */
+	EReference getBuildConfiguration_Microservice();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.BuildConfiguration#getExternalDependency <em>External Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>External Dependency</em>'.
+	 * @see microserviceMetamodell.BuildConfiguration#getExternalDependency()
+	 * @see #getBuildConfiguration()
+	 * @generated
+	 */
+	EReference getBuildConfiguration_ExternalDependency();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.SharedModule <em>Shared Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Shared Module</em>'.
+	 * @see microserviceMetamodell.SharedModule
+	 * @generated
+	 */
+	EClass getSharedModule();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.KafkaConfiguration <em>Kafka Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Kafka Configuration</em>'.
+	 * @see microserviceMetamodell.KafkaConfiguration
+	 * @generated
+	 */
+	EClass getKafkaConfiguration();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.KafkaConfiguration#getTopics <em>Topics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Topics</em>'.
+	 * @see microserviceMetamodell.KafkaConfiguration#getTopics()
+	 * @see #getKafkaConfiguration()
+	 * @generated
+	 */
+	EReference getKafkaConfiguration_Topics();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.KafkaConfiguration#getBrokers <em>Brokers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Brokers</em>'.
+	 * @see microserviceMetamodell.KafkaConfiguration#getBrokers()
+	 * @see #getKafkaConfiguration()
+	 * @generated
+	 */
+	EReference getKafkaConfiguration_Brokers();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.Topic <em>Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Topic</em>'.
+	 * @see microserviceMetamodell.Topic
+	 * @generated
+	 */
+	EClass getTopic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link microserviceMetamodell.Topic#getTopicName <em>Topic Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Topic Name</em>'.
+	 * @see microserviceMetamodell.Topic#getTopicName()
+	 * @see #getTopic()
+	 * @generated
+	 */
+	EAttribute getTopic_TopicName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link microserviceMetamodell.Topic#getTopicNameAbbreviation <em>Topic Name Abbreviation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Topic Name Abbreviation</em>'.
+	 * @see microserviceMetamodell.Topic#getTopicNameAbbreviation()
+	 * @see #getTopic()
+	 * @generated
+	 */
+	EAttribute getTopic_TopicNameAbbreviation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Topic#getAsynchronousInterfaces <em>Asynchronous Interfaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Asynchronous Interfaces</em>'.
+	 * @see microserviceMetamodell.Topic#getAsynchronousInterfaces()
+	 * @see #getTopic()
+	 * @generated
+	 */
+	EReference getTopic_AsynchronousInterfaces();
+
+	/**
+	 * Returns the meta object for class '{@link microserviceMetamodell.Broker <em>Broker</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Broker</em>'.
+	 * @see microserviceMetamodell.Broker
+	 * @generated
+	 */
+	EClass getBroker();
+
+	/**
+	 * Returns the meta object for the attribute '{@link microserviceMetamodell.Broker#getBrokerAddress <em>Broker Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Broker Address</em>'.
+	 * @see microserviceMetamodell.Broker#getBrokerAddress()
+	 * @see #getBroker()
+	 * @generated
+	 */
+	EAttribute getBroker_BrokerAddress();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.Microservice <em>Microservice</em>}'.
@@ -2927,6 +3594,28 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMicroservice_SendsRequestTo();
+
+	/**
+	 * Returns the meta object for the reference '{@link microserviceMetamodell.Microservice#getDeployementAbstraction <em>Deployement Abstraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Deployement Abstraction</em>'.
+	 * @see microserviceMetamodell.Microservice#getDeployementAbstraction()
+	 * @see #getMicroservice()
+	 * @generated
+	 */
+	EReference getMicroservice_DeployementAbstraction();
+
+	/**
+	 * Returns the meta object for the reference '{@link microserviceMetamodell.Microservice#getBuildConfiguration <em>Build Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Build Configuration</em>'.
+	 * @see microserviceMetamodell.Microservice#getBuildConfiguration()
+	 * @see #getMicroservice()
+	 * @generated
+	 */
+	EReference getMicroservice_BuildConfiguration();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.Interface <em>Interface</em>}'.
@@ -3025,26 +3714,26 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EAttribute getAsynchronousInterface_InterfaceRole();
 
 	/**
-	 * Returns the meta object for the attribute '{@link microserviceMetamodell.AsynchronousInterface#getTopologyType <em>Topology Type</em>}'.
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.AsynchronousInterface#getDomainEvents <em>Domain Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Topology Type</em>'.
-	 * @see microserviceMetamodell.AsynchronousInterface#getTopologyType()
+	 * @return the meta object for the reference list '<em>Domain Events</em>'.
+	 * @see microserviceMetamodell.AsynchronousInterface#getDomainEvents()
 	 * @see #getAsynchronousInterface()
 	 * @generated
 	 */
-	EAttribute getAsynchronousInterface_TopologyType();
+	EReference getAsynchronousInterface_DomainEvents();
 
 	/**
-	 * Returns the meta object for the reference '{@link microserviceMetamodell.AsynchronousInterface#getDomainEvent <em>Domain Event</em>}'.
+	 * Returns the meta object for the reference '{@link microserviceMetamodell.AsynchronousInterface#getTopic <em>Topic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Domain Event</em>'.
-	 * @see microserviceMetamodell.AsynchronousInterface#getDomainEvent()
+	 * @return the meta object for the reference '<em>Topic</em>'.
+	 * @see microserviceMetamodell.AsynchronousInterface#getTopic()
 	 * @see #getAsynchronousInterface()
 	 * @generated
 	 */
-	EReference getAsynchronousInterface_DomainEvent();
+	EReference getAsynchronousInterface_Topic();
 
 	/**
 	 * Returns the meta object for enum '{@link microserviceMetamodell.HttpMethod <em>Http Method</em>}'.
@@ -3065,16 +3754,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getAsynchronousInterfaceRole();
-
-	/**
-	 * Returns the meta object for enum '{@link microserviceMetamodell.TopologyType <em>Topology Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Topology Type</em>'.
-	 * @see microserviceMetamodell.TopologyType
-	 * @generated
-	 */
-	EEnum getTopologyType();
 
 	/**
 	 * Returns the meta object for enum '{@link microserviceMetamodell.WorkflowRole <em>Workflow Role</em>}'.
@@ -3300,6 +3979,14 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EAttribute DOMAIN_MODEL__MODEL_NAME = eINSTANCE.getDomainModel_ModelName();
 
 		/**
+		 * The meta object literal for the '<em><b>Shared Modules</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_MODEL__SHARED_MODULES = eINSTANCE.getDomainModel_SharedModules();
+
+		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.DomainModelLayerImpl <em>Domain Model Layer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3334,6 +4021,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EReference DOMAIN_MODEL_LAYER__DOMAIN_EVENTS = eINSTANCE.getDomainModelLayer_DomainEvents();
 
 		/**
+		 * The meta object literal for the '<em><b>Bounded Context Relationships</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS = eINSTANCE.getDomainModelLayer_BoundedContextRelationships();
+
+		/**
+		 * The meta object literal for the '<em><b>Shared Modules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN_MODEL_LAYER__SHARED_MODULES = eINSTANCE.getDomainModelLayer_SharedModules();
+
+		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.InfrastructureLayerImpl <em>Infrastructure Layer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3342,6 +4045,46 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INFRASTRUCTURE_LAYER = eINSTANCE.getInfrastructureLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Cloud Configuration</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE_LAYER__CLOUD_CONFIGURATION = eINSTANCE.getInfrastructureLayer_CloudConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Deployement Abstractions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS = eINSTANCE.getInfrastructureLayer_DeployementAbstractions();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Configuration</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION = eINSTANCE.getInfrastructureLayer_BuildConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>External Dependency</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY = eINSTANCE.getInfrastructureLayer_ExternalDependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Eventing Configurations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS = eINSTANCE.getInfrastructureLayer_EventingConfigurations();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.TechnicalLayerImpl <em>Technical Layer</em>}' class.
@@ -3570,6 +4313,14 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EAttribute MODULE__MODULE_NAME = eINSTANCE.getModule_ModuleName();
 
 		/**
+		 * The meta object literal for the '<em><b>Submodules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODULE__SUBMODULES = eINSTANCE.getModule_Submodules();
+
+		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.BoundedContextImpl <em>Bounded Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3604,7 +4355,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EReference BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE = eINSTANCE.getBoundedContext_CorrespodingMicroservice();
 
 		/**
-		 * The meta object literal for the '<em><b>Bounded Context Relationships</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Bounded Context Relationships</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3640,6 +4391,30 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EClass SHARED_KERNEL = eINSTANCE.getSharedKernel();
 
 		/**
+		 * The meta object literal for the '<em><b>Related Contexts</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHARED_KERNEL__RELATED_CONTEXTS = eINSTANCE.getSharedKernel_RelatedContexts();
+
+		/**
+		 * The meta object literal for the '<em><b>Shared Modules</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHARED_KERNEL__SHARED_MODULES = eINSTANCE.getSharedKernel_SharedModules();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementing Lib</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHARED_KERNEL__IMPLEMENTING_LIB = eINSTANCE.getSharedKernel_ImplementingLib();
+
+		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.CustomerSupplierImpl <em>Customer Supplier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3648,6 +4423,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CUSTOMER_SUPPLIER = eINSTANCE.getCustomerSupplier();
+
+		/**
+		 * The meta object literal for the '<em><b>Downstream</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CUSTOMER_SUPPLIER__DOWNSTREAM = eINSTANCE.getCustomerSupplier_Downstream();
+
+		/**
+		 * The meta object literal for the '<em><b>Upstream</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CUSTOMER_SUPPLIER__UPSTREAM = eINSTANCE.getCustomerSupplier_Upstream();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.ConformistImpl <em>Conformist</em>}' class.
@@ -3708,12 +4499,12 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EReference BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE = eINSTANCE.getBoundedContextRelationship_Interface();
 
 		/**
-		 * The meta object literal for the '<em><b>Related Context</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Relationship Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT = eINSTANCE.getBoundedContextRelationship_RelatedContext();
+		EAttribute BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME = eINSTANCE.getBoundedContextRelationship_RelationshipName();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.UpstreamRoleImpl <em>Upstream Role</em>}' class.
@@ -3734,42 +4525,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DOWNSTREAM_ROLE = eINSTANCE.getDownstreamRole();
-
-		/**
-		 * The meta object literal for the '{@link microserviceMetamodell.impl.RelationshipRoleImpl <em>Relationship Role</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see microserviceMetamodell.impl.RelationshipRoleImpl
-		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getRelationshipRole()
-		 * @generated
-		 */
-		EClass RELATIONSHIP_ROLE = eINSTANCE.getRelationshipRole();
-
-		/**
-		 * The meta object literal for the '{@link microserviceMetamodell.impl.UpstreamDownstreamRelationshipImpl <em>Upstream Downstream Relationship</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see microserviceMetamodell.impl.UpstreamDownstreamRelationshipImpl
-		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getUpstreamDownstreamRelationship()
-		 * @generated
-		 */
-		EClass UPSTREAM_DOWNSTREAM_RELATIONSHIP = eINSTANCE.getUpstreamDownstreamRelationship();
-
-		/**
-		 * The meta object literal for the '<em><b>Downstream</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UPSTREAM_DOWNSTREAM_RELATIONSHIP__DOWNSTREAM = eINSTANCE.getUpstreamDownstreamRelationship_Downstream();
-
-		/**
-		 * The meta object literal for the '<em><b>Upstream</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UPSTREAM_DOWNSTREAM_RELATIONSHIP__UPSTREAM = eINSTANCE.getUpstreamDownstreamRelationship_Upstream();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.ModelElementImpl <em>Model Element</em>}' class.
@@ -3836,6 +4591,166 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EClass PERSISTABLE = eINSTANCE.getPersistable();
 
 		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.DeployementAbstractionImpl <em>Deployement Abstraction</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.DeployementAbstractionImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getDeployementAbstraction()
+		 * @generated
+		 */
+		EClass DEPLOYEMENT_ABSTRACTION = eINSTANCE.getDeployementAbstraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Microservice</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYEMENT_ABSTRACTION__MICROSERVICE = eINSTANCE.getDeployementAbstraction_Microservice();
+
+		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.CloudConfigurationImpl <em>Cloud Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.CloudConfigurationImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getCloudConfiguration()
+		 * @generated
+		 */
+		EClass CLOUD_CONFIGURATION = eINSTANCE.getCloudConfiguration();
+
+		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.ExternalDependencyImpl <em>External Dependency</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.ExternalDependencyImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getExternalDependency()
+		 * @generated
+		 */
+		EClass EXTERNAL_DEPENDENCY = eINSTANCE.getExternalDependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Shared Kernel</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_DEPENDENCY__SHARED_KERNEL = eINSTANCE.getExternalDependency_SharedKernel();
+
+		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.BuildConfigurationImpl <em>Build Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.BuildConfigurationImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getBuildConfiguration()
+		 * @generated
+		 */
+		EClass BUILD_CONFIGURATION = eINSTANCE.getBuildConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Microservice</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILD_CONFIGURATION__MICROSERVICE = eINSTANCE.getBuildConfiguration_Microservice();
+
+		/**
+		 * The meta object literal for the '<em><b>External Dependency</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY = eINSTANCE.getBuildConfiguration_ExternalDependency();
+
+		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.SharedModuleImpl <em>Shared Module</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.SharedModuleImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getSharedModule()
+		 * @generated
+		 */
+		EClass SHARED_MODULE = eINSTANCE.getSharedModule();
+
+		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.KafkaConfigurationImpl <em>Kafka Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.KafkaConfigurationImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getKafkaConfiguration()
+		 * @generated
+		 */
+		EClass KAFKA_CONFIGURATION = eINSTANCE.getKafkaConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Topics</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KAFKA_CONFIGURATION__TOPICS = eINSTANCE.getKafkaConfiguration_Topics();
+
+		/**
+		 * The meta object literal for the '<em><b>Brokers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KAFKA_CONFIGURATION__BROKERS = eINSTANCE.getKafkaConfiguration_Brokers();
+
+		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.TopicImpl <em>Topic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.TopicImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getTopic()
+		 * @generated
+		 */
+		EClass TOPIC = eINSTANCE.getTopic();
+
+		/**
+		 * The meta object literal for the '<em><b>Topic Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOPIC__TOPIC_NAME = eINSTANCE.getTopic_TopicName();
+
+		/**
+		 * The meta object literal for the '<em><b>Topic Name Abbreviation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOPIC__TOPIC_NAME_ABBREVIATION = eINSTANCE.getTopic_TopicNameAbbreviation();
+
+		/**
+		 * The meta object literal for the '<em><b>Asynchronous Interfaces</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOPIC__ASYNCHRONOUS_INTERFACES = eINSTANCE.getTopic_AsynchronousInterfaces();
+
+		/**
+		 * The meta object literal for the '{@link microserviceMetamodell.impl.BrokerImpl <em>Broker</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see microserviceMetamodell.impl.BrokerImpl
+		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getBroker()
+		 * @generated
+		 */
+		EClass BROKER = eINSTANCE.getBroker();
+
+		/**
+		 * The meta object literal for the '<em><b>Broker Address</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BROKER__BROKER_ADDRESS = eINSTANCE.getBroker_BrokerAddress();
+
+		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.MicroserviceImpl <em>Microservice</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3900,6 +4815,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MICROSERVICE__SENDS_REQUEST_TO = eINSTANCE.getMicroservice_SendsRequestTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Deployement Abstraction</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MICROSERVICE__DEPLOYEMENT_ABSTRACTION = eINSTANCE.getMicroservice_DeployementAbstraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Configuration</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MICROSERVICE__BUILD_CONFIGURATION = eINSTANCE.getMicroservice_BuildConfiguration();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -3980,20 +4911,20 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EAttribute ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE = eINSTANCE.getAsynchronousInterface_InterfaceRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Topology Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Domain Events</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE = eINSTANCE.getAsynchronousInterface_TopologyType();
+		EReference ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS = eINSTANCE.getAsynchronousInterface_DomainEvents();
 
 		/**
-		 * The meta object literal for the '<em><b>Domain Event</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Topic</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT = eINSTANCE.getAsynchronousInterface_DomainEvent();
+		EReference ASYNCHRONOUS_INTERFACE__TOPIC = eINSTANCE.getAsynchronousInterface_Topic();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.HttpMethod <em>Http Method</em>}' enum.
@@ -4014,16 +4945,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ASYNCHRONOUS_INTERFACE_ROLE = eINSTANCE.getAsynchronousInterfaceRole();
-
-		/**
-		 * The meta object literal for the '{@link microserviceMetamodell.TopologyType <em>Topology Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see microserviceMetamodell.TopologyType
-		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getTopologyType()
-		 * @generated
-		 */
-		EEnum TOPOLOGY_TYPE = eINSTANCE.getTopologyType();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.WorkflowRole <em>Workflow Role</em>}' enum.

@@ -8,6 +8,7 @@ import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.DomainModel;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
+import microserviceMetamodell.SharedModule;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link microserviceMetamodell.impl.DomainModelImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.DomainModelImpl#getBoundedContext <em>Bounded Context</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.DomainModelImpl#getModelName <em>Model Name</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.DomainModelImpl#getSharedModules <em>Shared Modules</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +92,16 @@ public class DomainModelImpl extends MinimalEObjectImpl.Container implements Dom
 	 * @ordered
 	 */
 	protected String modelName = MODEL_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSharedModules() <em>Shared Modules</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSharedModules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SharedModule> sharedModules;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,6 +232,18 @@ public class DomainModelImpl extends MinimalEObjectImpl.Container implements Dom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SharedModule> getSharedModules() {
+		if (sharedModules == null) {
+			sharedModules = new EObjectResolvingEList<SharedModule>(SharedModule.class, this, MicroserviceMetamodellPackage.DOMAIN_MODEL__SHARED_MODULES);
+		}
+		return sharedModules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -268,6 +293,8 @@ public class DomainModelImpl extends MinimalEObjectImpl.Container implements Dom
 				return basicGetBoundedContext();
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL__MODEL_NAME:
 				return getModelName();
+			case MicroserviceMetamodellPackage.DOMAIN_MODEL__SHARED_MODULES:
+				return getSharedModules();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,6 +322,10 @@ public class DomainModelImpl extends MinimalEObjectImpl.Container implements Dom
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL__MODEL_NAME:
 				setModelName((String)newValue);
 				return;
+			case MicroserviceMetamodellPackage.DOMAIN_MODEL__SHARED_MODULES:
+				getSharedModules().clear();
+				getSharedModules().addAll((Collection<? extends SharedModule>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -319,6 +350,9 @@ public class DomainModelImpl extends MinimalEObjectImpl.Container implements Dom
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL__MODEL_NAME:
 				setModelName(MODEL_NAME_EDEFAULT);
 				return;
+			case MicroserviceMetamodellPackage.DOMAIN_MODEL__SHARED_MODULES:
+				getSharedModules().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +373,8 @@ public class DomainModelImpl extends MinimalEObjectImpl.Container implements Dom
 				return boundedContext != null;
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL__MODEL_NAME:
 				return MODEL_NAME_EDEFAULT == null ? modelName != null : !MODEL_NAME_EDEFAULT.equals(modelName);
+			case MicroserviceMetamodellPackage.DOMAIN_MODEL__SHARED_MODULES:
+				return sharedModules != null && !sharedModules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

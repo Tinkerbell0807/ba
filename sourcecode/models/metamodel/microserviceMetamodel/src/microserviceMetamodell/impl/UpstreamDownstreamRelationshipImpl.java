@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class UpstreamDownstreamRelationshipImpl extends BoundedContextRelationshipImpl implements UpstreamDownstreamRelationship {
+public abstract class UpstreamDownstreamRelationshipImpl extends MinimalEObjectImpl.Container implements UpstreamDownstreamRelationship {
 	/**
 	 * The cached value of the '{@link #getDownstream() <em>Downstream</em>}' containment reference.
 	 * <!-- begin-user-doc -->

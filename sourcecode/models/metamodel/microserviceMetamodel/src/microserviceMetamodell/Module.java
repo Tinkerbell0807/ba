@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link microserviceMetamodell.Module#getModelElements <em>Model Elements</em>}</li>
  *   <li>{@link microserviceMetamodell.Module#getModuleName <em>Module Name</em>}</li>
+ *   <li>{@link microserviceMetamodell.Module#getSubmodules <em>Submodules</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getModule()
@@ -57,5 +58,17 @@ public interface Module extends EObject {
 	 * @generated
 	 */
 	void setModuleName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Submodules</b></em>' containment reference list.
+	 * The list contents are of type {@link microserviceMetamodell.Module}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Submodules</em>' containment reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getModule_Submodules()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Module> getSubmodules();
 
 } // Module

@@ -2,6 +2,8 @@
  */
 package microserviceMetamodell;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,8 +15,8 @@ package microserviceMetamodell;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.AsynchronousInterface#getInterfaceRole <em>Interface Role</em>}</li>
- *   <li>{@link microserviceMetamodell.AsynchronousInterface#getTopologyType <em>Topology Type</em>}</li>
- *   <li>{@link microserviceMetamodell.AsynchronousInterface#getDomainEvent <em>Domain Event</em>}</li>
+ *   <li>{@link microserviceMetamodell.AsynchronousInterface#getDomainEvents <em>Domain Events</em>}</li>
+ *   <li>{@link microserviceMetamodell.AsynchronousInterface#getTopic <em>Topic</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getAsynchronousInterface()
@@ -48,50 +50,39 @@ public interface AsynchronousInterface extends Interface {
 	void setInterfaceRole(AsynchronousInterfaceRole value);
 
 	/**
-	 * Returns the value of the '<em><b>Topology Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link microserviceMetamodell.TopologyType}.
+	 * Returns the value of the '<em><b>Domain Events</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.DomainEvent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Topology Type</em>' attribute.
-	 * @see microserviceMetamodell.TopologyType
-	 * @see #setTopologyType(TopologyType)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getAsynchronousInterface_TopologyType()
+	 * @return the value of the '<em>Domain Events</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getAsynchronousInterface_DomainEvents()
 	 * @model
 	 * @generated
 	 */
-	TopologyType getTopologyType();
+	EList<DomainEvent> getDomainEvents();
 
 	/**
-	 * Sets the value of the '{@link microserviceMetamodell.AsynchronousInterface#getTopologyType <em>Topology Type</em>}' attribute.
+	 * Returns the value of the '<em><b>Topic</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.Topic#getAsynchronousInterfaces <em>Asynchronous Interfaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Topology Type</em>' attribute.
-	 * @see microserviceMetamodell.TopologyType
-	 * @see #getTopologyType()
+	 * @return the value of the '<em>Topic</em>' reference.
+	 * @see #setTopic(Topic)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getAsynchronousInterface_Topic()
+	 * @see microserviceMetamodell.Topic#getAsynchronousInterfaces
+	 * @model opposite="asynchronousInterfaces" required="true"
 	 * @generated
 	 */
-	void setTopologyType(TopologyType value);
+	Topic getTopic();
 
 	/**
-	 * Returns the value of the '<em><b>Domain Event</b></em>' reference.
+	 * Sets the value of the '{@link microserviceMetamodell.AsynchronousInterface#getTopic <em>Topic</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Domain Event</em>' reference.
-	 * @see #setDomainEvent(DomainEvent)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getAsynchronousInterface_DomainEvent()
-	 * @model
+	 * @param value the new value of the '<em>Topic</em>' reference.
+	 * @see #getTopic()
 	 * @generated
 	 */
-	DomainEvent getDomainEvent();
-
-	/**
-	 * Sets the value of the '{@link microserviceMetamodell.AsynchronousInterface#getDomainEvent <em>Domain Event</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Domain Event</em>' reference.
-	 * @see #getDomainEvent()
-	 * @generated
-	 */
-	void setDomainEvent(DomainEvent value);
+	void setTopic(Topic value);
 
 } // AsynchronousInterface

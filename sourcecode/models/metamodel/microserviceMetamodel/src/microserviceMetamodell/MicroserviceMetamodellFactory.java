@@ -58,6 +58,78 @@ public interface MicroserviceMetamodellFactory extends EFactory {
 	EntityNode createEntityNode();
 
 	/**
+	 * Returns a new object of class '<em>Deployement Abstraction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Deployement Abstraction</em>'.
+	 * @generated
+	 */
+	DeployementAbstraction createDeployementAbstraction();
+
+	/**
+	 * Returns a new object of class '<em>Cloud Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cloud Configuration</em>'.
+	 * @generated
+	 */
+	CloudConfiguration createCloudConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>External Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>External Dependency</em>'.
+	 * @generated
+	 */
+	ExternalDependency createExternalDependency();
+
+	/**
+	 * Returns a new object of class '<em>Build Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Build Configuration</em>'.
+	 * @generated
+	 */
+	BuildConfiguration createBuildConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Shared Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Shared Module</em>'.
+	 * @generated
+	 */
+	SharedModule createSharedModule();
+
+	/**
+	 * Returns a new object of class '<em>Kafka Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Kafka Configuration</em>'.
+	 * @generated
+	 */
+	KafkaConfiguration createKafkaConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Topic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Topic</em>'.
+	 * @generated
+	 */
+	Topic createTopic();
+
+	/**
+	 * Returns a new object of class '<em>Broker</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Broker</em>'.
+	 * @generated
+	 */
+	Broker createBroker();
+
+	/**
 	 * Returns a new object of class '<em>System Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

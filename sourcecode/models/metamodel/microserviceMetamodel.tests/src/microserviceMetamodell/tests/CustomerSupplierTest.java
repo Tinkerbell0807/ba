@@ -13,7 +13,7 @@ import microserviceMetamodell.MicroserviceMetamodellFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CustomerSupplierTest extends UpstreamDownstreamRelationshipTest {
+public class CustomerSupplierTest extends BoundedContextRelationshipTest {
 
 	/**
 	 * <!-- begin-user-doc -->

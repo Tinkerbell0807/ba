@@ -66,6 +66,7 @@ public class DomainModelItemProvider
 			addDomainEventsPropertyDescriptor(object);
 			addBoundedContextPropertyDescriptor(object);
 			addModelNamePropertyDescriptor(object);
+			addSharedModulesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,28 @@ public class DomainModelItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Shared Modules feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSharedModulesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DomainModel_sharedModules_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DomainModel_sharedModules_feature", "_UI_DomainModel_type"),
+				 MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL__SHARED_MODULES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -229,6 +252,11 @@ public class DomainModelItemProvider
 			(createChildParameter
 				(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL__MODULES,
 				 MicroserviceMetamodellFactory.eINSTANCE.createModule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL__MODULES,
+				 MicroserviceMetamodellFactory.eINSTANCE.createSharedModule()));
 	}
 
 	/**

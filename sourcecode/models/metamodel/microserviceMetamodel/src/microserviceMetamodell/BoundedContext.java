@@ -3,7 +3,6 @@
 package microserviceMetamodell;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -97,13 +96,13 @@ public interface BoundedContext extends EObject {
 	void setCorrespodingMicroservice(Microservice value);
 
 	/**
-	 * Returns the value of the '<em><b>Bounded Context Relationships</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Bounded Context Relationships</b></em>' reference list.
 	 * The list contents are of type {@link microserviceMetamodell.BoundedContextRelationship}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bounded Context Relationships</em>' containment reference list.
+	 * @return the value of the '<em>Bounded Context Relationships</em>' reference list.
 	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBoundedContext_BoundedContextRelationships()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<BoundedContextRelationship> getBoundedContextRelationships();

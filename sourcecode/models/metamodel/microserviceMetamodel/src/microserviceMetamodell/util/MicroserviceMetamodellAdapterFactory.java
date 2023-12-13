@@ -9,18 +9,24 @@ import microserviceMetamodell.AsynchronousInterface;
 import microserviceMetamodell.Behaviour;
 import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.BoundedContextRelationship;
+import microserviceMetamodell.Broker;
+import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.CloudConfiguration;
 import microserviceMetamodell.Conformist;
 import microserviceMetamodell.CustomerSupplier;
+import microserviceMetamodell.DeployementAbstraction;
 import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.DomainModel;
 import microserviceMetamodell.DomainModelLayer;
 import microserviceMetamodell.DownstreamRole;
 import microserviceMetamodell.Entity;
 import microserviceMetamodell.EntityNode;
+import microserviceMetamodell.ExternalDependency;
 import microserviceMetamodell.Factorizeable;
 import microserviceMetamodell.Factory;
 import microserviceMetamodell.InfrastructureLayer;
 import microserviceMetamodell.Interface;
+import microserviceMetamodell.KafkaConfiguration;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
@@ -28,15 +34,15 @@ import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.OpenHostService;
 import microserviceMetamodell.Persistable;
 import microserviceMetamodell.PublishedLanguage;
-import microserviceMetamodell.RelationshipRole;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
 import microserviceMetamodell.Service;
 import microserviceMetamodell.SharedKernel;
+import microserviceMetamodell.SharedModule;
 import microserviceMetamodell.SynchronousInterface;
 import microserviceMetamodell.SystemModel;
 import microserviceMetamodell.TechnicalLayer;
-import microserviceMetamodell.UpstreamDownstreamRelationship;
+import microserviceMetamodell.Topic;
 import microserviceMetamodell.UpstreamRole;
 import microserviceMetamodell.ValueObject;
 import microserviceMetamodell.ValueObjectNode;
@@ -200,14 +206,6 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 				return createDownstreamRoleAdapter();
 			}
 			@Override
-			public Adapter caseRelationshipRole(RelationshipRole object) {
-				return createRelationshipRoleAdapter();
-			}
-			@Override
-			public Adapter caseUpstreamDownstreamRelationship(UpstreamDownstreamRelationship object) {
-				return createUpstreamDownstreamRelationshipAdapter();
-			}
-			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
 			}
@@ -254,6 +252,38 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePersistable(Persistable object) {
 				return createPersistableAdapter();
+			}
+			@Override
+			public Adapter caseDeployementAbstraction(DeployementAbstraction object) {
+				return createDeployementAbstractionAdapter();
+			}
+			@Override
+			public Adapter caseCloudConfiguration(CloudConfiguration object) {
+				return createCloudConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseExternalDependency(ExternalDependency object) {
+				return createExternalDependencyAdapter();
+			}
+			@Override
+			public Adapter caseBuildConfiguration(BuildConfiguration object) {
+				return createBuildConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseSharedModule(SharedModule object) {
+				return createSharedModuleAdapter();
+			}
+			@Override
+			public Adapter caseKafkaConfiguration(KafkaConfiguration object) {
+				return createKafkaConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseTopic(Topic object) {
+				return createTopicAdapter();
+			}
+			@Override
+			public Adapter caseBroker(Broker object) {
+				return createBrokerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -668,34 +698,6 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.RelationshipRole <em>Relationship Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see microserviceMetamodell.RelationshipRole
-	 * @generated
-	 */
-	public Adapter createRelationshipRoleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.UpstreamDownstreamRelationship <em>Upstream Downstream Relationship</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see microserviceMetamodell.UpstreamDownstreamRelationship
-	 * @generated
-	 */
-	public Adapter createUpstreamDownstreamRelationshipAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.ModelElement <em>Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -748,6 +750,118 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPersistableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.DeployementAbstraction <em>Deployement Abstraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.DeployementAbstraction
+	 * @generated
+	 */
+	public Adapter createDeployementAbstractionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.CloudConfiguration <em>Cloud Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.CloudConfiguration
+	 * @generated
+	 */
+	public Adapter createCloudConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.ExternalDependency <em>External Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.ExternalDependency
+	 * @generated
+	 */
+	public Adapter createExternalDependencyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.BuildConfiguration <em>Build Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.BuildConfiguration
+	 * @generated
+	 */
+	public Adapter createBuildConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.SharedModule <em>Shared Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.SharedModule
+	 * @generated
+	 */
+	public Adapter createSharedModuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.KafkaConfiguration <em>Kafka Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.KafkaConfiguration
+	 * @generated
+	 */
+	public Adapter createKafkaConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Topic <em>Topic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Topic
+	 * @generated
+	 */
+	public Adapter createTopicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.Broker <em>Broker</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see microserviceMetamodell.Broker
+	 * @generated
+	 */
+	public Adapter createBrokerAdapter() {
 		return null;
 	}
 

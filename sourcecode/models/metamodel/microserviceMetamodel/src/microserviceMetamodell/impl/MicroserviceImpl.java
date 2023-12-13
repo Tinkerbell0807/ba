@@ -5,6 +5,8 @@ package microserviceMetamodell.impl;
 import java.util.Collection;
 
 import microserviceMetamodell.BoundedContext;
+import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.DeployementAbstraction;
 import microserviceMetamodell.ImplementationTechnology;
 import microserviceMetamodell.Interface;
 import microserviceMetamodell.Microservice;
@@ -42,6 +44,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getCorrespodingContext <em>Correspoding Context</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getImplementationTechnology <em>Implementation Technology</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getSendsRequestTo <em>Sends Request To</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getDeployementAbstraction <em>Deployement Abstraction</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getBuildConfiguration <em>Build Configuration</em>}</li>
  * </ul>
  *
  * @generated
@@ -146,6 +150,26 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	 * @ordered
 	 */
 	protected RestEndpoint sendsRequestTo;
+
+	/**
+	 * The cached value of the '{@link #getDeployementAbstraction() <em>Deployement Abstraction</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeployementAbstraction()
+	 * @generated
+	 * @ordered
+	 */
+	protected DeployementAbstraction deployementAbstraction;
+
+	/**
+	 * The cached value of the '{@link #getBuildConfiguration() <em>Build Configuration</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBuildConfiguration()
+	 * @generated
+	 * @ordered
+	 */
+	protected BuildConfiguration buildConfiguration;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -356,6 +380,126 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DeployementAbstraction getDeployementAbstraction() {
+		if (deployementAbstraction != null && deployementAbstraction.eIsProxy()) {
+			InternalEObject oldDeployementAbstraction = (InternalEObject)deployementAbstraction;
+			deployementAbstraction = (DeployementAbstraction)eResolveProxy(oldDeployementAbstraction);
+			if (deployementAbstraction != oldDeployementAbstraction) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION, oldDeployementAbstraction, deployementAbstraction));
+			}
+		}
+		return deployementAbstraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeployementAbstraction basicGetDeployementAbstraction() {
+		return deployementAbstraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDeployementAbstraction(DeployementAbstraction newDeployementAbstraction, NotificationChain msgs) {
+		DeployementAbstraction oldDeployementAbstraction = deployementAbstraction;
+		deployementAbstraction = newDeployementAbstraction;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION, oldDeployementAbstraction, newDeployementAbstraction);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeployementAbstraction(DeployementAbstraction newDeployementAbstraction) {
+		if (newDeployementAbstraction != deployementAbstraction) {
+			NotificationChain msgs = null;
+			if (deployementAbstraction != null)
+				msgs = ((InternalEObject)deployementAbstraction).eInverseRemove(this, MicroserviceMetamodellPackage.DEPLOYEMENT_ABSTRACTION__MICROSERVICE, DeployementAbstraction.class, msgs);
+			if (newDeployementAbstraction != null)
+				msgs = ((InternalEObject)newDeployementAbstraction).eInverseAdd(this, MicroserviceMetamodellPackage.DEPLOYEMENT_ABSTRACTION__MICROSERVICE, DeployementAbstraction.class, msgs);
+			msgs = basicSetDeployementAbstraction(newDeployementAbstraction, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION, newDeployementAbstraction, newDeployementAbstraction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildConfiguration getBuildConfiguration() {
+		if (buildConfiguration != null && buildConfiguration.eIsProxy()) {
+			InternalEObject oldBuildConfiguration = (InternalEObject)buildConfiguration;
+			buildConfiguration = (BuildConfiguration)eResolveProxy(oldBuildConfiguration);
+			if (buildConfiguration != oldBuildConfiguration) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION, oldBuildConfiguration, buildConfiguration));
+			}
+		}
+		return buildConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildConfiguration basicGetBuildConfiguration() {
+		return buildConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBuildConfiguration(BuildConfiguration newBuildConfiguration, NotificationChain msgs) {
+		BuildConfiguration oldBuildConfiguration = buildConfiguration;
+		buildConfiguration = newBuildConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION, oldBuildConfiguration, newBuildConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBuildConfiguration(BuildConfiguration newBuildConfiguration) {
+		if (newBuildConfiguration != buildConfiguration) {
+			NotificationChain msgs = null;
+			if (buildConfiguration != null)
+				msgs = ((InternalEObject)buildConfiguration).eInverseRemove(this, MicroserviceMetamodellPackage.BUILD_CONFIGURATION__MICROSERVICE, BuildConfiguration.class, msgs);
+			if (newBuildConfiguration != null)
+				msgs = ((InternalEObject)newBuildConfiguration).eInverseAdd(this, MicroserviceMetamodellPackage.BUILD_CONFIGURATION__MICROSERVICE, BuildConfiguration.class, msgs);
+			msgs = basicSetBuildConfiguration(newBuildConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION, newBuildConfiguration, newBuildConfiguration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -363,6 +507,14 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				if (correspodingContext != null)
 					msgs = ((InternalEObject)correspodingContext).eInverseRemove(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE, BoundedContext.class, msgs);
 				return basicSetCorrespodingContext((BoundedContext)otherEnd, msgs);
+			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
+				if (deployementAbstraction != null)
+					msgs = ((InternalEObject)deployementAbstraction).eInverseRemove(this, MicroserviceMetamodellPackage.DEPLOYEMENT_ABSTRACTION__MICROSERVICE, DeployementAbstraction.class, msgs);
+				return basicSetDeployementAbstraction((DeployementAbstraction)otherEnd, msgs);
+			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
+				if (buildConfiguration != null)
+					msgs = ((InternalEObject)buildConfiguration).eInverseRemove(this, MicroserviceMetamodellPackage.BUILD_CONFIGURATION__MICROSERVICE, BuildConfiguration.class, msgs);
+				return basicSetBuildConfiguration((BuildConfiguration)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -381,6 +533,10 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				return ((InternalEList<?>)getModelElementImplementations()).basicRemove(otherEnd, msgs);
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				return basicSetCorrespodingContext(null, msgs);
+			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
+				return basicSetDeployementAbstraction(null, msgs);
+			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
+				return basicSetBuildConfiguration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -409,6 +565,12 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
 				if (resolve) return getSendsRequestTo();
 				return basicGetSendsRequestTo();
+			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
+				if (resolve) return getDeployementAbstraction();
+				return basicGetDeployementAbstraction();
+			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
+				if (resolve) return getBuildConfiguration();
+				return basicGetBuildConfiguration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -445,6 +607,12 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
 				setSendsRequestTo((RestEndpoint)newValue);
 				return;
+			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
+				setDeployementAbstraction((DeployementAbstraction)newValue);
+				return;
+			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
+				setBuildConfiguration((BuildConfiguration)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -478,6 +646,12 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
 				setSendsRequestTo((RestEndpoint)null);
 				return;
+			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
+				setDeployementAbstraction((DeployementAbstraction)null);
+				return;
+			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
+				setBuildConfiguration((BuildConfiguration)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -504,6 +678,10 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				return implementationTechnology != IMPLEMENTATION_TECHNOLOGY_EDEFAULT;
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
 				return sendsRequestTo != null;
+			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
+				return deployementAbstraction != null;
+			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
+				return buildConfiguration != null;
 		}
 		return super.eIsSet(featureID);
 	}

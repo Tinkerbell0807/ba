@@ -6,6 +6,7 @@ import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.UpstreamRole;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class UpstreamRoleImpl extends RelationshipRoleImpl implements UpstreamRole {
+public abstract class UpstreamRoleImpl extends MinimalEObjectImpl.Container implements UpstreamRole {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

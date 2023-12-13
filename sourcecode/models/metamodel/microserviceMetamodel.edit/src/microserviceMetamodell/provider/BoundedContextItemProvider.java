@@ -7,14 +7,12 @@ import java.util.Collection;
 import java.util.List;
 
 import microserviceMetamodell.BoundedContext;
-import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -64,6 +62,7 @@ public class BoundedContextItemProvider
 			addDomainModelPropertyDescriptor(object);
 			addContextNamePropertyDescriptor(object);
 			addCorrespodingMicroservicePropertyDescriptor(object);
+			addBoundedContextRelationshipsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,33 +134,25 @@ public class BoundedContextItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Bounded Context Relationships feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addBoundedContextRelationshipsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BoundedContext_boundedContextRelationships_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BoundedContext_boundedContextRelationships_feature", "_UI_BoundedContext_type"),
+				 MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -205,9 +196,6 @@ public class BoundedContextItemProvider
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CONTEXT_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -222,16 +210,6 @@ public class BoundedContextItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS,
-				 MicroserviceMetamodellFactory.eINSTANCE.createSharedKernel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS,
-				 MicroserviceMetamodellFactory.eINSTANCE.createCustomerSupplier()));
 	}
 
 	/**

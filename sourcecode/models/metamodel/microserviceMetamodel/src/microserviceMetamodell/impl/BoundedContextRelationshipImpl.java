@@ -2,7 +2,6 @@
  */
 package microserviceMetamodell.impl;
 
-import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.BoundedContextRelationship;
 import microserviceMetamodell.Interface;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
@@ -25,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.BoundedContextRelationshipImpl#getInterface <em>Interface</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.BoundedContextRelationshipImpl#getRelatedContext <em>Related Context</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.BoundedContextRelationshipImpl#getRelationshipName <em>Relationship Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,14 +41,23 @@ public abstract class BoundedContextRelationshipImpl extends MinimalEObjectImpl.
 	protected Interface interface_;
 
 	/**
-	 * The cached value of the '{@link #getRelatedContext() <em>Related Context</em>}' reference.
+	 * The default value of the '{@link #getRelationshipName() <em>Relationship Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelatedContext()
+	 * @see #getRelationshipName()
 	 * @generated
 	 * @ordered
 	 */
-	protected BoundedContext relatedContext;
+	protected static final String RELATIONSHIP_NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getRelationshipName() <em>Relationship Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationshipName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String relationshipName = RELATIONSHIP_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,16 +143,8 @@ public abstract class BoundedContextRelationshipImpl extends MinimalEObjectImpl.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoundedContext getRelatedContext() {
-		if (relatedContext != null && relatedContext.eIsProxy()) {
-			InternalEObject oldRelatedContext = (InternalEObject)relatedContext;
-			relatedContext = (BoundedContext)eResolveProxy(oldRelatedContext);
-			if (relatedContext != oldRelatedContext) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT, oldRelatedContext, relatedContext));
-			}
-		}
-		return relatedContext;
+	public String getRelationshipName() {
+		return relationshipName;
 	}
 
 	/**
@@ -152,20 +152,11 @@ public abstract class BoundedContextRelationshipImpl extends MinimalEObjectImpl.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoundedContext basicGetRelatedContext() {
-		return relatedContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRelatedContext(BoundedContext newRelatedContext) {
-		BoundedContext oldRelatedContext = relatedContext;
-		relatedContext = newRelatedContext;
+	public void setRelationshipName(String newRelationshipName) {
+		String oldRelationshipName = relationshipName;
+		relationshipName = newRelationshipName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT, oldRelatedContext, relatedContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME, oldRelationshipName, relationshipName));
 	}
 
 	/**
@@ -209,9 +200,8 @@ public abstract class BoundedContextRelationshipImpl extends MinimalEObjectImpl.
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE:
 				if (resolve) return getInterface();
 				return basicGetInterface();
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT:
-				if (resolve) return getRelatedContext();
-				return basicGetRelatedContext();
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME:
+				return getRelationshipName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,8 +217,8 @@ public abstract class BoundedContextRelationshipImpl extends MinimalEObjectImpl.
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE:
 				setInterface((Interface)newValue);
 				return;
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT:
-				setRelatedContext((BoundedContext)newValue);
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME:
+				setRelationshipName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -245,8 +235,8 @@ public abstract class BoundedContextRelationshipImpl extends MinimalEObjectImpl.
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE:
 				setInterface((Interface)null);
 				return;
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT:
-				setRelatedContext((BoundedContext)null);
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME:
+				setRelationshipName(RELATIONSHIP_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -262,10 +252,26 @@ public abstract class BoundedContextRelationshipImpl extends MinimalEObjectImpl.
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE:
 				return interface_ != null;
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATED_CONTEXT:
-				return relatedContext != null;
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME:
+				return RELATIONSHIP_NAME_EDEFAULT == null ? relationshipName != null : !RELATIONSHIP_NAME_EDEFAULT.equals(relationshipName);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (relationshipName: ");
+		result.append(relationshipName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //BoundedContextRelationshipImpl

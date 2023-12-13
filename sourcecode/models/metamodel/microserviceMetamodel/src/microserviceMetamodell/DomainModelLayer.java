@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link microserviceMetamodell.DomainModelLayer#getBoundedContexts <em>Bounded Contexts</em>}</li>
  *   <li>{@link microserviceMetamodell.DomainModelLayer#getDomainModels <em>Domain Models</em>}</li>
  *   <li>{@link microserviceMetamodell.DomainModelLayer#getDomainEvents <em>Domain Events</em>}</li>
+ *   <li>{@link microserviceMetamodell.DomainModelLayer#getBoundedContextRelationships <em>Bounded Context Relationships</em>}</li>
+ *   <li>{@link microserviceMetamodell.DomainModelLayer#getSharedModules <em>Shared Modules</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getDomainModelLayer()
@@ -60,5 +62,29 @@ public interface DomainModelLayer extends EObject {
 	 * @generated
 	 */
 	EList<DomainEvent> getDomainEvents();
+
+	/**
+	 * Returns the value of the '<em><b>Bounded Context Relationships</b></em>' containment reference list.
+	 * The list contents are of type {@link microserviceMetamodell.BoundedContextRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bounded Context Relationships</em>' containment reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getDomainModelLayer_BoundedContextRelationships()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BoundedContextRelationship> getBoundedContextRelationships();
+
+	/**
+	 * Returns the value of the '<em><b>Shared Modules</b></em>' containment reference list.
+	 * The list contents are of type {@link microserviceMetamodell.SharedModule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Shared Modules</em>' containment reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getDomainModelLayer_SharedModules()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SharedModule> getSharedModules();
 
 } // DomainModelLayer

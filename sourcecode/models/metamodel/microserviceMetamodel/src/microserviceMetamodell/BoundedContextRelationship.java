@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.BoundedContextRelationship#getInterface <em>Interface</em>}</li>
- *   <li>{@link microserviceMetamodell.BoundedContextRelationship#getRelatedContext <em>Related Context</em>}</li>
+ *   <li>{@link microserviceMetamodell.BoundedContextRelationship#getRelationshipName <em>Relationship Name</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBoundedContextRelationship()
@@ -47,25 +47,25 @@ public interface BoundedContextRelationship extends EObject {
 	void setInterface(Interface value);
 
 	/**
-	 * Returns the value of the '<em><b>Related Context</b></em>' reference.
+	 * Returns the value of the '<em><b>Relationship Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Related Context</em>' reference.
-	 * @see #setRelatedContext(BoundedContext)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBoundedContextRelationship_RelatedContext()
+	 * @return the value of the '<em>Relationship Name</em>' attribute.
+	 * @see #setRelationshipName(String)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBoundedContextRelationship_RelationshipName()
 	 * @model
 	 * @generated
 	 */
-	BoundedContext getRelatedContext();
+	String getRelationshipName();
 
 	/**
-	 * Sets the value of the '{@link microserviceMetamodell.BoundedContextRelationship#getRelatedContext <em>Related Context</em>}' reference.
+	 * Sets the value of the '{@link microserviceMetamodell.BoundedContextRelationship#getRelationshipName <em>Relationship Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Related Context</em>' reference.
-	 * @see #getRelatedContext()
+	 * @param value the new value of the '<em>Relationship Name</em>' attribute.
+	 * @see #getRelationshipName()
 	 * @generated
 	 */
-	void setRelatedContext(BoundedContext value);
+	void setRelationshipName(String value);
 
 } // BoundedContextRelationship

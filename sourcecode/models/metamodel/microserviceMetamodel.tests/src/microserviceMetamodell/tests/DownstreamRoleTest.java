@@ -2,6 +2,7 @@
  */
 package microserviceMetamodell.tests;
 
+import junit.framework.TestCase;
 import microserviceMetamodell.DownstreamRole;
 
 /**
@@ -10,7 +11,15 @@ import microserviceMetamodell.DownstreamRole;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class DownstreamRoleTest extends RelationshipRoleTest {
+public abstract class DownstreamRoleTest extends TestCase {
+
+	/**
+	 * The fixture for this Downstream Role test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DownstreamRole fixture = null;
 
 	/**
 	 * Constructs a new Downstream Role test case with the given name.
@@ -23,6 +32,16 @@ public abstract class DownstreamRoleTest extends RelationshipRoleTest {
 	}
 
 	/**
+	 * Sets the fixture for this Downstream Role test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(DownstreamRole fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Downstream Role test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,7 +49,7 @@ public abstract class DownstreamRoleTest extends RelationshipRoleTest {
 	 */
 	@Override
 	protected DownstreamRole getFixture() {
-		return (DownstreamRole)fixture;
+		return fixture;
 	}
 
 } //DownstreamRoleTest

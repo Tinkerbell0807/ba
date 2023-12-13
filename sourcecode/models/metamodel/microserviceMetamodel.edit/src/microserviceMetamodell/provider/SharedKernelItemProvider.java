@@ -6,9 +6,12 @@ package microserviceMetamodell.provider;
 import java.util.Collection;
 import java.util.List;
 
+import microserviceMetamodell.MicroserviceMetamodellPackage;
+import microserviceMetamodell.SharedKernel;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -39,8 +42,77 @@ public class SharedKernelItemProvider extends BoundedContextRelationshipItemProv
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRelatedContextsPropertyDescriptor(object);
+			addSharedModulesPropertyDescriptor(object);
+			addImplementingLibPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Related Contexts feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRelatedContextsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SharedKernel_relatedContexts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SharedKernel_relatedContexts_feature", "_UI_SharedKernel_type"),
+				 MicroserviceMetamodellPackage.Literals.SHARED_KERNEL__RELATED_CONTEXTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Shared Modules feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSharedModulesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SharedKernel_sharedModules_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SharedKernel_sharedModules_feature", "_UI_SharedKernel_type"),
+				 MicroserviceMetamodellPackage.Literals.SHARED_KERNEL__SHARED_MODULES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Implementing Lib feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addImplementingLibPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SharedKernel_implementingLib_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SharedKernel_implementingLib_feature", "_UI_SharedKernel_type"),
+				 MicroserviceMetamodellPackage.Literals.SHARED_KERNEL__IMPLEMENTING_LIB,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -62,7 +134,10 @@ public class SharedKernelItemProvider extends BoundedContextRelationshipItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SharedKernel_type");
+		String label = ((SharedKernel)object).getRelationshipName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SharedKernel_type") :
+			getString("_UI_SharedKernel_type") + " " + label;
 	}
 
 

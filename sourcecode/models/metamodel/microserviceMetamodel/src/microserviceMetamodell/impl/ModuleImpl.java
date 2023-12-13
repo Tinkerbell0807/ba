@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.ModuleImpl#getModelElements <em>Model Elements</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.ModuleImpl#getModuleName <em>Module Name</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.ModuleImpl#getSubmodules <em>Submodules</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +66,16 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements microser
 	 * @ordered
 	 */
 	protected String moduleName = MODULE_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSubmodules() <em>Submodules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubmodules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<microserviceMetamodell.Module> submodules;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,11 +134,25 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements microser
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<microserviceMetamodell.Module> getSubmodules() {
+		if (submodules == null) {
+			submodules = new EObjectContainmentEList<microserviceMetamodell.Module>(microserviceMetamodell.Module.class, this, MicroserviceMetamodellPackage.MODULE__SUBMODULES);
+		}
+		return submodules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.MODULE__MODEL_ELEMENTS:
 				return ((InternalEList<?>)getModelElements()).basicRemove(otherEnd, msgs);
+			case MicroserviceMetamodellPackage.MODULE__SUBMODULES:
+				return ((InternalEList<?>)getSubmodules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -144,6 +169,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements microser
 				return getModelElements();
 			case MicroserviceMetamodellPackage.MODULE__MODULE_NAME:
 				return getModuleName();
+			case MicroserviceMetamodellPackage.MODULE__SUBMODULES:
+				return getSubmodules();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,6 +191,10 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements microser
 			case MicroserviceMetamodellPackage.MODULE__MODULE_NAME:
 				setModuleName((String)newValue);
 				return;
+			case MicroserviceMetamodellPackage.MODULE__SUBMODULES:
+				getSubmodules().clear();
+				getSubmodules().addAll((Collection<? extends microserviceMetamodell.Module>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -182,6 +213,9 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements microser
 			case MicroserviceMetamodellPackage.MODULE__MODULE_NAME:
 				setModuleName(MODULE_NAME_EDEFAULT);
 				return;
+			case MicroserviceMetamodellPackage.MODULE__SUBMODULES:
+				getSubmodules().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -198,6 +232,8 @@ public class ModuleImpl extends MinimalEObjectImpl.Container implements microser
 				return modelElements != null && !modelElements.isEmpty();
 			case MicroserviceMetamodellPackage.MODULE__MODULE_NAME:
 				return MODULE_NAME_EDEFAULT == null ? moduleName != null : !MODULE_NAME_EDEFAULT.equals(moduleName);
+			case MicroserviceMetamodellPackage.MODULE__SUBMODULES:
+				return submodules != null && !submodules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

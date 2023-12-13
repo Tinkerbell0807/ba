@@ -2,18 +2,21 @@
  */
 package microserviceMetamodell.impl;
 
+import java.util.Collection;
 import microserviceMetamodell.AsynchronousInterface;
 import microserviceMetamodell.AsynchronousInterfaceRole;
 import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
-import microserviceMetamodell.TopologyType;
-
+import microserviceMetamodell.Topic;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,8 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.AsynchronousInterfaceImpl#getInterfaceRole <em>Interface Role</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.AsynchronousInterfaceImpl#getTopologyType <em>Topology Type</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.AsynchronousInterfaceImpl#getDomainEvent <em>Domain Event</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.AsynchronousInterfaceImpl#getDomainEvents <em>Domain Events</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.AsynchronousInterfaceImpl#getTopic <em>Topic</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,34 +55,24 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 	protected AsynchronousInterfaceRole interfaceRole = INTERFACE_ROLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTopologyType() <em>Topology Type</em>}' attribute.
+	 * The cached value of the '{@link #getDomainEvents() <em>Domain Events</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopologyType()
+	 * @see #getDomainEvents()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TopologyType TOPOLOGY_TYPE_EDEFAULT = TopologyType.BROKER;
+	protected EList<DomainEvent> domainEvents;
 
 	/**
-	 * The cached value of the '{@link #getTopologyType() <em>Topology Type</em>}' attribute.
+	 * The cached value of the '{@link #getTopic() <em>Topic</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTopologyType()
+	 * @see #getTopic()
 	 * @generated
 	 * @ordered
 	 */
-	protected TopologyType topologyType = TOPOLOGY_TYPE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDomainEvent() <em>Domain Event</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDomainEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected DomainEvent domainEvent;
+	protected Topic topic;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,8 +119,11 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TopologyType getTopologyType() {
-		return topologyType;
+	public EList<DomainEvent> getDomainEvents() {
+		if (domainEvents == null) {
+			domainEvents = new EObjectResolvingEList<DomainEvent>(DomainEvent.class, this, MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS);
+		}
+		return domainEvents;
 	}
 
 	/**
@@ -135,28 +131,16 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTopologyType(TopologyType newTopologyType) {
-		TopologyType oldTopologyType = topologyType;
-		topologyType = newTopologyType == null ? TOPOLOGY_TYPE_EDEFAULT : newTopologyType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE, oldTopologyType, topologyType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DomainEvent getDomainEvent() {
-		if (domainEvent != null && domainEvent.eIsProxy()) {
-			InternalEObject oldDomainEvent = (InternalEObject)domainEvent;
-			domainEvent = (DomainEvent)eResolveProxy(oldDomainEvent);
-			if (domainEvent != oldDomainEvent) {
+	public Topic getTopic() {
+		if (topic != null && topic.eIsProxy()) {
+			InternalEObject oldTopic = (InternalEObject)topic;
+			topic = (Topic)eResolveProxy(oldTopic);
+			if (topic != oldTopic) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT, oldDomainEvent, domainEvent));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC, oldTopic, topic));
 			}
 		}
-		return domainEvent;
+		return topic;
 	}
 
 	/**
@@ -164,8 +148,8 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DomainEvent basicGetDomainEvent() {
-		return domainEvent;
+	public Topic basicGetTopic() {
+		return topic;
 	}
 
 	/**
@@ -173,11 +157,63 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDomainEvent(DomainEvent newDomainEvent) {
-		DomainEvent oldDomainEvent = domainEvent;
-		domainEvent = newDomainEvent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT, oldDomainEvent, domainEvent));
+	public NotificationChain basicSetTopic(Topic newTopic, NotificationChain msgs) {
+		Topic oldTopic = topic;
+		topic = newTopic;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC, oldTopic, newTopic);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTopic(Topic newTopic) {
+		if (newTopic != topic) {
+			NotificationChain msgs = null;
+			if (topic != null)
+				msgs = ((InternalEObject)topic).eInverseRemove(this, MicroserviceMetamodellPackage.TOPIC__ASYNCHRONOUS_INTERFACES, Topic.class, msgs);
+			if (newTopic != null)
+				msgs = ((InternalEObject)newTopic).eInverseAdd(this, MicroserviceMetamodellPackage.TOPIC__ASYNCHRONOUS_INTERFACES, Topic.class, msgs);
+			msgs = basicSetTopic(newTopic, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC, newTopic, newTopic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC:
+				if (topic != null)
+					msgs = ((InternalEObject)topic).eInverseRemove(this, MicroserviceMetamodellPackage.TOPIC__ASYNCHRONOUS_INTERFACES, Topic.class, msgs);
+				return basicSetTopic((Topic)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC:
+				return basicSetTopic(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -190,11 +226,11 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE:
 				return getInterfaceRole();
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE:
-				return getTopologyType();
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT:
-				if (resolve) return getDomainEvent();
-				return basicGetDomainEvent();
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS:
+				return getDomainEvents();
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC:
+				if (resolve) return getTopic();
+				return basicGetTopic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,17 +240,19 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE:
 				setInterfaceRole((AsynchronousInterfaceRole)newValue);
 				return;
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE:
-				setTopologyType((TopologyType)newValue);
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS:
+				getDomainEvents().clear();
+				getDomainEvents().addAll((Collection<? extends DomainEvent>)newValue);
 				return;
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT:
-				setDomainEvent((DomainEvent)newValue);
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC:
+				setTopic((Topic)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,11 +269,11 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE:
 				setInterfaceRole(INTERFACE_ROLE_EDEFAULT);
 				return;
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE:
-				setTopologyType(TOPOLOGY_TYPE_EDEFAULT);
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS:
+				getDomainEvents().clear();
 				return;
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT:
-				setDomainEvent((DomainEvent)null);
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC:
+				setTopic((Topic)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -251,10 +289,10 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__INTERFACE_ROLE:
 				return interfaceRole != INTERFACE_ROLE_EDEFAULT;
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPOLOGY_TYPE:
-				return topologyType != TOPOLOGY_TYPE_EDEFAULT;
-			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENT:
-				return domainEvent != null;
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__DOMAIN_EVENTS:
+				return domainEvents != null && !domainEvents.isEmpty();
+			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE__TOPIC:
+				return topic != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,8 +309,6 @@ public class AsynchronousInterfaceImpl extends InterfaceImpl implements Asynchro
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (interfaceRole: ");
 		result.append(interfaceRole);
-		result.append(", topologyType: ");
-		result.append(topologyType);
 		result.append(')');
 		return result.toString();
 	}

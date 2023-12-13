@@ -102,6 +102,7 @@ public class ModuleItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.MODULE__MODEL_ELEMENTS);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.MODULE__SUBMODULES);
 		}
 		return childrenFeatures;
 	}
@@ -161,6 +162,7 @@ public class ModuleItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MicroserviceMetamodellPackage.MODULE__MODEL_ELEMENTS:
+			case MicroserviceMetamodellPackage.MODULE__SUBMODULES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -207,6 +209,16 @@ public class ModuleItemProvider
 			(createChildParameter
 				(MicroserviceMetamodellPackage.Literals.MODULE__MODEL_ELEMENTS,
 				 MicroserviceMetamodellFactory.eINSTANCE.createRepository()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.MODULE__SUBMODULES,
+				 MicroserviceMetamodellFactory.eINSTANCE.createModule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.MODULE__SUBMODULES,
+				 MicroserviceMetamodellFactory.eINSTANCE.createSharedModule()));
 	}
 
 	/**

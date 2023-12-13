@@ -2,6 +2,8 @@
  */
 package microserviceMetamodell;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +15,5 @@ package microserviceMetamodell;
  * @model abstract="true"
  * @generated
  */
-public interface UpstreamRole extends RelationshipRole {
+public interface UpstreamRole extends EObject {
 } // UpstreamRole

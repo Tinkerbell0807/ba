@@ -9,18 +9,24 @@ import microserviceMetamodell.AsynchronousInterface;
 import microserviceMetamodell.Behaviour;
 import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.BoundedContextRelationship;
+import microserviceMetamodell.Broker;
+import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.CloudConfiguration;
 import microserviceMetamodell.Conformist;
 import microserviceMetamodell.CustomerSupplier;
+import microserviceMetamodell.DeployementAbstraction;
 import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.DomainModel;
 import microserviceMetamodell.DomainModelLayer;
 import microserviceMetamodell.DownstreamRole;
 import microserviceMetamodell.Entity;
 import microserviceMetamodell.EntityNode;
+import microserviceMetamodell.ExternalDependency;
 import microserviceMetamodell.Factorizeable;
 import microserviceMetamodell.Factory;
 import microserviceMetamodell.InfrastructureLayer;
 import microserviceMetamodell.Interface;
+import microserviceMetamodell.KafkaConfiguration;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
@@ -28,15 +34,15 @@ import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.OpenHostService;
 import microserviceMetamodell.Persistable;
 import microserviceMetamodell.PublishedLanguage;
-import microserviceMetamodell.RelationshipRole;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
 import microserviceMetamodell.Service;
 import microserviceMetamodell.SharedKernel;
+import microserviceMetamodell.SharedModule;
 import microserviceMetamodell.SynchronousInterface;
 import microserviceMetamodell.SystemModel;
 import microserviceMetamodell.TechnicalLayer;
-import microserviceMetamodell.UpstreamDownstreamRelationship;
+import microserviceMetamodell.Topic;
 import microserviceMetamodell.UpstreamRole;
 import microserviceMetamodell.ValueObject;
 import microserviceMetamodell.ValueObjectNode;
@@ -215,7 +221,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER: {
 				CustomerSupplier customerSupplier = (CustomerSupplier)theEObject;
 				T result = caseCustomerSupplier(customerSupplier);
-				if (result == null) result = caseUpstreamDownstreamRelationship(customerSupplier);
 				if (result == null) result = caseBoundedContextRelationship(customerSupplier);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -224,7 +229,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 				Conformist conformist = (Conformist)theEObject;
 				T result = caseConformist(conformist);
 				if (result == null) result = caseDownstreamRole(conformist);
-				if (result == null) result = caseRelationshipRole(conformist);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,7 +236,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 				AnticorruptionLayer anticorruptionLayer = (AnticorruptionLayer)theEObject;
 				T result = caseAnticorruptionLayer(anticorruptionLayer);
 				if (result == null) result = caseDownstreamRole(anticorruptionLayer);
-				if (result == null) result = caseRelationshipRole(anticorruptionLayer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -240,7 +243,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 				OpenHostService openHostService = (OpenHostService)theEObject;
 				T result = caseOpenHostService(openHostService);
 				if (result == null) result = caseUpstreamRole(openHostService);
-				if (result == null) result = caseRelationshipRole(openHostService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -248,7 +250,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 				PublishedLanguage publishedLanguage = (PublishedLanguage)theEObject;
 				T result = casePublishedLanguage(publishedLanguage);
 				if (result == null) result = caseUpstreamRole(publishedLanguage);
-				if (result == null) result = caseRelationshipRole(publishedLanguage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -261,27 +262,12 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 			case MicroserviceMetamodellPackage.UPSTREAM_ROLE: {
 				UpstreamRole upstreamRole = (UpstreamRole)theEObject;
 				T result = caseUpstreamRole(upstreamRole);
-				if (result == null) result = caseRelationshipRole(upstreamRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MicroserviceMetamodellPackage.DOWNSTREAM_ROLE: {
 				DownstreamRole downstreamRole = (DownstreamRole)theEObject;
 				T result = caseDownstreamRole(downstreamRole);
-				if (result == null) result = caseRelationshipRole(downstreamRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MicroserviceMetamodellPackage.RELATIONSHIP_ROLE: {
-				RelationshipRole relationshipRole = (RelationshipRole)theEObject;
-				T result = caseRelationshipRole(relationshipRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MicroserviceMetamodellPackage.UPSTREAM_DOWNSTREAM_RELATIONSHIP: {
-				UpstreamDownstreamRelationship upstreamDownstreamRelationship = (UpstreamDownstreamRelationship)theEObject;
-				T result = caseUpstreamDownstreamRelationship(upstreamDownstreamRelationship);
-				if (result == null) result = caseBoundedContextRelationship(upstreamDownstreamRelationship);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -358,6 +344,55 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 			case MicroserviceMetamodellPackage.PERSISTABLE: {
 				Persistable persistable = (Persistable)theEObject;
 				T result = casePersistable(persistable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.DEPLOYEMENT_ABSTRACTION: {
+				DeployementAbstraction deployementAbstraction = (DeployementAbstraction)theEObject;
+				T result = caseDeployementAbstraction(deployementAbstraction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.CLOUD_CONFIGURATION: {
+				CloudConfiguration cloudConfiguration = (CloudConfiguration)theEObject;
+				T result = caseCloudConfiguration(cloudConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.EXTERNAL_DEPENDENCY: {
+				ExternalDependency externalDependency = (ExternalDependency)theEObject;
+				T result = caseExternalDependency(externalDependency);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION: {
+				BuildConfiguration buildConfiguration = (BuildConfiguration)theEObject;
+				T result = caseBuildConfiguration(buildConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.SHARED_MODULE: {
+				SharedModule sharedModule = (SharedModule)theEObject;
+				T result = caseSharedModule(sharedModule);
+				if (result == null) result = caseModule(sharedModule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.KAFKA_CONFIGURATION: {
+				KafkaConfiguration kafkaConfiguration = (KafkaConfiguration)theEObject;
+				T result = caseKafkaConfiguration(kafkaConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.TOPIC: {
+				Topic topic = (Topic)theEObject;
+				T result = caseTopic(topic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MicroserviceMetamodellPackage.BROKER: {
+				Broker broker = (Broker)theEObject;
+				T result = caseBroker(broker);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -786,36 +821,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relationship Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relationship Role</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRelationshipRole(RelationshipRole object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Upstream Downstream Relationship</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Upstream Downstream Relationship</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUpstreamDownstreamRelationship(UpstreamDownstreamRelationship object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Model Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -872,6 +877,126 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePersistable(Persistable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Deployement Abstraction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Deployement Abstraction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDeployementAbstraction(DeployementAbstraction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cloud Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cloud Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloudConfiguration(CloudConfiguration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>External Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>External Dependency</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExternalDependency(ExternalDependency object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Build Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Build Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuildConfiguration(BuildConfiguration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Shared Module</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Shared Module</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSharedModule(SharedModule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Kafka Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Kafka Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKafkaConfiguration(KafkaConfiguration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Topic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Topic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTopic(Topic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Broker</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Broker</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBroker(Broker object) {
 		return null;
 	}
 

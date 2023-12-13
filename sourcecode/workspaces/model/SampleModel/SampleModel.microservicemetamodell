@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
   <domainModelLayer>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="Customer" correspodingMicroservice="//@technicalLayer/@microservices.0"/>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="Order" correspodingMicroservice="//@technicalLayer/@microservices.2"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="Customer" correspodingMicroservice="//@technicalLayer/@microservices.0" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.0"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="Order" correspodingMicroservice="//@technicalLayer/@microservices.2" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.0"/>
     <boundedContexts domainModel="//@domainModelLayer/@domainModels.2" contextName="GDPR" correspodingMicroservice="//@technicalLayer/@microservices.1"/>
-    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="Customer">
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="Customer" sharedModules="//@domainModelLayer/@sharedModules.0">
       <modules moduleName="customer">
         <modelElements xsi:type="microserviceMetamodell:Entity" isImplementedTrough="//@technicalLayer/@microservices.0/@modelElementImplementations.0" elementName="CustomerEntity"/>
         <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.0/@modelElementImplementations.1" elementName="CustomerFactory" factoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0"/>
         <modelElements xsi:type="microserviceMetamodell:Repository" isImplementedTrough="//@technicalLayer/@microservices.0/@modelElementImplementations.2" elementName="CustomerRepository" repositoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0">
           <behaviours behaviourName="searchForCustomer"/>
         </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:ValueObject" elementName="CustomerDetailsObject">
+          <valueObjects elementName="CustomerContactObject">
+            <valueObjects elementName="CustomerAdressObject"/>
+          </valueObjects>
+        </modelElements>
+        <submodules moduleName="submodule"/>
       </modules>
       <modules moduleName="login">
         <modelElements xsi:type="microserviceMetamodell:Service" elementName="LoginService">
@@ -18,7 +24,7 @@
         </modelElements>
       </modules>
     </domainModels>
-    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="Order">
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="Order" sharedModules="//@domainModelLayer/@sharedModules.0">
       <modules moduleName="order">
         <modelElements xsi:type="microserviceMetamodell:Entity" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.0" elementName="OrderEntity">
           <valueObjects isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.1" elementName="OrderDetails"/>
@@ -40,26 +46,37 @@
     <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="CustomerCreated"/>
     <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="OrderCreated"/>
     <domainEvents domainModel="//@domainModelLayer/@domainModels.2" eventName="DataDeletionRequested"/>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="Customer/Order" relatedContexts="//@domainModelLayer/@boundedContexts.0 //@domainModelLayer/@boundedContexts.1" sharedModules="//@domainModelLayer/@sharedModules.0"/>
+    <sharedModules moduleName="markets"/>
   </domainModelLayer>
   <technicalLayer>
     <microservices serviceName="company-customer-service" correspodingContext="//@domainModelLayer/@boundedContexts.0">
-      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface" interfaceFor="//@technicalLayer/@microservices.0/@modelElementImplementations.2" interfaceName="CustomerController" version="1.0.0"/>
-      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.0/@modelElementImplementations.2" interfaceName="CustomerProducer" domainEvent="//@domainModelLayer/@domainEvents.0"/>
-      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.0/@modelElementImplementations.2" interfaceName="DataDeletionConsumer" interfaceRole="CONSUMER" domainEvent="//@domainModelLayer/@domainEvents.2"/>
+      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface" interfaceFor="//@technicalLayer/@microservices.0/@modelElementImplementations.2" interfaceName="CustomerController" version="1.0.0">
+        <restEndpoints path="/getCustomer"/>
+      </interfaces>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.0/@modelElementImplementations.2" interfaceName="CustomerProducer" domainEvents="//@domainModelLayer/@domainEvents.0" topic="//@infrastructureLayer/@eventingConfigurations.0/@topics.0"/>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.0/@modelElementImplementations.2" interfaceName="DataDeletionConsumer" interfaceRole="CONSUMER" domainEvents="//@domainModelLayer/@domainEvents.2" topic="//@infrastructureLayer/@eventingConfigurations.0/@topics.1"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0" className="CustomerEntity"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.1" className="CustomerFactory"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.2" className="CustomerRepository"/>
     </microservices>
     <microservices serviceName="company-gdpr-service" correspodingContext="//@domainModelLayer/@boundedContexts.2">
-      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.1/@modelElementImplementations.0" interfaceName="DataDeletionProducer" domainEvent="//@domainModelLayer/@domainEvents.2"/>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.1/@modelElementImplementations.0" interfaceName="DataDeletionProducer" domainEvents="//@domainModelLayer/@domainEvents.2" topic="//@infrastructureLayer/@eventingConfigurations.0/@topics.1"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0" className="DataDeletionService"/>
     </microservices>
-    <microservices serviceName="company-order-service" correspodingContext="//@domainModelLayer/@boundedContexts.1">
-      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface"/>
-      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="DataDeletionConsumer" interfaceRole="CONSUMER" domainEvent="//@domainModelLayer/@domainEvents.2"/>
+    <microservices serviceName="company-order-service" correspodingContext="//@domainModelLayer/@boundedContexts.1" sendsRequestTo="//@technicalLayer/@microservices.0/@interfaces.0/@restEndpoints.0">
+      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface" interfaceFor="//@technicalLayer/@microservices.2/@modelElementImplementations.0" interfaceName="OrderController" version="1.0.0"/>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="DataDeletionConsumer" interfaceRole="CONSUMER" domainEvents="//@domainModelLayer/@domainEvents.2" topic="//@infrastructureLayer/@eventingConfigurations.0/@topics.1"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.0" className="OrderEntity"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.0/@valueObjects.0" className="OrderDetails"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1" className="OrderAggregate"/>
+      <modelElementImplementations className="LoggingUtility"/>
     </microservices>
   </technicalLayer>
+  <infrastructureLayer>
+    <eventingConfigurations>
+      <topics topicName="customer-topic-v1" topicNameAbbreviation="customer" asynchronousInterfaces="//@technicalLayer/@microservices.0/@interfaces.1"/>
+      <topics topicName="data-deletion-v2" topicNameAbbreviation="data-deletion" asynchronousInterfaces="//@technicalLayer/@microservices.0/@interfaces.2 //@technicalLayer/@microservices.2/@interfaces.1 //@technicalLayer/@microservices.1/@interfaces.0"/>
+    </eventingConfigurations>
+  </infrastructureLayer>
 </microserviceMetamodell:SystemModel>
