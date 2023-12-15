@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -44,8 +45,31 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addReferencedInterfacesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Referenced Interfaces feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencedInterfacesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CustomerSupplier_referencedInterfaces_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CustomerSupplier_referencedInterfaces_feature", "_UI_CustomerSupplier_type"),
+				 MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__REFERENCED_INTERFACES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -60,8 +84,8 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_ROLE);
 		}
 		return childrenFeatures;
 	}
@@ -117,8 +141,8 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CustomerSupplier.class)) {
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__DOWNSTREAM:
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM:
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE:
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_ROLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,22 +162,22 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM,
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE,
 				 MicroserviceMetamodellFactory.eINSTANCE.createConformist()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM,
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE,
 				 MicroserviceMetamodellFactory.eINSTANCE.createAnticorruptionLayer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM,
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_ROLE,
 				 MicroserviceMetamodellFactory.eINSTANCE.createOpenHostService()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM,
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_ROLE,
 				 MicroserviceMetamodellFactory.eINSTANCE.createPublishedLanguage()));
 	}
 

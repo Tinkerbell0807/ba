@@ -6,6 +6,8 @@ package microserviceMetamodell.provider;
 import java.util.Collection;
 import java.util.List;
 
+import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.BuildTool;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -19,7 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link microserviceMetamodell.BuildConfiguration} object.
@@ -57,7 +61,8 @@ public class BuildConfigurationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addMicroservicePropertyDescriptor(object);
-			addExternalDependencyPropertyDescriptor(object);
+			addExternalDependenciesPropertyDescriptor(object);
+			addBuildToolPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,23 +90,45 @@ public class BuildConfigurationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the External Dependency feature.
+	 * This adds a property descriptor for the External Dependencies feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addExternalDependencyPropertyDescriptor(Object object) {
+	protected void addExternalDependenciesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BuildConfiguration_externalDependency_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BuildConfiguration_externalDependency_feature", "_UI_BuildConfiguration_type"),
-				 MicroserviceMetamodellPackage.Literals.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY,
+				 getString("_UI_BuildConfiguration_externalDependencies_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BuildConfiguration_externalDependencies_feature", "_UI_BuildConfiguration_type"),
+				 MicroserviceMetamodellPackage.Literals.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCIES,
 				 true,
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Build Tool feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBuildToolPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BuildConfiguration_buildTool_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BuildConfiguration_buildTool_feature", "_UI_BuildConfiguration_type"),
+				 MicroserviceMetamodellPackage.Literals.BUILD_CONFIGURATION__BUILD_TOOL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -125,7 +152,11 @@ public class BuildConfigurationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BuildConfiguration_type");
+		BuildTool labelValue = ((BuildConfiguration)object).getBuildTool();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BuildConfiguration_type") :
+			getString("_UI_BuildConfiguration_type") + " " + label;
 	}
 
 
@@ -139,6 +170,12 @@ public class BuildConfigurationItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(BuildConfiguration.class)) {
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__BUILD_TOOL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

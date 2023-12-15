@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.EntityNode#getValueObjectNodes <em>Value Object Nodes</em>}</li>
+ *   <li>{@link microserviceMetamodell.EntityNode#getBehaviours <em>Behaviours</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getEntityNode()
@@ -34,4 +35,16 @@ public interface EntityNode extends AggregateNode {
 	 * @generated
 	 */
 	EList<ValueObjectNode> getValueObjectNodes();
+
+	/**
+	 * Returns the value of the '<em><b>Behaviours</b></em>' containment reference list.
+	 * The list contents are of type {@link microserviceMetamodell.Behaviour}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Behaviours</em>' containment reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getEntityNode_Behaviours()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Behaviour> getBehaviours();
 } // EntityNode

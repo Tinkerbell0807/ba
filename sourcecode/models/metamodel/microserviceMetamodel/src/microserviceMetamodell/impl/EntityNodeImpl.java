@@ -3,6 +3,7 @@
 package microserviceMetamodell.impl;
 
 import java.util.Collection;
+import microserviceMetamodell.Behaviour;
 import microserviceMetamodell.EntityNode;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.EntityNodeImpl#getElementName <em>Element Name</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.EntityNodeImpl#getValueObjectNodes <em>Value Object Nodes</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.EntityNodeImpl#getBehaviours <em>Behaviours</em>}</li>
  * </ul>
  *
  * @generated
@@ -60,6 +62,15 @@ public class EntityNodeImpl extends MinimalEObjectImpl.Container implements Enti
 	 * @ordered
 	 */
 	protected EList<ValueObjectNode> valueObjectNodes;
+	/**
+	 * The cached value of the '{@link #getBehaviours() <em>Behaviours</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBehaviours()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Behaviour> behaviours;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,11 +128,25 @@ public class EntityNodeImpl extends MinimalEObjectImpl.Container implements Enti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Behaviour> getBehaviours() {
+		if (behaviours == null) {
+			behaviours = new EObjectContainmentEList<Behaviour>(Behaviour.class, this, MicroserviceMetamodellPackage.ENTITY_NODE__BEHAVIOURS);
+		}
+		return behaviours;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.ENTITY_NODE__VALUE_OBJECT_NODES:
 				return ((InternalEList<?>)getValueObjectNodes()).basicRemove(otherEnd, msgs);
+			case MicroserviceMetamodellPackage.ENTITY_NODE__BEHAVIOURS:
+				return ((InternalEList<?>)getBehaviours()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -138,6 +163,8 @@ public class EntityNodeImpl extends MinimalEObjectImpl.Container implements Enti
 				return getElementName();
 			case MicroserviceMetamodellPackage.ENTITY_NODE__VALUE_OBJECT_NODES:
 				return getValueObjectNodes();
+			case MicroserviceMetamodellPackage.ENTITY_NODE__BEHAVIOURS:
+				return getBehaviours();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,6 +185,10 @@ public class EntityNodeImpl extends MinimalEObjectImpl.Container implements Enti
 				getValueObjectNodes().clear();
 				getValueObjectNodes().addAll((Collection<? extends ValueObjectNode>)newValue);
 				return;
+			case MicroserviceMetamodellPackage.ENTITY_NODE__BEHAVIOURS:
+				getBehaviours().clear();
+				getBehaviours().addAll((Collection<? extends Behaviour>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -176,6 +207,9 @@ public class EntityNodeImpl extends MinimalEObjectImpl.Container implements Enti
 			case MicroserviceMetamodellPackage.ENTITY_NODE__VALUE_OBJECT_NODES:
 				getValueObjectNodes().clear();
 				return;
+			case MicroserviceMetamodellPackage.ENTITY_NODE__BEHAVIOURS:
+				getBehaviours().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +226,8 @@ public class EntityNodeImpl extends MinimalEObjectImpl.Container implements Enti
 				return ELEMENT_NAME_EDEFAULT == null ? elementName != null : !ELEMENT_NAME_EDEFAULT.equals(elementName);
 			case MicroserviceMetamodellPackage.ENTITY_NODE__VALUE_OBJECT_NODES:
 				return valueObjectNodes != null && !valueObjectNodes.isEmpty();
+			case MicroserviceMetamodellPackage.ENTITY_NODE__BEHAVIOURS:
+				return behaviours != null && !behaviours.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

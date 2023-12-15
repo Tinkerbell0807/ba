@@ -4,6 +4,7 @@ package microserviceMetamodell.impl;
 
 import java.util.Collection;
 import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.BuildTool;
 import microserviceMetamodell.ExternalDependency;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
@@ -27,7 +28,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.BuildConfigurationImpl#getMicroservice <em>Microservice</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.BuildConfigurationImpl#getExternalDependency <em>External Dependency</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.BuildConfigurationImpl#getExternalDependencies <em>External Dependencies</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.BuildConfigurationImpl#getBuildTool <em>Build Tool</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +45,32 @@ public class BuildConfigurationImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	protected Microservice microservice;
 	/**
-	 * The cached value of the '{@link #getExternalDependency() <em>External Dependency</em>}' reference list.
+	 * The cached value of the '{@link #getExternalDependencies() <em>External Dependencies</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExternalDependency()
+	 * @see #getExternalDependencies()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExternalDependency> externalDependency;
+	protected EList<ExternalDependency> externalDependencies;
+	/**
+	 * The default value of the '{@link #getBuildTool() <em>Build Tool</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBuildTool()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final BuildTool BUILD_TOOL_EDEFAULT = BuildTool.MAVEN;
+	/**
+	 * The cached value of the '{@link #getBuildTool() <em>Build Tool</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBuildTool()
+	 * @generated
+	 * @ordered
+	 */
+	protected BuildTool buildTool = BUILD_TOOL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,11 +156,32 @@ public class BuildConfigurationImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExternalDependency> getExternalDependency() {
-		if (externalDependency == null) {
-			externalDependency = new EObjectResolvingEList<ExternalDependency>(ExternalDependency.class, this, MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY);
+	public EList<ExternalDependency> getExternalDependencies() {
+		if (externalDependencies == null) {
+			externalDependencies = new EObjectResolvingEList<ExternalDependency>(ExternalDependency.class, this, MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCIES);
 		}
-		return externalDependency;
+		return externalDependencies;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildTool getBuildTool() {
+		return buildTool;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBuildTool(BuildTool newBuildTool) {
+		BuildTool oldBuildTool = buildTool;
+		buildTool = newBuildTool == null ? BUILD_TOOL_EDEFAULT : newBuildTool;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.BUILD_CONFIGURATION__BUILD_TOOL, oldBuildTool, buildTool));
 	}
 
 	/**
@@ -184,8 +225,10 @@ public class BuildConfigurationImpl extends MinimalEObjectImpl.Container impleme
 			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__MICROSERVICE:
 				if (resolve) return getMicroservice();
 				return basicGetMicroservice();
-			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY:
-				return getExternalDependency();
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCIES:
+				return getExternalDependencies();
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__BUILD_TOOL:
+				return getBuildTool();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,9 +245,12 @@ public class BuildConfigurationImpl extends MinimalEObjectImpl.Container impleme
 			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__MICROSERVICE:
 				setMicroservice((Microservice)newValue);
 				return;
-			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY:
-				getExternalDependency().clear();
-				getExternalDependency().addAll((Collection<? extends ExternalDependency>)newValue);
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCIES:
+				getExternalDependencies().clear();
+				getExternalDependencies().addAll((Collection<? extends ExternalDependency>)newValue);
+				return;
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__BUILD_TOOL:
+				setBuildTool((BuildTool)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,8 +267,11 @@ public class BuildConfigurationImpl extends MinimalEObjectImpl.Container impleme
 			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__MICROSERVICE:
 				setMicroservice((Microservice)null);
 				return;
-			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY:
-				getExternalDependency().clear();
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCIES:
+				getExternalDependencies().clear();
+				return;
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__BUILD_TOOL:
+				setBuildTool(BUILD_TOOL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -238,10 +287,28 @@ public class BuildConfigurationImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__MICROSERVICE:
 				return microservice != null;
-			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY:
-				return externalDependency != null && !externalDependency.isEmpty();
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__EXTERNAL_DEPENDENCIES:
+				return externalDependencies != null && !externalDependencies.isEmpty();
+			case MicroserviceMetamodellPackage.BUILD_CONFIGURATION__BUILD_TOOL:
+				return buildTool != BUILD_TOOL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (buildTool: ");
+		result.append(buildTool);
+		result.append(')');
+		return result.toString();
 	}
 
 } //BuildConfigurationImpl

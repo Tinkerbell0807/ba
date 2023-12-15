@@ -3,18 +3,13 @@
 package microserviceMetamodell.impl;
 
 import java.util.Collection;
-import microserviceMetamodell.BoundedContextRelationship;
 import microserviceMetamodell.Interface;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElementImplementation;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -28,7 +23,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.InterfaceImpl#getInterfaceFor <em>Interface For</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.InterfaceImpl#getBoundedContextRelationship <em>Bounded Context Relationship</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.InterfaceImpl#getInterfaceName <em>Interface Name</em>}</li>
  * </ul>
  *
@@ -44,16 +38,6 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected EList<ModelElementImplementation> interfaceFor;
-
-	/**
-	 * The cached value of the '{@link #getBoundedContextRelationship() <em>Bounded Context Relationship</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBoundedContextRelationship()
-	 * @generated
-	 * @ordered
-	 */
-	protected BoundedContextRelationship boundedContextRelationship;
 
 	/**
 	 * The default value of the '{@link #getInterfaceName() <em>Interface Name</em>}' attribute.
@@ -111,66 +95,6 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoundedContextRelationship getBoundedContextRelationship() {
-		if (boundedContextRelationship != null && boundedContextRelationship.eIsProxy()) {
-			InternalEObject oldBoundedContextRelationship = (InternalEObject)boundedContextRelationship;
-			boundedContextRelationship = (BoundedContextRelationship)eResolveProxy(oldBoundedContextRelationship);
-			if (boundedContextRelationship != oldBoundedContextRelationship) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP, oldBoundedContextRelationship, boundedContextRelationship));
-			}
-		}
-		return boundedContextRelationship;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BoundedContextRelationship basicGetBoundedContextRelationship() {
-		return boundedContextRelationship;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBoundedContextRelationship(BoundedContextRelationship newBoundedContextRelationship, NotificationChain msgs) {
-		BoundedContextRelationship oldBoundedContextRelationship = boundedContextRelationship;
-		boundedContextRelationship = newBoundedContextRelationship;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP, oldBoundedContextRelationship, newBoundedContextRelationship);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBoundedContextRelationship(BoundedContextRelationship newBoundedContextRelationship) {
-		if (newBoundedContextRelationship != boundedContextRelationship) {
-			NotificationChain msgs = null;
-			if (boundedContextRelationship != null)
-				msgs = ((InternalEObject)boundedContextRelationship).eInverseRemove(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE, BoundedContextRelationship.class, msgs);
-			if (newBoundedContextRelationship != null)
-				msgs = ((InternalEObject)newBoundedContextRelationship).eInverseAdd(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE, BoundedContextRelationship.class, msgs);
-			msgs = basicSetBoundedContextRelationship(newBoundedContextRelationship, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP, newBoundedContextRelationship, newBoundedContextRelationship));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getInterfaceName() {
 		return interfaceName;
 	}
@@ -193,43 +117,10 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP:
-				if (boundedContextRelationship != null)
-					msgs = ((InternalEObject)boundedContextRelationship).eInverseRemove(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE, BoundedContextRelationship.class, msgs);
-				return basicSetBoundedContextRelationship((BoundedContextRelationship)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP:
-				return basicSetBoundedContextRelationship(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_FOR:
 				return getInterfaceFor();
-			case MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP:
-				if (resolve) return getBoundedContextRelationship();
-				return basicGetBoundedContextRelationship();
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_NAME:
 				return getInterfaceName();
 		}
@@ -249,9 +140,6 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 				getInterfaceFor().clear();
 				getInterfaceFor().addAll((Collection<? extends ModelElementImplementation>)newValue);
 				return;
-			case MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP:
-				setBoundedContextRelationship((BoundedContextRelationship)newValue);
-				return;
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_NAME:
 				setInterfaceName((String)newValue);
 				return;
@@ -270,9 +158,6 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_FOR:
 				getInterfaceFor().clear();
 				return;
-			case MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP:
-				setBoundedContextRelationship((BoundedContextRelationship)null);
-				return;
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_NAME:
 				setInterfaceName(INTERFACE_NAME_EDEFAULT);
 				return;
@@ -290,8 +175,6 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_FOR:
 				return interfaceFor != null && !interfaceFor.isEmpty();
-			case MicroserviceMetamodellPackage.INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP:
-				return boundedContextRelationship != null;
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_NAME:
 				return INTERFACE_NAME_EDEFAULT == null ? interfaceName != null : !INTERFACE_NAME_EDEFAULT.equals(interfaceName);
 		}

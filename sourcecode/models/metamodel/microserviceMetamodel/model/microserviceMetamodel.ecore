@@ -124,22 +124,28 @@
         eOpposite="#//ExternalDependency/sharedKernel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomerSupplier" eSuperTypes="#//BoundedContextRelationship">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="downstream" eType="#//DownstreamRole"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="upstream" eType="#//UpstreamRole"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="downstreamRole" lowerBound="1"
+        eType="#//DownstreamRole" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upstreamRole" lowerBound="1"
+        eType="#//UpstreamRole" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedInterfaces" upperBound="-1"
+        eType="#//Interface"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Conformist" eSuperTypes="#//DownstreamRole"/>
   <eClassifiers xsi:type="ecore:EClass" name="AnticorruptionLayer" eSuperTypes="#//DownstreamRole"/>
   <eClassifiers xsi:type="ecore:EClass" name="OpenHostService" eSuperTypes="#//UpstreamRole"/>
   <eClassifiers xsi:type="ecore:EClass" name="PublishedLanguage" eSuperTypes="#//UpstreamRole"/>
   <eClassifiers xsi:type="ecore:EClass" name="BoundedContextRelationship" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="#//Interface"
-        eOpposite="#//Interface/boundedContextRelationship"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationshipName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpstreamRole" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DownstreamRole" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UpstreamRole" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContext" lowerBound="1"
+        eType="#//BoundedContext"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DownstreamRole" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContext" lowerBound="1"
+        eType="#//BoundedContext"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isImplementedTrough" eType="#//ModelElementImplementation"
         eOpposite="#//ModelElementImplementation/correspondingModelElement"/>
@@ -167,8 +173,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceFor" upperBound="-1"
         eType="#//ModelElementImplementation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boundedContextRelationship"
-        eType="#//BoundedContextRelationship" eOpposite="#//BoundedContextRelationship/interface"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SynchronousInterface" eSuperTypes="#//Interface">
@@ -210,6 +214,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="EntityNode" eSuperTypes="#//AggregateNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueObjectNodes" upperBound="-1"
         eType="#//ValueObjectNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behaviours" upperBound="-1"
+        eType="#//Behaviour" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregateNode" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -226,12 +232,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDependency">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sharedKernel" eType="#//SharedKernel"
         eOpposite="#//SharedKernel/implementingLib"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="microservice" eType="#//Microservice"
         eOpposite="#//Microservice/buildConfiguration"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="externalDependency" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalDependencies" upperBound="-1"
         eType="#//ExternalDependency"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildTool" eType="#//BuildTool"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SharedModule" eSuperTypes="#//Module"/>
   <eClassifiers xsi:type="ecore:EClass" name="KafkaConfiguration">
@@ -249,5 +259,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Broker">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="brokerAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BuildTool">
+    <eLiterals name="MAVEN"/>
+    <eLiterals name="GRADLE" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

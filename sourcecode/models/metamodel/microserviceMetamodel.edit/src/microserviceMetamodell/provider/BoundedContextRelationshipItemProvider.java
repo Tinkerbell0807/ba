@@ -60,32 +60,9 @@ public class BoundedContextRelationshipItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInterfacePropertyDescriptor(object);
 			addRelationshipNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Interface feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInterfacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BoundedContextRelationship_interface_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BoundedContextRelationship_interface_feature", "_UI_BoundedContextRelationship_type"),
-				 MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

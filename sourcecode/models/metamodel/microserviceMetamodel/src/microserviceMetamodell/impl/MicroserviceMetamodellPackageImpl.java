@@ -12,6 +12,7 @@ import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.BoundedContextRelationship;
 import microserviceMetamodell.Broker;
 import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.BuildTool;
 import microserviceMetamodell.CloudConfiguration;
 import microserviceMetamodell.Conformist;
 import microserviceMetamodell.CustomerSupplier;
@@ -404,6 +405,13 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	private EEnum implementationTechnologyEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum buildToolEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -560,6 +568,15 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 */
 	public EReference getEntityNode_ValueObjectNodes() {
 		return (EReference)entityNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntityNode_Behaviours() {
+		return (EReference)entityNodeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1125,7 +1142,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCustomerSupplier_Downstream() {
+	public EReference getCustomerSupplier_DownstreamRole() {
 		return (EReference)customerSupplierEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1134,8 +1151,17 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCustomerSupplier_Upstream() {
+	public EReference getCustomerSupplier_UpstreamRole() {
 		return (EReference)customerSupplierEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCustomerSupplier_ReferencedInterfaces() {
+		return (EReference)customerSupplierEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1188,17 +1214,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBoundedContextRelationship_Interface() {
-		return (EReference)boundedContextRelationshipEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBoundedContextRelationship_RelationshipName() {
-		return (EAttribute)boundedContextRelationshipEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)boundedContextRelationshipEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1215,8 +1232,26 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUpstreamRole_RelatedContext() {
+		return (EReference)upstreamRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDownstreamRole() {
 		return downstreamRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDownstreamRole_RelatedContext() {
+		return (EReference)downstreamRoleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1332,6 +1367,33 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExternalDependency_GroupId() {
+		return (EAttribute)externalDependencyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalDependency_ArtifactId() {
+		return (EAttribute)externalDependencyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalDependency_Version() {
+		return (EAttribute)externalDependencyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBuildConfiguration() {
 		return buildConfigurationEClass;
 	}
@@ -1350,8 +1412,17 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBuildConfiguration_ExternalDependency() {
+	public EReference getBuildConfiguration_ExternalDependencies() {
 		return (EReference)buildConfigurationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuildConfiguration_BuildTool() {
+		return (EAttribute)buildConfigurationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1557,17 +1628,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_BoundedContextRelationship() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getInterface_InterfaceName() {
-		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1667,6 +1729,15 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 */
 	public EEnum getImplementationTechnology() {
 		return implementationTechnologyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBuildTool() {
+		return buildToolEEnum;
 	}
 
 	/**
@@ -1775,8 +1846,9 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		createEReference(sharedKernelEClass, SHARED_KERNEL__IMPLEMENTING_LIB);
 
 		customerSupplierEClass = createEClass(CUSTOMER_SUPPLIER);
-		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__DOWNSTREAM);
-		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__UPSTREAM);
+		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE);
+		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__UPSTREAM_ROLE);
+		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__REFERENCED_INTERFACES);
 
 		conformistEClass = createEClass(CONFORMIST);
 
@@ -1787,12 +1859,13 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		publishedLanguageEClass = createEClass(PUBLISHED_LANGUAGE);
 
 		boundedContextRelationshipEClass = createEClass(BOUNDED_CONTEXT_RELATIONSHIP);
-		createEReference(boundedContextRelationshipEClass, BOUNDED_CONTEXT_RELATIONSHIP__INTERFACE);
 		createEAttribute(boundedContextRelationshipEClass, BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME);
 
 		upstreamRoleEClass = createEClass(UPSTREAM_ROLE);
+		createEReference(upstreamRoleEClass, UPSTREAM_ROLE__RELATED_CONTEXT);
 
 		downstreamRoleEClass = createEClass(DOWNSTREAM_ROLE);
+		createEReference(downstreamRoleEClass, DOWNSTREAM_ROLE__RELATED_CONTEXT);
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 		createEReference(modelElementEClass, MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH);
@@ -1813,7 +1886,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		interfaceEClass = createEClass(INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__INTERFACE_FOR);
-		createEReference(interfaceEClass, INTERFACE__BOUNDED_CONTEXT_RELATIONSHIP);
 		createEAttribute(interfaceEClass, INTERFACE__INTERFACE_NAME);
 
 		synchronousInterfaceEClass = createEClass(SYNCHRONOUS_INTERFACE);
@@ -1839,6 +1911,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		entityNodeEClass = createEClass(ENTITY_NODE);
 		createEReference(entityNodeEClass, ENTITY_NODE__VALUE_OBJECT_NODES);
+		createEReference(entityNodeEClass, ENTITY_NODE__BEHAVIOURS);
 
 		aggregateNodeEClass = createEClass(AGGREGATE_NODE);
 		createEAttribute(aggregateNodeEClass, AGGREGATE_NODE__ELEMENT_NAME);
@@ -1852,10 +1925,14 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		externalDependencyEClass = createEClass(EXTERNAL_DEPENDENCY);
 		createEReference(externalDependencyEClass, EXTERNAL_DEPENDENCY__SHARED_KERNEL);
+		createEAttribute(externalDependencyEClass, EXTERNAL_DEPENDENCY__GROUP_ID);
+		createEAttribute(externalDependencyEClass, EXTERNAL_DEPENDENCY__ARTIFACT_ID);
+		createEAttribute(externalDependencyEClass, EXTERNAL_DEPENDENCY__VERSION);
 
 		buildConfigurationEClass = createEClass(BUILD_CONFIGURATION);
 		createEReference(buildConfigurationEClass, BUILD_CONFIGURATION__MICROSERVICE);
-		createEReference(buildConfigurationEClass, BUILD_CONFIGURATION__EXTERNAL_DEPENDENCY);
+		createEReference(buildConfigurationEClass, BUILD_CONFIGURATION__EXTERNAL_DEPENDENCIES);
+		createEAttribute(buildConfigurationEClass, BUILD_CONFIGURATION__BUILD_TOOL);
 
 		sharedModuleEClass = createEClass(SHARED_MODULE);
 
@@ -1876,6 +1953,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		asynchronousInterfaceRoleEEnum = createEEnum(ASYNCHRONOUS_INTERFACE_ROLE);
 		workflowRoleEEnum = createEEnum(WORKFLOW_ROLE);
 		implementationTechnologyEEnum = createEEnum(IMPLEMENTATION_TECHNOLOGY);
+		buildToolEEnum = createEEnum(BUILD_TOOL);
 	}
 
 	/**
@@ -2010,8 +2088,9 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEReference(getSharedKernel_ImplementingLib(), this.getExternalDependency(), this.getExternalDependency_SharedKernel(), "implementingLib", null, 0, 1, SharedKernel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(customerSupplierEClass, CustomerSupplier.class, "CustomerSupplier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCustomerSupplier_Downstream(), this.getDownstreamRole(), null, "downstream", null, 0, 1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCustomerSupplier_Upstream(), this.getUpstreamRole(), null, "upstream", null, 0, 1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomerSupplier_DownstreamRole(), this.getDownstreamRole(), null, "downstreamRole", null, 1, 1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomerSupplier_UpstreamRole(), this.getUpstreamRole(), null, "upstreamRole", null, 1, 1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomerSupplier_ReferencedInterfaces(), this.getInterface(), null, "referencedInterfaces", null, 0, -1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conformistEClass, Conformist.class, "Conformist", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2022,12 +2101,13 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEClass(publishedLanguageEClass, PublishedLanguage.class, "PublishedLanguage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(boundedContextRelationshipEClass, BoundedContextRelationship.class, "BoundedContextRelationship", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBoundedContextRelationship_Interface(), this.getInterface(), this.getInterface_BoundedContextRelationship(), "interface", null, 0, 1, BoundedContextRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBoundedContextRelationship_RelationshipName(), ecorePackage.getEString(), "relationshipName", null, 0, 1, BoundedContextRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(upstreamRoleEClass, UpstreamRole.class, "UpstreamRole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUpstreamRole_RelatedContext(), this.getBoundedContext(), null, "relatedContext", null, 1, 1, UpstreamRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(downstreamRoleEClass, DownstreamRole.class, "DownstreamRole", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDownstreamRole_RelatedContext(), this.getBoundedContext(), null, "relatedContext", null, 1, 1, DownstreamRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelElement_IsImplementedTrough(), this.getModelElementImplementation(), this.getModelElementImplementation_CorrespondingModelElement(), "isImplementedTrough", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2048,7 +2128,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInterface_InterfaceFor(), this.getModelElementImplementation(), null, "interfaceFor", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInterface_BoundedContextRelationship(), this.getBoundedContextRelationship(), this.getBoundedContextRelationship_Interface(), "boundedContextRelationship", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInterface_InterfaceName(), ecorePackage.getEString(), "interfaceName", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(synchronousInterfaceEClass, SynchronousInterface.class, "SynchronousInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2074,6 +2153,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		initEClass(entityNodeEClass, EntityNode.class, "EntityNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntityNode_ValueObjectNodes(), this.getValueObjectNode(), null, "valueObjectNodes", null, 0, -1, EntityNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntityNode_Behaviours(), this.getBehaviour(), null, "behaviours", null, 0, -1, EntityNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(aggregateNodeEClass, AggregateNode.class, "AggregateNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAggregateNode_ElementName(), ecorePackage.getEString(), "elementName", null, 0, 1, AggregateNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2087,10 +2167,14 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		initEClass(externalDependencyEClass, ExternalDependency.class, "ExternalDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExternalDependency_SharedKernel(), this.getSharedKernel(), this.getSharedKernel_ImplementingLib(), "sharedKernel", null, 0, 1, ExternalDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalDependency_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, ExternalDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalDependency_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, ExternalDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalDependency_Version(), ecorePackage.getEString(), "version", null, 0, 1, ExternalDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(buildConfigurationEClass, BuildConfiguration.class, "BuildConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBuildConfiguration_Microservice(), this.getMicroservice(), this.getMicroservice_BuildConfiguration(), "microservice", null, 0, 1, BuildConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuildConfiguration_ExternalDependency(), this.getExternalDependency(), null, "externalDependency", null, 0, -1, BuildConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuildConfiguration_ExternalDependencies(), this.getExternalDependency(), null, "externalDependencies", null, 0, -1, BuildConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuildConfiguration_BuildTool(), this.getBuildTool(), "buildTool", null, 0, 1, BuildConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sharedModuleEClass, SharedModule.class, "SharedModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2124,6 +2208,10 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		initEEnum(implementationTechnologyEEnum, ImplementationTechnology.class, "ImplementationTechnology");
 		addEEnumLiteral(implementationTechnologyEEnum, ImplementationTechnology.JAVA_SPRING);
+
+		initEEnum(buildToolEEnum, BuildTool.class, "BuildTool");
+		addEEnumLiteral(buildToolEEnum, BuildTool.MAVEN);
+		addEEnumLiteral(buildToolEEnum, BuildTool.GRADLE);
 
 		// Create resource
 		createResource(eNS_URI);

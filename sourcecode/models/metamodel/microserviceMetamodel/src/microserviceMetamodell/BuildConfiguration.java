@@ -15,7 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.BuildConfiguration#getMicroservice <em>Microservice</em>}</li>
- *   <li>{@link microserviceMetamodell.BuildConfiguration#getExternalDependency <em>External Dependency</em>}</li>
+ *   <li>{@link microserviceMetamodell.BuildConfiguration#getExternalDependencies <em>External Dependencies</em>}</li>
+ *   <li>{@link microserviceMetamodell.BuildConfiguration#getBuildTool <em>Build Tool</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBuildConfiguration()
@@ -49,14 +50,39 @@ public interface BuildConfiguration extends EObject {
 	void setMicroservice(Microservice value);
 
 	/**
-	 * Returns the value of the '<em><b>External Dependency</b></em>' reference list.
+	 * Returns the value of the '<em><b>External Dependencies</b></em>' reference list.
 	 * The list contents are of type {@link microserviceMetamodell.ExternalDependency}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>External Dependency</em>' reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBuildConfiguration_ExternalDependency()
+	 * @return the value of the '<em>External Dependencies</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBuildConfiguration_ExternalDependencies()
 	 * @model
 	 * @generated
 	 */
-	EList<ExternalDependency> getExternalDependency();
+	EList<ExternalDependency> getExternalDependencies();
+
+	/**
+	 * Returns the value of the '<em><b>Build Tool</b></em>' attribute.
+	 * The literals are from the enumeration {@link microserviceMetamodell.BuildTool}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Build Tool</em>' attribute.
+	 * @see microserviceMetamodell.BuildTool
+	 * @see #setBuildTool(BuildTool)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBuildConfiguration_BuildTool()
+	 * @model
+	 * @generated
+	 */
+	BuildTool getBuildTool();
+
+	/**
+	 * Sets the value of the '{@link microserviceMetamodell.BuildConfiguration#getBuildTool <em>Build Tool</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Build Tool</em>' attribute.
+	 * @see microserviceMetamodell.BuildTool
+	 * @see #getBuildTool()
+	 * @generated
+	 */
+	void setBuildTool(BuildTool value);
 } // BuildConfiguration

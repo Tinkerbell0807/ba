@@ -93,6 +93,7 @@ public class EntityNodeItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.ENTITY_NODE__VALUE_OBJECT_NODES);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.ENTITY_NODE__BEHAVIOURS);
 		}
 		return childrenFeatures;
 	}
@@ -152,6 +153,7 @@ public class EntityNodeItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MicroserviceMetamodellPackage.ENTITY_NODE__VALUE_OBJECT_NODES:
+			case MicroserviceMetamodellPackage.ENTITY_NODE__BEHAVIOURS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -173,6 +175,11 @@ public class EntityNodeItemProvider
 			(createChildParameter
 				(MicroserviceMetamodellPackage.Literals.ENTITY_NODE__VALUE_OBJECT_NODES,
 				 MicroserviceMetamodellFactory.eINSTANCE.createValueObjectNode()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MicroserviceMetamodellPackage.Literals.ENTITY_NODE__BEHAVIOURS,
+				 MicroserviceMetamodellFactory.eINSTANCE.createBehaviour()));
 	}
 
 	/**

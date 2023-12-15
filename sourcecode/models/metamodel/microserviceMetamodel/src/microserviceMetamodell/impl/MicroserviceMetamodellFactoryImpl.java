@@ -10,6 +10,7 @@ import microserviceMetamodell.Behaviour;
 import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.Broker;
 import microserviceMetamodell.BuildConfiguration;
+import microserviceMetamodell.BuildTool;
 import microserviceMetamodell.CloudConfiguration;
 import microserviceMetamodell.Conformist;
 import microserviceMetamodell.CustomerSupplier;
@@ -153,6 +154,8 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 				return createWorkflowRoleFromString(eDataType, initialValue);
 			case MicroserviceMetamodellPackage.IMPLEMENTATION_TECHNOLOGY:
 				return createImplementationTechnologyFromString(eDataType, initialValue);
+			case MicroserviceMetamodellPackage.BUILD_TOOL:
+				return createBuildToolFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -174,6 +177,8 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 				return convertWorkflowRoleToString(eDataType, instanceValue);
 			case MicroserviceMetamodellPackage.IMPLEMENTATION_TECHNOLOGY:
 				return convertImplementationTechnologyToString(eDataType, instanceValue);
+			case MicroserviceMetamodellPackage.BUILD_TOOL:
+				return convertBuildToolToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -616,6 +621,26 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	 * @generated
 	 */
 	public String convertImplementationTechnologyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildTool createBuildToolFromString(EDataType eDataType, String initialValue) {
+		BuildTool result = BuildTool.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBuildToolToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -24,6 +24,10 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//ImplementationTechnology">
       <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//ImplementationTechnology/JAVA_SPRING"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//BuildTool">
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//BuildTool/MAVEN"/>
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//BuildTool/GRADLE"/>
+    </genEnums>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//SystemModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//SystemModel/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SystemModel/domainModelLayer"/>
@@ -102,19 +106,23 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SharedKernel/implementingLib"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//CustomerSupplier">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/downstream"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/upstream"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/downstreamRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/upstreamRole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/referencedInterfaces"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//Conformist"/>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//AnticorruptionLayer"/>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//OpenHostService"/>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//PublishedLanguage"/>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//BoundedContextRelationship">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BoundedContextRelationship/interface"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//BoundedContextRelationship/relationshipName"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//UpstreamRole"/>
-    <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//DownstreamRole"/>
+    <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//UpstreamRole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//UpstreamRole/relatedContext"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//DownstreamRole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DownstreamRole/relatedContext"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//ModelElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//ModelElement/isImplementedTrough"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//ModelElement/elementName"/>
@@ -133,7 +141,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//Interface">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Interface/interfaceFor"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Interface/boundedContextRelationship"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//Interface/interfaceName"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//SynchronousInterface">
@@ -159,6 +166,7 @@
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//EntityNode">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//EntityNode/valueObjectNodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//EntityNode/behaviours"/>
     </genClasses>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//AggregateNode">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//AggregateNode/elementName"/>
@@ -170,10 +178,14 @@
     <genClasses ecoreClass="microserviceMetamodel.ecore#//CloudConfiguration"/>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//ExternalDependency">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//ExternalDependency/sharedKernel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//ExternalDependency/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//ExternalDependency/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//ExternalDependency/version"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//BuildConfiguration">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BuildConfiguration/microservice"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BuildConfiguration/externalDependency"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BuildConfiguration/externalDependencies"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//BuildConfiguration/buildTool"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//SharedModule"/>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//KafkaConfiguration">
