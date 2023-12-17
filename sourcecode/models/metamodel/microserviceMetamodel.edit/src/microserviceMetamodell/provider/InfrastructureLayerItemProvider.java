@@ -9,12 +9,14 @@ import java.util.List;
 import microserviceMetamodell.InfrastructureLayer;
 import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -77,8 +79,8 @@ public class InfrastructureLayerItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__CLOUD_CONFIGURATION);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS);
 		}
 		return childrenFeatures;
@@ -134,8 +136,8 @@ public class InfrastructureLayerItemProvider
 		switch (notification.getFeatureID(InfrastructureLayer.class)) {
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__CLOUD_CONFIGURATION:
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS:
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION:
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY:
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS:
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -166,12 +168,12 @@ public class InfrastructureLayerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION,
+				(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS,
 				 MicroserviceMetamodellFactory.eINSTANCE.createBuildConfiguration()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY,
+				(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES,
 				 MicroserviceMetamodellFactory.eINSTANCE.createExternalDependency()));
 
 		newChildDescriptors.add

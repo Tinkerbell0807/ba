@@ -306,9 +306,9 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		if (newCorrespodingContext != correspodingContext) {
 			NotificationChain msgs = null;
 			if (correspodingContext != null)
-				msgs = ((InternalEObject)correspodingContext).eInverseRemove(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE, BoundedContext.class, msgs);
+				msgs = ((InternalEObject)correspodingContext).eInverseRemove(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES, BoundedContext.class, msgs);
 			if (newCorrespodingContext != null)
-				msgs = ((InternalEObject)newCorrespodingContext).eInverseAdd(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE, BoundedContext.class, msgs);
+				msgs = ((InternalEObject)newCorrespodingContext).eInverseAdd(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES, BoundedContext.class, msgs);
 			msgs = basicSetCorrespodingContext(newCorrespodingContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -505,7 +505,7 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				if (correspodingContext != null)
-					msgs = ((InternalEObject)correspodingContext).eInverseRemove(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE, BoundedContext.class, msgs);
+					msgs = ((InternalEObject)correspodingContext).eInverseRemove(this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES, BoundedContext.class, msgs);
 				return basicSetCorrespodingContext((BoundedContext)otherEnd, msgs);
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				if (deployementAbstraction != null)

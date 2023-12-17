@@ -3,6 +3,7 @@
 package microserviceMetamodell.tests;
 
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 import microserviceMetamodell.EntityNode;
@@ -59,7 +60,6 @@ public class EntityNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected EntityNode getFixture() {
 		return fixture;
 	}

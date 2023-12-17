@@ -46,13 +46,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainModelLayer/domainModels"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainModelLayer/domainEvents"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainModelLayer/boundedContextRelationships"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DomainModelLayer/sharedModules"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//InfrastructureLayer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/cloudConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/deployementAbstractions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/buildConfiguration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/externalDependency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/buildConfigurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/externalDependencies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/eventingConfigurations"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//TechnicalLayer">
@@ -94,7 +93,7 @@
     <genClasses ecoreClass="microserviceMetamodel.ecore#//BoundedContext">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BoundedContext/domainModel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//BoundedContext/contextName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BoundedContext/correspodingMicroservice"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BoundedContext/correspodingMicroservices"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//BoundedContext/boundedContextRelationships"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//Behaviour">
@@ -102,8 +101,8 @@
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//SharedKernel">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SharedKernel/relatedContexts"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SharedKernel/sharedModules"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SharedKernel/implementingLib"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SharedKernel/sharedModules"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//CustomerSupplier">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/downstreamRole"/>

@@ -105,14 +105,14 @@ public interface Microservice extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Correspoding Context</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.BoundedContext#getCorrespodingMicroservice <em>Correspoding Microservice</em>}'.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.BoundedContext#getCorrespodingMicroservices <em>Correspoding Microservices</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Correspoding Context</em>' reference.
 	 * @see #setCorrespodingContext(BoundedContext)
 	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_CorrespodingContext()
-	 * @see microserviceMetamodell.BoundedContext#getCorrespodingMicroservice
-	 * @model opposite="correspodingMicroservice"
+	 * @see microserviceMetamodell.BoundedContext#getCorrespodingMicroservices
+	 * @model opposite="correspodingMicroservices"
 	 * @generated
 	 */
 	BoundedContext getCorrespodingContext();

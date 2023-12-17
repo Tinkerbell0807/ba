@@ -37,17 +37,15 @@
         eType="#//DomainEvent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="boundedContextRelationships"
         upperBound="-1" eType="#//BoundedContextRelationship" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedModules" upperBound="-1"
-        eType="#//SharedModule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfrastructureLayer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cloudConfiguration" eType="#//CloudConfiguration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployementAbstractions"
         upperBound="-1" eType="#//DeployementAbstraction" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buildConfiguration" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildConfigurations" upperBound="-1"
         eType="#//BuildConfiguration" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="externalDependency" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalDependencies" upperBound="-1"
         eType="#//ExternalDependency" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eventingConfigurations"
         upperBound="-1" eType="#//KafkaConfiguration" containment="true"/>
@@ -107,8 +105,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="domainModel" lowerBound="1"
         eType="#//DomainModel" eOpposite="#//DomainModel/boundedContext"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="correspodingMicroservice"
-        eType="#//Microservice" eOpposite="#//Microservice/correspodingContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correspodingMicroservices"
+        upperBound="-1" eType="#//Microservice" eOpposite="#//Microservice/correspodingContext"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="boundedContextRelationships"
         upperBound="-1" eType="#//BoundedContextRelationship"/>
   </eClassifiers>
@@ -118,10 +116,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SharedKernel" eSuperTypes="#//BoundedContextRelationship">
     <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContexts" lowerBound="2"
         upperBound="-1" eType="#//BoundedContext"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedModules" upperBound="-1"
-        eType="#//SharedModule"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="implementingLib" eType="#//ExternalDependency"
         eOpposite="#//ExternalDependency/sharedKernel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedModules" upperBound="-1"
+        eType="#//SharedModule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomerSupplier" eSuperTypes="#//BoundedContextRelationship">
     <eStructuralFeatures xsi:type="ecore:EReference" name="downstreamRole" lowerBound="1"
@@ -161,7 +159,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowRole" eType="#//WorkflowRole"
         defaultValueLiteral="CHOREOGRAPH"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="correspodingContext" eType="#//BoundedContext"
-        eOpposite="#//BoundedContext/correspodingMicroservice"/>
+        eOpposite="#//BoundedContext/correspodingMicroservices"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationTechnology"
         eType="#//ImplementationTechnology"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" eType="#//RestEndpoint"/>

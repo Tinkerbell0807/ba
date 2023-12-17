@@ -5,6 +5,7 @@ package microserviceMetamodell.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.RestEndpoint;
 
@@ -66,28 +67,6 @@ public class RestEndpointItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Http Method feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHttpMethodPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RestEndpoint_httpMethod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RestEndpoint_httpMethod_feature", "_UI_RestEndpoint_type"),
-				 MicroserviceMetamodellPackage.Literals.REST_ENDPOINT__HTTP_METHOD,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,6 +80,28 @@ public class RestEndpointItemProvider
 				 getString("_UI_RestEndpoint_path_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RestEndpoint_path_feature", "_UI_RestEndpoint_type"),
 				 MicroserviceMetamodellPackage.Literals.REST_ENDPOINT__PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Http Method feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHttpMethodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RestEndpoint_httpMethod_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RestEndpoint_httpMethod_feature", "_UI_RestEndpoint_type"),
+				 MicroserviceMetamodellPackage.Literals.REST_ENDPOINT__HTTP_METHOD,
 				 true,
 				 false,
 				 false,

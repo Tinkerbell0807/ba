@@ -81,7 +81,6 @@ public class DomainModelLayerItemProvider
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL_LAYER__DOMAIN_MODELS);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL_LAYER__DOMAIN_EVENTS);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL_LAYER__SHARED_MODULES);
 		}
 		return childrenFeatures;
 	}
@@ -138,7 +137,6 @@ public class DomainModelLayerItemProvider
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__DOMAIN_MODELS:
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__DOMAIN_EVENTS:
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS:
-			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__SHARED_MODULES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -180,11 +178,6 @@ public class DomainModelLayerItemProvider
 			(createChildParameter
 				(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS,
 				 MicroserviceMetamodellFactory.eINSTANCE.createCustomerSupplier()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.DOMAIN_MODEL_LAYER__SHARED_MODULES,
-				 MicroserviceMetamodellFactory.eINSTANCE.createSharedModule()));
 	}
 
 	/**

@@ -7,7 +7,6 @@ import microserviceMetamodell.BoundedContext;
 import microserviceMetamodell.ExternalDependency;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.SharedKernel;
-
 import microserviceMetamodell.SharedModule;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,7 +14,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,8 +27,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.SharedKernelImpl#getRelatedContexts <em>Related Contexts</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.SharedKernelImpl#getSharedModules <em>Shared Modules</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.SharedKernelImpl#getImplementingLib <em>Implementing Lib</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.SharedKernelImpl#getSharedModules <em>Shared Modules</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,16 +45,6 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 	protected EList<BoundedContext> relatedContexts;
 
 	/**
-	 * The cached value of the '{@link #getSharedModules() <em>Shared Modules</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSharedModules()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SharedModule> sharedModules;
-
-	/**
 	 * The cached value of the '{@link #getImplementingLib() <em>Implementing Lib</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,6 +53,16 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 	 * @ordered
 	 */
 	protected ExternalDependency implementingLib;
+
+	/**
+	 * The cached value of the '{@link #getSharedModules() <em>Shared Modules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSharedModules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SharedModule> sharedModules;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,18 +93,6 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 			relatedContexts = new EObjectResolvingEList<BoundedContext>(BoundedContext.class, this, MicroserviceMetamodellPackage.SHARED_KERNEL__RELATED_CONTEXTS);
 		}
 		return relatedContexts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SharedModule> getSharedModules() {
-		if (sharedModules == null) {
-			sharedModules = new EObjectResolvingEList<SharedModule>(SharedModule.class, this, MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES);
-		}
-		return sharedModules;
 	}
 
 	/**
@@ -171,6 +160,18 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SharedModule> getSharedModules() {
+		if (sharedModules == null) {
+			sharedModules = new EObjectContainmentEList<SharedModule>(SharedModule.class, this, MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES);
+		}
+		return sharedModules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -192,6 +193,8 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__IMPLEMENTING_LIB:
 				return basicSetImplementingLib(null, msgs);
+			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
+				return ((InternalEList<?>)getSharedModules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -206,11 +209,11 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__RELATED_CONTEXTS:
 				return getRelatedContexts();
-			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
-				return getSharedModules();
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__IMPLEMENTING_LIB:
 				if (resolve) return getImplementingLib();
 				return basicGetImplementingLib();
+			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
+				return getSharedModules();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,12 +231,12 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 				getRelatedContexts().clear();
 				getRelatedContexts().addAll((Collection<? extends BoundedContext>)newValue);
 				return;
+			case MicroserviceMetamodellPackage.SHARED_KERNEL__IMPLEMENTING_LIB:
+				setImplementingLib((ExternalDependency)newValue);
+				return;
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
 				getSharedModules().clear();
 				getSharedModules().addAll((Collection<? extends SharedModule>)newValue);
-				return;
-			case MicroserviceMetamodellPackage.SHARED_KERNEL__IMPLEMENTING_LIB:
-				setImplementingLib((ExternalDependency)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -250,11 +253,11 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__RELATED_CONTEXTS:
 				getRelatedContexts().clear();
 				return;
-			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
-				getSharedModules().clear();
-				return;
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__IMPLEMENTING_LIB:
 				setImplementingLib((ExternalDependency)null);
+				return;
+			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
+				getSharedModules().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -270,10 +273,10 @@ public class SharedKernelImpl extends BoundedContextRelationshipImpl implements 
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__RELATED_CONTEXTS:
 				return relatedContexts != null && !relatedContexts.isEmpty();
-			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
-				return sharedModules != null && !sharedModules.isEmpty();
 			case MicroserviceMetamodellPackage.SHARED_KERNEL__IMPLEMENTING_LIB:
 				return implementingLib != null;
+			case MicroserviceMetamodellPackage.SHARED_KERNEL__SHARED_MODULES:
+				return sharedModules != null && !sharedModules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

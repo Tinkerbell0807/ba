@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +31,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.BoundedContextImpl#getDomainModel <em>Domain Model</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.BoundedContextImpl#getContextName <em>Context Name</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.BoundedContextImpl#getCorrespodingMicroservice <em>Correspoding Microservice</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.BoundedContextImpl#getCorrespodingMicroservices <em>Correspoding Microservices</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.BoundedContextImpl#getBoundedContextRelationships <em>Bounded Context Relationships</em>}</li>
  * </ul>
  *
@@ -67,14 +69,14 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 	protected String contextName = CONTEXT_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCorrespodingMicroservice() <em>Correspoding Microservice</em>}' reference.
+	 * The cached value of the '{@link #getCorrespodingMicroservices() <em>Correspoding Microservices</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCorrespodingMicroservice()
+	 * @see #getCorrespodingMicroservices()
 	 * @generated
 	 * @ordered
 	 */
-	protected Microservice correspodingMicroservice;
+	protected EList<Microservice> correspodingMicroservices;
 
 	/**
 	 * The cached value of the '{@link #getBoundedContextRelationships() <em>Bounded Context Relationships</em>}' reference list.
@@ -191,59 +193,11 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Microservice getCorrespodingMicroservice() {
-		if (correspodingMicroservice != null && correspodingMicroservice.eIsProxy()) {
-			InternalEObject oldCorrespodingMicroservice = (InternalEObject)correspodingMicroservice;
-			correspodingMicroservice = (Microservice)eResolveProxy(oldCorrespodingMicroservice);
-			if (correspodingMicroservice != oldCorrespodingMicroservice) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE, oldCorrespodingMicroservice, correspodingMicroservice));
-			}
+	public EList<Microservice> getCorrespodingMicroservices() {
+		if (correspodingMicroservices == null) {
+			correspodingMicroservices = new EObjectWithInverseResolvingEList<Microservice>(Microservice.class, this, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES, MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT);
 		}
-		return correspodingMicroservice;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Microservice basicGetCorrespodingMicroservice() {
-		return correspodingMicroservice;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCorrespodingMicroservice(Microservice newCorrespodingMicroservice, NotificationChain msgs) {
-		Microservice oldCorrespodingMicroservice = correspodingMicroservice;
-		correspodingMicroservice = newCorrespodingMicroservice;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE, oldCorrespodingMicroservice, newCorrespodingMicroservice);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCorrespodingMicroservice(Microservice newCorrespodingMicroservice) {
-		if (newCorrespodingMicroservice != correspodingMicroservice) {
-			NotificationChain msgs = null;
-			if (correspodingMicroservice != null)
-				msgs = ((InternalEObject)correspodingMicroservice).eInverseRemove(this, MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT, Microservice.class, msgs);
-			if (newCorrespodingMicroservice != null)
-				msgs = ((InternalEObject)newCorrespodingMicroservice).eInverseAdd(this, MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT, Microservice.class, msgs);
-			msgs = basicSetCorrespodingMicroservice(newCorrespodingMicroservice, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE, newCorrespodingMicroservice, newCorrespodingMicroservice));
+		return correspodingMicroservices;
 	}
 
 	/**
@@ -271,10 +225,8 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 				if (domainModel != null)
 					msgs = ((InternalEObject)domainModel).eInverseRemove(this, MicroserviceMetamodellPackage.DOMAIN_MODEL__BOUNDED_CONTEXT, DomainModel.class, msgs);
 				return basicSetDomainModel((DomainModel)otherEnd, msgs);
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE:
-				if (correspodingMicroservice != null)
-					msgs = ((InternalEObject)correspodingMicroservice).eInverseRemove(this, MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT, Microservice.class, msgs);
-				return basicSetCorrespodingMicroservice((Microservice)otherEnd, msgs);
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCorrespodingMicroservices()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -289,8 +241,8 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__DOMAIN_MODEL:
 				return basicSetDomainModel(null, msgs);
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE:
-				return basicSetCorrespodingMicroservice(null, msgs);
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES:
+				return ((InternalEList<?>)getCorrespodingMicroservices()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -308,9 +260,8 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 				return basicGetDomainModel();
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CONTEXT_NAME:
 				return getContextName();
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE:
-				if (resolve) return getCorrespodingMicroservice();
-				return basicGetCorrespodingMicroservice();
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES:
+				return getCorrespodingMicroservices();
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS:
 				return getBoundedContextRelationships();
 		}
@@ -332,8 +283,9 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CONTEXT_NAME:
 				setContextName((String)newValue);
 				return;
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE:
-				setCorrespodingMicroservice((Microservice)newValue);
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES:
+				getCorrespodingMicroservices().clear();
+				getCorrespodingMicroservices().addAll((Collection<? extends Microservice>)newValue);
 				return;
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS:
 				getBoundedContextRelationships().clear();
@@ -357,8 +309,8 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CONTEXT_NAME:
 				setContextName(CONTEXT_NAME_EDEFAULT);
 				return;
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE:
-				setCorrespodingMicroservice((Microservice)null);
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES:
+				getCorrespodingMicroservices().clear();
 				return;
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS:
 				getBoundedContextRelationships().clear();
@@ -379,8 +331,8 @@ public class BoundedContextImpl extends MinimalEObjectImpl.Container implements 
 				return domainModel != null;
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CONTEXT_NAME:
 				return CONTEXT_NAME_EDEFAULT == null ? contextName != null : !CONTEXT_NAME_EDEFAULT.equals(contextName);
-			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE:
-				return correspodingMicroservice != null;
+			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES:
+				return correspodingMicroservices != null && !correspodingMicroservices.isEmpty();
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS:
 				return boundedContextRelationships != null && !boundedContextRelationships.isEmpty();
 		}

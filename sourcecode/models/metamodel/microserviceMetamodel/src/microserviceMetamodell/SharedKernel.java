@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.SharedKernel#getRelatedContexts <em>Related Contexts</em>}</li>
- *   <li>{@link microserviceMetamodell.SharedKernel#getSharedModules <em>Shared Modules</em>}</li>
  *   <li>{@link microserviceMetamodell.SharedKernel#getImplementingLib <em>Implementing Lib</em>}</li>
+ *   <li>{@link microserviceMetamodell.SharedKernel#getSharedModules <em>Shared Modules</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSharedKernel()
@@ -36,18 +36,6 @@ public interface SharedKernel extends BoundedContextRelationship {
 	 * @generated
 	 */
 	EList<BoundedContext> getRelatedContexts();
-
-	/**
-	 * Returns the value of the '<em><b>Shared Modules</b></em>' reference list.
-	 * The list contents are of type {@link microserviceMetamodell.SharedModule}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Shared Modules</em>' reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSharedKernel_SharedModules()
-	 * @model
-	 * @generated
-	 */
-	EList<SharedModule> getSharedModules();
 
 	/**
 	 * Returns the value of the '<em><b>Implementing Lib</b></em>' reference.
@@ -72,4 +60,16 @@ public interface SharedKernel extends BoundedContextRelationship {
 	 * @generated
 	 */
 	void setImplementingLib(ExternalDependency value);
+
+	/**
+	 * Returns the value of the '<em><b>Shared Modules</b></em>' containment reference list.
+	 * The list contents are of type {@link microserviceMetamodell.SharedModule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Shared Modules</em>' containment reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getSharedKernel_SharedModules()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SharedModule> getSharedModules();
 } // SharedKernel

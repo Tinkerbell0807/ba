@@ -10,8 +10,6 @@ import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.DomainModel;
 import microserviceMetamodell.DomainModelLayer;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
-
-import microserviceMetamodell.SharedModule;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -36,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link microserviceMetamodell.impl.DomainModelLayerImpl#getDomainModels <em>Domain Models</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.DomainModelLayerImpl#getDomainEvents <em>Domain Events</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.DomainModelLayerImpl#getBoundedContextRelationships <em>Bounded Context Relationships</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.DomainModelLayerImpl#getSharedModules <em>Shared Modules</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,16 +78,6 @@ public class DomainModelLayerImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected EList<BoundedContextRelationship> boundedContextRelationships;
-
-	/**
-	 * The cached value of the '{@link #getSharedModules() <em>Shared Modules</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSharedModules()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SharedModule> sharedModules;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,18 +151,6 @@ public class DomainModelLayerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SharedModule> getSharedModules() {
-		if (sharedModules == null) {
-			sharedModules = new EObjectContainmentEList<SharedModule>(SharedModule.class, this, MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__SHARED_MODULES);
-		}
-		return sharedModules;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -187,8 +162,6 @@ public class DomainModelLayerImpl extends MinimalEObjectImpl.Container implement
 				return ((InternalEList<?>)getDomainEvents()).basicRemove(otherEnd, msgs);
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS:
 				return ((InternalEList<?>)getBoundedContextRelationships()).basicRemove(otherEnd, msgs);
-			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__SHARED_MODULES:
-				return ((InternalEList<?>)getSharedModules()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -209,8 +182,6 @@ public class DomainModelLayerImpl extends MinimalEObjectImpl.Container implement
 				return getDomainEvents();
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS:
 				return getBoundedContextRelationships();
-			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__SHARED_MODULES:
-				return getSharedModules();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -240,10 +211,6 @@ public class DomainModelLayerImpl extends MinimalEObjectImpl.Container implement
 				getBoundedContextRelationships().clear();
 				getBoundedContextRelationships().addAll((Collection<? extends BoundedContextRelationship>)newValue);
 				return;
-			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__SHARED_MODULES:
-				getSharedModules().clear();
-				getSharedModules().addAll((Collection<? extends SharedModule>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -268,9 +235,6 @@ public class DomainModelLayerImpl extends MinimalEObjectImpl.Container implement
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS:
 				getBoundedContextRelationships().clear();
 				return;
-			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__SHARED_MODULES:
-				getSharedModules().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -291,8 +255,6 @@ public class DomainModelLayerImpl extends MinimalEObjectImpl.Container implement
 				return domainEvents != null && !domainEvents.isEmpty();
 			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS:
 				return boundedContextRelationships != null && !boundedContextRelationships.isEmpty();
-			case MicroserviceMetamodellPackage.DOMAIN_MODEL_LAYER__SHARED_MODULES:
-				return sharedModules != null && !sharedModules.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

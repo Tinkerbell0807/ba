@@ -728,15 +728,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDomainModelLayer_SharedModules() {
-		return (EReference)domainModelLayerEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getInfrastructureLayer() {
 		return infrastructureLayerEClass;
 	}
@@ -764,7 +755,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInfrastructureLayer_BuildConfiguration() {
+	public EReference getInfrastructureLayer_BuildConfigurations() {
 		return (EReference)infrastructureLayerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -773,7 +764,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInfrastructureLayer_ExternalDependency() {
+	public EReference getInfrastructureLayer_ExternalDependencies() {
 		return (EReference)infrastructureLayerEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1061,7 +1052,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBoundedContext_CorrespodingMicroservice() {
+	public EReference getBoundedContext_CorrespodingMicroservices() {
 		return (EReference)boundedContextEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1115,7 +1106,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSharedKernel_SharedModules() {
+	public EReference getSharedKernel_ImplementingLib() {
 		return (EReference)sharedKernelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1124,7 +1115,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSharedKernel_ImplementingLib() {
+	public EReference getSharedKernel_SharedModules() {
 		return (EReference)sharedKernelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1786,13 +1777,12 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		createEReference(domainModelLayerEClass, DOMAIN_MODEL_LAYER__DOMAIN_MODELS);
 		createEReference(domainModelLayerEClass, DOMAIN_MODEL_LAYER__DOMAIN_EVENTS);
 		createEReference(domainModelLayerEClass, DOMAIN_MODEL_LAYER__BOUNDED_CONTEXT_RELATIONSHIPS);
-		createEReference(domainModelLayerEClass, DOMAIN_MODEL_LAYER__SHARED_MODULES);
 
 		infrastructureLayerEClass = createEClass(INFRASTRUCTURE_LAYER);
 		createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__CLOUD_CONFIGURATION);
 		createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS);
-		createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION);
-		createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY);
+		createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS);
+		createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES);
 		createEReference(infrastructureLayerEClass, INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS);
 
 		technicalLayerEClass = createEClass(TECHNICAL_LAYER);
@@ -1834,7 +1824,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		boundedContextEClass = createEClass(BOUNDED_CONTEXT);
 		createEReference(boundedContextEClass, BOUNDED_CONTEXT__DOMAIN_MODEL);
 		createEAttribute(boundedContextEClass, BOUNDED_CONTEXT__CONTEXT_NAME);
-		createEReference(boundedContextEClass, BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE);
+		createEReference(boundedContextEClass, BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES);
 		createEReference(boundedContextEClass, BOUNDED_CONTEXT__BOUNDED_CONTEXT_RELATIONSHIPS);
 
 		behaviourEClass = createEClass(BEHAVIOUR);
@@ -1842,8 +1832,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		sharedKernelEClass = createEClass(SHARED_KERNEL);
 		createEReference(sharedKernelEClass, SHARED_KERNEL__RELATED_CONTEXTS);
-		createEReference(sharedKernelEClass, SHARED_KERNEL__SHARED_MODULES);
 		createEReference(sharedKernelEClass, SHARED_KERNEL__IMPLEMENTING_LIB);
+		createEReference(sharedKernelEClass, SHARED_KERNEL__SHARED_MODULES);
 
 		customerSupplierEClass = createEClass(CUSTOMER_SUPPLIER);
 		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE);
@@ -2028,13 +2018,12 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEReference(getDomainModelLayer_DomainModels(), this.getDomainModel(), null, "domainModels", null, 0, -1, DomainModelLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomainModelLayer_DomainEvents(), this.getDomainEvent(), null, "domainEvents", null, 0, -1, DomainModelLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomainModelLayer_BoundedContextRelationships(), this.getBoundedContextRelationship(), null, "boundedContextRelationships", null, 0, -1, DomainModelLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomainModelLayer_SharedModules(), this.getSharedModule(), null, "sharedModules", null, 0, -1, DomainModelLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(infrastructureLayerEClass, InfrastructureLayer.class, "InfrastructureLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInfrastructureLayer_CloudConfiguration(), this.getCloudConfiguration(), null, "cloudConfiguration", null, 0, 1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructureLayer_DeployementAbstractions(), this.getDeployementAbstraction(), null, "deployementAbstractions", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInfrastructureLayer_BuildConfiguration(), this.getBuildConfiguration(), null, "buildConfiguration", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInfrastructureLayer_ExternalDependency(), this.getExternalDependency(), null, "externalDependency", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructureLayer_BuildConfigurations(), this.getBuildConfiguration(), null, "buildConfigurations", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructureLayer_ExternalDependencies(), this.getExternalDependency(), null, "externalDependencies", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructureLayer_EventingConfigurations(), this.getKafkaConfiguration(), null, "eventingConfigurations", null, 0, -1, InfrastructureLayer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(technicalLayerEClass, TechnicalLayer.class, "TechnicalLayer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2076,7 +2065,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEClass(boundedContextEClass, BoundedContext.class, "BoundedContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBoundedContext_DomainModel(), this.getDomainModel(), this.getDomainModel_BoundedContext(), "domainModel", null, 1, 1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBoundedContext_ContextName(), ecorePackage.getEString(), "contextName", null, 0, 1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBoundedContext_CorrespodingMicroservice(), this.getMicroservice(), this.getMicroservice_CorrespodingContext(), "correspodingMicroservice", null, 0, 1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoundedContext_CorrespodingMicroservices(), this.getMicroservice(), this.getMicroservice_CorrespodingContext(), "correspodingMicroservices", null, 0, -1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBoundedContext_BoundedContextRelationships(), this.getBoundedContextRelationship(), null, "boundedContextRelationships", null, 0, -1, BoundedContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(behaviourEClass, Behaviour.class, "Behaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2084,8 +2073,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		initEClass(sharedKernelEClass, SharedKernel.class, "SharedKernel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSharedKernel_RelatedContexts(), this.getBoundedContext(), null, "relatedContexts", null, 2, -1, SharedKernel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSharedKernel_SharedModules(), this.getSharedModule(), null, "sharedModules", null, 0, -1, SharedKernel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSharedKernel_ImplementingLib(), this.getExternalDependency(), this.getExternalDependency_SharedKernel(), "implementingLib", null, 0, 1, SharedKernel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSharedKernel_SharedModules(), this.getSharedModule(), null, "sharedModules", null, 0, -1, SharedKernel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(customerSupplierEClass, CustomerSupplier.class, "CustomerSupplier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCustomerSupplier_DownstreamRole(), this.getDownstreamRole(), null, "downstreamRole", null, 1, 1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2120,7 +2109,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEReference(getMicroservice_ModelElementImplementations(), this.getModelElementImplementation(), null, "modelElementImplementations", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMicroservice_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMicroservice_WorkflowRole(), this.getWorkflowRole(), "workflowRole", "CHOREOGRAPH", 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMicroservice_CorrespodingContext(), this.getBoundedContext(), this.getBoundedContext_CorrespodingMicroservice(), "correspodingContext", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMicroservice_CorrespodingContext(), this.getBoundedContext(), this.getBoundedContext_CorrespodingMicroservices(), "correspodingContext", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMicroservice_ImplementationTechnology(), this.getImplementationTechnology(), "implementationTechnology", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMicroservice_SendsRequestTo(), this.getRestEndpoint(), null, "sendsRequestTo", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMicroservice_DeployementAbstraction(), this.getDeployementAbstraction(), this.getDeployementAbstraction_Microservice(), "deployementAbstraction", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

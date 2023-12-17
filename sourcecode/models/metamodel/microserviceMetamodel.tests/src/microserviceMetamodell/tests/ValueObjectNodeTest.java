@@ -3,6 +3,7 @@
 package microserviceMetamodell.tests;
 
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 import microserviceMetamodell.MicroserviceMetamodellFactory;
@@ -59,7 +60,6 @@ public class ValueObjectNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected ValueObjectNode getFixture() {
 		return fixture;
 	}

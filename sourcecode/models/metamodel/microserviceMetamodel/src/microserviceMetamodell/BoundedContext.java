@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link microserviceMetamodell.BoundedContext#getDomainModel <em>Domain Model</em>}</li>
  *   <li>{@link microserviceMetamodell.BoundedContext#getContextName <em>Context Name</em>}</li>
- *   <li>{@link microserviceMetamodell.BoundedContext#getCorrespodingMicroservice <em>Correspoding Microservice</em>}</li>
+ *   <li>{@link microserviceMetamodell.BoundedContext#getCorrespodingMicroservices <em>Correspoding Microservices</em>}</li>
  *   <li>{@link microserviceMetamodell.BoundedContext#getBoundedContextRelationships <em>Bounded Context Relationships</em>}</li>
  * </ul>
  *
@@ -72,28 +72,18 @@ public interface BoundedContext extends EObject {
 	void setContextName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Correspoding Microservice</b></em>' reference.
+	 * Returns the value of the '<em><b>Correspoding Microservices</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.Microservice}.
 	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.Microservice#getCorrespodingContext <em>Correspoding Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Correspoding Microservice</em>' reference.
-	 * @see #setCorrespodingMicroservice(Microservice)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBoundedContext_CorrespodingMicroservice()
+	 * @return the value of the '<em>Correspoding Microservices</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getBoundedContext_CorrespodingMicroservices()
 	 * @see microserviceMetamodell.Microservice#getCorrespodingContext
 	 * @model opposite="correspodingContext"
 	 * @generated
 	 */
-	Microservice getCorrespodingMicroservice();
-
-	/**
-	 * Sets the value of the '{@link microserviceMetamodell.BoundedContext#getCorrespodingMicroservice <em>Correspoding Microservice</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Correspoding Microservice</em>' reference.
-	 * @see #getCorrespodingMicroservice()
-	 * @generated
-	 */
-	void setCorrespodingMicroservice(Microservice value);
+	EList<Microservice> getCorrespodingMicroservices();
 
 	/**
 	 * Returns the value of the '<em><b>Bounded Context Relationships</b></em>' reference list.

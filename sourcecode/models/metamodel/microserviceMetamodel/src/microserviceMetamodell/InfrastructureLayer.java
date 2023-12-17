@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link microserviceMetamodell.InfrastructureLayer#getCloudConfiguration <em>Cloud Configuration</em>}</li>
  *   <li>{@link microserviceMetamodell.InfrastructureLayer#getDeployementAbstractions <em>Deployement Abstractions</em>}</li>
- *   <li>{@link microserviceMetamodell.InfrastructureLayer#getBuildConfiguration <em>Build Configuration</em>}</li>
- *   <li>{@link microserviceMetamodell.InfrastructureLayer#getExternalDependency <em>External Dependency</em>}</li>
+ *   <li>{@link microserviceMetamodell.InfrastructureLayer#getBuildConfigurations <em>Build Configurations</em>}</li>
+ *   <li>{@link microserviceMetamodell.InfrastructureLayer#getExternalDependencies <em>External Dependencies</em>}</li>
  *   <li>{@link microserviceMetamodell.InfrastructureLayer#getEventingConfigurations <em>Eventing Configurations</em>}</li>
  * </ul>
  *
@@ -62,28 +62,28 @@ public interface InfrastructureLayer extends EObject {
 	EList<DeployementAbstraction> getDeployementAbstractions();
 
 	/**
-	 * Returns the value of the '<em><b>Build Configuration</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Build Configurations</b></em>' containment reference list.
 	 * The list contents are of type {@link microserviceMetamodell.BuildConfiguration}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Build Configuration</em>' containment reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInfrastructureLayer_BuildConfiguration()
+	 * @return the value of the '<em>Build Configurations</em>' containment reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInfrastructureLayer_BuildConfigurations()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<BuildConfiguration> getBuildConfiguration();
+	EList<BuildConfiguration> getBuildConfigurations();
 
 	/**
-	 * Returns the value of the '<em><b>External Dependency</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>External Dependencies</b></em>' containment reference list.
 	 * The list contents are of type {@link microserviceMetamodell.ExternalDependency}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>External Dependency</em>' containment reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInfrastructureLayer_ExternalDependency()
+	 * @return the value of the '<em>External Dependencies</em>' containment reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInfrastructureLayer_ExternalDependencies()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExternalDependency> getExternalDependency();
+	EList<ExternalDependency> getExternalDependencies();
 
 	/**
 	 * Returns the value of the '<em><b>Eventing Configurations</b></em>' containment reference list.

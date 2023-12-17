@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
   <domainModelLayer>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="Customer" correspodingMicroservice="//@technicalLayer/@microservices.0" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.0"/>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="Order" correspodingMicroservice="//@technicalLayer/@microservices.2" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.0"/>
-    <boundedContexts domainModel="//@domainModelLayer/@domainModels.2" contextName="GDPR" correspodingMicroservice="//@technicalLayer/@microservices.1"/>
-    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1 //@domainModelLayer/@domainEvents.3" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="Customer" sharedModules="//@domainModelLayer/@sharedModules.0">
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="Customer" correspodingMicroservices="//@technicalLayer/@microservices.0"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="Order" correspodingMicroservices="//@technicalLayer/@microservices.2"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.2" contextName="GDPR" correspodingMicroservices="//@technicalLayer/@microservices.1"/>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1 //@domainModelLayer/@domainEvents.3" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="Customer" sharedModules="//@domainModelLayer/@boundedContextRelationships.2/@sharedModules.0">
       <modules moduleName="customer">
         <modelElements xsi:type="microserviceMetamodell:Entity" isImplementedTrough="//@technicalLayer/@microservices.0/@modelElementImplementations.0" elementName="CustomerEntity"/>
         <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.0/@modelElementImplementations.1" elementName="CustomerFactory" factoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0"/>
@@ -24,7 +24,7 @@
         </modelElements>
       </modules>
     </domainModels>
-    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="Order" sharedModules="//@domainModelLayer/@sharedModules.0">
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="Order" sharedModules="//@domainModelLayer/@boundedContextRelationships.2/@sharedModules.0">
       <modules moduleName="order">
         <modelElements xsi:type="microserviceMetamodell:Entity" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.0" elementName="OrderEntity">
           <valueObjects isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.1" elementName="OrderDetails"/>
@@ -47,7 +47,6 @@
     <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="Customer Deleted"/>
     <domainEvents domainModel="//@domainModelLayer/@domainModels.2" eventName="Deletion Requested"/>
     <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="Customer Created"/>
-    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="Customer/Order" relatedContexts="//@domainModelLayer/@boundedContexts.0 //@domainModelLayer/@boundedContexts.1" sharedModules="//@domainModelLayer/@sharedModules.0" implementingLib="//@infrastructureLayer/@externalDependency.0"/>
     <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="GDPR/Order" referencedInterfaces="//@technicalLayer/@microservices.0/@interfaces.2 //@technicalLayer/@microservices.2/@interfaces.1 //@technicalLayer/@microservices.1/@interfaces.0">
       <downstreamRole xsi:type="microserviceMetamodell:Conformist" relatedContext="//@domainModelLayer/@boundedContexts.2"/>
       <upstreamRole xsi:type="microserviceMetamodell:PublishedLanguage" relatedContext="//@domainModelLayer/@boundedContexts.1"/>
@@ -56,7 +55,9 @@
       <downstreamRole xsi:type="microserviceMetamodell:AnticorruptionLayer" relatedContext="//@domainModelLayer/@boundedContexts.2"/>
       <upstreamRole xsi:type="microserviceMetamodell:OpenHostService" relatedContext="//@domainModelLayer/@boundedContexts.0"/>
     </boundedContextRelationships>
-    <sharedModules moduleName="markets"/>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="Customer / Order" relatedContexts="//@domainModelLayer/@boundedContexts.0 //@domainModelLayer/@boundedContexts.1" implementingLib="//@infrastructureLayer/@externalDependencies.0">
+      <sharedModules moduleName="markets"/>
+    </boundedContextRelationships>
   </domainModelLayer>
   <technicalLayer>
     <microservices serviceName="company-customer-service" correspodingContext="//@domainModelLayer/@boundedContexts.0" deployementAbstraction="//@infrastructureLayer/@deployementAbstractions.0" buildConfiguration="//@infrastructureLayer/@buildConfiguration.0">
@@ -84,8 +85,8 @@
   </technicalLayer>
   <infrastructureLayer>
     <deployementAbstractions microservice="//@technicalLayer/@microservices.0"/>
-    <buildConfiguration microservice="//@technicalLayer/@microservices.0" externalDependencies="//@infrastructureLayer/@externalDependency.0"/>
-    <externalDependency sharedKernel="//@domainModelLayer/@boundedContextRelationships.0" groupId="some-lib" artifactId="some-lib" version="1.0"/>
+    <buildConfigurations microservice="//@technicalLayer/@microservices.0" externalDependencies="//@infrastructureLayer/@externalDependencies.0"/>
+    <externalDependencies sharedKernel="//@domainModelLayer/@boundedContextRelationships.2" groupId="some-lib" artifactId="some-lib" version="1.0"/>
     <eventingConfigurations>
       <topics topicName="customer-topic-v1" topicNameAbbreviation="customer" asynchronousInterfaces="//@technicalLayer/@microservices.0/@interfaces.1"/>
       <topics topicName="data-deletion-v2" topicNameAbbreviation="data-deletion" asynchronousInterfaces="//@technicalLayer/@microservices.0/@interfaces.2 //@technicalLayer/@microservices.2/@interfaces.1 //@technicalLayer/@microservices.1/@interfaces.0"/>

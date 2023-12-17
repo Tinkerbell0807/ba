@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -61,7 +62,7 @@ public class BoundedContextItemProvider
 
 			addDomainModelPropertyDescriptor(object);
 			addContextNamePropertyDescriptor(object);
-			addCorrespodingMicroservicePropertyDescriptor(object);
+			addCorrespodingMicroservicesPropertyDescriptor(object);
 			addBoundedContextRelationshipsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -112,19 +113,19 @@ public class BoundedContextItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Correspoding Microservice feature.
+	 * This adds a property descriptor for the Correspoding Microservices feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCorrespodingMicroservicePropertyDescriptor(Object object) {
+	protected void addCorrespodingMicroservicesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BoundedContext_correspodingMicroservice_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BoundedContext_correspodingMicroservice_feature", "_UI_BoundedContext_type"),
-				 MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICE,
+				 getString("_UI_BoundedContext_correspodingMicroservices_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BoundedContext_correspodingMicroservices_feature", "_UI_BoundedContext_type"),
+				 MicroserviceMetamodellPackage.Literals.BOUNDED_CONTEXT__CORRESPODING_MICROSERVICES,
 				 true,
 				 false,
 				 true,

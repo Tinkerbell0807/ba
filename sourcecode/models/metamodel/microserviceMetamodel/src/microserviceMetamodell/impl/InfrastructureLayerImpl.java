@@ -32,8 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getCloudConfiguration <em>Cloud Configuration</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getDeployementAbstractions <em>Deployement Abstractions</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getBuildConfiguration <em>Build Configuration</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getExternalDependency <em>External Dependency</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getBuildConfigurations <em>Build Configurations</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getExternalDependencies <em>External Dependencies</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getEventingConfigurations <em>Eventing Configurations</em>}</li>
  * </ul>
  *
@@ -59,23 +59,23 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 	 */
 	protected EList<DeployementAbstraction> deployementAbstractions;
 	/**
-	 * The cached value of the '{@link #getBuildConfiguration() <em>Build Configuration</em>}' containment reference list.
+	 * The cached value of the '{@link #getBuildConfigurations() <em>Build Configurations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBuildConfiguration()
+	 * @see #getBuildConfigurations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BuildConfiguration> buildConfiguration;
+	protected EList<BuildConfiguration> buildConfigurations;
 	/**
-	 * The cached value of the '{@link #getExternalDependency() <em>External Dependency</em>}' containment reference list.
+	 * The cached value of the '{@link #getExternalDependencies() <em>External Dependencies</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExternalDependency()
+	 * @see #getExternalDependencies()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExternalDependency> externalDependency;
+	protected EList<ExternalDependency> externalDependencies;
 	/**
 	 * The cached value of the '{@link #getEventingConfigurations() <em>Eventing Configurations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -164,11 +164,11 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BuildConfiguration> getBuildConfiguration() {
-		if (buildConfiguration == null) {
-			buildConfiguration = new EObjectContainmentEList<BuildConfiguration>(BuildConfiguration.class, this, MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION);
+	public EList<BuildConfiguration> getBuildConfigurations() {
+		if (buildConfigurations == null) {
+			buildConfigurations = new EObjectContainmentEList<BuildConfiguration>(BuildConfiguration.class, this, MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS);
 		}
-		return buildConfiguration;
+		return buildConfigurations;
 	}
 
 	/**
@@ -176,11 +176,11 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExternalDependency> getExternalDependency() {
-		if (externalDependency == null) {
-			externalDependency = new EObjectContainmentEList<ExternalDependency>(ExternalDependency.class, this, MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY);
+	public EList<ExternalDependency> getExternalDependencies() {
+		if (externalDependencies == null) {
+			externalDependencies = new EObjectContainmentEList<ExternalDependency>(ExternalDependency.class, this, MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES);
 		}
-		return externalDependency;
+		return externalDependencies;
 	}
 
 	/**
@@ -207,10 +207,10 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				return basicSetCloudConfiguration(null, msgs);
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS:
 				return ((InternalEList<?>)getDeployementAbstractions()).basicRemove(otherEnd, msgs);
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION:
-				return ((InternalEList<?>)getBuildConfiguration()).basicRemove(otherEnd, msgs);
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY:
-				return ((InternalEList<?>)getExternalDependency()).basicRemove(otherEnd, msgs);
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS:
+				return ((InternalEList<?>)getBuildConfigurations()).basicRemove(otherEnd, msgs);
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
+				return ((InternalEList<?>)getExternalDependencies()).basicRemove(otherEnd, msgs);
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
 				return ((InternalEList<?>)getEventingConfigurations()).basicRemove(otherEnd, msgs);
 		}
@@ -229,10 +229,10 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				return getCloudConfiguration();
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS:
 				return getDeployementAbstractions();
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION:
-				return getBuildConfiguration();
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY:
-				return getExternalDependency();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS:
+				return getBuildConfigurations();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
+				return getExternalDependencies();
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
 				return getEventingConfigurations();
 		}
@@ -255,13 +255,13 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				getDeployementAbstractions().clear();
 				getDeployementAbstractions().addAll((Collection<? extends DeployementAbstraction>)newValue);
 				return;
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION:
-				getBuildConfiguration().clear();
-				getBuildConfiguration().addAll((Collection<? extends BuildConfiguration>)newValue);
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS:
+				getBuildConfigurations().clear();
+				getBuildConfigurations().addAll((Collection<? extends BuildConfiguration>)newValue);
 				return;
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY:
-				getExternalDependency().clear();
-				getExternalDependency().addAll((Collection<? extends ExternalDependency>)newValue);
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
+				getExternalDependencies().clear();
+				getExternalDependencies().addAll((Collection<? extends ExternalDependency>)newValue);
 				return;
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
 				getEventingConfigurations().clear();
@@ -285,11 +285,11 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS:
 				getDeployementAbstractions().clear();
 				return;
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION:
-				getBuildConfiguration().clear();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS:
+				getBuildConfigurations().clear();
 				return;
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY:
-				getExternalDependency().clear();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
+				getExternalDependencies().clear();
 				return;
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
 				getEventingConfigurations().clear();
@@ -310,10 +310,10 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				return cloudConfiguration != null;
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS:
 				return deployementAbstractions != null && !deployementAbstractions.isEmpty();
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATION:
-				return buildConfiguration != null && !buildConfiguration.isEmpty();
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCY:
-				return externalDependency != null && !externalDependency.isEmpty();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS:
+				return buildConfigurations != null && !buildConfigurations.isEmpty();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
+				return externalDependencies != null && !externalDependencies.isEmpty();
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
 				return eventingConfigurations != null && !eventingConfigurations.isEmpty();
 		}

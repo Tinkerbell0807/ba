@@ -3,6 +3,7 @@
 package microserviceMetamodell.tests;
 
 import junit.framework.TestCase;
+
 import microserviceMetamodell.DownstreamRole;
 
 /**
@@ -47,7 +48,6 @@ public abstract class DownstreamRoleTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected DownstreamRole getFixture() {
 		return fixture;
 	}

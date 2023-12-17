@@ -3,6 +3,7 @@
 package microserviceMetamodell.tests;
 
 import junit.framework.TestCase;
+
 import microserviceMetamodell.AggregateNode;
 
 /**
@@ -47,7 +48,6 @@ public abstract class AggregateNodeTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected AggregateNode getFixture() {
 		return fixture;
 	}

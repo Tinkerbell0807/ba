@@ -72,282 +72,6 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.RestEndpoint} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RestEndpointItemProvider restEndpointItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.RestEndpoint}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRestEndpointAdapter() {
-		if (restEndpointItemProvider == null) {
-			restEndpointItemProvider = new RestEndpointItemProvider(this);
-		}
-
-		return restEndpointItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ModelElementImplementation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModelElementImplementationItemProvider modelElementImplementationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.ModelElementImplementation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModelElementImplementationAdapter() {
-		if (modelElementImplementationItemProvider == null) {
-			modelElementImplementationItemProvider = new ModelElementImplementationItemProvider(this);
-		}
-
-		return modelElementImplementationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ValueObjectNode} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ValueObjectNodeItemProvider valueObjectNodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.ValueObjectNode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createValueObjectNodeAdapter() {
-		if (valueObjectNodeItemProvider == null) {
-			valueObjectNodeItemProvider = new ValueObjectNodeItemProvider(this);
-		}
-
-		return valueObjectNodeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.EntityNode} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EntityNodeItemProvider entityNodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.EntityNode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEntityNodeAdapter() {
-		if (entityNodeItemProvider == null) {
-			entityNodeItemProvider = new EntityNodeItemProvider(this);
-		}
-
-		return entityNodeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DeployementAbstraction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DeployementAbstractionItemProvider deployementAbstractionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.DeployementAbstraction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDeployementAbstractionAdapter() {
-		if (deployementAbstractionItemProvider == null) {
-			deployementAbstractionItemProvider = new DeployementAbstractionItemProvider(this);
-		}
-
-		return deployementAbstractionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.CloudConfiguration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CloudConfigurationItemProvider cloudConfigurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.CloudConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCloudConfigurationAdapter() {
-		if (cloudConfigurationItemProvider == null) {
-			cloudConfigurationItemProvider = new CloudConfigurationItemProvider(this);
-		}
-
-		return cloudConfigurationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ExternalDependency} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExternalDependencyItemProvider externalDependencyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.ExternalDependency}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExternalDependencyAdapter() {
-		if (externalDependencyItemProvider == null) {
-			externalDependencyItemProvider = new ExternalDependencyItemProvider(this);
-		}
-
-		return externalDependencyItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.BuildConfiguration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BuildConfigurationItemProvider buildConfigurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.BuildConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBuildConfigurationAdapter() {
-		if (buildConfigurationItemProvider == null) {
-			buildConfigurationItemProvider = new BuildConfigurationItemProvider(this);
-		}
-
-		return buildConfigurationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.SharedModule} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SharedModuleItemProvider sharedModuleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.SharedModule}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSharedModuleAdapter() {
-		if (sharedModuleItemProvider == null) {
-			sharedModuleItemProvider = new SharedModuleItemProvider(this);
-		}
-
-		return sharedModuleItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.KafkaConfiguration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected KafkaConfigurationItemProvider kafkaConfigurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.KafkaConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createKafkaConfigurationAdapter() {
-		if (kafkaConfigurationItemProvider == null) {
-			kafkaConfigurationItemProvider = new KafkaConfigurationItemProvider(this);
-		}
-
-		return kafkaConfigurationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Topic} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TopicItemProvider topicItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.Topic}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTopicAdapter() {
-		if (topicItemProvider == null) {
-			topicItemProvider = new TopicItemProvider(this);
-		}
-
-		return topicItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Broker} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BrokerItemProvider brokerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.Broker}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBrokerAdapter() {
-		if (brokerItemProvider == null) {
-			brokerItemProvider = new BrokerItemProvider(this);
-		}
-
-		return brokerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.SystemModel} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -897,6 +621,282 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 		}
 
 		return asynchronousInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.RestEndpoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RestEndpointItemProvider restEndpointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.RestEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRestEndpointAdapter() {
+		if (restEndpointItemProvider == null) {
+			restEndpointItemProvider = new RestEndpointItemProvider(this);
+		}
+
+		return restEndpointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ModelElementImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModelElementImplementationItemProvider modelElementImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.ModelElementImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModelElementImplementationAdapter() {
+		if (modelElementImplementationItemProvider == null) {
+			modelElementImplementationItemProvider = new ModelElementImplementationItemProvider(this);
+		}
+
+		return modelElementImplementationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ValueObjectNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueObjectNodeItemProvider valueObjectNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.ValueObjectNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValueObjectNodeAdapter() {
+		if (valueObjectNodeItemProvider == null) {
+			valueObjectNodeItemProvider = new ValueObjectNodeItemProvider(this);
+		}
+
+		return valueObjectNodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.EntityNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntityNodeItemProvider entityNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.EntityNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntityNodeAdapter() {
+		if (entityNodeItemProvider == null) {
+			entityNodeItemProvider = new EntityNodeItemProvider(this);
+		}
+
+		return entityNodeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DeployementAbstraction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeployementAbstractionItemProvider deployementAbstractionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.DeployementAbstraction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeployementAbstractionAdapter() {
+		if (deployementAbstractionItemProvider == null) {
+			deployementAbstractionItemProvider = new DeployementAbstractionItemProvider(this);
+		}
+
+		return deployementAbstractionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.CloudConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloudConfigurationItemProvider cloudConfigurationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.CloudConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloudConfigurationAdapter() {
+		if (cloudConfigurationItemProvider == null) {
+			cloudConfigurationItemProvider = new CloudConfigurationItemProvider(this);
+		}
+
+		return cloudConfigurationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ExternalDependency} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalDependencyItemProvider externalDependencyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.ExternalDependency}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExternalDependencyAdapter() {
+		if (externalDependencyItemProvider == null) {
+			externalDependencyItemProvider = new ExternalDependencyItemProvider(this);
+		}
+
+		return externalDependencyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.BuildConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BuildConfigurationItemProvider buildConfigurationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.BuildConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBuildConfigurationAdapter() {
+		if (buildConfigurationItemProvider == null) {
+			buildConfigurationItemProvider = new BuildConfigurationItemProvider(this);
+		}
+
+		return buildConfigurationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.SharedModule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SharedModuleItemProvider sharedModuleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.SharedModule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSharedModuleAdapter() {
+		if (sharedModuleItemProvider == null) {
+			sharedModuleItemProvider = new SharedModuleItemProvider(this);
+		}
+
+		return sharedModuleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.KafkaConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KafkaConfigurationItemProvider kafkaConfigurationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.KafkaConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKafkaConfigurationAdapter() {
+		if (kafkaConfigurationItemProvider == null) {
+			kafkaConfigurationItemProvider = new KafkaConfigurationItemProvider(this);
+		}
+
+		return kafkaConfigurationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Topic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TopicItemProvider topicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Topic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTopicAdapter() {
+		if (topicItemProvider == null) {
+			topicItemProvider = new TopicItemProvider(this);
+		}
+
+		return topicItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Broker} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BrokerItemProvider brokerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link microserviceMetamodell.Broker}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBrokerAdapter() {
+		if (brokerItemProvider == null) {
+			brokerItemProvider = new BrokerItemProvider(this);
+		}
+
+		return brokerItemProvider;
 	}
 
 	/**

@@ -7,8 +7,8 @@ import java.util.Collection;
 import java.util.List;
 
 import microserviceMetamodell.MicroserviceMetamodellPackage;
-
 import microserviceMetamodell.ModelElementImplementation;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
