@@ -283,40 +283,22 @@ public interface MicroserviceMetamodellFactory extends EFactory {
 	CustomerSupplier createCustomerSupplier();
 
 	/**
-	 * Returns a new object of class '<em>Conformist</em>'.
+	 * Returns a new object of class '<em>Upstream Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conformist</em>'.
+	 * @return a new object of class '<em>Upstream Component</em>'.
 	 * @generated
 	 */
-	Conformist createConformist();
+	UpstreamComponent createUpstreamComponent();
 
 	/**
-	 * Returns a new object of class '<em>Anticorruption Layer</em>'.
+	 * Returns a new object of class '<em>Downstream Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Anticorruption Layer</em>'.
+	 * @return a new object of class '<em>Downstream Component</em>'.
 	 * @generated
 	 */
-	AnticorruptionLayer createAnticorruptionLayer();
-
-	/**
-	 * Returns a new object of class '<em>Open Host Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Open Host Service</em>'.
-	 * @generated
-	 */
-	OpenHostService createOpenHostService();
-
-	/**
-	 * Returns a new object of class '<em>Published Language</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Published Language</em>'.
-	 * @generated
-	 */
-	PublishedLanguage createPublishedLanguage();
+	DownstreamComponent createDownstreamComponent();
 
 	/**
 	 * Returns a new object of class '<em>Microservice</em>'.

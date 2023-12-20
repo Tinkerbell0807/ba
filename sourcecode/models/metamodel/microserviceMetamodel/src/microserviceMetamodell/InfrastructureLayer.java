@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link microserviceMetamodell.InfrastructureLayer#getDeployementAbstractions <em>Deployement Abstractions</em>}</li>
  *   <li>{@link microserviceMetamodell.InfrastructureLayer#getBuildConfigurations <em>Build Configurations</em>}</li>
  *   <li>{@link microserviceMetamodell.InfrastructureLayer#getExternalDependencies <em>External Dependencies</em>}</li>
- *   <li>{@link microserviceMetamodell.InfrastructureLayer#getEventingConfigurations <em>Eventing Configurations</em>}</li>
+ *   <li>{@link microserviceMetamodell.InfrastructureLayer#getKafkaConfiguration <em>Kafka Configuration</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInfrastructureLayer()
@@ -86,14 +86,24 @@ public interface InfrastructureLayer extends EObject {
 	EList<ExternalDependency> getExternalDependencies();
 
 	/**
-	 * Returns the value of the '<em><b>Eventing Configurations</b></em>' containment reference list.
-	 * The list contents are of type {@link microserviceMetamodell.KafkaConfiguration}.
+	 * Returns the value of the '<em><b>Kafka Configuration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Eventing Configurations</em>' containment reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInfrastructureLayer_EventingConfigurations()
+	 * @return the value of the '<em>Kafka Configuration</em>' containment reference.
+	 * @see #setKafkaConfiguration(KafkaConfiguration)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInfrastructureLayer_KafkaConfiguration()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<KafkaConfiguration> getEventingConfigurations();
+	KafkaConfiguration getKafkaConfiguration();
+
+	/**
+	 * Sets the value of the '{@link microserviceMetamodell.InfrastructureLayer#getKafkaConfiguration <em>Kafka Configuration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Kafka Configuration</em>' containment reference.
+	 * @see #getKafkaConfiguration()
+	 * @generated
+	 */
+	void setKafkaConfiguration(KafkaConfiguration value);
 } // InfrastructureLayer

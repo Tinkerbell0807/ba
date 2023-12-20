@@ -3,7 +3,6 @@
 package microserviceMetamodell.impl;
 
 import microserviceMetamodell.Aggregate;
-import microserviceMetamodell.AnticorruptionLayer;
 import microserviceMetamodell.AsynchronousInterface;
 import microserviceMetamodell.AsynchronousInterfaceRole;
 import microserviceMetamodell.Behaviour;
@@ -12,12 +11,13 @@ import microserviceMetamodell.Broker;
 import microserviceMetamodell.BuildConfiguration;
 import microserviceMetamodell.BuildTool;
 import microserviceMetamodell.CloudConfiguration;
-import microserviceMetamodell.Conformist;
 import microserviceMetamodell.CustomerSupplier;
 import microserviceMetamodell.DeployementAbstraction;
 import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.DomainModel;
 import microserviceMetamodell.DomainModelLayer;
+import microserviceMetamodell.DownstreamComponent;
+import microserviceMetamodell.DownstreamRole;
 import microserviceMetamodell.Entity;
 import microserviceMetamodell.EntityNode;
 import microserviceMetamodell.ExternalDependency;
@@ -30,8 +30,6 @@ import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElementImplementation;
-import microserviceMetamodell.OpenHostService;
-import microserviceMetamodell.PublishedLanguage;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
 import microserviceMetamodell.Service;
@@ -41,9 +39,10 @@ import microserviceMetamodell.SynchronousInterface;
 import microserviceMetamodell.SystemModel;
 import microserviceMetamodell.TechnicalLayer;
 import microserviceMetamodell.Topic;
+import microserviceMetamodell.UpstreamComponent;
+import microserviceMetamodell.UpstreamRole;
 import microserviceMetamodell.ValueObject;
 import microserviceMetamodell.ValueObjectNode;
-import microserviceMetamodell.WorkflowRole;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -114,10 +113,8 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 			case MicroserviceMetamodellPackage.BEHAVIOUR: return createBehaviour();
 			case MicroserviceMetamodellPackage.SHARED_KERNEL: return createSharedKernel();
 			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER: return createCustomerSupplier();
-			case MicroserviceMetamodellPackage.CONFORMIST: return createConformist();
-			case MicroserviceMetamodellPackage.ANTICORRUPTION_LAYER: return createAnticorruptionLayer();
-			case MicroserviceMetamodellPackage.OPEN_HOST_SERVICE: return createOpenHostService();
-			case MicroserviceMetamodellPackage.PUBLISHED_LANGUAGE: return createPublishedLanguage();
+			case MicroserviceMetamodellPackage.UPSTREAM_COMPONENT: return createUpstreamComponent();
+			case MicroserviceMetamodellPackage.DOWNSTREAM_COMPONENT: return createDownstreamComponent();
 			case MicroserviceMetamodellPackage.MICROSERVICE: return createMicroservice();
 			case MicroserviceMetamodellPackage.SYNCHRONOUS_INTERFACE: return createSynchronousInterface();
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE: return createAsynchronousInterface();
@@ -150,12 +147,14 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 				return createHttpMethodFromString(eDataType, initialValue);
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE_ROLE:
 				return createAsynchronousInterfaceRoleFromString(eDataType, initialValue);
-			case MicroserviceMetamodellPackage.WORKFLOW_ROLE:
-				return createWorkflowRoleFromString(eDataType, initialValue);
 			case MicroserviceMetamodellPackage.IMPLEMENTATION_TECHNOLOGY:
 				return createImplementationTechnologyFromString(eDataType, initialValue);
 			case MicroserviceMetamodellPackage.BUILD_TOOL:
 				return createBuildToolFromString(eDataType, initialValue);
+			case MicroserviceMetamodellPackage.UPSTREAM_ROLE:
+				return createUpstreamRoleFromString(eDataType, initialValue);
+			case MicroserviceMetamodellPackage.DOWNSTREAM_ROLE:
+				return createDownstreamRoleFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -173,12 +172,14 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 				return convertHttpMethodToString(eDataType, instanceValue);
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE_ROLE:
 				return convertAsynchronousInterfaceRoleToString(eDataType, instanceValue);
-			case MicroserviceMetamodellPackage.WORKFLOW_ROLE:
-				return convertWorkflowRoleToString(eDataType, instanceValue);
 			case MicroserviceMetamodellPackage.IMPLEMENTATION_TECHNOLOGY:
 				return convertImplementationTechnologyToString(eDataType, instanceValue);
 			case MicroserviceMetamodellPackage.BUILD_TOOL:
 				return convertBuildToolToString(eDataType, instanceValue);
+			case MicroserviceMetamodellPackage.UPSTREAM_ROLE:
+				return convertUpstreamRoleToString(eDataType, instanceValue);
+			case MicroserviceMetamodellPackage.DOWNSTREAM_ROLE:
+				return convertDownstreamRoleToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -479,9 +480,9 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Conformist createConformist() {
-		ConformistImpl conformist = new ConformistImpl();
-		return conformist;
+	public UpstreamComponent createUpstreamComponent() {
+		UpstreamComponentImpl upstreamComponent = new UpstreamComponentImpl();
+		return upstreamComponent;
 	}
 
 	/**
@@ -489,29 +490,9 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnticorruptionLayer createAnticorruptionLayer() {
-		AnticorruptionLayerImpl anticorruptionLayer = new AnticorruptionLayerImpl();
-		return anticorruptionLayer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OpenHostService createOpenHostService() {
-		OpenHostServiceImpl openHostService = new OpenHostServiceImpl();
-		return openHostService;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PublishedLanguage createPublishedLanguage() {
-		PublishedLanguageImpl publishedLanguage = new PublishedLanguageImpl();
-		return publishedLanguage;
+	public DownstreamComponent createDownstreamComponent() {
+		DownstreamComponentImpl downstreamComponent = new DownstreamComponentImpl();
+		return downstreamComponent;
 	}
 
 	/**
@@ -589,26 +570,6 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WorkflowRole createWorkflowRoleFromString(EDataType eDataType, String initialValue) {
-		WorkflowRole result = WorkflowRole.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertWorkflowRoleToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ImplementationTechnology createImplementationTechnologyFromString(EDataType eDataType, String initialValue) {
 		ImplementationTechnology result = ImplementationTechnology.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -641,6 +602,46 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	 * @generated
 	 */
 	public String convertBuildToolToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UpstreamRole createUpstreamRoleFromString(EDataType eDataType, String initialValue) {
+		UpstreamRole result = UpstreamRole.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUpstreamRoleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DownstreamRole createDownstreamRoleFromString(EDataType eDataType, String initialValue) {
+		DownstreamRole result = DownstreamRole.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDownstreamRoleToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -13,8 +13,6 @@ import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.RestEndpoint;
-import microserviceMetamodell.WorkflowRole;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -40,7 +38,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getInterfaces <em>Interfaces</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getModelElementImplementations <em>Model Element Implementations</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getServiceName <em>Service Name</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getWorkflowRole <em>Workflow Role</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getCorrespodingContext <em>Correspoding Context</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getImplementationTechnology <em>Implementation Technology</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getSendsRequestTo <em>Sends Request To</em>}</li>
@@ -90,26 +87,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	 * @ordered
 	 */
 	protected String serviceName = SERVICE_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getWorkflowRole() <em>Workflow Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWorkflowRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final WorkflowRole WORKFLOW_ROLE_EDEFAULT = WorkflowRole.CHOREOGRAPH;
-
-	/**
-	 * The cached value of the '{@link #getWorkflowRole() <em>Workflow Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWorkflowRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected WorkflowRole workflowRole = WORKFLOW_ROLE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCorrespodingContext() <em>Correspoding Context</em>}' reference.
@@ -233,27 +210,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		serviceName = newServiceName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME, oldServiceName, serviceName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public WorkflowRole getWorkflowRole() {
-		return workflowRole;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWorkflowRole(WorkflowRole newWorkflowRole) {
-		WorkflowRole oldWorkflowRole = workflowRole;
-		workflowRole = newWorkflowRole == null ? WORKFLOW_ROLE_EDEFAULT : newWorkflowRole;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__WORKFLOW_ROLE, oldWorkflowRole, workflowRole));
 	}
 
 	/**
@@ -555,8 +511,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				return getModelElementImplementations();
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				return getServiceName();
-			case MicroserviceMetamodellPackage.MICROSERVICE__WORKFLOW_ROLE:
-				return getWorkflowRole();
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				if (resolve) return getCorrespodingContext();
 				return basicGetCorrespodingContext();
@@ -595,9 +549,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				setServiceName((String)newValue);
 				return;
-			case MicroserviceMetamodellPackage.MICROSERVICE__WORKFLOW_ROLE:
-				setWorkflowRole((WorkflowRole)newValue);
-				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				setCorrespodingContext((BoundedContext)newValue);
 				return;
@@ -634,9 +585,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				setServiceName(SERVICE_NAME_EDEFAULT);
 				return;
-			case MicroserviceMetamodellPackage.MICROSERVICE__WORKFLOW_ROLE:
-				setWorkflowRole(WORKFLOW_ROLE_EDEFAULT);
-				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				setCorrespodingContext((BoundedContext)null);
 				return;
@@ -670,8 +618,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				return modelElementImplementations != null && !modelElementImplementations.isEmpty();
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				return SERVICE_NAME_EDEFAULT == null ? serviceName != null : !SERVICE_NAME_EDEFAULT.equals(serviceName);
-			case MicroserviceMetamodellPackage.MICROSERVICE__WORKFLOW_ROLE:
-				return workflowRole != WORKFLOW_ROLE_EDEFAULT;
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				return correspodingContext != null;
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
@@ -698,8 +644,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (serviceName: ");
 		result.append(serviceName);
-		result.append(", workflowRole: ");
-		result.append(workflowRole);
 		result.append(", implementationTechnology: ");
 		result.append(implementationTechnology);
 		result.append(')');

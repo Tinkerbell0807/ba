@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microserviceMetamodell:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:microserviceMetamodell="http://microservice.com/microserviceMetamodell">
+  <domainModelLayer>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.2" contextName="Customer" correspodingMicroservices="//@technicalLayer/@microservices.2" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.0 //@domainModelLayer/@boundedContextRelationships.1 //@domainModelLayer/@boundedContextRelationships.3 //@domainModelLayer/@boundedContextRelationships.5"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.0" contextName="Order" correspodingMicroservices="//@technicalLayer/@microservices.0" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.1 //@domainModelLayer/@boundedContextRelationships.2 //@domainModelLayer/@boundedContextRelationships.6 //@domainModelLayer/@boundedContextRelationships.0"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.1" contextName="Checkout" correspodingMicroservices="//@technicalLayer/@microservices.4" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.0 //@domainModelLayer/@boundedContextRelationships.2 //@domainModelLayer/@boundedContextRelationships.7"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.3" contextName="Marketing" correspodingMicroservices="//@technicalLayer/@microservices.1" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.3 //@domainModelLayer/@boundedContextRelationships.4"/>
+    <boundedContexts domainModel="//@domainModelLayer/@domainModels.4" contextName="CustomerService" correspodingMicroservices="//@technicalLayer/@microservices.3" boundedContextRelationships="//@domainModelLayer/@boundedContextRelationships.4 //@domainModelLayer/@boundedContextRelationships.5 //@domainModelLayer/@boundedContextRelationships.6 //@domainModelLayer/@boundedContextRelationships.7"/>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.1" boundedContext="//@domainModelLayer/@boundedContexts.1" modelName="OrderDomainModel" sharedModules="//@domainModelLayer/@boundedContextRelationships.0/@sharedModules.0">
+      <modules moduleName="order">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="OrderCreationService" referencedElements="//@domainModelLayer/@domainModels.0/@modules.1/@modelElements.1 //@domainModelLayer/@domainModels.0/@modules.0/@modelElements.2 //@domainModelLayer/@domainModels.0/@modules.0/@modelElements.3">
+          <behaviours behaviourName="createOrderForCustomer"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="OrderEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="OrderRepository" repositoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.1"/>
+        <modelElements xsi:type="microserviceMetamodell:Factory" elementName="OrderFactory" factoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.1"/>
+      </modules>
+      <modules moduleName="customer">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="CustomerEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="CustomerRepository" repositoryFor="//@domainModelLayer/@domainModels.0/@modules.1/@modelElements.0">
+          <behaviours behaviourName="findCustomer"/>
+        </modelElements>
+      </modules>
+    </domainModels>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.3" boundedContext="//@domainModelLayer/@boundedContexts.2" modelName="CheckoutDomainModel" sharedModules="//@domainModelLayer/@boundedContextRelationships.0/@sharedModules.0">
+      <modules moduleName="checkout">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="CheckoutProcessingService" referencedElements="//@domainModelLayer/@domainModels.1/@modules.1/@modelElements.1 //@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1">
+          <behaviours behaviourName="processCheckoutOrder"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="CheckoutInformationEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="CheckoutInformationRepository" repositoryFor="//@domainModelLayer/@domainModels.1/@modules.0/@modelElements.1"/>
+      </modules>
+      <modules moduleName="order">
+        <modelElements xsi:type="microserviceMetamodell:ValueObject" elementName="CheckoutOrderObject"/>
+        <modelElements xsi:type="microserviceMetamodell:Factory" elementName="CheckoutOrderObjectFactory" factoryFor="//@domainModelLayer/@domainModels.1/@modules.1/@modelElements.0"/>
+      </modules>
+    </domainModels>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.0" boundedContext="//@domainModelLayer/@boundedContexts.0" modelName="CustomerDomainModel" sharedModules="//@domainModelLayer/@boundedContextRelationships.0/@sharedModules.0">
+      <modules moduleName="customer">
+        <modelElements xsi:type="microserviceMetamodell:Entity" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.0" elementName="CustomerEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Service" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.1" elementName="CustomerRegistrationService" referencedElements="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.2 //@domainModelLayer/@domainModels.2/@modules.0/@modelElements.3">
+          <behaviours behaviourName="registerNewCustomer"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.5" elementName="CustomerFactory" factoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0">
+          <behaviours behaviourName="createCustomer"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Repository" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.3" elementName="CustomerRepository" repositoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0">
+          <behaviours behaviourName="findCustomer"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:ValueObject" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.6" elementName="CustomerRewardObject"/>
+        <modelElements xsi:type="microserviceMetamodell:Service" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.2" elementName="CustomerRewardService" referencedElements="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.6 //@domainModelLayer/@domainModels.2/@modules.0/@modelElements.3">
+          <behaviours behaviourName="rewardCustomer"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.4" elementName="CustomerRewardObjectFactory" factoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.4">
+          <behaviours behaviourName="createCustomerRewardObject"/>
+        </modelElements>
+      </modules>
+    </domainModels>
+    <domainModels domainEvents="//@domainModelLayer/@domainEvents.2" boundedContext="//@domainModelLayer/@boundedContexts.3" modelName="MarketingDomainModel">
+      <modules moduleName="customer">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="CustomerEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="CustomerRepository" repositoryFor="//@domainModelLayer/@domainModels.3/@modules.0/@modelElements.0"/>
+      </modules>
+      <modules moduleName="marketing">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="CustomerMarketingService" referencedElements="//@domainModelLayer/@domainModels.3/@modules.1/@modelElements.1 //@domainModelLayer/@domainModels.3/@modules.0/@modelElements.1 //@domainModelLayer/@domainModels.3/@modules.1/@modelElements.3">
+          <behaviours behaviourName="updateCustomerData"/>
+          <behaviours behaviourName="sendNotificationToCustomer"/>
+        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Factory" elementName="MarketingNotificationFactory" factoryFor="//@domainModelLayer/@domainModels.3/@modules.1/@modelElements.2"/>
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="MarketingNotificationEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="MarketNotificationRepository" repositoryFor="//@domainModelLayer/@domainModels.3/@modules.1/@modelElements.2"/>
+      </modules>
+    </domainModels>
+    <domainModels boundedContext="//@domainModelLayer/@boundedContexts.4" modelName="CustomerServiceDomainModel">
+      <modules moduleName="application">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="BackofficeDataService" referencedElements="//@domainModelLayer/@domainModels.4/@modules.4/@modelElements.1 //@domainModelLayer/@domainModels.4/@modules.2/@modelElements.1 //@domainModelLayer/@domainModels.4/@modules.1/@modelElements.1 //@domainModelLayer/@domainModels.4/@modules.3/@modelElements.1">
+          <behaviours behaviourName="searchFor"/>
+        </modelElements>
+      </modules>
+      <modules moduleName="customer">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="CustomerEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="CustomerRepository" repositoryFor="//@domainModelLayer/@domainModels.4/@modules.1/@modelElements.0"/>
+      </modules>
+      <modules moduleName="order">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="OrderEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="OrderRepository" repositoryFor="//@domainModelLayer/@domainModels.4/@modules.2/@modelElements.0"/>
+      </modules>
+      <modules moduleName="checkout">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="CheckoutInformationEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="CheckoutInformationRepository" repositoryFor="//@domainModelLayer/@domainModels.4/@modules.3/@modelElements.0"/>
+      </modules>
+      <modules moduleName="marketing">
+        <modelElements xsi:type="microserviceMetamodell:Entity" elementName="MarketingNotificationEntity"/>
+        <modelElements xsi:type="microserviceMetamodell:Repository" elementName="MarketingNotificationRepository" repositoryFor="//@domainModelLayer/@domainModels.4/@modules.4/@modelElements.0"/>
+      </modules>
+    </domainModels>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.2" eventName="CustomerCreated"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="OrderCreated"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.3" eventName="MarketingNotificationEvent"/>
+    <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="SuccessfullCheckoutEvent"/>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="Authentification" relatedContexts="//@domainModelLayer/@boundedContexts.0 //@domainModelLayer/@boundedContexts.2 //@domainModelLayer/@boundedContexts.1">
+      <sharedModules moduleName="auth">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="AuthenticationService">
+          <behaviours behaviourName="authenticate"/>
+        </modelElements>
+      </sharedModules>
+    </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="Customer/Order">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.1"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.0" upstreamRole="NONE"/>
+    </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="Order/Checkout">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.2" downstreamRole="CONFORMIST"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.1" upstreamRole="NONE"/>
+    </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="Customer/Marketing">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.3" downstreamRole="NONE"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.0"/>
+    </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="Marketing/CustomerService">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.4"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.3" upstreamRole="PUBLISHEDLANGUAGE"/>
+    </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="Customer/CustomerService">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.4"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.0" upstreamRole="PUBLISHEDLANGUAGE"/>
+    </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="Order/CustomerService">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.4"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.1" upstreamRole="PUBLISHEDLANGUAGE"/>
+    </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:CustomerSupplier" relationshipName="Checkout/CustomerService">
+      <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.4"/>
+      <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.2" upstreamRole="PUBLISHEDLANGUAGE"/>
+    </boundedContextRelationships>
+  </domainModelLayer>
+  <technicalLayer>
+    <microservices serviceName="order-service" correspodingContext="//@domainModelLayer/@boundedContexts.1" sendsRequestTo="//@technicalLayer/@microservices.4/@interfaces.0/@restEndpoints.0">
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="OrderProducer" domainEvents="//@domainModelLayer/@domainEvents.1" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.1"/>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="CustomerConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
+    </microservices>
+    <microservices serviceName="marketing-service" correspodingContext="//@domainModelLayer/@boundedContexts.3">
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="CustomerConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
+      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface" interfaceName="CustomerRewardController">
+        <restEndpoints path="/postCustomerRewardObject" httpMethod="POST"/>
+      </interfaces>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="MarketingNotificationProducer" domainEvents="//@domainModelLayer/@domainEvents.2" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.3"/>
+    </microservices>
+    <microservices serviceName="customer-service" correspodingContext="//@domainModelLayer/@boundedContexts.0" sendsRequestTo="//@technicalLayer/@microservices.1/@interfaces.1/@restEndpoints.0">
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.2/@modelElementImplementations.1" interfaceName="CustomerProducer" domainEvents="//@domainModelLayer/@domainEvents.0" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0" className="CustomerEntity"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.1" className="CustomerRegistrationService"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.5" className="CustomerRewardService"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.3" className="CustomerRepository"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.6" className="CustomerRewardObjectFactory"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.2" className="CustomerFactory"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.4" className="CustomerRewardObject"/>
+    </microservices>
+    <microservices serviceName="customer-service-application" correspodingContext="//@domainModelLayer/@boundedContexts.4">
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="CustomerConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="OrderConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.1"/>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="CheckoutInformationConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.2"/>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="MarketingNotificationConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.3"/>
+    </microservices>
+    <microservices serviceName="checkout-service" correspodingContext="//@domainModelLayer/@boundedContexts.2">
+      <interfaces xsi:type="microserviceMetamodell:SynchronousInterface" interfaceName="CheckoutOrderController">
+        <restEndpoints path="/checkoutOrder" httpMethod="POST"/>
+      </interfaces>
+      <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="CheckoutInformationProducer" domainEvents="//@domainModelLayer/@domainEvents.3" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.2"/>
+    </microservices>
+  </technicalLayer>
+  <infrastructureLayer>
+    <kafkaConfiguration>
+      <topics topicName="customer-topic-v1" topicNameAbbreviation="Customer" asynchronousInterfaces="//@technicalLayer/@microservices.2/@interfaces.0 //@technicalLayer/@microservices.0/@interfaces.1 //@technicalLayer/@microservices.1/@interfaces.0 //@technicalLayer/@microservices.3/@interfaces.0"/>
+      <topics topicName="default-topic-name" topicNameAbbreviation="Order" asynchronousInterfaces="//@technicalLayer/@microservices.0/@interfaces.0 //@technicalLayer/@microservices.3/@interfaces.1"/>
+      <topics topicName="default-topic-name" topicNameAbbreviation="CheckoutInformation" asynchronousInterfaces="//@technicalLayer/@microservices.4/@interfaces.1 //@technicalLayer/@microservices.3/@interfaces.2"/>
+      <topics topicName="default-topic-name" topicNameAbbreviation="MarketingNotification" asynchronousInterfaces="//@technicalLayer/@microservices.1/@interfaces.2 //@technicalLayer/@microservices.3/@interfaces.3"/>
+    </kafkaConfiguration>
+  </infrastructureLayer>
+</microserviceMetamodell:SystemModel>

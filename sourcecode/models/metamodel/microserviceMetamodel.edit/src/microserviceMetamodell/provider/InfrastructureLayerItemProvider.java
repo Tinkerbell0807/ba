@@ -81,7 +81,7 @@ public class InfrastructureLayerItemProvider
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION);
 		}
 		return childrenFeatures;
 	}
@@ -138,7 +138,7 @@ public class InfrastructureLayerItemProvider
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__DEPLOYEMENT_ABSTRACTIONS:
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__BUILD_CONFIGURATIONS:
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -178,7 +178,7 @@ public class InfrastructureLayerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS,
+				(MicroserviceMetamodellPackage.Literals.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION,
 				 MicroserviceMetamodellFactory.eINSTANCE.createKafkaConfiguration()));
 	}
 

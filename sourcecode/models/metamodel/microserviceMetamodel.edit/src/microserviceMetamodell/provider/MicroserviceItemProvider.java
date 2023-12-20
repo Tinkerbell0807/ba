@@ -64,7 +64,6 @@ public class MicroserviceItemProvider
 			super.getPropertyDescriptors(object);
 
 			addServiceNamePropertyDescriptor(object);
-			addWorkflowRolePropertyDescriptor(object);
 			addCorrespodingContextPropertyDescriptor(object);
 			addImplementationTechnologyPropertyDescriptor(object);
 			addSendsRequestToPropertyDescriptor(object);
@@ -88,28 +87,6 @@ public class MicroserviceItemProvider
 				 getString("_UI_Microservice_serviceName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Microservice_serviceName_feature", "_UI_Microservice_type"),
 				 MicroserviceMetamodellPackage.Literals.MICROSERVICE__SERVICE_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Workflow Role feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addWorkflowRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Microservice_workflowRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Microservice_workflowRole_feature", "_UI_Microservice_type"),
-				 MicroserviceMetamodellPackage.Literals.MICROSERVICE__WORKFLOW_ROLE,
 				 true,
 				 false,
 				 false,
@@ -298,7 +275,6 @@ public class MicroserviceItemProvider
 
 		switch (notification.getFeatureID(Microservice.class)) {
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
-			case MicroserviceMetamodellPackage.MICROSERVICE__WORKFLOW_ROLE:
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

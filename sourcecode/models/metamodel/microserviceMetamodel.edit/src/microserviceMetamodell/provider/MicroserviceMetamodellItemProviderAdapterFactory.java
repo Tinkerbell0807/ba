@@ -463,95 +463,49 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.Conformist} instances.
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.UpstreamComponent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConformistItemProvider conformistItemProvider;
+	protected UpstreamComponentItemProvider upstreamComponentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.Conformist}.
+	 * This creates an adapter for a {@link microserviceMetamodell.UpstreamComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConformistAdapter() {
-		if (conformistItemProvider == null) {
-			conformistItemProvider = new ConformistItemProvider(this);
+	public Adapter createUpstreamComponentAdapter() {
+		if (upstreamComponentItemProvider == null) {
+			upstreamComponentItemProvider = new UpstreamComponentItemProvider(this);
 		}
 
-		return conformistItemProvider;
+		return upstreamComponentItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.AnticorruptionLayer} instances.
+	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.DownstreamComponent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AnticorruptionLayerItemProvider anticorruptionLayerItemProvider;
+	protected DownstreamComponentItemProvider downstreamComponentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.AnticorruptionLayer}.
+	 * This creates an adapter for a {@link microserviceMetamodell.DownstreamComponent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAnticorruptionLayerAdapter() {
-		if (anticorruptionLayerItemProvider == null) {
-			anticorruptionLayerItemProvider = new AnticorruptionLayerItemProvider(this);
+	public Adapter createDownstreamComponentAdapter() {
+		if (downstreamComponentItemProvider == null) {
+			downstreamComponentItemProvider = new DownstreamComponentItemProvider(this);
 		}
 
-		return anticorruptionLayerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.OpenHostService} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OpenHostServiceItemProvider openHostServiceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.OpenHostService}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOpenHostServiceAdapter() {
-		if (openHostServiceItemProvider == null) {
-			openHostServiceItemProvider = new OpenHostServiceItemProvider(this);
-		}
-
-		return openHostServiceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.PublishedLanguage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PublishedLanguageItemProvider publishedLanguageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.PublishedLanguage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPublishedLanguageAdapter() {
-		if (publishedLanguageItemProvider == null) {
-			publishedLanguageItemProvider = new PublishedLanguageItemProvider(this);
-		}
-
-		return publishedLanguageItemProvider;
+		return downstreamComponentItemProvider;
 	}
 
 	/**
@@ -1015,10 +969,8 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 		if (behaviourItemProvider != null) behaviourItemProvider.dispose();
 		if (sharedKernelItemProvider != null) sharedKernelItemProvider.dispose();
 		if (customerSupplierItemProvider != null) customerSupplierItemProvider.dispose();
-		if (conformistItemProvider != null) conformistItemProvider.dispose();
-		if (anticorruptionLayerItemProvider != null) anticorruptionLayerItemProvider.dispose();
-		if (openHostServiceItemProvider != null) openHostServiceItemProvider.dispose();
-		if (publishedLanguageItemProvider != null) publishedLanguageItemProvider.dispose();
+		if (upstreamComponentItemProvider != null) upstreamComponentItemProvider.dispose();
+		if (downstreamComponentItemProvider != null) downstreamComponentItemProvider.dispose();
 		if (microserviceItemProvider != null) microserviceItemProvider.dispose();
 		if (synchronousInterfaceItemProvider != null) synchronousInterfaceItemProvider.dispose();
 		if (asynchronousInterfaceItemProvider != null) asynchronousInterfaceItemProvider.dispose();

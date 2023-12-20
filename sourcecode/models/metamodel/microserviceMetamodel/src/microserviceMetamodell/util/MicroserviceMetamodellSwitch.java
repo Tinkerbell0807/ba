@@ -4,7 +4,6 @@ package microserviceMetamodell.util;
 
 import microserviceMetamodell.Aggregate;
 import microserviceMetamodell.AggregateNode;
-import microserviceMetamodell.AnticorruptionLayer;
 import microserviceMetamodell.AsynchronousInterface;
 import microserviceMetamodell.Behaviour;
 import microserviceMetamodell.BoundedContext;
@@ -12,13 +11,12 @@ import microserviceMetamodell.BoundedContextRelationship;
 import microserviceMetamodell.Broker;
 import microserviceMetamodell.BuildConfiguration;
 import microserviceMetamodell.CloudConfiguration;
-import microserviceMetamodell.Conformist;
 import microserviceMetamodell.CustomerSupplier;
 import microserviceMetamodell.DeployementAbstraction;
 import microserviceMetamodell.DomainEvent;
 import microserviceMetamodell.DomainModel;
 import microserviceMetamodell.DomainModelLayer;
-import microserviceMetamodell.DownstreamRole;
+import microserviceMetamodell.DownstreamComponent;
 import microserviceMetamodell.Entity;
 import microserviceMetamodell.EntityNode;
 import microserviceMetamodell.ExternalDependency;
@@ -31,9 +29,7 @@ import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
 import microserviceMetamodell.ModelElementImplementation;
-import microserviceMetamodell.OpenHostService;
 import microserviceMetamodell.Persistable;
-import microserviceMetamodell.PublishedLanguage;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
 import microserviceMetamodell.Service;
@@ -43,7 +39,7 @@ import microserviceMetamodell.SynchronousInterface;
 import microserviceMetamodell.SystemModel;
 import microserviceMetamodell.TechnicalLayer;
 import microserviceMetamodell.Topic;
-import microserviceMetamodell.UpstreamRole;
+import microserviceMetamodell.UpstreamComponent;
 import microserviceMetamodell.ValueObject;
 import microserviceMetamodell.ValueObjectNode;
 import org.eclipse.emf.ecore.EObject;
@@ -225,49 +221,21 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.CONFORMIST: {
-				Conformist conformist = (Conformist)theEObject;
-				T result = caseConformist(conformist);
-				if (result == null) result = caseDownstreamRole(conformist);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MicroserviceMetamodellPackage.ANTICORRUPTION_LAYER: {
-				AnticorruptionLayer anticorruptionLayer = (AnticorruptionLayer)theEObject;
-				T result = caseAnticorruptionLayer(anticorruptionLayer);
-				if (result == null) result = caseDownstreamRole(anticorruptionLayer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MicroserviceMetamodellPackage.OPEN_HOST_SERVICE: {
-				OpenHostService openHostService = (OpenHostService)theEObject;
-				T result = caseOpenHostService(openHostService);
-				if (result == null) result = caseUpstreamRole(openHostService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MicroserviceMetamodellPackage.PUBLISHED_LANGUAGE: {
-				PublishedLanguage publishedLanguage = (PublishedLanguage)theEObject;
-				T result = casePublishedLanguage(publishedLanguage);
-				if (result == null) result = caseUpstreamRole(publishedLanguage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MicroserviceMetamodellPackage.BOUNDED_CONTEXT_RELATIONSHIP: {
 				BoundedContextRelationship boundedContextRelationship = (BoundedContextRelationship)theEObject;
 				T result = caseBoundedContextRelationship(boundedContextRelationship);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.UPSTREAM_ROLE: {
-				UpstreamRole upstreamRole = (UpstreamRole)theEObject;
-				T result = caseUpstreamRole(upstreamRole);
+			case MicroserviceMetamodellPackage.UPSTREAM_COMPONENT: {
+				UpstreamComponent upstreamComponent = (UpstreamComponent)theEObject;
+				T result = caseUpstreamComponent(upstreamComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.DOWNSTREAM_ROLE: {
-				DownstreamRole downstreamRole = (DownstreamRole)theEObject;
-				T result = caseDownstreamRole(downstreamRole);
+			case MicroserviceMetamodellPackage.DOWNSTREAM_COMPONENT: {
+				DownstreamComponent downstreamComponent = (DownstreamComponent)theEObject;
+				T result = caseDownstreamComponent(downstreamComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -716,66 +684,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Conformist</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Conformist</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConformist(Conformist object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Anticorruption Layer</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Anticorruption Layer</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAnticorruptionLayer(AnticorruptionLayer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Open Host Service</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Open Host Service</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOpenHostService(OpenHostService object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Published Language</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Published Language</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePublishedLanguage(PublishedLanguage object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bounded Context Relationship</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -791,32 +699,32 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Upstream Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Upstream Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Upstream Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Upstream Component</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUpstreamRole(UpstreamRole object) {
+	public T caseUpstreamComponent(UpstreamComponent object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Downstream Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Downstream Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Downstream Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Downstream Component</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDownstreamRole(DownstreamRole object) {
+	public T caseDownstreamComponent(DownstreamComponent object) {
 		return null;
 	}
 

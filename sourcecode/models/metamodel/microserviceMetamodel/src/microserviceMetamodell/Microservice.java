@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link microserviceMetamodell.Microservice#getInterfaces <em>Interfaces</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getModelElementImplementations <em>Model Element Implementations</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getServiceName <em>Service Name</em>}</li>
- *   <li>{@link microserviceMetamodell.Microservice#getWorkflowRole <em>Workflow Role</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getCorrespodingContext <em>Correspoding Context</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getImplementationTechnology <em>Implementation Technology</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getSendsRequestTo <em>Sends Request To</em>}</li>
@@ -76,32 +75,6 @@ public interface Microservice extends EObject {
 	 * @generated
 	 */
 	void setServiceName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Workflow Role</b></em>' attribute.
-	 * The default value is <code>"CHOREOGRAPH"</code>.
-	 * The literals are from the enumeration {@link microserviceMetamodell.WorkflowRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Workflow Role</em>' attribute.
-	 * @see microserviceMetamodell.WorkflowRole
-	 * @see #setWorkflowRole(WorkflowRole)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_WorkflowRole()
-	 * @model default="CHOREOGRAPH"
-	 * @generated
-	 */
-	WorkflowRole getWorkflowRole();
-
-	/**
-	 * Sets the value of the '{@link microserviceMetamodell.Microservice#getWorkflowRole <em>Workflow Role</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Workflow Role</em>' attribute.
-	 * @see microserviceMetamodell.WorkflowRole
-	 * @see #getWorkflowRole()
-	 * @generated
-	 */
-	void setWorkflowRole(WorkflowRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Correspoding Context</b></em>' reference.

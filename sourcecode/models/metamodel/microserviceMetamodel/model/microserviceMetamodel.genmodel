@@ -16,17 +16,22 @@
       <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//AsynchronousInterfaceRole/PRODUCER"/>
       <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//AsynchronousInterfaceRole/CONSUMER"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//WorkflowRole">
-      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//WorkflowRole/ORCHESTRATOR"/>
-      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//WorkflowRole/ORCHESTRATED"/>
-      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//WorkflowRole/CHOREOGRAPH"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//ImplementationTechnology">
       <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//ImplementationTechnology/JAVA_SPRING"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//BuildTool">
       <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//BuildTool/MAVEN"/>
       <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//BuildTool/GRADLE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//UpstreamRole">
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//UpstreamRole/OPENHOST"/>
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//UpstreamRole/PUBLISHEDLANGUAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//UpstreamRole/NONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="microserviceMetamodel.ecore#//DownstreamRole">
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//DownstreamRole/ACL"/>
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//DownstreamRole/CONFORMIST"/>
+      <genEnumLiterals ecoreEnumLiteral="microserviceMetamodel.ecore#//DownstreamRole/NONE"/>
     </genEnums>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//SystemModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//SystemModel/description"/>
@@ -52,7 +57,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/deployementAbstractions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/buildConfigurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/externalDependencies"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/eventingConfigurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//InfrastructureLayer/kafkaConfiguration"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//TechnicalLayer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//TechnicalLayer/microservices"/>
@@ -105,22 +110,20 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//SharedKernel/sharedModules"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//CustomerSupplier">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/downstreamRole"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/upstreamRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/downstreamComponent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/upstreamComponent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//CustomerSupplier/referencedInterfaces"/>
     </genClasses>
-    <genClasses ecoreClass="microserviceMetamodel.ecore#//Conformist"/>
-    <genClasses ecoreClass="microserviceMetamodel.ecore#//AnticorruptionLayer"/>
-    <genClasses ecoreClass="microserviceMetamodel.ecore#//OpenHostService"/>
-    <genClasses ecoreClass="microserviceMetamodel.ecore#//PublishedLanguage"/>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//BoundedContextRelationship">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//BoundedContextRelationship/relationshipName"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//UpstreamRole">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//UpstreamRole/relatedContext"/>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//UpstreamComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//UpstreamComponent/relatedContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//UpstreamComponent/upstreamRole"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//DownstreamRole">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DownstreamRole/relatedContext"/>
+    <genClasses ecoreClass="microserviceMetamodel.ecore#//DownstreamComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//DownstreamComponent/relatedContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DownstreamComponent/downstreamRole"/>
     </genClasses>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//ModelElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//ModelElement/isImplementedTrough"/>
@@ -131,7 +134,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/interfaces"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/modelElementImplementations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//Microservice/serviceName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//Microservice/workflowRole"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/correspodingContext"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//Microservice/implementationTechnology"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/sendsRequestTo"/>

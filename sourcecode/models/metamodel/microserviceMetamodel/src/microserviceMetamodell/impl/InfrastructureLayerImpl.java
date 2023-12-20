@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getDeployementAbstractions <em>Deployement Abstractions</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getBuildConfigurations <em>Build Configurations</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getExternalDependencies <em>External Dependencies</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getEventingConfigurations <em>Eventing Configurations</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.InfrastructureLayerImpl#getKafkaConfiguration <em>Kafka Configuration</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,14 +77,14 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 	 */
 	protected EList<ExternalDependency> externalDependencies;
 	/**
-	 * The cached value of the '{@link #getEventingConfigurations() <em>Eventing Configurations</em>}' containment reference list.
+	 * The cached value of the '{@link #getKafkaConfiguration() <em>Kafka Configuration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventingConfigurations()
+	 * @see #getKafkaConfiguration()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<KafkaConfiguration> eventingConfigurations;
+	protected KafkaConfiguration kafkaConfiguration;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,11 +188,42 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<KafkaConfiguration> getEventingConfigurations() {
-		if (eventingConfigurations == null) {
-			eventingConfigurations = new EObjectContainmentEList<KafkaConfiguration>(KafkaConfiguration.class, this, MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS);
+	public KafkaConfiguration getKafkaConfiguration() {
+		return kafkaConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetKafkaConfiguration(KafkaConfiguration newKafkaConfiguration, NotificationChain msgs) {
+		KafkaConfiguration oldKafkaConfiguration = kafkaConfiguration;
+		kafkaConfiguration = newKafkaConfiguration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION, oldKafkaConfiguration, newKafkaConfiguration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return eventingConfigurations;
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setKafkaConfiguration(KafkaConfiguration newKafkaConfiguration) {
+		if (newKafkaConfiguration != kafkaConfiguration) {
+			NotificationChain msgs = null;
+			if (kafkaConfiguration != null)
+				msgs = ((InternalEObject)kafkaConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION, null, msgs);
+			if (newKafkaConfiguration != null)
+				msgs = ((InternalEObject)newKafkaConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION, null, msgs);
+			msgs = basicSetKafkaConfiguration(newKafkaConfiguration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION, newKafkaConfiguration, newKafkaConfiguration));
 	}
 
 	/**
@@ -211,8 +242,8 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				return ((InternalEList<?>)getBuildConfigurations()).basicRemove(otherEnd, msgs);
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
 				return ((InternalEList<?>)getExternalDependencies()).basicRemove(otherEnd, msgs);
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
-				return ((InternalEList<?>)getEventingConfigurations()).basicRemove(otherEnd, msgs);
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION:
+				return basicSetKafkaConfiguration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -233,8 +264,8 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				return getBuildConfigurations();
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
 				return getExternalDependencies();
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
-				return getEventingConfigurations();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION:
+				return getKafkaConfiguration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,9 +294,8 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				getExternalDependencies().clear();
 				getExternalDependencies().addAll((Collection<? extends ExternalDependency>)newValue);
 				return;
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
-				getEventingConfigurations().clear();
-				getEventingConfigurations().addAll((Collection<? extends KafkaConfiguration>)newValue);
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION:
+				setKafkaConfiguration((KafkaConfiguration)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,8 +321,8 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
 				getExternalDependencies().clear();
 				return;
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
-				getEventingConfigurations().clear();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION:
+				setKafkaConfiguration((KafkaConfiguration)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -314,8 +344,8 @@ public class InfrastructureLayerImpl extends MinimalEObjectImpl.Container implem
 				return buildConfigurations != null && !buildConfigurations.isEmpty();
 			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EXTERNAL_DEPENDENCIES:
 				return externalDependencies != null && !externalDependencies.isEmpty();
-			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__EVENTING_CONFIGURATIONS:
-				return eventingConfigurations != null && !eventingConfigurations.isEmpty();
+			case MicroserviceMetamodellPackage.INFRASTRUCTURE_LAYER__KAFKA_CONFIGURATION:
+				return kafkaConfiguration != null;
 		}
 		return super.eIsSet(featureID);
 	}

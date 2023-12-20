@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link microserviceMetamodell.CustomerSupplier#getDownstreamRole <em>Downstream Role</em>}</li>
- *   <li>{@link microserviceMetamodell.CustomerSupplier#getUpstreamRole <em>Upstream Role</em>}</li>
+ *   <li>{@link microserviceMetamodell.CustomerSupplier#getDownstreamComponent <em>Downstream Component</em>}</li>
+ *   <li>{@link microserviceMetamodell.CustomerSupplier#getUpstreamComponent <em>Upstream Component</em>}</li>
  *   <li>{@link microserviceMetamodell.CustomerSupplier#getReferencedInterfaces <em>Referenced Interfaces</em>}</li>
  * </ul>
  *
@@ -26,48 +26,48 @@ import org.eclipse.emf.common.util.EList;
 public interface CustomerSupplier extends BoundedContextRelationship {
 
 	/**
-	 * Returns the value of the '<em><b>Downstream Role</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Downstream Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Downstream Role</em>' containment reference.
-	 * @see #setDownstreamRole(DownstreamRole)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getCustomerSupplier_DownstreamRole()
+	 * @return the value of the '<em>Downstream Component</em>' containment reference.
+	 * @see #setDownstreamComponent(DownstreamComponent)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getCustomerSupplier_DownstreamComponent()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	DownstreamRole getDownstreamRole();
+	DownstreamComponent getDownstreamComponent();
 
 	/**
-	 * Sets the value of the '{@link microserviceMetamodell.CustomerSupplier#getDownstreamRole <em>Downstream Role</em>}' containment reference.
+	 * Sets the value of the '{@link microserviceMetamodell.CustomerSupplier#getDownstreamComponent <em>Downstream Component</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Downstream Role</em>' containment reference.
-	 * @see #getDownstreamRole()
+	 * @param value the new value of the '<em>Downstream Component</em>' containment reference.
+	 * @see #getDownstreamComponent()
 	 * @generated
 	 */
-	void setDownstreamRole(DownstreamRole value);
+	void setDownstreamComponent(DownstreamComponent value);
 
 	/**
-	 * Returns the value of the '<em><b>Upstream Role</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Upstream Component</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Upstream Role</em>' containment reference.
-	 * @see #setUpstreamRole(UpstreamRole)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getCustomerSupplier_UpstreamRole()
+	 * @return the value of the '<em>Upstream Component</em>' containment reference.
+	 * @see #setUpstreamComponent(UpstreamComponent)
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getCustomerSupplier_UpstreamComponent()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	UpstreamRole getUpstreamRole();
+	UpstreamComponent getUpstreamComponent();
 
 	/**
-	 * Sets the value of the '{@link microserviceMetamodell.CustomerSupplier#getUpstreamRole <em>Upstream Role</em>}' containment reference.
+	 * Sets the value of the '{@link microserviceMetamodell.CustomerSupplier#getUpstreamComponent <em>Upstream Component</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Upstream Role</em>' containment reference.
-	 * @see #getUpstreamRole()
+	 * @param value the new value of the '<em>Upstream Component</em>' containment reference.
+	 * @see #getUpstreamComponent()
 	 * @generated
 	 */
-	void setUpstreamRole(UpstreamRole value);
+	void setUpstreamComponent(UpstreamComponent value);
 
 	/**
 	 * Returns the value of the '<em><b>Referenced Interfaces</b></em>' reference list.

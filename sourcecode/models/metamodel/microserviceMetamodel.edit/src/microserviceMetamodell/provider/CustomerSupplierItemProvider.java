@@ -86,8 +86,8 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_ROLE);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_COMPONENT);
+			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT);
 		}
 		return childrenFeatures;
 	}
@@ -143,8 +143,8 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CustomerSupplier.class)) {
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE:
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_ROLE:
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__DOWNSTREAM_COMPONENT:
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -164,23 +164,13 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE,
-				 MicroserviceMetamodellFactory.eINSTANCE.createConformist()));
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_COMPONENT,
+				 MicroserviceMetamodellFactory.eINSTANCE.createDownstreamComponent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__DOWNSTREAM_ROLE,
-				 MicroserviceMetamodellFactory.eINSTANCE.createAnticorruptionLayer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_ROLE,
-				 MicroserviceMetamodellFactory.eINSTANCE.createOpenHostService()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_ROLE,
-				 MicroserviceMetamodellFactory.eINSTANCE.createPublishedLanguage()));
+				(MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT,
+				 MicroserviceMetamodellFactory.eINSTANCE.createUpstreamComponent()));
 	}
 
 }

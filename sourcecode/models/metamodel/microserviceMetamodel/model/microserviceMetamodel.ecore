@@ -47,8 +47,8 @@
         eType="#//BuildConfiguration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="externalDependencies" upperBound="-1"
         eType="#//ExternalDependency" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="eventingConfigurations"
-        upperBound="-1" eType="#//KafkaConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kafkaConfiguration" eType="#//KafkaConfiguration"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TechnicalLayer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="microservices" upperBound="-1"
@@ -122,27 +122,25 @@
         eType="#//SharedModule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CustomerSupplier" eSuperTypes="#//BoundedContextRelationship">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="downstreamRole" lowerBound="1"
-        eType="#//DownstreamRole" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="upstreamRole" lowerBound="1"
-        eType="#//UpstreamRole" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="downstreamComponent" lowerBound="1"
+        eType="#//DownstreamComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upstreamComponent" lowerBound="1"
+        eType="#//UpstreamComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedInterfaces" upperBound="-1"
         eType="#//Interface"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conformist" eSuperTypes="#//DownstreamRole"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AnticorruptionLayer" eSuperTypes="#//DownstreamRole"/>
-  <eClassifiers xsi:type="ecore:EClass" name="OpenHostService" eSuperTypes="#//UpstreamRole"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PublishedLanguage" eSuperTypes="#//UpstreamRole"/>
   <eClassifiers xsi:type="ecore:EClass" name="BoundedContextRelationship" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationshipName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UpstreamRole" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="UpstreamComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContext" lowerBound="1"
         eType="#//BoundedContext"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upstreamRole" eType="#//UpstreamRole"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DownstreamRole" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="DownstreamComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="relatedContext" lowerBound="1"
         eType="#//BoundedContext"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downstreamRole" eType="#//DownstreamRole"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isImplementedTrough" eType="#//ModelElementImplementation"
@@ -156,8 +154,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="modelElementImplementations"
         upperBound="-1" eType="#//ModelElementImplementation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workflowRole" eType="#//WorkflowRole"
-        defaultValueLiteral="CHOREOGRAPH"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="correspodingContext" eType="#//BoundedContext"
         eOpposite="#//BoundedContext/correspodingMicroservices"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationTechnology"
@@ -197,11 +193,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="AsynchronousInterfaceRole">
     <eLiterals name="PRODUCER"/>
     <eLiterals name="CONSUMER" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="WorkflowRole">
-    <eLiterals name="ORCHESTRATOR"/>
-    <eLiterals name="ORCHESTRATED" value="1"/>
-    <eLiterals name="CHOREOGRAPH" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueObjectNode" eSuperTypes="#//AggregateNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueObjectNodes" upperBound="-1"
@@ -261,5 +252,15 @@
   <eClassifiers xsi:type="ecore:EEnum" name="BuildTool">
     <eLiterals name="MAVEN"/>
     <eLiterals name="GRADLE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UpstreamRole">
+    <eLiterals name="OPENHOST"/>
+    <eLiterals name="PUBLISHEDLANGUAGE" value="1"/>
+    <eLiterals name="NONE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DownstreamRole">
+    <eLiterals name="ACL"/>
+    <eLiterals name="CONFORMIST" value="2"/>
+    <eLiterals name="NONE" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

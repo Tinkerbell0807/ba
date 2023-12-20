@@ -5,16 +5,16 @@
       <metamodel href="http://microservice.com/microserviceMetamodell#/"/>
       <defaultLayer name="contextElements">
         <edgeMappings name="sharedKernelEdge" sourceMapping="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@containerMappings[name='boundedContext']" targetMapping="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@containerMappings[name='sharedKernel']" targetFinderExpression="aql:self" sourceFinderExpression="aql:self.relatedContexts" domainClass="microserviceMetamodell::SharedKernel" useDomainElement="true">
-          <style sourceArrow="FillDiamond" targetArrow="NoDecoration" sizeComputationExpression="2">
+          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="customerSupplierEdge" sourceMapping="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@containerMappings[name='boundedContext']" targetMapping="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@containerMappings[name='boundedContext']" targetFinderExpression="aql:self.downstreamRole.relatedContext" sourceFinderExpression="aql:self.upstreamRole.relatedContext" domainClass="microserviceMetamodell::CustomerSupplier" useDomainElement="true">
-          <conditionnalStyles predicateExpression="aql:self.upstreamRole.oclIsKindOf(microserviceMetamodell::PublishedLanguage) and self.downstreamRole.oclIsKindOf(microserviceMetamodell::AnticorruptionLayer)">
-            <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="customerSupplierEdge" sourceMapping="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@containerMappings[name='boundedContext']" targetMapping="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@containerMappings[name='boundedContext']" targetFinderExpression="aql:self.downstreamComponent.relatedContext" sourceFinderExpression="aql:self.upstreamComponent.relatedContext" domainClass="microserviceMetamodell::CustomerSupplier" useDomainElement="true">
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::PUBLISHEDLANGUAGE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::ACL">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/plIcon.png">
                 <labelFormat>italic</labelFormat>
@@ -30,8 +30,8 @@
               </endLabelStyleDescription>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:self.upstreamRole.oclIsKindOf(microserviceMetamodell::PublishedLanguage) and self.downstreamRole.oclIsKindOf(microserviceMetamodell::Conformist)">
-            <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::PUBLISHEDLANGUAGE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::CONFORMIST">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/plIcon.png">
                 <labelFormat>italic</labelFormat>
@@ -47,8 +47,25 @@
               </endLabelStyleDescription>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:self.upstreamRole.oclIsKindOf(microserviceMetamodell::OpenHostService) and self.downstreamRole.oclIsKindOf(microserviceMetamodell::AnticorruptionLayer)">
-            <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::PUBLISHEDLANGUAGE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::NONE">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/plIcon.png">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+                <labelFormat>underline</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="10" labelExpression="Downstream">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::OPENHOST and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::ACL">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/ohIcon.png">
                 <labelFormat>italic</labelFormat>
@@ -64,8 +81,8 @@
               </endLabelStyleDescription>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:self.upstreamRole.oclIsKindOf(microserviceMetamodell::OpenHostService) and self.downstreamRole.oclIsKindOf(microserviceMetamodell::Conformist)">
-            <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::OPENHOST and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::CONFORMIST">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/ohIcon.png">
                 <labelFormat>italic</labelFormat>
@@ -76,6 +93,74 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
               <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/cnfIcon.png">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::OPENHOST and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::NONE">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/ohIcon.png">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+                <labelFormat>underline</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="10" labelExpression="Downstream">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::NONE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::ACL">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+                <labelFormat>underline</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/aclIcon.png">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::NONE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::CONFORMIST">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+                <labelFormat>underline</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/cnfIcon.png">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::NONE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::NONE">
+            <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream">
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+                <labelFormat>underline</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelSize="10" labelExpression="Downstream">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -179,8 +264,8 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::DomainModel" referenceName="domainModels">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="modelName" valueExpression="defaultDomainModel"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="boundedContext" valueExpression="var:container"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="modelName" valueExpression="aql:self.boundedContext.contextName.concat('DomainModel')"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -191,8 +276,8 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer().eContainer().technicalLayer">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::Microservice" referenceName="microservices">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="serviceName" valueExpression="defaultMicroserviceName"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="correspodingContext" valueExpression="var:container"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="serviceName" valueExpression="aql:self.correspodingContext.contextName.toLower().concat('-service')"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="correspodingMicroservices" valueExpression="var:instance"/>
@@ -253,7 +338,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Context Relationships">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ACL → Open Host" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::BoundedContext)" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@edgeMappings[name='customerSupplierEdge']" iconPath="/microService.design/ressources/icons/aclIcon.png" connectionStartPrecondition="aql:self.oclIsTypeOf(microserviceMetamodell::BoundedContext)">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Upstream → Downstream " precondition="aql:self.oclIsTypeOf(microserviceMetamodell::BoundedContext)" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ContextRelationshipDescription']/@defaultLayer/@edgeMappings[name='customerSupplierEdge']" iconPath="/microService.design/ressources/icons/boundedContextIcon.png" connectionStartPrecondition="aql:self.oclIsTypeOf(microserviceMetamodell::BoundedContext)">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -264,10 +349,10 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="relationshipName" valueExpression="aql:source.contextName.concat('/').concat(target.contextName)"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instanceRoot">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::AnticorruptionLayer" referenceName="downstreamRole" variableName="instanceSource">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::UpstreamComponent" referenceName="upstreamComponent" variableName="upstream">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="relatedContext" valueExpression="var:source"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::OpenHostService" referenceName="upstreamRole" variableName="instanceTarget">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::DownstreamComponent" referenceName="downstreamComponent" variableName="downstream">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="relatedContext" valueExpression="var:target"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -1102,9 +1187,12 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::DomainEvent" referenceName="domainEvents">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="eventName" valueExpression="defaultEventName"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="domainEvents" valueExpression="var:instance"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -1147,11 +1235,92 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ModuleDescription" domainClass="microserviceMetamodell::Module" enablePopupBars="true">
-      <defaultLayer name="moduleElements">
-        <containerMappings name="module" semanticCandidatesExpression="aql:self" domainClass="Module">
-          <subContainerMappings name="entity" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Entity" childrenPresentation="VerticalStack">
-            <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObjects" domainClass="microserviceMetamodell::ValueObject">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ValueObjectStructureDescription" domainClass="microserviceMetamodell::ValueObject" enablePopupBars="true">
+      <defaultLayer name="ModelElements">
+        <containerMappings name="valueObject" semanticCandidatesExpression="aql:self" domainClass="microserviceMetamodell::ValueObject">
+          <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObjects" domainClass="microserviceMetamodell::ValueObject" reusedContainerMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ValueObjectStructureDescription']/@defaultLayer/@containerMappings[name='valueObject']/@subContainerMappings[name='valueObject']">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="EntityStructureDescription" domainClass="microserviceMetamodell::Entity" enablePopupBars="true">
+      <defaultLayer name="ModelElements">
+        <containerMappings name="entity" semanticCandidatesExpression="aql:self" domainClass="microserviceMetamodell::Entity">
+          <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObjects" domainClass="microserviceMetamodell::ValueObject">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/behaviourIcon.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/entityIcon.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AggregateStructureDescription" domainClass="microserviceMetamodell::Aggregate" enablePopupBars="true">
+      <defaultLayer name="ModelElements">
+        <containerMappings name="aggregate" semanticCandidatesExpression="aql:self" domainClass="microserviceMetamodell::Aggregate">
+          <subContainerMappings name="entity" semanticCandidatesExpression="aql:self.aggregateRoot" domainClass="microserviceMetamodell::AggregateNode" childrenPresentation="VerticalStack">
+            <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObject" domainClass="microserviceMetamodell::ValueObject" childrenPresentation="VerticalStack">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/behaviourIcon.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/rootEntity.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="valueObjectNode" semanticCandidatesExpression="aql:self.aggregateNode" domainClass="microserviceMetamodell::ValueObjectNode">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="entityNode" semanticCandidatesExpression="aql:self.aggregateNode" domainClass="microserviceMetamodell::EntityNode" childrenPresentation="VerticalStack">
+            <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObject" domainClass="microserviceMetamodell::ValueObject" reusedContainerMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='DomainModelDescription']/@defaultLayer/@containerMappings[name='domainModel']/@subContainerMappings[name='module']/@subContainerMappings[name='valueObject']" childrenPresentation="VerticalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1174,156 +1343,14 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="service" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Service" childrenPresentation="VerticalStack">
-            <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/behaviourIcon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-              </style>
-            </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/serviceIcon.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="repository" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Repository" childrenPresentation="VerticalStack">
-            <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/behaviourIcon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-              </style>
-            </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/repositoryIcon.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="factory" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Factory" childrenPresentation="VerticalStack">
-            <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/behaviourIcon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-              </style>
-            </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/factoryIcon.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="aggregate" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::Aggregate" childrenPresentation="VerticalStack">
-            <subContainerMappings name="entity" semanticCandidatesExpression="aql:self.aggregateRoot" domainClass="microserviceMetamodell::AggregateNode" childrenPresentation="VerticalStack">
-              <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObject" domainClass="microserviceMetamodell::ValueObject" childrenPresentation="VerticalStack">
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-                </style>
-              </subContainerMappings>
-              <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/behaviourIcon.png">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                </style>
-              </subContainerMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/rootEntity.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-              </style>
-            </subContainerMappings>
-            <subContainerMappings name="valueObjectNode" semanticCandidatesExpression="aql:self.aggregateNode" domainClass="microserviceMetamodell::ValueObjectNode">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-              </style>
-            </subContainerMappings>
-            <subContainerMappings name="entityNode" semanticCandidatesExpression="aql:self.aggregateNode" domainClass="microserviceMetamodell::EntityNode" childrenPresentation="VerticalStack">
-              <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObject" domainClass="microserviceMetamodell::ValueObject" reusedContainerMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ModuleDescription']/@defaultLayer/@containerMappings[name='module']/@subContainerMappings[name='valueObject']" childrenPresentation="VerticalStack">
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-                </style>
-              </subContainerMappings>
-              <subContainerMappings name="behaviour" semanticCandidatesExpression="aql:self.behaviours" domainClass="microserviceMetamodell::Behaviour">
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.behaviourName" iconPath="/microService.design/ressources/icons/behaviourIcon.png">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-                </style>
-              </subContainerMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/entityIcon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-              </style>
-            </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/aggregateIcon.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.modelElements" domainClass="microserviceMetamodell::ValueObject" childrenPresentation="VerticalStack">
-            <subContainerMappings name="valueObject" semanticCandidatesExpression="aql:self.valueObjects" domainClass="microserviceMetamodell::ValueObject" reusedContainerMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ModuleDescription']/@defaultLayer/@containerMappings[name='module']/@subContainerMappings[name='valueObject']/@subContainerMappings[name='valueObject']" childrenPresentation="VerticalStack">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelFormat>italic</labelFormat>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-              </style>
-            </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/valueObjectIcon.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="submodule" semanticCandidatesExpression="aql:self.submodules" domainClass="microserviceMetamodell::Module" reusedContainerMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='ModuleDescription']/@defaultLayer/@containerMappings[name='module']/@subContainerMappings[name='submodule']">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.moduleName" iconPath="/microService.design/ressources/icons/moduleIcon.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelFormat>italic</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.moduleName" iconPath="/microService.design/ressources/icons/moduleIcon.png">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="14" labelExpression="aql:self.elementName" iconPath="/microService.design/ressources/icons/aggregateIcon.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelFormat>italic</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
           </style>
         </containerMappings>
       </defaultLayer>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ElementStructureDescription" domainClass="microserviceMetamodell::ModelElement" enablePopupBars="true">
-      <defaultLayer name="Default"/>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="MicroserviceImplementationDescription" domainClass="microserviceMetamodell::Microservice" enablePopupBars="true">
       <defaultLayer name="microserviceElements">
@@ -1347,7 +1374,7 @@
           <borderedNodeMappings name="synchronousInterface" semanticCandidatesExpression="aql:self.interfaces" domainClass="microserviceMetamodell::SynchronousInterface">
             <borderedNodeMappings name="endpoints" semanticCandidatesExpression="aql:self.restEndpoints" domainClass="microserviceMetamodell::RestEndpoint">
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::GET">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/getIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/getIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <forbiddenSides>SOUTH</forbiddenSides>
@@ -1356,7 +1383,7 @@
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::POST">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/postIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/postIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <forbiddenSides>SOUTH</forbiddenSides>
@@ -1365,7 +1392,7 @@
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::PUT">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/putIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/putIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <forbiddenSides>SOUTH</forbiddenSides>
@@ -1374,7 +1401,7 @@
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::DELETE">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/deleteIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/deleteIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <forbiddenSides>SOUTH</forbiddenSides>
@@ -1412,7 +1439,7 @@
             </conditionnalStyles>
           </borderedNodeMappings>
           <subNodeMappings name="modelElementImplementation" semanticCandidatesExpression="aql:self.modelElementImplementations" domainClass="ModelElementImplementation">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.className" iconPath="/microService.design/ressources/icons/implementationIcon.png" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.className" iconPath="/microService.design/ressources/icons/implementationIcon.png" labelPosition="node" resizeKind="NSEW" width="28" height="4">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -2081,7 +2108,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </containerMappings>
-        <toolSections name="Implementation Specification Tools">
+        <toolSections name="Implementation Specification Creation Tools">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Implementation" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::Microservice)" nodeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@containerMappings[name='microservice']/@subNodeMappings[name='modelElementImplementation']" iconPath="/microService.design/ressources/icons/implementationIcon.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -2115,7 +2142,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="REST Endpoint" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::SynchronousInterface)" iconPath="/microService.design/ressources/icons/httpIcon.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="REST Endpoint" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::SynchronousInterface)" nodeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@containerMappings[name='microservice']/@borderedNodeMappings[name='synchronousInterface']/@borderedNodeMappings[name='endpoints']" iconPath="/microService.design/ressources/icons/httpIcon.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -2127,7 +2154,9 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Implementation → Assigned Model Element" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='implements']">
+        </toolSections>
+        <toolSections name="Implementation Specification Relationship Tools">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Implementation → Assigned Model Element" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='implements']" iconPath="/microService.design/ressources/icons/implementationEdgeIcon.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -2138,7 +2167,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Interface → Available Implementation" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='interfaceFor']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Interface → Available Implementation" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='interfaceFor']" iconPath="/microService.design/ressources/icons/InterfaceImplIcon.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -2173,7 +2202,7 @@
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:self.interfaceRole==microserviceMetamodell::AsynchronousInterfaceRole::CONSUMER">
             <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
-              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
               <centerLabelStyleDescription labelSize="12">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
@@ -2192,39 +2221,31 @@
           <borderedNodeMappings name="synchronousInterface" semanticCandidatesExpression="aql:self.interfaces" domainClass="microserviceMetamodell::SynchronousInterface">
             <borderedNodeMappings name="endpoints" semanticCandidatesExpression="aql:self.restEndpoints" domainClass="microserviceMetamodell::RestEndpoint">
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::GET">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/getIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/getIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <forbiddenSides>SOUTH</forbiddenSides>
-                  <forbiddenSides>NORTH</forbiddenSides>
-                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::POST">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/postIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/postIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <forbiddenSides>SOUTH</forbiddenSides>
-                  <forbiddenSides>NORTH</forbiddenSides>
-                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::PUT">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/putIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/putIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <forbiddenSides>SOUTH</forbiddenSides>
-                  <forbiddenSides>NORTH</forbiddenSides>
-                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql:self.httpMethod == microserviceMetamodell::HttpMethod::DELETE">
-                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/deleteIcon.png" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="aql:self.path" iconPath="/microService.design/ressources/icons/deleteIcon.png" labelPosition="node" resizeKind="NSEW" width="16" height="4">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <forbiddenSides>SOUTH</forbiddenSides>
-                  <forbiddenSides>NORTH</forbiddenSides>
-                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 </style>
               </conditionnalStyles>
             </borderedNodeMappings>
@@ -2270,7 +2291,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <containerMappings name="topic" semanticCandidatesExpression="aql:self.infrastructureLayer.eventingConfigurations.topics" domainClass="Topic">
+        <containerMappings name="topic" semanticCandidatesExpression="aql:self.infrastructureLayer.kafkaConfiguration.topics" domainClass="microserviceMetamodell::Topic">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.topicNameAbbreviation" iconPath="/microService.design/ressources/icons/topicIcon.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2278,8 +2299,8 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
           </style>
         </containerMappings>
-        <toolSections name="Communication Specification Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Asynchronous Interface" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::Microservice)" nodeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@containerMappings[name='microservice']/@borderedNodeMappings[name='asynchronousInterface']" iconPath="/microService.design/ressources/icons/asyncIcon.png">
+        <toolSections name="Communication Specification Creation Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Asynchronous Interface" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::Microservice)" nodeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceCommunicationDescription']/@defaultLayer/@containerMappings[name='microservice']/@borderedNodeMappings[name='asynchronousInterface']" iconPath="/microService.design/ressources/icons/asyncIcon.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -2290,7 +2311,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Synchronous Interface" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::Microservice)" nodeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@containerMappings[name='microservice']/@borderedNodeMappings[name='synchronousInterface']" iconPath="/microService.design/ressources/icons/syncIcon.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Synchronous Interface" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::Microservice)" nodeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceCommunicationDescription']/@defaultLayer/@containerMappings[name='microservice']/@borderedNodeMappings[name='synchronousInterface']" iconPath="/microService.design/ressources/icons/syncIcon.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -2301,7 +2322,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="REST Endpoint" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::SynchronousInterface)" iconPath="/microService.design/ressources/icons/httpIcon.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="REST Endpoint" precondition="aql:self.oclIsTypeOf(microserviceMetamodell::SynchronousInterface)" nodeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceCommunicationDescription']/@defaultLayer/@containerMappings[name='microservice']/@borderedNodeMappings[name='synchronousInterface']/@borderedNodeMappings[name='endpoints']" iconPath="/microService.design/ressources/icons/httpIcon.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -2313,52 +2334,49 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Topic" iconPath="/microService.design/ressources/icons/topicIcon.png">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Topic" containerMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceCommunicationDescription']/@defaultLayer/@containerMappings[name='topic']" iconPath="/microService.design/ressources/icons/topicIcon.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
-            <initialOperation/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Async Interface → Topic" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='implements']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="correspondingModelElement" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.infrastructureLayer.kafkaConfiguration">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="microserviceMetamodell::Topic" referenceName="topics">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="topicName" valueExpression="default-topic-name"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Topic → Async Interface" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='implements']">
+        </toolSections>
+        <toolSections name="Communication Specification Relationship Tools">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Async Interface → Topic" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceCommunicationDescription']/@defaultLayer/@edgeMappings[name='usesKafkaTopic']" iconPath="/microService.design/ressources/icons/asyncTopicEdgeIcon.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="correspondingModelElement" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="topic" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Microservice → REST Endpoint" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='implements']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Microservice → REST Endpoint" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceCommunicationDescription']/@defaultLayer/@edgeMappings[name='sendsRequestTo']" iconPath="/microService.design/ressources/icons/httpEdge.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="correspondingModelElement" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="sendsRequestTo" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Async Interface → Referenced Domain Event" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceImplementationDescription']/@defaultLayer/@edgeMappings[name='implements']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Async Interface → Referenced Domain Event" edgeMappings="//@ownedViewpoints[name='ModelViewpoint']/@ownedRepresentations[name='MicroserviceCommunicationDescription']/@defaultLayer/@edgeMappings[name='eventReferencedBy']" iconPath="/microService.design/ressources/icons/asyncEventEdgeIcon.png">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="correspondingModelElement" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="domainEvents" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -2451,6 +2469,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="CustomProperties">
     <categories name="Default Category">
       <pages name="REST Config Page" label="REST Config Page" labelExpression="REST Config" domainClass="microserviceMetamodell::RestEndpoint" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="SD Config Page" labelExpression="SD Config" domainClass="microserviceMetamodell::CustomerSupplier" semanticCandidateExpression="aql:self" groups="//@extensions.0/@categories.0/@groups.1"/>
       <groups name="REST Config Group" label="REST Config Group" labelExpression="Group" domainClass="microserviceMetamodell::RestEndpoint" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:RadioDescription" name="HTTP Method Radio Button" label="HTTP Method Radio Button" labelExpression="HTTP Method" valueExpression="feature:httpMethod" candidatesExpression="aql:Sequence{microserviceMetamodell::HttpMethod::GET, microserviceMetamodell::HttpMethod::POST, microserviceMetamodell::HttpMethod::DELETE}" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="1">
           <initialOperation>
@@ -2460,6 +2479,22 @@
         <controls xsi:type="properties:TextDescription" name="URI" label="URI Textfield" labelExpression="URI:" valueExpression="aql:self.path">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="path" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+      </groups>
+      <groups name="SD Config Group" labelExpression="Group" domainClass="microserviceMetamodell::CustomerSupplier" semanticCandidateExpression="aql:self">
+        <controls xsi:type="properties:RadioDescription" name="Downstream Radio" labelExpression="Downstream" valueExpression="aql:self.downstreamComponent.downstreamRole" candidatesExpression="aql:Sequence{microserviceMetamodell::DownstreamRole::ACL, microserviceMetamodell::DownstreamRole::CONFORMIST, microserviceMetamodell::DownstreamRole::NONE}" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.downstreamComponent">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="downstreamRole" valueExpression="var:newValue"/>
+            </firstModelOperations>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:RadioDescription" name="Upstream Radio" labelExpression="Upstream" valueExpression="aql:self.upstreamComponent.upstreamRole" candidatesExpression="aql:Sequence{microserviceMetamodell::UpstreamRole::OPENHOST, microserviceMetamodell::UpstreamRole::PUBLISHEDLANGUAGE, microserviceMetamodell::UpstreamRole::NONE}" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="1">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.upstreamComponent">
+              <subModelOperations xsi:type="tool_1:SetValue" featureName="upstreamRole" valueExpression="var:newValue"/>
+            </firstModelOperations>
           </initialOperation>
         </controls>
       </groups>
