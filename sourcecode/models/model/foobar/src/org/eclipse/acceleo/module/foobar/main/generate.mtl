@@ -1,31 +1,194 @@
 [comment encoding = UTF-8 /]
 [module generate('http://microservice.com/microserviceMetamodell')]
 
-
-[template public generateElement(aSystemModel : SystemModel)]
+[template public generateElement(systemModel : SystemModel)]
 [comment @main/]
-
+[for (boundedContext: BoundedContext | systemModel.domainModelLayer.boundedContexts)]
 [comment] %%%ApplicationStarter%%%][/comment]
-
-[for (webservice: DomainWebservice | aSystemModel.webservices)]
-[file ('/' + webservice.domainName.toLowerCase() + '/' + webservice.domainName + 'Application.java', false, 'UTF-8')] 
-package  [webservice.domainName.toLowerCase()/];
-
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' +'ApplicationStarter.java', false, 'UTF-8')] 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class [webservice.domainName/]Application {
+public class ApplicationStarter {
    public static void main(String['[]'/] args) {
-      SpringApplication.run([webservice.domainName/]Application.class, args);
+      SpringApplication.run(ApplicationStarter.class, args);
+   }
+}
+[/file]
+[comment] %%%Build.Gradle%%%][/comment]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/' +'build.gradle', false, 'UTF-8')] 
+plugins {
+    id 'org.springframework.boot' version '3.2.0'
+    id 'java'
+}
+
+group = 'com.test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+[/file]
+[comment] %%%ModelElement%%% [/comment]
+[for (module: Module | boundedContext.domainModel.modules)]
+[for (modelElement: ModelElement | module.modelElements)]
+[comment] %%%Entity%%% [/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Entity)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package [module.moduleName/];
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class [modelElement.elementName/] {
+
+}
+[/file]
+[/if]
+[comment] %%%Service%%% [/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Service)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package [module.moduleName/];
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class [modelElement.elementName/] {
+
+[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Service).behaviours)]
+	public void [behaviour.behaviourName/](){
+		//TODO: Implement
+		throw new RuntimeException("NotYetImplemented");
+	}
+[/for]
+}
+[/file]
+
+[/if]
+[comment] %%%ValueObject%%% [/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::ValueObject)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package [module.moduleName/];
+
+public class [modelElement.elementName/] {
+
+}
+[/file]
+[/if]
+[comment] %%%Factory%%% [/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Factory)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package [module.moduleName/];
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class [modelElement.elementName/] {
+
+}
+[/file]
+[/if]
+[comment] %%%Aggregate%%% [/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Aggregate)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package [module.moduleName/];
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class [modelElement.elementName/] {
+
+}
+[/file]
+[/if]
+[comment] %%%Repository%%% [/comment]
+[if modelElement.oclIsTypeOf(microserviceMetamodell::Repository)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package [module.moduleName/];
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class [modelElement.elementName/] {
+
+}
+[/file]
+[/if]
+[comment] %%%Ende Model Elements%%% [/comment]
+[/for]
+[/for]
+[comment] %%%Controller%%% [/comment]
+
+[for ( interface: Interface | boundedContext.correspodingMicroservices.interfaces)]
+[if interface.oclIsKindOf(microserviceMetamodell::SynchronousInterface)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/controller/' + interface.interfaceName + '.java', false, 'UTF-8')] 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ApplicationStarter {
+   public static void main(String['[]'/] args) {
+      SpringApplication.run(ApplicationStarter.class, args);
+   }
+}
+[/file]
+[/if]
+[comment] %%%Kafka%%% [/comment]
+[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')] 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ApplicationStarter {
+   public static void main(String['[]'/] args) {
+      SpringApplication.run(ApplicationStarter.class, args);
+   }
+}
+[/file]
+[/if]
+[/if]
+[comment] %%%Kafka%%% [/comment]
+[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::CONSUMER)]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')] 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ApplicationStarter {
+   public static void main(String['[]'/] args) {
+      SpringApplication.run(ApplicationStarter.class, args);
+   }
+}
+[/file]
+[/if]
+[/if]
+[/for]
+[comment] %%%WebSec%%% [/comment]
+
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/config/' + 'SecurityConfiguration.java', false, 'UTF-8')] 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ApplicationStarter {
+   public static void main(String['[]'/] args) {
+      SpringApplication.run(ApplicationStarter.class, args);
    }
 }
 [/file]
 [/for]
+[/template]
 
-[comment] %%%Controller%%% [/comment]
-
-[for (webservice: DomainWebservice | aSystemModel.webservices)]
+[comment][for (webservice: DomainWebservice | aSystemModel.webservices)]
 [for (controller: DomainObjectController | webservice.domainObjectControllers)]
 [file ('/' + webservice.domainName.toLowerCase() + '/' + controller.objectName + '.java', false, 'UTF-8')] 
 package  [webservice.domainName.toLowerCase()/];
@@ -160,4 +323,4 @@ public class [repo.objectName/] {
 [/for]
 [/for]
 
-[/template]
+[/template][/comment]

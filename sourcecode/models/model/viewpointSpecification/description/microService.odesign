@@ -16,15 +16,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::PUBLISHEDLANGUAGE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::ACL">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/plIcon.png">
+              <beginLabelStyleDescription labelSize="10" labelExpression="U" iconPath="/microService.design/ressources/icons/plIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/aclIcon.png">
+              <endLabelStyleDescription labelSize="10" labelExpression="D" iconPath="/microService.design/ressources/icons/aclIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -33,15 +33,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::PUBLISHEDLANGUAGE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::CONFORMIST">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/plIcon.png">
+              <beginLabelStyleDescription labelSize="10" labelExpression="U" iconPath="/microService.design/ressources/icons/plIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/cnfIcon.png">
+              <endLabelStyleDescription labelSize="10" labelExpression="D" iconPath="/microService.design/ressources/icons/cnfIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -50,15 +50,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::PUBLISHEDLANGUAGE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::NONE">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/plIcon.png">
+              <beginLabelStyleDescription labelSize="10" labelExpression="U" iconPath="/microService.design/ressources/icons/plIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream">
+              <endLabelStyleDescription labelSize="10">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -67,15 +67,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::OPENHOST and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::ACL">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/ohIcon.png">
+              <beginLabelStyleDescription labelSize="10" labelExpression="U" iconPath="/microService.design/ressources/icons/ohIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/aclIcon.png">
+              <endLabelStyleDescription labelSize="10" labelExpression="D" iconPath="/microService.design/ressources/icons/aclIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -84,15 +84,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::OPENHOST and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::CONFORMIST">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/ohIcon.png">
+              <beginLabelStyleDescription labelSize="10" labelExpression="U" iconPath="/microService.design/ressources/icons/ohIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/cnfIcon.png">
+              <endLabelStyleDescription labelSize="10" labelExpression="D" iconPath="/microService.design/ressources/icons/cnfIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -101,15 +101,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::OPENHOST and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::NONE">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream" iconPath="/microService.design/ressources/icons/ohIcon.png">
+              <beginLabelStyleDescription labelSize="10" labelExpression="U" iconPath="/microService.design/ressources/icons/ohIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream">
+              <endLabelStyleDescription labelSize="10">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -118,15 +118,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::NONE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::ACL">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream">
+              <beginLabelStyleDescription labelSize="10">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/aclIcon.png">
+              <endLabelStyleDescription labelSize="10" labelExpression="D" iconPath="/microService.design/ressources/icons/aclIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -135,15 +135,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::NONE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::CONFORMIST">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream">
+              <beginLabelStyleDescription labelSize="10">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream" iconPath="/microService.design/ressources/icons/cnfIcon.png">
+              <endLabelStyleDescription labelSize="10" labelExpression="D" iconPath="/microService.design/ressources/icons/cnfIcon.png">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
@@ -152,15 +152,15 @@
           <conditionnalStyles predicateExpression="aql:self.upstreamComponent.upstreamRole == microserviceMetamodell::UpstreamRole::NONE and self.downstreamComponent.downstreamRole == microserviceMetamodell::DownstreamRole::NONE">
             <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <beginLabelStyleDescription labelSize="10" labelExpression="Upstream">
+              <beginLabelStyleDescription labelSize="10">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </beginLabelStyleDescription>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.relationshipName">
+              <centerLabelStyleDescription labelSize="12" showIcon="false">
                 <labelFormat>underline</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
-              <endLabelStyleDescription labelSize="10" labelExpression="Downstream">
+              <endLabelStyleDescription labelSize="10">
                 <labelFormat>italic</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>

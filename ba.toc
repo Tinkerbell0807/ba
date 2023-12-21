@@ -82,51 +82,48 @@
 \contentsline {subsection}{\numberline {4.2.2}Modellierung der technischen Umsetzung}{45}{subsection.4.2.2}%
 \contentsline {subsubsection}{\nonumberline Feinentwurf der technischen Schicht}{45}{subsubsection*.108}%
 \contentsline {paragraph}{\nonumberline Microservice}{45}{paragraph*.110}%
-\contentsline {paragraph}{\nonumberline Entity}{46}{paragraph*.112}%
-\contentsline {paragraph}{\nonumberline Service Klasse}{46}{paragraph*.114}%
-\contentsline {paragraph}{\nonumberline Repository}{47}{paragraph*.116}%
-\contentsline {paragraph}{\nonumberline Schnittstelle}{47}{paragraph*.118}%
-\contentsline {paragraph}{\nonumberline Synchrone Schnittstelle}{48}{paragraph*.120}%
-\contentsline {paragraph}{\nonumberline Asynchrone Schnittstelle}{49}{paragraph*.122}%
-\contentsline {paragraph}{\nonumberline Logging}{50}{paragraph*.124}%
-\contentsline {paragraph}{\nonumberline Monitoring}{50}{paragraph*.126}%
-\contentsline {paragraph}{\nonumberline Factories}{51}{paragraph*.128}%
-\contentsline {paragraph}{\nonumberline Gesamtüberblick}{52}{paragraph*.130}%
-\contentsline {subsubsection}{\nonumberline Abbildung der fachlichen Schicht auf eine Technische Schicht}{53}{subsubsection*.132}%
-\contentsline {paragraph}{\nonumberline Schicht}{53}{paragraph*.134}%
-\contentsline {paragraph}{\nonumberline Paket}{53}{paragraph*.136}%
-\contentsline {paragraph}{\nonumberline Entitiy}{54}{paragraph*.138}%
-\contentsline {paragraph}{\nonumberline Value Object}{54}{paragraph*.140}%
-\contentsline {paragraph}{\nonumberline Service}{55}{paragraph*.142}%
-\contentsline {paragraph}{\nonumberline Aggregate}{55}{paragraph*.144}%
-\contentsline {paragraph}{\nonumberline Factory}{56}{paragraph*.146}%
-\contentsline {paragraph}{\nonumberline Repository}{56}{paragraph*.148}%
-\contentsline {paragraph}{\nonumberline Bounded Context}{57}{paragraph*.150}%
-\contentsline {paragraph}{\nonumberline Shared Kernel}{57}{paragraph*.152}%
-\contentsline {paragraph}{\nonumberline Customer/Supplier}{58}{paragraph*.154}%
-\contentsline {paragraph}{\nonumberline Conformist}{58}{paragraph*.156}%
-\contentsline {paragraph}{\nonumberline Anticorruption Layer}{59}{paragraph*.158}%
-\contentsline {paragraph}{\nonumberline Open Host Service}{59}{paragraph*.160}%
-\contentsline {paragraph}{\nonumberline Published Language}{60}{paragraph*.162}%
-\contentsline {paragraph}{\nonumberline Gesamtüberblick}{61}{paragraph*.164}%
-\contentsline {subsection}{\numberline {4.2.3}Modellierung der Infrastrukturellen Umgebung}{62}{subsection.4.2.3}%
-\contentsline {subsubsection}{\nonumberline Abbildung Service Configuration}{62}{subsubsection*.166}%
-\contentsline {paragraph}{\nonumberline Application.yml}{62}{paragraph*.168}%
-\contentsline {subsubsection}{\nonumberline Abbildung der Build Automation}{63}{subsubsection*.170}%
-\contentsline {paragraph}{\nonumberline Build.gradle}{63}{paragraph*.172}%
-\contentsline {paragraph}{\nonumberline GitHubAction}{64}{paragraph*.174}%
-\contentsline {subsubsection}{\nonumberline Abbildung des Cloud Umgebung}{65}{subsubsection*.176}%
-\contentsline {paragraph}{\nonumberline Deployement Abstraktion}{65}{paragraph*.178}%
-\contentsline {subsection}{\numberline {4.2.4}Konzeption der konkreten Syntax}{66}{subsection.4.2.4}%
-\contentsline {chapter}{\numberline {5}Konzeption der Codegenerierung}{67}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Generierung des Dienstes}{67}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Generierung der Infrastruktur}{67}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Migration von Diensten durch Generierung}{67}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Open Rewrite}{67}{subsection.5.3.1}%
-\contentsline {chapter}{\numberline {6}Anwendung}{69}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Modellering einer Microservice-Architektur für einen Anwendungsfall}{69}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Generierung und Betrieb}{69}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Einbinden von Chassis und Migration von Diensten}{69}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Diskussion}{71}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Schluss}{73}{chapter.8}%
+\contentsline {paragraph}{\nonumberline Schnittstelle}{45}{paragraph*.112}%
+\contentsline {paragraph}{\nonumberline Synchrone Schnittstelle}{47}{paragraph*.114}%
+\contentsline {paragraph}{\nonumberline Asynchrone Schnittstelle}{48}{paragraph*.116}%
+\contentsline {paragraph}{\nonumberline Logging}{49}{paragraph*.118}%
+\contentsline {paragraph}{\nonumberline Monitoring}{49}{paragraph*.120}%
+\contentsline {paragraph}{\nonumberline Gesamtüberblick}{50}{paragraph*.122}%
+\contentsline {subsubsection}{\nonumberline Abbildung der fachlichen Schicht auf eine Technische Schicht}{51}{subsubsection*.124}%
+\contentsline {paragraph}{\nonumberline Schicht}{51}{paragraph*.126}%
+\contentsline {paragraph}{\nonumberline Paket}{51}{paragraph*.128}%
+\contentsline {paragraph}{\nonumberline Entitiy}{52}{paragraph*.130}%
+\contentsline {paragraph}{\nonumberline Value Object}{52}{paragraph*.132}%
+\contentsline {paragraph}{\nonumberline Service}{53}{paragraph*.134}%
+\contentsline {paragraph}{\nonumberline Aggregate}{53}{paragraph*.136}%
+\contentsline {paragraph}{\nonumberline Factory}{54}{paragraph*.138}%
+\contentsline {paragraph}{\nonumberline Repository}{54}{paragraph*.140}%
+\contentsline {paragraph}{\nonumberline Bounded Context}{55}{paragraph*.142}%
+\contentsline {paragraph}{\nonumberline Shared Kernel}{55}{paragraph*.144}%
+\contentsline {paragraph}{\nonumberline Customer/Supplier}{56}{paragraph*.146}%
+\contentsline {paragraph}{\nonumberline Conformist}{56}{paragraph*.148}%
+\contentsline {paragraph}{\nonumberline Anticorruption Layer}{57}{paragraph*.150}%
+\contentsline {paragraph}{\nonumberline Open Host Service}{57}{paragraph*.152}%
+\contentsline {paragraph}{\nonumberline Published Language}{58}{paragraph*.154}%
+\contentsline {paragraph}{\nonumberline Gesamtüberblick}{59}{paragraph*.156}%
+\contentsline {subsection}{\numberline {4.2.3}Modellierung der Infrastrukturellen Umgebung}{60}{subsection.4.2.3}%
+\contentsline {subsubsection}{\nonumberline Abbildung Service Configuration}{60}{subsubsection*.158}%
+\contentsline {paragraph}{\nonumberline Application.yml}{60}{paragraph*.160}%
+\contentsline {subsubsection}{\nonumberline Abbildung der Build Automation}{61}{subsubsection*.162}%
+\contentsline {paragraph}{\nonumberline Build.gradle}{61}{paragraph*.164}%
+\contentsline {paragraph}{\nonumberline GitHubAction}{62}{paragraph*.166}%
+\contentsline {subsubsection}{\nonumberline Abbildung des Cloud Umgebung}{63}{subsubsection*.168}%
+\contentsline {paragraph}{\nonumberline Deployement Abstraktion}{63}{paragraph*.170}%
+\contentsline {subsection}{\numberline {4.2.4}Konzeption der konkreten Syntax}{64}{subsection.4.2.4}%
+\contentsline {chapter}{\numberline {5}Konzeption der Codegenerierung}{65}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Generierung des Dienstes}{65}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Generierung der Infrastruktur}{65}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Migration von Diensten durch Generierung}{65}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Open Rewrite}{65}{subsection.5.3.1}%
+\contentsline {chapter}{\numberline {6}Anwendung}{67}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Modellering einer Microservice-Architektur für einen Anwendungsfall}{67}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Vorstellung des Anwendungsfalles}{67}{subsection.6.1.1}%
+\contentsline {section}{\numberline {6.2}Generierung und Betrieb}{67}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Einbinden von Chassis und Migration von Diensten}{67}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Diskussion}{69}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Schluss}{71}{chapter.8}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

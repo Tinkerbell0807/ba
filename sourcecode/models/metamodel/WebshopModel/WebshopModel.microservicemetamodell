@@ -98,7 +98,7 @@
     <domainEvents domainModel="//@domainModelLayer/@domainModels.0" eventName="OrderCreated"/>
     <domainEvents domainModel="//@domainModelLayer/@domainModels.3" eventName="MarketingNotificationEvent"/>
     <domainEvents domainModel="//@domainModelLayer/@domainModels.1" eventName="SuccessfullCheckoutEvent"/>
-    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="Authentification" relatedContexts="//@domainModelLayer/@boundedContexts.0 //@domainModelLayer/@boundedContexts.2 //@domainModelLayer/@boundedContexts.1">
+    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="Authentification" relatedContexts="//@domainModelLayer/@boundedContexts.0 //@domainModelLayer/@boundedContexts.2 //@domainModelLayer/@boundedContexts.1" implementingLib="//@infrastructureLayer/@externalDependencies.0">
       <sharedModules moduleName="auth">
         <modelElements xsi:type="microserviceMetamodell:Service" elementName="AuthenticationService">
           <behaviours behaviourName="authenticate"/>
@@ -133,6 +133,7 @@
       <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.4"/>
       <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.2" upstreamRole="PUBLISHEDLANGUAGE"/>
     </boundedContextRelationships>
+    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="defaultSharedKernelName"/>
   </domainModelLayer>
   <technicalLayer>
     <microservices serviceName="order-service" correspodingContext="//@domainModelLayer/@boundedContexts.1" sendsRequestTo="//@technicalLayer/@microservices.4/@interfaces.0/@restEndpoints.0">
@@ -146,7 +147,7 @@
       </interfaces>
       <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="MarketingNotificationProducer" domainEvents="//@domainModelLayer/@domainEvents.2" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.3"/>
     </microservices>
-    <microservices serviceName="customer-service" correspodingContext="//@domainModelLayer/@boundedContexts.0" sendsRequestTo="//@technicalLayer/@microservices.1/@interfaces.1/@restEndpoints.0">
+    <microservices serviceName="customer-service" correspodingContext="//@domainModelLayer/@boundedContexts.0" sendsRequestTo="//@technicalLayer/@microservices.1/@interfaces.1/@restEndpoints.0" deployementAbstraction="//@infrastructureLayer/@deployementAbstractions.0" buildConfiguration="//@infrastructureLayer/@buildConfigurations.0">
       <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.2/@modelElementImplementations.1" interfaceName="CustomerProducer" domainEvents="//@domainModelLayer/@domainEvents.0" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0" className="CustomerEntity"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.1" className="CustomerRegistrationService"/>
@@ -155,6 +156,7 @@
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.6" className="CustomerRewardObjectFactory"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.2" className="CustomerFactory"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.4" className="CustomerRewardObject"/>
+      <modelElementImplementations className="defaultImplementationName"/>
     </microservices>
     <microservices serviceName="customer-service-application" correspodingContext="//@domainModelLayer/@boundedContexts.4">
       <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="CustomerConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
@@ -170,6 +172,12 @@
     </microservices>
   </technicalLayer>
   <infrastructureLayer>
+    <deployementAbstractions microservice="//@technicalLayer/@microservices.2"/>
+    <buildConfigurations microservice="//@technicalLayer/@microservices.2" externalDependencies="//@infrastructureLayer/@externalDependencies.0 //@infrastructureLayer/@externalDependencies.1 //@infrastructureLayer/@externalDependencies.2 //@infrastructureLayer/@externalDependencies.3" buildTool="GRADLE"/>
+    <externalDependencies sharedKernel="//@domainModelLayer/@boundedContextRelationships.0" artifactId="defaultArtifactId"/>
+    <externalDependencies artifactId="spring-boot"/>
+    <externalDependencies artifactId="hibernate-jpa"/>
+    <externalDependencies artifactId="kafka-lib"/>
     <kafkaConfiguration>
       <topics topicName="customer-topic-v1" topicNameAbbreviation="Customer" asynchronousInterfaces="//@technicalLayer/@microservices.2/@interfaces.0 //@technicalLayer/@microservices.0/@interfaces.1 //@technicalLayer/@microservices.1/@interfaces.0 //@technicalLayer/@microservices.3/@interfaces.0"/>
       <topics topicName="default-topic-name" topicNameAbbreviation="Order" asynchronousInterfaces="//@technicalLayer/@microservices.0/@interfaces.0 //@technicalLayer/@microservices.3/@interfaces.1"/>
