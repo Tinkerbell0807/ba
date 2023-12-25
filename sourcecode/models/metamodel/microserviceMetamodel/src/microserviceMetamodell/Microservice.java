@@ -126,26 +126,16 @@ public interface Microservice extends EObject {
 	void setImplementationTechnology(ImplementationTechnology value);
 
 	/**
-	 * Returns the value of the '<em><b>Sends Request To</b></em>' reference.
+	 * Returns the value of the '<em><b>Sends Request To</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.RestEndpoint}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sends Request To</em>' reference.
-	 * @see #setSendsRequestTo(RestEndpoint)
+	 * @return the value of the '<em>Sends Request To</em>' reference list.
 	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_SendsRequestTo()
 	 * @model
 	 * @generated
 	 */
-	RestEndpoint getSendsRequestTo();
-
-	/**
-	 * Sets the value of the '{@link microserviceMetamodell.Microservice#getSendsRequestTo <em>Sends Request To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sends Request To</em>' reference.
-	 * @see #getSendsRequestTo()
-	 * @generated
-	 */
-	void setSendsRequestTo(RestEndpoint value);
+	EList<RestEndpoint> getSendsRequestTo();
 
 	/**
 	 * Returns the value of the '<em><b>Deployement Abstraction</b></em>' reference.

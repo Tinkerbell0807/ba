@@ -41,9 +41,7 @@
         <modelElements xsi:type="microserviceMetamodell:Service" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.1" elementName="CustomerRegistrationService" referencedElements="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.2 //@domainModelLayer/@domainModels.2/@modules.0/@modelElements.3">
           <behaviours behaviourName="registerNewCustomer"/>
         </modelElements>
-        <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.5" elementName="CustomerFactory" factoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0">
-          <behaviours behaviourName="createCustomer"/>
-        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.5" elementName="CustomerFactory" factoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0"/>
         <modelElements xsi:type="microserviceMetamodell:Repository" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.3" elementName="CustomerRepository" repositoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0">
           <behaviours behaviourName="findCustomer"/>
         </modelElements>
@@ -51,9 +49,7 @@
         <modelElements xsi:type="microserviceMetamodell:Service" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.2" elementName="CustomerRewardService" referencedElements="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.6 //@domainModelLayer/@domainModels.2/@modules.0/@modelElements.3">
           <behaviours behaviourName="rewardCustomer"/>
         </modelElements>
-        <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.4" elementName="CustomerRewardObjectFactory" factoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.4">
-          <behaviours behaviourName="createCustomerRewardObject"/>
-        </modelElements>
+        <modelElements xsi:type="microserviceMetamodell:Factory" isImplementedTrough="//@technicalLayer/@microservices.2/@modelElementImplementations.4" elementName="CustomerRewardObjectFactory" factoryFor="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.4"/>
       </modules>
     </domainModels>
     <domainModels domainEvents="//@domainModelLayer/@domainEvents.2" boundedContext="//@domainModelLayer/@boundedContexts.3" modelName="MarketingDomainModel">
@@ -133,7 +129,6 @@
       <downstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.4"/>
       <upstreamComponent relatedContext="//@domainModelLayer/@boundedContexts.2" upstreamRole="PUBLISHEDLANGUAGE"/>
     </boundedContextRelationships>
-    <boundedContextRelationships xsi:type="microserviceMetamodell:SharedKernel" relationshipName="defaultSharedKernelName"/>
   </domainModelLayer>
   <technicalLayer>
     <microservices serviceName="order-service" correspodingContext="//@domainModelLayer/@boundedContexts.1" sendsRequestTo="//@technicalLayer/@microservices.4/@interfaces.0/@restEndpoints.0">
@@ -151,12 +146,11 @@
       <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceFor="//@technicalLayer/@microservices.2/@modelElementImplementations.1" interfaceName="CustomerProducer" domainEvents="//@domainModelLayer/@domainEvents.0" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.0" className="CustomerEntity"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.1" className="CustomerRegistrationService"/>
-      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.5" className="CustomerRewardService"/>
+      <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.5" className="CustomerRewardService" sendsRequestTo="//@technicalLayer/@microservices.1/@interfaces.1/@restEndpoints.0"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.3" className="CustomerRepository"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.6" className="CustomerRewardObjectFactory"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.2" className="CustomerFactory"/>
       <modelElementImplementations correspondingModelElement="//@domainModelLayer/@domainModels.2/@modules.0/@modelElements.4" className="CustomerRewardObject"/>
-      <modelElementImplementations className="defaultImplementationName"/>
     </microservices>
     <microservices serviceName="customer-service-application" correspodingContext="//@domainModelLayer/@boundedContexts.4">
       <interfaces xsi:type="microserviceMetamodell:AsynchronousInterface" interfaceName="CustomerConsumer" interfaceRole="CONSUMER" topic="//@infrastructureLayer/@kafkaConfiguration/@topics.0"/>

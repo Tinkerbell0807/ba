@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -119,14 +120,14 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	protected ImplementationTechnology implementationTechnology = IMPLEMENTATION_TECHNOLOGY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSendsRequestTo() <em>Sends Request To</em>}' reference.
+	 * The cached value of the '{@link #getSendsRequestTo() <em>Sends Request To</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSendsRequestTo()
 	 * @generated
 	 * @ordered
 	 */
-	protected RestEndpoint sendsRequestTo;
+	protected EList<RestEndpoint> sendsRequestTo;
 
 	/**
 	 * The cached value of the '{@link #getDeployementAbstraction() <em>Deployement Abstraction</em>}' reference.
@@ -298,37 +299,11 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RestEndpoint getSendsRequestTo() {
-		if (sendsRequestTo != null && sendsRequestTo.eIsProxy()) {
-			InternalEObject oldSendsRequestTo = (InternalEObject)sendsRequestTo;
-			sendsRequestTo = (RestEndpoint)eResolveProxy(oldSendsRequestTo);
-			if (sendsRequestTo != oldSendsRequestTo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO, oldSendsRequestTo, sendsRequestTo));
-			}
+	public EList<RestEndpoint> getSendsRequestTo() {
+		if (sendsRequestTo == null) {
+			sendsRequestTo = new EObjectResolvingEList<RestEndpoint>(RestEndpoint.class, this, MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO);
 		}
 		return sendsRequestTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RestEndpoint basicGetSendsRequestTo() {
-		return sendsRequestTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSendsRequestTo(RestEndpoint newSendsRequestTo) {
-		RestEndpoint oldSendsRequestTo = sendsRequestTo;
-		sendsRequestTo = newSendsRequestTo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO, oldSendsRequestTo, sendsRequestTo));
 	}
 
 	/**
@@ -517,8 +492,7 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
 				return getImplementationTechnology();
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				if (resolve) return getSendsRequestTo();
-				return basicGetSendsRequestTo();
+				return getSendsRequestTo();
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				if (resolve) return getDeployementAbstraction();
 				return basicGetDeployementAbstraction();
@@ -556,7 +530,8 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				setImplementationTechnology((ImplementationTechnology)newValue);
 				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				setSendsRequestTo((RestEndpoint)newValue);
+				getSendsRequestTo().clear();
+				getSendsRequestTo().addAll((Collection<? extends RestEndpoint>)newValue);
 				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				setDeployementAbstraction((DeployementAbstraction)newValue);
@@ -592,7 +567,7 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				setImplementationTechnology(IMPLEMENTATION_TECHNOLOGY_EDEFAULT);
 				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				setSendsRequestTo((RestEndpoint)null);
+				getSendsRequestTo().clear();
 				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				setDeployementAbstraction((DeployementAbstraction)null);
@@ -623,7 +598,7 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
 				return implementationTechnology != IMPLEMENTATION_TECHNOLOGY_EDEFAULT;
 			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				return sendsRequestTo != null;
+				return sendsRequestTo != null && !sendsRequestTo.isEmpty();
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				return deployementAbstraction != null;
 			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:

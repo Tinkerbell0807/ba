@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a5f89514-f7d8-4f6c-8839-01fcd6d27818" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/WebshopModel.microservicemetamodell" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/WebshopModel.microservicemetamodell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/representations.aird" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/representations.aird" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../checkout-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/ApplicationStarter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/checkout/CheckoutInformationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/checkout/CheckoutInformationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/checkout/CheckoutProcessingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/controller/CheckoutOrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/kafka/CheckoutInformationProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/order/CheckoutOrderObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/order/CheckoutOrderObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../customer-service-application/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/ApplicationStarter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/application/BackofficeDataService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/checkout/CheckoutInformationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/checkout/CheckoutInformationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/customer/CustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/customer/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/kafka/CheckoutInformationConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/kafka/CustomerConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/kafka/MarketingNotificationConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/kafka/OrderConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/marketing/MarketingNotificationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/marketing/MarketingNotificationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/order/OrderEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/order/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ApplicationStarter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerRegistrationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerRewardObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerRewardObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer/CustomerRewardService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kafka/CustomerProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../marketing-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/ApplicationStarter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/controller/CustomerRewardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/customer/CustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/customer/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/kafka/CustomerConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/kafka/MarketingNotificationProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/marketing/CustomerMarketingService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/marketing/MarketNotificationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/marketing/MarketingNotificationEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/marketing/MarketingNotificationFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/ApplicationStarter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/customer/CustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/customer/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/kafka/CustomerConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/kafka/OrderProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/order/OrderCreationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/order/OrderEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/order/OrderFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/order/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="ProjectId" id="2ZtXS8WtVhEaH64LLHOaxRpXli9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ACTIVE_CLOUD_PROJECT_ACCOUNT": "patrik.loeffler@rewe-digital.com",
+    "ACTIVE_CLOUD_PROJECT_ID": "optikumm-dev",
+    "ACTIVE_CLOUD_PROJECT_NAME": "optikumm-dev",
+    "ACTIVE_CLOUD_PROJECT_NUMBER": "945953705988",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.google.cloudcode.ide_session_index": "20231224_0001",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/home/patrik/Dokumente/Bachelorarbeit/sourcecode/models/model/foobar/gen/customer-service",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="customer-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ApplicationStarter" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5f89514-f7d8-4f6c-8839-01fcd6d27818" name="Changes" comment="" />
+      <created>1703242345927</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703242345927</updated>
+      <workItem from="1703242346924" duration="4058000" />
+      <workItem from="1703447620438" duration="2534000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

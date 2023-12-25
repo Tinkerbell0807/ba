@@ -1421,7 +1421,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int MICROSERVICE__IMPLEMENTATION_TECHNOLOGY = 4;
 
 	/**
-	 * The feature id for the '<em><b>Sends Request To</b></em>' reference.
+	 * The feature id for the '<em><b>Sends Request To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1703,13 +1703,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int MODEL_ELEMENT_IMPLEMENTATION__CLASS_NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Sends Request To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT_IMPLEMENTATION__SENDS_REQUEST_TO = 2;
+
+	/**
 	 * The number of structural features of the '<em>Model Element Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_IMPLEMENTATION_FEATURE_COUNT = 2;
+	int MODEL_ELEMENT_IMPLEMENTATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Model Element Implementation</em>' class.
@@ -2338,6 +2347,17 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModelElementImplementation_ClassName();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.ModelElementImplementation#getSendsRequestTo <em>Sends Request To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Sends Request To</em>'.
+	 * @see microserviceMetamodell.ModelElementImplementation#getSendsRequestTo()
+	 * @see #getModelElementImplementation()
+	 * @generated
+	 */
+	EReference getModelElementImplementation_SendsRequestTo();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.ValueObjectNode <em>Value Object Node</em>}'.
@@ -3568,10 +3588,10 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EAttribute getMicroservice_ImplementationTechnology();
 
 	/**
-	 * Returns the meta object for the reference '{@link microserviceMetamodell.Microservice#getSendsRequestTo <em>Sends Request To</em>}'.
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Microservice#getSendsRequestTo <em>Sends Request To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sends Request To</em>'.
+	 * @return the meta object for the reference list '<em>Sends Request To</em>'.
 	 * @see microserviceMetamodell.Microservice#getSendsRequestTo()
 	 * @see #getMicroservice()
 	 * @generated
@@ -3821,6 +3841,14 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL_ELEMENT_IMPLEMENTATION__CLASS_NAME = eINSTANCE.getModelElementImplementation_ClassName();
+
+		/**
+		 * The meta object literal for the '<em><b>Sends Request To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_ELEMENT_IMPLEMENTATION__SENDS_REQUEST_TO = eINSTANCE.getModelElementImplementation_SendsRequestTo();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.ValueObjectNodeImpl <em>Value Object Node</em>}' class.
@@ -4817,7 +4845,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EAttribute MICROSERVICE__IMPLEMENTATION_TECHNOLOGY = eINSTANCE.getMicroservice_ImplementationTechnology();
 
 		/**
-		 * The meta object literal for the '<em><b>Sends Request To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Sends Request To</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

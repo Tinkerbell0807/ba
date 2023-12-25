@@ -158,7 +158,8 @@
         eOpposite="#//BoundedContext/correspodingMicroservices"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationTechnology"
         eType="#//ImplementationTechnology"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" eType="#//RestEndpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" upperBound="-1"
+        eType="#//RestEndpoint"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployementAbstraction"
         eType="#//DeployementAbstraction" eOpposite="#//DeployementAbstraction/microservice"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildConfiguration" eType="#//BuildConfiguration"
@@ -189,6 +190,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingModelElement"
         eType="#//ModelElement" eOpposite="#//ModelElement/isImplementedTrough"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" upperBound="-1"
+        eType="#//RestEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AsynchronousInterfaceRole">
     <eLiterals name="PRODUCER"/>

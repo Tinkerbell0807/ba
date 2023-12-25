@@ -5,7 +5,7 @@
 [comment @main/]
 [for (boundedContext: BoundedContext | systemModel.domainModelLayer.boundedContexts)]
 [comment] %%%ApplicationStarter%%%][/comment]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' +'ApplicationStarter.java', false, 'UTF-8')] 
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/' +'ApplicationStarter.java', false, 'UTF-8')] 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -32,7 +32,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.0'
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.2.0'
 }
 [/file]
 [comment] %%%ModelElement%%% [/comment]
@@ -40,27 +43,38 @@ dependencies {
 [for (modelElement: ModelElement | module.modelElements)]
 [comment] %%%Entity%%% [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Entity)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class [modelElement.elementName/] {
+	[comment] TODO:Members, DefaultConstructor [/comment]
+    @Id
+    private Long id;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
 [/file]
 [/if]
 [comment] %%%Service%%% [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Service)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class [modelElement.elementName/] {
-
+	[comment] TODO:Members, DefaultConstructor [/comment]
 [for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Service).behaviours)]
 	public void [behaviour.behaviourName/](){
 		//TODO: Implement
@@ -73,35 +87,38 @@ public class [modelElement.elementName/] {
 [/if]
 [comment] %%%ValueObject%%% [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::ValueObject)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
 
 public class [modelElement.elementName/] {
-
+	public [modelElement.elementName/](){}
 }
 [/file]
 [/if]
 [comment] %%%Factory%%% [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Factory)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class [modelElement.elementName/] {
+		public [modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/] create[modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/](){
+			return new [modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/]();
+		}
 
+		[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Factory).behaviours)]
+		private void [behaviour.behaviourName/](){}
+        [/for]
 }
 [/file]
 [/if]
 [comment] %%%Aggregate%%% [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Aggregate)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class [modelElement.elementName/] {
 
 }
@@ -109,14 +126,18 @@ public class [modelElement.elementName/] {
 [/if]
 [comment] %%%Repository%%% [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Repository)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class [modelElement.elementName/] {
+public interface [modelElement.elementName/] extends JpaRepository<[modelElement.oclAsType(microserviceMetamodell::Repository).repositoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/], String> {
 
+[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Repository).behaviours)]
+	[modelElement.oclAsType(microserviceMetamodell::Repository).repositoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/] [behaviour.behaviourName/]()
+[/for]
 }
 [/file]
 [/if]
@@ -124,33 +145,36 @@ public class [modelElement.elementName/] {
 [/for]
 [/for]
 [comment] %%%Controller%%% [/comment]
-
 [for ( interface: Interface | boundedContext.correspodingMicroservices.interfaces)]
 [if interface.oclIsKindOf(microserviceMetamodell::SynchronousInterface)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/controller/' + interface.interfaceName + '.java', false, 'UTF-8')] 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/controller/' + interface.interfaceName + '.java', false, 'UTF-8')] 
+package controller;
 
-@SpringBootApplication
-public class ApplicationStarter {
-   public static void main(String['[]'/] args) {
-      SpringApplication.run(ApplicationStarter.class, args);
-   }
+import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@RestController
+public class [interface.interfaceName/] {
+    Logger logger = LoggerFactory.getLogger([interface.interfaceName/].class);  
+[for ( restEndpoint: RestEndpoint| interface.oclAsType(microserviceMetamodell::SynchronousInterface).restEndpoints)]
+    @[restEndpoint.httpMethod.toString().toLowerCase().toUpperFirst()/]Mapping("[restEndpoint.path/]")
+    public String [restEndpoint.path.toString().substring(2)/]() {
+		logger.info("[restEndpoint.path.toString().substring(2)/] executed");
+        // TODO: not yet implemented
+        return "200 OK from [restEndpoint.path.toString().substring(2)/]";
+    }
+[/for]
 }
 [/file]
 [/if]
 [comment] %%%Kafka%%% [/comment]
 [if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
 [if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')] 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
+package kafka;
 
-@SpringBootApplication
-public class ApplicationStarter {
-   public static void main(String['[]'/] args) {
-      SpringApplication.run(ApplicationStarter.class, args);
-   }
+public class [interface.interfaceName/] {
 }
 [/file]
 [/if]
@@ -158,31 +182,50 @@ public class ApplicationStarter {
 [comment] %%%Kafka%%% [/comment]
 [if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
 [if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::CONSUMER)]
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')] 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
+package kafka;
 
-@SpringBootApplication
-public class ApplicationStarter {
-   public static void main(String['[]'/] args) {
-      SpringApplication.run(ApplicationStarter.class, args);
-   }
+public class [interface.interfaceName/] {
 }
 [/file]
 [/if]
 [/if]
 [/for]
 [comment] %%%WebSec%%% [/comment]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/config/' + 'WebSecurityConfiguration.java', false, 'UTF-8')]
+package config;
 
-[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/config/' + 'SecurityConfiguration.java', false, 'UTF-8')] 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
 
-@SpringBootApplication
-public class ApplicationStarter {
-   public static void main(String['[]'/] args) {
-      SpringApplication.run(ApplicationStarter.class, args);
-   }
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfiguration {
+
+    @Bean
+    public SecurityFilterChain configureHttpSecurity(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(request -> request.anyRequest().permitAll());
+        return http.build();
+    }
+}
+[/file]
+[comment] %%% WebClientConfig %%%[/comment]
+[file ('/' + boundedContext.correspodingMicroservices.serviceName + '/src/main/java/config/' + 'WebClientConfig.java', false, 'UTF-8')] 
+package config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
+
+@Configuration
+public class WebClientConfig {
+    @Bean
+    public WebClient webClient(WebClient.Builder builder) {
+        return builder.build();
+    }
 }
 [/file]
 [/for]
