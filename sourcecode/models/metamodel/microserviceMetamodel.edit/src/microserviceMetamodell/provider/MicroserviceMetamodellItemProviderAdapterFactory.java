@@ -601,29 +601,6 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ModelElementImplementation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModelElementImplementationItemProvider modelElementImplementationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link microserviceMetamodell.ModelElementImplementation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModelElementImplementationAdapter() {
-		if (modelElementImplementationItemProvider == null) {
-			modelElementImplementationItemProvider = new ModelElementImplementationItemProvider(this);
-		}
-
-		return modelElementImplementationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link microserviceMetamodell.ValueObjectNode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,7 +952,6 @@ public class MicroserviceMetamodellItemProviderAdapterFactory extends Microservi
 		if (synchronousInterfaceItemProvider != null) synchronousInterfaceItemProvider.dispose();
 		if (asynchronousInterfaceItemProvider != null) asynchronousInterfaceItemProvider.dispose();
 		if (restEndpointItemProvider != null) restEndpointItemProvider.dispose();
-		if (modelElementImplementationItemProvider != null) modelElementImplementationItemProvider.dispose();
 		if (valueObjectNodeItemProvider != null) valueObjectNodeItemProvider.dispose();
 		if (entityNodeItemProvider != null) entityNodeItemProvider.dispose();
 		if (deployementAbstractionItemProvider != null) deployementAbstractionItemProvider.dispose();

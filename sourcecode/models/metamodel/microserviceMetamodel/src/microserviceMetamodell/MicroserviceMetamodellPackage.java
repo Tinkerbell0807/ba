@@ -68,16 +68,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int REST_ENDPOINT = 26;
 
 	/**
-	 * The meta object id for the '{@link microserviceMetamodell.impl.ModelElementImplementationImpl <em>Model Element Implementation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see microserviceMetamodell.impl.ModelElementImplementationImpl
-	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getModelElementImplementation()
-	 * @generated
-	 */
-	int MODEL_ELEMENT_IMPLEMENTATION = 27;
-
-	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.SystemModelImpl <em>System Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -399,22 +389,13 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int MODEL_ELEMENT = 20;
 
 	/**
-	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH = 0;
-
-	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__ELEMENT_NAME = 1;
+	int MODEL_ELEMENT__ELEMENT_NAME = 0;
 
 	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
@@ -423,7 +404,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = 2;
+	int MODEL_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Model Element</em>' class.
@@ -443,15 +424,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	int ENTITY = 5;
-
-	/**
-	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__IS_IMPLEMENTED_TROUGH = MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH;
 
 	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
@@ -509,15 +481,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int VALUE_OBJECT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_OBJECT__IS_IMPLEMENTED_TROUGH = MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH;
-
-	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -573,15 +536,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int SERVICE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE__IS_IMPLEMENTED_TROUGH = MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH;
-
-	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -609,13 +563,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int SERVICE__REFERENCED_ELEMENTS = MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Sends Request To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__SENDS_REQUEST_TO = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int SERVICE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -665,22 +628,13 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int AGGREGATE = 8;
 
 	/**
-	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AGGREGATE__IS_IMPLEMENTED_TROUGH = FACTORIZEABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE__ELEMENT_NAME = FACTORIZEABLE_FEATURE_COUNT + 1;
+	int AGGREGATE__ELEMENT_NAME = FACTORIZEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Aggregate Root</b></em>' containment reference.
@@ -689,7 +643,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE__AGGREGATE_ROOT = FACTORIZEABLE_FEATURE_COUNT + 2;
+	int AGGREGATE__AGGREGATE_ROOT = FACTORIZEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Aggregate Node</b></em>' containment reference list.
@@ -698,7 +652,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE__AGGREGATE_NODE = FACTORIZEABLE_FEATURE_COUNT + 3;
+	int AGGREGATE__AGGREGATE_NODE = FACTORIZEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Aggregate</em>' class.
@@ -707,7 +661,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE_FEATURE_COUNT = FACTORIZEABLE_FEATURE_COUNT + 4;
+	int AGGREGATE_FEATURE_COUNT = FACTORIZEABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Aggregate</em>' class.
@@ -727,15 +681,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	int FACTORY = 9;
-
-	/**
-	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACTORY__IS_IMPLEMENTED_TROUGH = MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH;
 
 	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
@@ -791,15 +736,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	int REPOSITORY = 10;
-
-	/**
-	 * The feature id for the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY__IS_IMPLEMENTED_TROUGH = MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH;
 
 	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
@@ -1313,7 +1249,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getDownstreamRole()
 	 * @generated
 	 */
-	int DOWNSTREAM_ROLE = 45;
+	int DOWNSTREAM_ROLE = 44;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.UpstreamRole <em>Upstream Role</em>}' enum.
@@ -1323,7 +1259,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getUpstreamRole()
 	 * @generated
 	 */
-	int UPSTREAM_ROLE = 44;
+	int UPSTREAM_ROLE = 43;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.AggregateNode <em>Aggregate Node</em>}' class.
@@ -1333,7 +1269,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getAggregateNode()
 	 * @generated
 	 */
-	int AGGREGATE_NODE = 30;
+	int AGGREGATE_NODE = 29;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.ValueObjectNodeImpl <em>Value Object Node</em>}' class.
@@ -1343,7 +1279,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getValueObjectNode()
 	 * @generated
 	 */
-	int VALUE_OBJECT_NODE = 28;
+	int VALUE_OBJECT_NODE = 27;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.EntityNodeImpl <em>Entity Node</em>}' class.
@@ -1353,7 +1289,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getEntityNode()
 	 * @generated
 	 */
-	int ENTITY_NODE = 29;
+	int ENTITY_NODE = 28;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.Persistable <em>Persistable</em>}' class.
@@ -1363,7 +1299,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getPersistable()
 	 * @generated
 	 */
-	int PERSISTABLE = 31;
+	int PERSISTABLE = 30;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.impl.MicroserviceImpl <em>Microservice</em>}' class.
@@ -1385,22 +1321,13 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int MICROSERVICE__INTERFACES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Model Element Implementations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Service Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MICROSERVICE__SERVICE_NAME = 2;
+	int MICROSERVICE__SERVICE_NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Correspoding Context</b></em>' reference.
@@ -1409,7 +1336,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MICROSERVICE__CORRESPODING_CONTEXT = 3;
+	int MICROSERVICE__CORRESPODING_CONTEXT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Implementation Technology</b></em>' attribute.
@@ -1418,16 +1345,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MICROSERVICE__IMPLEMENTATION_TECHNOLOGY = 4;
-
-	/**
-	 * The feature id for the '<em><b>Sends Request To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MICROSERVICE__SENDS_REQUEST_TO = 5;
+	int MICROSERVICE__IMPLEMENTATION_TECHNOLOGY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Deployement Abstraction</b></em>' reference.
@@ -1436,7 +1354,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MICROSERVICE__DEPLOYEMENT_ABSTRACTION = 6;
+	int MICROSERVICE__DEPLOYEMENT_ABSTRACTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Build Configuration</b></em>' reference.
@@ -1445,7 +1363,16 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MICROSERVICE__BUILD_CONFIGURATION = 7;
+	int MICROSERVICE__BUILD_CONFIGURATION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Called Endpoints</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MICROSERVICE__CALLED_ENDPOINTS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Microservice</em>' class.
@@ -1454,7 +1381,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MICROSERVICE_FEATURE_COUNT = 8;
+	int MICROSERVICE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Microservice</em>' class.
@@ -1685,51 +1612,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int REST_ENDPOINT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Corresponding Model Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_IMPLEMENTATION__CORRESPONDING_MODEL_ELEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_IMPLEMENTATION__CLASS_NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Sends Request To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_IMPLEMENTATION__SENDS_REQUEST_TO = 2;
-
-	/**
-	 * The number of structural features of the '<em>Model Element Implementation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_IMPLEMENTATION_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Model Element Implementation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_IMPLEMENTATION_OPERATION_COUNT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1872,7 +1754,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getDeployementAbstraction()
 	 * @generated
 	 */
-	int DEPLOYEMENT_ABSTRACTION = 32;
+	int DEPLOYEMENT_ABSTRACTION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Microservice</b></em>' reference.
@@ -1909,7 +1791,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getCloudConfiguration()
 	 * @generated
 	 */
-	int CLOUD_CONFIGURATION = 33;
+	int CLOUD_CONFIGURATION = 32;
 
 	/**
 	 * The number of structural features of the '<em>Cloud Configuration</em>' class.
@@ -1937,7 +1819,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getExternalDependency()
 	 * @generated
 	 */
-	int EXTERNAL_DEPENDENCY = 34;
+	int EXTERNAL_DEPENDENCY = 33;
 
 	/**
 	 * The feature id for the '<em><b>Shared Kernel</b></em>' reference.
@@ -2001,7 +1883,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getBuildConfiguration()
 	 * @generated
 	 */
-	int BUILD_CONFIGURATION = 35;
+	int BUILD_CONFIGURATION = 34;
 
 	/**
 	 * The feature id for the '<em><b>Microservice</b></em>' reference.
@@ -2056,7 +1938,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getSharedModule()
 	 * @generated
 	 */
-	int SHARED_MODULE = 36;
+	int SHARED_MODULE = 35;
 
 	/**
 	 * The feature id for the '<em><b>Model Elements</b></em>' containment reference list.
@@ -2111,7 +1993,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getKafkaConfiguration()
 	 * @generated
 	 */
-	int KAFKA_CONFIGURATION = 37;
+	int KAFKA_CONFIGURATION = 36;
 
 	/**
 	 * The feature id for the '<em><b>Topics</b></em>' containment reference list.
@@ -2157,7 +2039,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getTopic()
 	 * @generated
 	 */
-	int TOPIC = 38;
+	int TOPIC = 37;
 
 	/**
 	 * The feature id for the '<em><b>Topic Name</b></em>' attribute.
@@ -2212,7 +2094,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getBroker()
 	 * @generated
 	 */
-	int BROKER = 39;
+	int BROKER = 38;
 
 	/**
 	 * The feature id for the '<em><b>Broker Address</b></em>' attribute.
@@ -2249,7 +2131,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getHttpMethod()
 	 * @generated
 	 */
-	int HTTP_METHOD = 40;
+	int HTTP_METHOD = 39;
 
 
 	/**
@@ -2260,7 +2142,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getAsynchronousInterfaceRole()
 	 * @generated
 	 */
-	int ASYNCHRONOUS_INTERFACE_ROLE = 41;
+	int ASYNCHRONOUS_INTERFACE_ROLE = 40;
 
 	/**
 	 * The meta object id for the '{@link microserviceMetamodell.ImplementationTechnology <em>Implementation Technology</em>}' enum.
@@ -2270,7 +2152,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getImplementationTechnology()
 	 * @generated
 	 */
-	int IMPLEMENTATION_TECHNOLOGY = 42;
+	int IMPLEMENTATION_TECHNOLOGY = 41;
 
 
 	/**
@@ -2281,7 +2163,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getBuildTool()
 	 * @generated
 	 */
-	int BUILD_TOOL = 43;
+	int BUILD_TOOL = 42;
 
 
 	/**
@@ -2315,49 +2197,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRestEndpoint_Path();
-
-	/**
-	 * Returns the meta object for class '{@link microserviceMetamodell.ModelElementImplementation <em>Model Element Implementation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model Element Implementation</em>'.
-	 * @see microserviceMetamodell.ModelElementImplementation
-	 * @generated
-	 */
-	EClass getModelElementImplementation();
-
-	/**
-	 * Returns the meta object for the reference '{@link microserviceMetamodell.ModelElementImplementation#getCorrespondingModelElement <em>Corresponding Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Corresponding Model Element</em>'.
-	 * @see microserviceMetamodell.ModelElementImplementation#getCorrespondingModelElement()
-	 * @see #getModelElementImplementation()
-	 * @generated
-	 */
-	EReference getModelElementImplementation_CorrespondingModelElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link microserviceMetamodell.ModelElementImplementation#getClassName <em>Class Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Class Name</em>'.
-	 * @see microserviceMetamodell.ModelElementImplementation#getClassName()
-	 * @see #getModelElementImplementation()
-	 * @generated
-	 */
-	EAttribute getModelElementImplementation_ClassName();
-
-	/**
-	 * Returns the meta object for the reference list '{@link microserviceMetamodell.ModelElementImplementation#getSendsRequestTo <em>Sends Request To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Sends Request To</em>'.
-	 * @see microserviceMetamodell.ModelElementImplementation#getSendsRequestTo()
-	 * @see #getModelElementImplementation()
-	 * @generated
-	 */
-	EReference getModelElementImplementation_SendsRequestTo();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.ValueObjectNode <em>Value Object Node</em>}'.
@@ -2777,6 +2616,17 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getService_ReferencedElements();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Service#getSendsRequestTo <em>Sends Request To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Sends Request To</em>'.
+	 * @see microserviceMetamodell.Service#getSendsRequestTo()
+	 * @see #getService()
+	 * @generated
+	 */
+	EReference getService_SendsRequestTo();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.Aggregate <em>Aggregate</em>}'.
@@ -3226,17 +3076,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EClass getModelElement();
 
 	/**
-	 * Returns the meta object for the reference '{@link microserviceMetamodell.ModelElement#getIsImplementedTrough <em>Is Implemented Trough</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Implemented Trough</em>'.
-	 * @see microserviceMetamodell.ModelElement#getIsImplementedTrough()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_IsImplementedTrough();
-
-	/**
 	 * Returns the meta object for the attribute '{@link microserviceMetamodell.ModelElement#getElementName <em>Element Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3544,17 +3383,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EReference getMicroservice_Interfaces();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link microserviceMetamodell.Microservice#getModelElementImplementations <em>Model Element Implementations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Model Element Implementations</em>'.
-	 * @see microserviceMetamodell.Microservice#getModelElementImplementations()
-	 * @see #getMicroservice()
-	 * @generated
-	 */
-	EReference getMicroservice_ModelElementImplementations();
-
-	/**
 	 * Returns the meta object for the attribute '{@link microserviceMetamodell.Microservice#getServiceName <em>Service Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3588,17 +3416,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EAttribute getMicroservice_ImplementationTechnology();
 
 	/**
-	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Microservice#getSendsRequestTo <em>Sends Request To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Sends Request To</em>'.
-	 * @see microserviceMetamodell.Microservice#getSendsRequestTo()
-	 * @see #getMicroservice()
-	 * @generated
-	 */
-	EReference getMicroservice_SendsRequestTo();
-
-	/**
 	 * Returns the meta object for the reference '{@link microserviceMetamodell.Microservice#getDeployementAbstraction <em>Deployement Abstraction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3619,6 +3436,17 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMicroservice_BuildConfiguration();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Microservice#getCalledEndpoints <em>Called Endpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Called Endpoints</em>'.
+	 * @see microserviceMetamodell.Microservice#getCalledEndpoints()
+	 * @see #getMicroservice()
+	 * @generated
+	 */
+	EReference getMicroservice_CalledEndpoints();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.Interface <em>Interface</em>}'.
@@ -3815,40 +3643,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REST_ENDPOINT__PATH = eINSTANCE.getRestEndpoint_Path();
-
-		/**
-		 * The meta object literal for the '{@link microserviceMetamodell.impl.ModelElementImplementationImpl <em>Model Element Implementation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see microserviceMetamodell.impl.ModelElementImplementationImpl
-		 * @see microserviceMetamodell.impl.MicroserviceMetamodellPackageImpl#getModelElementImplementation()
-		 * @generated
-		 */
-		EClass MODEL_ELEMENT_IMPLEMENTATION = eINSTANCE.getModelElementImplementation();
-
-		/**
-		 * The meta object literal for the '<em><b>Corresponding Model Element</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT_IMPLEMENTATION__CORRESPONDING_MODEL_ELEMENT = eINSTANCE.getModelElementImplementation_CorrespondingModelElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL_ELEMENT_IMPLEMENTATION__CLASS_NAME = eINSTANCE.getModelElementImplementation_ClassName();
-
-		/**
-		 * The meta object literal for the '<em><b>Sends Request To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT_IMPLEMENTATION__SENDS_REQUEST_TO = eINSTANCE.getModelElementImplementation_SendsRequestTo();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.ValueObjectNodeImpl <em>Value Object Node</em>}' class.
@@ -4181,6 +3975,14 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE__REFERENCED_ELEMENTS = eINSTANCE.getService_ReferencedElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Sends Request To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE__SENDS_REQUEST_TO = eINSTANCE.getService_SendsRequestTo();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.AggregateImpl <em>Aggregate</em>}' class.
@@ -4549,14 +4351,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Implemented Trough</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH = eINSTANCE.getModelElement_IsImplementedTrough();
-
-		/**
 		 * The meta object literal for the '<em><b>Element Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4813,14 +4607,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EReference MICROSERVICE__INTERFACES = eINSTANCE.getMicroservice_Interfaces();
 
 		/**
-		 * The meta object literal for the '<em><b>Model Element Implementations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS = eINSTANCE.getMicroservice_ModelElementImplementations();
-
-		/**
 		 * The meta object literal for the '<em><b>Service Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4845,14 +4631,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EAttribute MICROSERVICE__IMPLEMENTATION_TECHNOLOGY = eINSTANCE.getMicroservice_ImplementationTechnology();
 
 		/**
-		 * The meta object literal for the '<em><b>Sends Request To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MICROSERVICE__SENDS_REQUEST_TO = eINSTANCE.getMicroservice_SendsRequestTo();
-
-		/**
 		 * The meta object literal for the '<em><b>Deployement Abstraction</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4867,6 +4645,14 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MICROSERVICE__BUILD_CONFIGURATION = eINSTANCE.getMicroservice_BuildConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Called Endpoints</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MICROSERVICE__CALLED_ENDPOINTS = eINSTANCE.getMicroservice_CalledEndpoints();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.InterfaceImpl <em>Interface</em>}' class.

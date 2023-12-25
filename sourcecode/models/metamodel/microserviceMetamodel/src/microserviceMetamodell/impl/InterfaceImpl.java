@@ -5,8 +5,7 @@ package microserviceMetamodell.impl;
 import java.util.Collection;
 import microserviceMetamodell.Interface;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
-import microserviceMetamodell.ModelElementImplementation;
-
+import microserviceMetamodell.ModelElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -37,7 +36,7 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModelElementImplementation> interfaceFor;
+	protected EList<ModelElement> interfaceFor;
 
 	/**
 	 * The default value of the '{@link #getInterfaceName() <em>Interface Name</em>}' attribute.
@@ -83,9 +82,9 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModelElementImplementation> getInterfaceFor() {
+	public EList<ModelElement> getInterfaceFor() {
 		if (interfaceFor == null) {
-			interfaceFor = new EObjectResolvingEList<ModelElementImplementation>(ModelElementImplementation.class, this, MicroserviceMetamodellPackage.INTERFACE__INTERFACE_FOR);
+			interfaceFor = new EObjectResolvingEList<ModelElement>(ModelElement.class, this, MicroserviceMetamodellPackage.INTERFACE__INTERFACE_FOR);
 		}
 		return interfaceFor;
 	}
@@ -138,7 +137,7 @@ public abstract class InterfaceImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_FOR:
 				getInterfaceFor().clear();
-				getInterfaceFor().addAll((Collection<? extends ModelElementImplementation>)newValue);
+				getInterfaceFor().addAll((Collection<? extends ModelElement>)newValue);
 				return;
 			case MicroserviceMetamodellPackage.INTERFACE__INTERFACE_NAME:
 				setInterfaceName((String)newValue);

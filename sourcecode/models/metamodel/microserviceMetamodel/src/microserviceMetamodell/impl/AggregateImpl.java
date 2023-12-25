@@ -8,8 +8,6 @@ import microserviceMetamodell.AggregateNode;
 import microserviceMetamodell.EntityNode;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
-import microserviceMetamodell.ModelElementImplementation;
-
 import microserviceMetamodell.Persistable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -31,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getIsImplementedTrough <em>Is Implemented Trough</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getElementName <em>Element Name</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getAggregateRoot <em>Aggregate Root</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getAggregateNode <em>Aggregate Node</em>}</li>
@@ -40,16 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggregate {
-	/**
-	 * The cached value of the '{@link #getIsImplementedTrough() <em>Is Implemented Trough</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsImplementedTrough()
-	 * @generated
-	 * @ordered
-	 */
-	protected ModelElementImplementation isImplementedTrough;
-
 	/**
 	 * The default value of the '{@link #getElementName() <em>Element Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,66 +94,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	@Override
 	protected EClass eStaticClass() {
 		return MicroserviceMetamodellPackage.Literals.AGGREGATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelElementImplementation getIsImplementedTrough() {
-		if (isImplementedTrough != null && isImplementedTrough.eIsProxy()) {
-			InternalEObject oldIsImplementedTrough = (InternalEObject)isImplementedTrough;
-			isImplementedTrough = (ModelElementImplementation)eResolveProxy(oldIsImplementedTrough);
-			if (isImplementedTrough != oldIsImplementedTrough) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH, oldIsImplementedTrough, isImplementedTrough));
-			}
-		}
-		return isImplementedTrough;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelElementImplementation basicGetIsImplementedTrough() {
-		return isImplementedTrough;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIsImplementedTrough(ModelElementImplementation newIsImplementedTrough, NotificationChain msgs) {
-		ModelElementImplementation oldIsImplementedTrough = isImplementedTrough;
-		isImplementedTrough = newIsImplementedTrough;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH, oldIsImplementedTrough, newIsImplementedTrough);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsImplementedTrough(ModelElementImplementation newIsImplementedTrough) {
-		if (newIsImplementedTrough != isImplementedTrough) {
-			NotificationChain msgs = null;
-			if (isImplementedTrough != null)
-				msgs = ((InternalEObject)isImplementedTrough).eInverseRemove(this, MicroserviceMetamodellPackage.MODEL_ELEMENT_IMPLEMENTATION__CORRESPONDING_MODEL_ELEMENT, ModelElementImplementation.class, msgs);
-			if (newIsImplementedTrough != null)
-				msgs = ((InternalEObject)newIsImplementedTrough).eInverseAdd(this, MicroserviceMetamodellPackage.MODEL_ELEMENT_IMPLEMENTATION__CORRESPONDING_MODEL_ELEMENT, ModelElementImplementation.class, msgs);
-			msgs = basicSetIsImplementedTrough(newIsImplementedTrough, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH, newIsImplementedTrough, newIsImplementedTrough));
 	}
 
 	/**
@@ -251,26 +178,8 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH:
-				if (isImplementedTrough != null)
-					msgs = ((InternalEObject)isImplementedTrough).eInverseRemove(this, MicroserviceMetamodellPackage.MODEL_ELEMENT_IMPLEMENTATION__CORRESPONDING_MODEL_ELEMENT, ModelElementImplementation.class, msgs);
-				return basicSetIsImplementedTrough((ModelElementImplementation)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH:
-				return basicSetIsImplementedTrough(null, msgs);
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
 				return basicSetAggregateRoot(null, msgs);
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_NODE:
@@ -287,9 +196,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH:
-				if (resolve) return getIsImplementedTrough();
-				return basicGetIsImplementedTrough();
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				return getElementName();
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
@@ -309,9 +215,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH:
-				setIsImplementedTrough((ModelElementImplementation)newValue);
-				return;
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				setElementName((String)newValue);
 				return;
@@ -334,9 +237,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH:
-				setIsImplementedTrough((ModelElementImplementation)null);
-				return;
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				setElementName(ELEMENT_NAME_EDEFAULT);
 				return;
@@ -358,8 +258,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH:
-				return isImplementedTrough != null;
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				return ELEMENT_NAME_EDEFAULT == null ? elementName != null : !ELEMENT_NAME_EDEFAULT.equals(elementName);
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
@@ -379,7 +277,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ModelElement.class) {
 			switch (derivedFeatureID) {
-				case MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH: return MicroserviceMetamodellPackage.MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH;
 				case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME: return MicroserviceMetamodellPackage.MODEL_ELEMENT__ELEMENT_NAME;
 				default: return -1;
 			}
@@ -401,7 +298,6 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ModelElement.class) {
 			switch (baseFeatureID) {
-				case MicroserviceMetamodellPackage.MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH: return MicroserviceMetamodellPackage.AGGREGATE__IS_IMPLEMENTED_TROUGH;
 				case MicroserviceMetamodellPackage.MODEL_ELEMENT__ELEMENT_NAME: return MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME;
 				default: return -1;
 			}

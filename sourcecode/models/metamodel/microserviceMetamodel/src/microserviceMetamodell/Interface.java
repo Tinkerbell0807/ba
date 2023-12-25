@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Interface extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Interface For</b></em>' reference list.
-	 * The list contents are of type {@link microserviceMetamodell.ModelElementImplementation}.
+	 * The list contents are of type {@link microserviceMetamodell.ModelElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interface For</em>' reference list.
@@ -33,7 +33,7 @@ public interface Interface extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EList<ModelElementImplementation> getInterfaceFor();
+	EList<ModelElement> getInterfaceFor();
 
 	/**
 	 * Returns the value of the '<em><b>Interface Name</b></em>' attribute.

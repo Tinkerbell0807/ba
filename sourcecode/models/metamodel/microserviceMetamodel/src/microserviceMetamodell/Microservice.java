@@ -16,13 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.Microservice#getInterfaces <em>Interfaces</em>}</li>
- *   <li>{@link microserviceMetamodell.Microservice#getModelElementImplementations <em>Model Element Implementations</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getServiceName <em>Service Name</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getCorrespodingContext <em>Correspoding Context</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getImplementationTechnology <em>Implementation Technology</em>}</li>
- *   <li>{@link microserviceMetamodell.Microservice#getSendsRequestTo <em>Sends Request To</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getDeployementAbstraction <em>Deployement Abstraction</em>}</li>
  *   <li>{@link microserviceMetamodell.Microservice#getBuildConfiguration <em>Build Configuration</em>}</li>
+ *   <li>{@link microserviceMetamodell.Microservice#getCalledEndpoints <em>Called Endpoints</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice()
@@ -41,18 +40,6 @@ public interface Microservice extends EObject {
 	 * @generated
 	 */
 	EList<Interface> getInterfaces();
-
-	/**
-	 * Returns the value of the '<em><b>Model Element Implementations</b></em>' containment reference list.
-	 * The list contents are of type {@link microserviceMetamodell.ModelElementImplementation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model Element Implementations</em>' containment reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_ModelElementImplementations()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ModelElementImplementation> getModelElementImplementations();
 
 	/**
 	 * Returns the value of the '<em><b>Service Name</b></em>' attribute.
@@ -126,18 +113,6 @@ public interface Microservice extends EObject {
 	void setImplementationTechnology(ImplementationTechnology value);
 
 	/**
-	 * Returns the value of the '<em><b>Sends Request To</b></em>' reference list.
-	 * The list contents are of type {@link microserviceMetamodell.RestEndpoint}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sends Request To</em>' reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_SendsRequestTo()
-	 * @model
-	 * @generated
-	 */
-	EList<RestEndpoint> getSendsRequestTo();
-
-	/**
 	 * Returns the value of the '<em><b>Deployement Abstraction</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.DeployementAbstraction#getMicroservice <em>Microservice</em>}'.
 	 * <!-- begin-user-doc -->
@@ -184,5 +159,17 @@ public interface Microservice extends EObject {
 	 * @generated
 	 */
 	void setBuildConfiguration(BuildConfiguration value);
+
+	/**
+	 * Returns the value of the '<em><b>Called Endpoints</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.RestEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Called Endpoints</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getMicroservice_CalledEndpoints()
+	 * @model
+	 * @generated
+	 */
+	EList<RestEndpoint> getCalledEndpoints();
 
 } // Microservice

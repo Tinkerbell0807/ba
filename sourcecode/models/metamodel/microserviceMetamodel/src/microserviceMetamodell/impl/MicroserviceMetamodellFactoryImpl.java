@@ -29,7 +29,6 @@ import microserviceMetamodell.KafkaConfiguration;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
-import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
 import microserviceMetamodell.Service;
@@ -119,7 +118,6 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 			case MicroserviceMetamodellPackage.SYNCHRONOUS_INTERFACE: return createSynchronousInterface();
 			case MicroserviceMetamodellPackage.ASYNCHRONOUS_INTERFACE: return createAsynchronousInterface();
 			case MicroserviceMetamodellPackage.REST_ENDPOINT: return createRestEndpoint();
-			case MicroserviceMetamodellPackage.MODEL_ELEMENT_IMPLEMENTATION: return createModelElementImplementation();
 			case MicroserviceMetamodellPackage.VALUE_OBJECT_NODE: return createValueObjectNode();
 			case MicroserviceMetamodellPackage.ENTITY_NODE: return createEntityNode();
 			case MicroserviceMetamodellPackage.DEPLOYEMENT_ABSTRACTION: return createDeployementAbstraction();
@@ -193,16 +191,6 @@ public class MicroserviceMetamodellFactoryImpl extends EFactoryImpl implements M
 	public RestEndpoint createRestEndpoint() {
 		RestEndpointImpl restEndpoint = new RestEndpointImpl();
 		return restEndpoint;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModelElementImplementation createModelElementImplementation() {
-		ModelElementImplementationImpl modelElementImplementation = new ModelElementImplementationImpl();
-		return modelElementImplementation;
 	}
 
 	/**

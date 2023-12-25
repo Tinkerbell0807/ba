@@ -28,7 +28,6 @@ import microserviceMetamodell.KafkaConfiguration;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
-import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.Persistable;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
@@ -283,12 +282,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MicroserviceMetamodellPackage.MODEL_ELEMENT_IMPLEMENTATION: {
-				ModelElementImplementation modelElementImplementation = (ModelElementImplementation)theEObject;
-				T result = caseModelElementImplementation(modelElementImplementation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MicroserviceMetamodellPackage.VALUE_OBJECT_NODE: {
 				ValueObjectNode valueObjectNode = (ValueObjectNode)theEObject;
 				T result = caseValueObjectNode(valueObjectNode);
@@ -380,21 +373,6 @@ public class MicroserviceMetamodellSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRestEndpoint(RestEndpoint object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model Element Implementation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model Element Implementation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModelElementImplementation(ModelElementImplementation object) {
 		return null;
 	}
 

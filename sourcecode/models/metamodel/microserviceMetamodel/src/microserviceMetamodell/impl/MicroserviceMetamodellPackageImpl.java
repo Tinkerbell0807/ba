@@ -34,7 +34,6 @@ import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellFactory;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
-import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.Persistable;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
@@ -71,13 +70,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * @generated
 	 */
 	private EClass restEndpointEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelElementImplementationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -479,42 +471,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModelElementImplementation() {
-		return modelElementImplementationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElementImplementation_CorrespondingModelElement() {
-		return (EReference)modelElementImplementationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getModelElementImplementation_ClassName() {
-		return (EAttribute)modelElementImplementationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModelElementImplementation_SendsRequestTo() {
-		return (EReference)modelElementImplementationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getValueObjectNode() {
 		return valueObjectNodeEClass;
 	}
@@ -859,6 +815,15 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 */
 	public EReference getService_ReferencedElements() {
 		return (EReference)serviceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getService_SendsRequestTo() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1244,17 +1209,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModelElement_IsImplementedTrough() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getModelElement_ElementName() {
-		return (EAttribute)modelElementEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)modelElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1514,17 +1470,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMicroservice_ModelElementImplementations() {
-		return (EReference)microserviceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMicroservice_ServiceName() {
-		return (EAttribute)microserviceEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)microserviceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1533,7 +1480,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * @generated
 	 */
 	public EReference getMicroservice_CorrespodingContext() {
-		return (EReference)microserviceEClass.getEStructuralFeatures().get(3);
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1542,16 +1489,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * @generated
 	 */
 	public EAttribute getMicroservice_ImplementationTechnology() {
-		return (EAttribute)microserviceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMicroservice_SendsRequestTo() {
-		return (EReference)microserviceEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)microserviceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1560,7 +1498,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * @generated
 	 */
 	public EReference getMicroservice_DeployementAbstraction() {
-		return (EReference)microserviceEClass.getEStructuralFeatures().get(6);
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1569,7 +1507,16 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * @generated
 	 */
 	public EReference getMicroservice_BuildConfiguration() {
-		return (EReference)microserviceEClass.getEStructuralFeatures().get(7);
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMicroservice_CalledEndpoints() {
+		return (EReference)microserviceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1766,6 +1713,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		serviceEClass = createEClass(SERVICE);
 		createEReference(serviceEClass, SERVICE__BEHAVIOURS);
 		createEReference(serviceEClass, SERVICE__REFERENCED_ELEMENTS);
+		createEReference(serviceEClass, SERVICE__SENDS_REQUEST_TO);
 
 		aggregateEClass = createEClass(AGGREGATE);
 		createEReference(aggregateEClass, AGGREGATE__AGGREGATE_ROOT);
@@ -1819,20 +1767,18 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		createEAttribute(downstreamComponentEClass, DOWNSTREAM_COMPONENT__DOWNSTREAM_ROLE);
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__IS_IMPLEMENTED_TROUGH);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__ELEMENT_NAME);
 
 		factorizeableEClass = createEClass(FACTORIZEABLE);
 
 		microserviceEClass = createEClass(MICROSERVICE);
 		createEReference(microserviceEClass, MICROSERVICE__INTERFACES);
-		createEReference(microserviceEClass, MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS);
 		createEAttribute(microserviceEClass, MICROSERVICE__SERVICE_NAME);
 		createEReference(microserviceEClass, MICROSERVICE__CORRESPODING_CONTEXT);
 		createEAttribute(microserviceEClass, MICROSERVICE__IMPLEMENTATION_TECHNOLOGY);
-		createEReference(microserviceEClass, MICROSERVICE__SENDS_REQUEST_TO);
 		createEReference(microserviceEClass, MICROSERVICE__DEPLOYEMENT_ABSTRACTION);
 		createEReference(microserviceEClass, MICROSERVICE__BUILD_CONFIGURATION);
+		createEReference(microserviceEClass, MICROSERVICE__CALLED_ENDPOINTS);
 
 		interfaceEClass = createEClass(INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__INTERFACE_FOR);
@@ -1850,11 +1796,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		restEndpointEClass = createEClass(REST_ENDPOINT);
 		createEAttribute(restEndpointEClass, REST_ENDPOINT__PATH);
 		createEAttribute(restEndpointEClass, REST_ENDPOINT__HTTP_METHOD);
-
-		modelElementImplementationEClass = createEClass(MODEL_ELEMENT_IMPLEMENTATION);
-		createEReference(modelElementImplementationEClass, MODEL_ELEMENT_IMPLEMENTATION__CORRESPONDING_MODEL_ELEMENT);
-		createEAttribute(modelElementImplementationEClass, MODEL_ELEMENT_IMPLEMENTATION__CLASS_NAME);
-		createEReference(modelElementImplementationEClass, MODEL_ELEMENT_IMPLEMENTATION__SENDS_REQUEST_TO);
 
 		valueObjectNodeEClass = createEClass(VALUE_OBJECT_NODE);
 		createEReference(valueObjectNodeEClass, VALUE_OBJECT_NODE__VALUE_OBJECT_NODES);
@@ -1998,6 +1939,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getService_Behaviours(), this.getBehaviour(), null, "behaviours", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_ReferencedElements(), this.getModelElement(), null, "referencedElements", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_SendsRequestTo(), this.getRestEndpoint(), null, "sendsRequestTo", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(aggregateEClass, Aggregate.class, "Aggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAggregate_AggregateRoot(), this.getEntityNode(), null, "aggregateRoot", null, 1, 1, Aggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2051,23 +1993,21 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEAttribute(getDownstreamComponent_DownstreamRole(), this.getDownstreamRole(), "downstreamRole", null, 0, 1, DownstreamComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelElement_IsImplementedTrough(), this.getModelElementImplementation(), this.getModelElementImplementation_CorrespondingModelElement(), "isImplementedTrough", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelElement_ElementName(), ecorePackage.getEString(), "elementName", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(factorizeableEClass, Factorizeable.class, "Factorizeable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(microserviceEClass, Microservice.class, "Microservice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMicroservice_Interfaces(), this.getInterface(), null, "interfaces", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMicroservice_ModelElementImplementations(), this.getModelElementImplementation(), null, "modelElementImplementations", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMicroservice_ServiceName(), ecorePackage.getEString(), "serviceName", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMicroservice_CorrespodingContext(), this.getBoundedContext(), this.getBoundedContext_CorrespodingMicroservices(), "correspodingContext", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMicroservice_ImplementationTechnology(), this.getImplementationTechnology(), "implementationTechnology", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMicroservice_SendsRequestTo(), this.getRestEndpoint(), null, "sendsRequestTo", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMicroservice_DeployementAbstraction(), this.getDeployementAbstraction(), this.getDeployementAbstraction_Microservice(), "deployementAbstraction", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMicroservice_BuildConfiguration(), this.getBuildConfiguration(), this.getBuildConfiguration_Microservice(), "buildConfiguration", null, 0, 1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMicroservice_CalledEndpoints(), this.getRestEndpoint(), null, "calledEndpoints", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterface_InterfaceFor(), this.getModelElementImplementation(), null, "interfaceFor", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterface_InterfaceFor(), this.getModelElement(), null, "interfaceFor", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInterface_InterfaceName(), ecorePackage.getEString(), "interfaceName", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(synchronousInterfaceEClass, SynchronousInterface.class, "SynchronousInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2082,11 +2022,6 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEClass(restEndpointEClass, RestEndpoint.class, "RestEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRestEndpoint_Path(), ecorePackage.getEString(), "path", null, 0, 1, RestEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRestEndpoint_HttpMethod(), this.getHttpMethod(), "httpMethod", null, 0, 1, RestEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelElementImplementationEClass, ModelElementImplementation.class, "ModelElementImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelElementImplementation_CorrespondingModelElement(), this.getModelElement(), this.getModelElement_IsImplementedTrough(), "correspondingModelElement", null, 0, 1, ModelElementImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModelElementImplementation_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, ModelElementImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElementImplementation_SendsRequestTo(), this.getRestEndpoint(), null, "sendsRequestTo", null, 0, -1, ModelElementImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueObjectNodeEClass, ValueObjectNode.class, "ValueObjectNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueObjectNode_ValueObjectNodes(), this.getValueObjectNode(), null, "valueObjectNodes", null, 0, -1, ValueObjectNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

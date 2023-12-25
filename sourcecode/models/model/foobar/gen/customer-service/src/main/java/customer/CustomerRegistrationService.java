@@ -1,11 +1,25 @@
 package customer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerRegistrationService {
-	public void registerNewCustomer(){
-		//TODO: Implement
+
+    Logger logger = LoggerFactory.getLogger(CustomerRegistrationService.class);
+	private final CustomerFactory customerFactory;
+	private final CustomerRepository customerRepository;
+
+	CustomerRegistrationService(CustomerFactory customerFactory,CustomerRepository customerRepository){
+		this.customerFactory = customerFactory;
+		this.customerRepository = customerRepository;
+	}
+
+	public void registerCustomer(){
+		logger.info("registerCustomer executed");
+		//TODO: Implement Behaviour
 		throw new RuntimeException("NotYetImplemented");
 	}
 }
+

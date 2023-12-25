@@ -73,6 +73,7 @@
     <genClasses ecoreClass="microserviceMetamodel.ecore#//Service">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Service/behaviours"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Service/referencedElements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Service/sendsRequestTo"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//Aggregate">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Aggregate/aggregateRoot"/>
@@ -126,19 +127,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//DownstreamComponent/downstreamRole"/>
     </genClasses>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//ModelElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//ModelElement/isImplementedTrough"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//ModelElement/elementName"/>
     </genClasses>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//Factorizeable"/>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//Microservice">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/interfaces"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/modelElementImplementations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//Microservice/serviceName"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/correspodingContext"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//Microservice/implementationTechnology"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/sendsRequestTo"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/deployementAbstraction"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/buildConfiguration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Microservice/calledEndpoints"/>
     </genClasses>
     <genClasses image="false" ecoreClass="microserviceMetamodel.ecore#//Interface">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//Interface/interfaceFor"/>
@@ -156,11 +155,6 @@
     <genClasses ecoreClass="microserviceMetamodel.ecore#//RestEndpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//RestEndpoint/path"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//RestEndpoint/httpMethod"/>
-    </genClasses>
-    <genClasses ecoreClass="microserviceMetamodel.ecore#//ModelElementImplementation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//ModelElementImplementation/correspondingModelElement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute microserviceMetamodel.ecore#//ModelElementImplementation/className"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//ModelElementImplementation/sendsRequestTo"/>
     </genClasses>
     <genClasses ecoreClass="microserviceMetamodel.ecore#//ValueObjectNode">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference microserviceMetamodel.ecore#//ValueObjectNode/valueObjectNodes"/>

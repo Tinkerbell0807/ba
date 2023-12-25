@@ -11,7 +11,6 @@ import microserviceMetamodell.ImplementationTechnology;
 import microserviceMetamodell.Interface;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
-import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.RestEndpoint;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -37,13 +36,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getInterfaces <em>Interfaces</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getModelElementImplementations <em>Model Element Implementations</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getServiceName <em>Service Name</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getCorrespodingContext <em>Correspoding Context</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getImplementationTechnology <em>Implementation Technology</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getSendsRequestTo <em>Sends Request To</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getDeployementAbstraction <em>Deployement Abstraction</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getBuildConfiguration <em>Build Configuration</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.MicroserviceImpl#getCalledEndpoints <em>Called Endpoints</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,16 +56,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	 * @ordered
 	 */
 	protected EList<Interface> interfaces;
-
-	/**
-	 * The cached value of the '{@link #getModelElementImplementations() <em>Model Element Implementations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModelElementImplementations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ModelElementImplementation> modelElementImplementations;
 
 	/**
 	 * The default value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
@@ -120,16 +108,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	protected ImplementationTechnology implementationTechnology = IMPLEMENTATION_TECHNOLOGY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSendsRequestTo() <em>Sends Request To</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSendsRequestTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RestEndpoint> sendsRequestTo;
-
-	/**
 	 * The cached value of the '{@link #getDeployementAbstraction() <em>Deployement Abstraction</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +126,16 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	 * @ordered
 	 */
 	protected BuildConfiguration buildConfiguration;
+
+	/**
+	 * The cached value of the '{@link #getCalledEndpoints() <em>Called Endpoints</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalledEndpoints()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RestEndpoint> calledEndpoints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,18 +166,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			interfaces = new EObjectContainmentEList<Interface>(Interface.class, this, MicroserviceMetamodellPackage.MICROSERVICE__INTERFACES);
 		}
 		return interfaces;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ModelElementImplementation> getModelElementImplementations() {
-		if (modelElementImplementations == null) {
-			modelElementImplementations = new EObjectContainmentEList<ModelElementImplementation>(ModelElementImplementation.class, this, MicroserviceMetamodellPackage.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS);
-		}
-		return modelElementImplementations;
 	}
 
 	/**
@@ -292,18 +268,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		implementationTechnology = newImplementationTechnology == null ? IMPLEMENTATION_TECHNOLOGY_EDEFAULT : newImplementationTechnology;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY, oldImplementationTechnology, implementationTechnology));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RestEndpoint> getSendsRequestTo() {
-		if (sendsRequestTo == null) {
-			sendsRequestTo = new EObjectResolvingEList<RestEndpoint>(RestEndpoint.class, this, MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO);
-		}
-		return sendsRequestTo;
 	}
 
 	/**
@@ -431,6 +395,18 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RestEndpoint> getCalledEndpoints() {
+		if (calledEndpoints == null) {
+			calledEndpoints = new EObjectResolvingEList<RestEndpoint>(RestEndpoint.class, this, MicroserviceMetamodellPackage.MICROSERVICE__CALLED_ENDPOINTS);
+		}
+		return calledEndpoints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -460,8 +436,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.MICROSERVICE__INTERFACES:
 				return ((InternalEList<?>)getInterfaces()).basicRemove(otherEnd, msgs);
-			case MicroserviceMetamodellPackage.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS:
-				return ((InternalEList<?>)getModelElementImplementations()).basicRemove(otherEnd, msgs);
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				return basicSetCorrespodingContext(null, msgs);
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
@@ -482,8 +456,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.MICROSERVICE__INTERFACES:
 				return getInterfaces();
-			case MicroserviceMetamodellPackage.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS:
-				return getModelElementImplementations();
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				return getServiceName();
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
@@ -491,14 +463,14 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				return basicGetCorrespodingContext();
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
 				return getImplementationTechnology();
-			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				return getSendsRequestTo();
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				if (resolve) return getDeployementAbstraction();
 				return basicGetDeployementAbstraction();
 			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
 				if (resolve) return getBuildConfiguration();
 				return basicGetBuildConfiguration();
+			case MicroserviceMetamodellPackage.MICROSERVICE__CALLED_ENDPOINTS:
+				return getCalledEndpoints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -516,10 +488,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 				getInterfaces().clear();
 				getInterfaces().addAll((Collection<? extends Interface>)newValue);
 				return;
-			case MicroserviceMetamodellPackage.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS:
-				getModelElementImplementations().clear();
-				getModelElementImplementations().addAll((Collection<? extends ModelElementImplementation>)newValue);
-				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				setServiceName((String)newValue);
 				return;
@@ -529,15 +497,15 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
 				setImplementationTechnology((ImplementationTechnology)newValue);
 				return;
-			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				getSendsRequestTo().clear();
-				getSendsRequestTo().addAll((Collection<? extends RestEndpoint>)newValue);
-				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				setDeployementAbstraction((DeployementAbstraction)newValue);
 				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
 				setBuildConfiguration((BuildConfiguration)newValue);
+				return;
+			case MicroserviceMetamodellPackage.MICROSERVICE__CALLED_ENDPOINTS:
+				getCalledEndpoints().clear();
+				getCalledEndpoints().addAll((Collection<? extends RestEndpoint>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -554,9 +522,6 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__INTERFACES:
 				getInterfaces().clear();
 				return;
-			case MicroserviceMetamodellPackage.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS:
-				getModelElementImplementations().clear();
-				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				setServiceName(SERVICE_NAME_EDEFAULT);
 				return;
@@ -566,14 +531,14 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
 				setImplementationTechnology(IMPLEMENTATION_TECHNOLOGY_EDEFAULT);
 				return;
-			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				getSendsRequestTo().clear();
-				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				setDeployementAbstraction((DeployementAbstraction)null);
 				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
 				setBuildConfiguration((BuildConfiguration)null);
+				return;
+			case MicroserviceMetamodellPackage.MICROSERVICE__CALLED_ENDPOINTS:
+				getCalledEndpoints().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -589,20 +554,18 @@ public class MicroserviceImpl extends MinimalEObjectImpl.Container implements Mi
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.MICROSERVICE__INTERFACES:
 				return interfaces != null && !interfaces.isEmpty();
-			case MicroserviceMetamodellPackage.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS:
-				return modelElementImplementations != null && !modelElementImplementations.isEmpty();
 			case MicroserviceMetamodellPackage.MICROSERVICE__SERVICE_NAME:
 				return SERVICE_NAME_EDEFAULT == null ? serviceName != null : !SERVICE_NAME_EDEFAULT.equals(serviceName);
 			case MicroserviceMetamodellPackage.MICROSERVICE__CORRESPODING_CONTEXT:
 				return correspodingContext != null;
 			case MicroserviceMetamodellPackage.MICROSERVICE__IMPLEMENTATION_TECHNOLOGY:
 				return implementationTechnology != IMPLEMENTATION_TECHNOLOGY_EDEFAULT;
-			case MicroserviceMetamodellPackage.MICROSERVICE__SENDS_REQUEST_TO:
-				return sendsRequestTo != null && !sendsRequestTo.isEmpty();
 			case MicroserviceMetamodellPackage.MICROSERVICE__DEPLOYEMENT_ABSTRACTION:
 				return deployementAbstraction != null;
 			case MicroserviceMetamodellPackage.MICROSERVICE__BUILD_CONFIGURATION:
 				return buildConfiguration != null;
+			case MicroserviceMetamodellPackage.MICROSERVICE__CALLED_ENDPOINTS:
+				return calledEndpoints != null && !calledEndpoints.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

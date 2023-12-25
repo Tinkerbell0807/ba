@@ -66,9 +66,9 @@ public class MicroserviceItemProvider
 			addServiceNamePropertyDescriptor(object);
 			addCorrespodingContextPropertyDescriptor(object);
 			addImplementationTechnologyPropertyDescriptor(object);
-			addSendsRequestToPropertyDescriptor(object);
 			addDeployementAbstractionPropertyDescriptor(object);
 			addBuildConfigurationPropertyDescriptor(object);
+			addCalledEndpointsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -140,28 +140,6 @@ public class MicroserviceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Sends Request To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSendsRequestToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Microservice_sendsRequestTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Microservice_sendsRequestTo_feature", "_UI_Microservice_type"),
-				 MicroserviceMetamodellPackage.Literals.MICROSERVICE__SENDS_REQUEST_TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Deployement Abstraction feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,6 +184,28 @@ public class MicroserviceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Called Endpoints feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCalledEndpointsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Microservice_calledEndpoints_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Microservice_calledEndpoints_feature", "_UI_Microservice_type"),
+				 MicroserviceMetamodellPackage.Literals.MICROSERVICE__CALLED_ENDPOINTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -218,7 +218,6 @@ public class MicroserviceItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.MICROSERVICE__INTERFACES);
-			childrenFeatures.add(MicroserviceMetamodellPackage.Literals.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -279,7 +278,6 @@ public class MicroserviceItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MicroserviceMetamodellPackage.MICROSERVICE__INTERFACES:
-			case MicroserviceMetamodellPackage.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -306,11 +304,6 @@ public class MicroserviceItemProvider
 			(createChildParameter
 				(MicroserviceMetamodellPackage.Literals.MICROSERVICE__INTERFACES,
 				 MicroserviceMetamodellFactory.eINSTANCE.createAsynchronousInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MicroserviceMetamodellPackage.Literals.MICROSERVICE__MODEL_ELEMENT_IMPLEMENTATIONS,
-				 MicroserviceMetamodellFactory.eINSTANCE.createModelElementImplementation()));
 	}
 
 	/**

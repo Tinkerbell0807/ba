@@ -28,7 +28,6 @@ import microserviceMetamodell.KafkaConfiguration;
 import microserviceMetamodell.Microservice;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
-import microserviceMetamodell.ModelElementImplementation;
 import microserviceMetamodell.Persistable;
 import microserviceMetamodell.Repository;
 import microserviceMetamodell.RestEndpoint;
@@ -214,10 +213,6 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 				return createRestEndpointAdapter();
 			}
 			@Override
-			public Adapter caseModelElementImplementation(ModelElementImplementation object) {
-				return createModelElementImplementationAdapter();
-			}
-			@Override
 			public Adapter caseValueObjectNode(ValueObjectNode object) {
 				return createValueObjectNodeAdapter();
 			}
@@ -296,20 +291,6 @@ public class MicroserviceMetamodellAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRestEndpointAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link microserviceMetamodell.ModelElementImplementation <em>Model Element Implementation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see microserviceMetamodell.ModelElementImplementation
-	 * @generated
-	 */
-	public Adapter createModelElementImplementationAdapter() {
 		return null;
 	}
 

@@ -1,0 +1,27 @@
+package kafka;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+import order.OrderRepository;
+
+@Service
+public class OrderConsumer {
+
+    Logger logger = LoggerFactory.getLogger(OrderConsumer.class);
+	private final OrderRepository orderRepository;
+
+	OrderConsumer(OrderRepository orderRepository){
+	this.orderRepository = orderRepository;
+	}
+
+    @KafkaListener(topics = "default-topic-name", groupId = "groupId")
+    public void listen(String message) {
+        System.out.println("Received message in group yourGroupId: " + message);
+    }
+	
+	private void interfaceForOrderRepository(){
+		//TODO: Implement
+	}
+}

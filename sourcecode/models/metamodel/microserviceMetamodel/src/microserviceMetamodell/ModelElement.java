@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link microserviceMetamodell.ModelElement#getIsImplementedTrough <em>Is Implemented Trough</em>}</li>
  *   <li>{@link microserviceMetamodell.ModelElement#getElementName <em>Element Name</em>}</li>
  * </ul>
  *
@@ -22,30 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ModelElement extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Is Implemented Trough</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.ModelElementImplementation#getCorrespondingModelElement <em>Corresponding Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Implemented Trough</em>' reference.
-	 * @see #setIsImplementedTrough(ModelElementImplementation)
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getModelElement_IsImplementedTrough()
-	 * @see microserviceMetamodell.ModelElementImplementation#getCorrespondingModelElement
-	 * @model opposite="correspondingModelElement"
-	 * @generated
-	 */
-	ModelElementImplementation getIsImplementedTrough();
-
-	/**
-	 * Sets the value of the '{@link microserviceMetamodell.ModelElement#getIsImplementedTrough <em>Is Implemented Trough</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Implemented Trough</em>' reference.
-	 * @see #getIsImplementedTrough()
-	 * @generated
-	 */
-	void setIsImplementedTrough(ModelElementImplementation value);
-
 	/**
 	 * Returns the value of the '<em><b>Element Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

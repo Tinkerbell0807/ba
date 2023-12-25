@@ -8,4 +8,5 @@ public class CustomerFactory {
 			return new CustomerEntity();
 		}
 
+		private void fraudDetectionForCustomer(){}
 }

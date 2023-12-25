@@ -31,15 +31,6 @@ public interface MicroserviceMetamodellFactory extends EFactory {
 	RestEndpoint createRestEndpoint();
 
 	/**
-	 * Returns a new object of class '<em>Model Element Implementation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model Element Implementation</em>'.
-	 * @generated
-	 */
-	ModelElementImplementation createModelElementImplementation();
-
-	/**
 	 * Returns a new object of class '<em>Value Object Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

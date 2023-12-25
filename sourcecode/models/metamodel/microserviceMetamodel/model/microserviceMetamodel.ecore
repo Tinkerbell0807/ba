@@ -71,6 +71,8 @@
         eType="#//Behaviour" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedElements" upperBound="-1"
         eType="#//ModelElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" upperBound="-1"
+        eType="#//RestEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Aggregate" eSuperTypes="#//Factorizeable #//ModelElement #//Persistable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregateRoot" lowerBound="1"
@@ -143,31 +145,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="downstreamRole" eType="#//DownstreamRole"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isImplementedTrough" eType="#//ModelElementImplementation"
-        eOpposite="#//ModelElementImplementation/correspondingModelElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Factorizeable" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Microservice">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
         eType="#//Interface" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modelElementImplementations"
-        upperBound="-1" eType="#//ModelElementImplementation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="correspodingContext" eType="#//BoundedContext"
         eOpposite="#//BoundedContext/correspodingMicroservices"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationTechnology"
         eType="#//ImplementationTechnology"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" upperBound="-1"
-        eType="#//RestEndpoint"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployementAbstraction"
         eType="#//DeployementAbstraction" eOpposite="#//DeployementAbstraction/microservice"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildConfiguration" eType="#//BuildConfiguration"
         eOpposite="#//BuildConfiguration/microservice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calledEndpoints" upperBound="-1"
+        eType="#//RestEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceFor" upperBound="-1"
-        eType="#//ModelElementImplementation"/>
+        eType="#//ModelElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SynchronousInterface" eSuperTypes="#//Interface">
@@ -185,13 +183,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="RestEndpoint">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="httpMethod" eType="#//HttpMethod"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelElementImplementation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="correspondingModelElement"
-        eType="#//ModelElement" eOpposite="#//ModelElement/isImplementedTrough"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sendsRequestTo" upperBound="-1"
-        eType="#//RestEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AsynchronousInterfaceRole">
     <eLiterals name="PRODUCER"/>

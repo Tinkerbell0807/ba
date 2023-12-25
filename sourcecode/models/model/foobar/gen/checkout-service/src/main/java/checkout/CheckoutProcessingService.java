@@ -1,11 +1,28 @@
 package checkout;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CheckoutProcessingService {
-	public void processCheckoutOrder(){
-		//TODO: Implement
+
+    Logger logger = LoggerFactory.getLogger(CheckoutProcessingService.class);
+	private final CheckoutBackofficeService checkoutBackofficeService;
+
+	CheckoutProcessingService(CheckoutBackofficeService checkoutBackofficeService){
+		this.checkoutBackofficeService = checkoutBackofficeService;
+	}
+
+	public void checkoutOrder(){
+		logger.info("checkoutOrder executed");
+		//TODO: Implement Behaviour
+		throw new RuntimeException("NotYetImplemented");
+	}
+	public void createInvoice(){
+		logger.info("createInvoice executed");
+		//TODO: Implement Behaviour
 		throw new RuntimeException("NotYetImplemented");
 	}
 }
+

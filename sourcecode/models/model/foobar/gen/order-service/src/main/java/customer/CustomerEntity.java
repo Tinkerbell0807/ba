@@ -2,17 +2,21 @@ package customer;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import java.util.UUID;
 
 @Entity
 public class CustomerEntity {
-    @Id
-    private Long id;
 
-    public void setId(Long id) {
+    @Id
+    private UUID id;
+
+	//TODO: Implement the entities fields, getters and setters
+
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 }
