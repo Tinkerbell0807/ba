@@ -11,6 +11,8 @@ package app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class ApplicationStarter {
@@ -45,9 +47,9 @@ spring:
 plugins {
     id 'org.springframework.boot' version '3.2.0'
     id 'java'
+    id 'application'
 }
 
-group = 'com.test'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -60,13 +62,70 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux:3.2.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.2.0'
 	implementation 'org.springframework.boot:spring-boot-starter-security:3.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:3.2.0'
 	implementation 'org.springframework.kafka:spring-kafka:3.1.1'
+    implementation 'com.h2database:h2:2.2.224'
 	[for (dependency: ExternalDependency | microservice.buildConfiguration.externalDependencies)]
 	implementation '[dependency.artifactId/]:[dependency.groupId/]:[dependency.version/]'
 	[/for]
 }
+
+application {
+    mainClass = 'app.ApplicationStarter'
+}
+
+bootJar {
+    mainClass.set(application.mainClass)
+}
+[/file]
+[comment]
+	DOCKERFILE
+[/comment]
+[file ('/' + microservice.serviceName + '/' +'Dockerfile', false, 'UTF-8')] 
+FROM eclipse-temurin:17.0.9_9-jdk as build
+WORKDIR /workspace/app
+
+
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+
+COPY src src
+COPY application.yml application.yml
+
+RUN ./gradlew build -x test
+
+FROM eclipse-temurin:17.0.9_9-jdk
+WORKDIR /app
+COPY --from=build /workspace/app/build/libs/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ['['/]"java", "-jar", "app.jar"[']'/]
+
 [/file]
 [/if][/if]
+[comment]
+	HEALTH CHECK
+[/comment]
+[file ('/' + microservice.serviceName + '/src/main/java/app/' +'controller/HealthCheckController.java', false, 'UTF-8')] 
+package app.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HealthCheckController {
+
+    Logger logger = LoggerFactory.getLogger(HealthCheckController.class);
+
+    @GetMapping("/health")
+    public String healthCheck() {
+		logger.info("HealtCheck called")
+        return "OK";
+    }
+}
+[/file]
 [comment]
 	begin of iteration over model elements
 [/comment]
@@ -76,8 +135,8 @@ dependencies {
 	ENTITY
 [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Entity)]
-[file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
-package [module.moduleName/];
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -105,8 +164,8 @@ public class [modelElement.elementName/] {
 	VALUE OBJECT
 [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::ValueObject)]
-[file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
-package [module.moduleName/];
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
 
 public class [modelElement.elementName/] {
 
@@ -120,8 +179,8 @@ public class [modelElement.elementName/] {
 	AGGREGATE
 [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Aggregate)]
-[file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
-package [module.moduleName/];
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
 
 public class [modelElement.elementName/] {
 
@@ -132,14 +191,14 @@ public class [modelElement.elementName/] {
 	SERVICE
 [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Service)]
-[file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
-package [module.moduleName/];
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 [for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
-import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
+import app.[element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
 [/for]
 [if not modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->first().oclIsUndefined()]
 import org.springframework.web.reactive.function.client.WebClient;
@@ -147,7 +206,7 @@ import reactor.core.publisher.Mono;[/if]
 [for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
 [if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
 [if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
-import kafka.[interface.interfaceName/];
+import app.kafka.[interface.interfaceName/];
 [/if][/if][/for]
 
 
@@ -166,12 +225,25 @@ public class [modelElement.elementName/] {
     private final WebClient webClient;
 [/if]
 
-	[modelElement.elementName/]([for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
-[element.elementName/] [element.elementName.toLowerFirst()/][if not modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]
-[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)][if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)][if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
-,[interface.interfaceName/] [interface.interfaceName.toLowerFirst()/][/if][/if][/for]
+[modelElement.elementName/]
+(
+[for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
+[element.elementName/] [element.elementName.toLowerFirst()/]
+[if not modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->last().elementName.equalsIgnoreCase(element.elementName)]
+,[/if]
+[/for]
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
+[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+,[interface.interfaceName/] [interface.interfaceName.toLowerFirst()/]
+[/if]
+[/if]
+[/for]
 [if not modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->first().oclIsUndefined()]
-,WebClient webClient[/if]){
+,WebClient webClient
+[/if]
+)
+{
 [for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
 		this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
 [/for]
@@ -179,11 +251,13 @@ public class [modelElement.elementName/] {
 [if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
 [if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
 		this.[interface.interfaceName.toLowerFirst()/] = [interface.interfaceName.toLowerFirst()/];
-[/if][/if][/for]
+[/if]
+[/if]
+[/for]
 [if not modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->first().oclIsUndefined()]
     	this.webClient = webClient;
 [/if]
-	}
+}
 
 [for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Service).behaviours)]
 	public void [behaviour.behaviourName/](){
@@ -209,8 +283,8 @@ public class [modelElement.elementName/] {
 	FACTORY
 [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Factory)]
-[file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
-package [module.moduleName/];
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
 
 import org.springframework.stereotype.Component;
 
@@ -233,8 +307,8 @@ public class [modelElement.elementName/] {
 	REPOSITORY
 [/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Repository)]
-[file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
-package [module.moduleName/];
+[file ('/' + microservice.serviceName + '/src/main/java/app/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
+package app.[module.moduleName/];
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -257,14 +331,14 @@ public interface [modelElement.elementName/] extends JpaRepository<[modelElement
 [/comment]
 [for ( interface: Interface | microservice.interfaces)]
 [if interface.oclIsKindOf(microserviceMetamodell::SynchronousInterface)]
-[file ('/' + microservice.serviceName + '/src/main/java/controller/' + interface.interfaceName + '.java', false, 'UTF-8')] 
-package controller;
+[file ('/' + microservice.serviceName + '/src/main/java/app/controller/' + interface.interfaceName + '.java', false, 'UTF-8')] 
+package app.controller;
 
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 [for( element: ModelElement | interface.referencedElements)]
-import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
+import app.[element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
 [/for]
 
 @RestController
@@ -298,8 +372,8 @@ public class [interface.interfaceName/] {
 [/comment]
 [if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
 [if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
-[file ('/' + microservice.serviceName + '/src/main/java/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
-package kafka;
+[file ('/' + microservice.serviceName + '/src/main/java/app/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
+package app.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -328,15 +402,15 @@ public class [interface.interfaceName/] {
 [/comment]
 [if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
 [if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::CONSUMER)]
-[file ('/' + microservice.serviceName + '/src/main/java/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
-package kafka;
+[file ('/' + microservice.serviceName + '/src/main/java/app/kafka/' + interface.interfaceName + '.java', false, 'UTF-8')]
+package app.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 [for( element: ModelElement | interface.referencedElements)]
-import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
+import app.[element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
 [/for]
 
 @Service
@@ -370,8 +444,8 @@ public class [interface.interfaceName/] {
 [/if]
 [/for]
 [comment] %%%WebSec%%% [/comment]
-[file ('/' + microservice.serviceName + '/src/main/java/config/' + 'WebSecurityConfiguration.java', false, 'UTF-8')]
-package config;
+[file ('/' + microservice.serviceName + '/src/main/java/app/config/' + 'WebSecurityConfiguration.java', false, 'UTF-8')]
+package app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -391,8 +465,8 @@ public class WebSecurityConfiguration {
 }
 [/file]
 [comment] %%% WebClientConfig %%%[/comment]
-[file ('/' + microservice.serviceName + '/src/main/java/config/' + 'WebClientConfig.java', false, 'UTF-8')] 
-package config;
+[file ('/' + microservice.serviceName + '/src/main/java/app/config/' + 'WebClientConfig.java', false, 'UTF-8')] 
+package app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -15,7 +15,7 @@
         <modelElements xsi:type="microserviceMetamodell:Factory" elementName="CustomerFactory" factoryFor="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.0">
           <behaviours behaviourName="fraudDetectionForCustomer"/>
         </modelElements>
-        <modelElements xsi:type="microserviceMetamodell:Service" elementName="CustomerBonusService" referencedInterfaces="//@technicalLayer/@microservices.0/@interfaces.0" referencedElements="//@domainModelLayer/@domainModels.0/@modules.0/@modelElements.4" sendsRequestTo="//@technicalLayer/@microservices.3/@interfaces.0/@restEndpoints.0">
+        <modelElements xsi:type="microserviceMetamodell:Service" elementName="CustomerBonusService" referencedInterfaces="//@technicalLayer/@microservices.0/@interfaces.0" sendsRequestTo="//@technicalLayer/@microservices.3/@interfaces.0/@restEndpoints.0">
           <behaviours behaviourName="addBonusPointsToCustomer"/>
           <behaviours behaviourName="triggerMarketing"/>
         </modelElements>
