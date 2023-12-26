@@ -16,12 +16,12 @@ public class CustomerConsumer {
 	this.customerRepository = customerRepository;
 	}
 
-    @KafkaListener(topics = "invalid", groupId = "groupId")
+    @KafkaListener(topics = "default-topic-name", groupId = "groupId")
     public void listen(String message) {
         System.out.println("Received message in group yourGroupId: " + message);
     }
 	
-	private void interfaceForCustomerRepository(){
+	private void referencedElementsCustomerRepository(){
 		//TODO: Implement
 	}
 }

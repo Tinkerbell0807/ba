@@ -3,6 +3,8 @@ package checkout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import checkout.CheckoutBackofficeService;
+
 
 @Service
 public class CheckoutProcessingService {
@@ -24,5 +26,5 @@ public class CheckoutProcessingService {
 		//TODO: Implement Behaviour
 		throw new RuntimeException("NotYetImplemented");
 	}
-}
 
+}

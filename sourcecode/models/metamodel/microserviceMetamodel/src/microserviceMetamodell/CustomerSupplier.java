@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link microserviceMetamodell.CustomerSupplier#getDownstreamComponent <em>Downstream Component</em>}</li>
  *   <li>{@link microserviceMetamodell.CustomerSupplier#getUpstreamComponent <em>Upstream Component</em>}</li>
- *   <li>{@link microserviceMetamodell.CustomerSupplier#getReferencedInterfaces <em>Referenced Interfaces</em>}</li>
+ *   <li>{@link microserviceMetamodell.CustomerSupplier#getAffectedInterfaces <em>Affected Interfaces</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getCustomerSupplier()
@@ -70,14 +70,16 @@ public interface CustomerSupplier extends BoundedContextRelationship {
 	void setUpstreamComponent(UpstreamComponent value);
 
 	/**
-	 * Returns the value of the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * Returns the value of the '<em><b>Affected Interfaces</b></em>' reference list.
 	 * The list contents are of type {@link microserviceMetamodell.Interface}.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.Interface#getReferencedRelationships <em>Referenced Relationships</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Referenced Interfaces</em>' reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getCustomerSupplier_ReferencedInterfaces()
-	 * @model
+	 * @return the value of the '<em>Affected Interfaces</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getCustomerSupplier_AffectedInterfaces()
+	 * @see microserviceMetamodell.Interface#getReferencedRelationships
+	 * @model opposite="referencedRelationships"
 	 * @generated
 	 */
-	EList<Interface> getReferencedInterfaces();
+	EList<Interface> getAffectedInterfaces();
 } // CustomerSupplier

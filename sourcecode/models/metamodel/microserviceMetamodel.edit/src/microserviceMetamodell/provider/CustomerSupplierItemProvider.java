@@ -47,25 +47,25 @@ public class CustomerSupplierItemProvider extends BoundedContextRelationshipItem
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReferencedInterfacesPropertyDescriptor(object);
+			addAffectedInterfacesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Referenced Interfaces feature.
+	 * This adds a property descriptor for the Affected Interfaces feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReferencedInterfacesPropertyDescriptor(Object object) {
+	protected void addAffectedInterfacesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CustomerSupplier_referencedInterfaces_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CustomerSupplier_referencedInterfaces_feature", "_UI_CustomerSupplier_type"),
-				 MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__REFERENCED_INTERFACES,
+				 getString("_UI_CustomerSupplier_affectedInterfaces_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CustomerSupplier_affectedInterfaces_feature", "_UI_CustomerSupplier_type"),
+				 MicroserviceMetamodellPackage.Literals.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES,
 				 true,
 				 false,
 				 true,

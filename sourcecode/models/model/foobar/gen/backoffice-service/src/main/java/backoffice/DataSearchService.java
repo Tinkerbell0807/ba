@@ -3,6 +3,11 @@ package backoffice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import notification.NotificationRepository;
+import order.OrderRepository;
+import customer.CustomerRepository;
+import checkout.CheckoutRepository;
+
 
 @Service
 public class DataSearchService {
@@ -20,5 +25,5 @@ public class DataSearchService {
 		this.checkoutRepository = checkoutRepository;
 	}
 
-}
 
+}

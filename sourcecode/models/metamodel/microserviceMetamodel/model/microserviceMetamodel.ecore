@@ -128,8 +128,8 @@
         eType="#//DownstreamComponent" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="upstreamComponent" lowerBound="1"
         eType="#//UpstreamComponent" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedInterfaces" upperBound="-1"
-        eType="#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectedInterfaces" upperBound="-1"
+        eType="#//Interface" eOpposite="#//Interface/referencedRelationships"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BoundedContextRelationship" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationshipName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -146,6 +146,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedInterfaces" upperBound="-1"
+        eType="#//Interface" eOpposite="#//Interface/referencedElements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Factorizeable" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Microservice">
@@ -164,9 +166,11 @@
         eType="#//RestEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceFor" upperBound="-1"
-        eType="#//ModelElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedElements" upperBound="-1"
+        eType="#//ModelElement" eOpposite="#//ModelElement/referencedInterfaces"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedRelationships"
+        upperBound="-1" eType="#//CustomerSupplier" eOpposite="#//CustomerSupplier/affectedInterfaces"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SynchronousInterface" eSuperTypes="#//Interface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="restEndpoints" upperBound="-1"

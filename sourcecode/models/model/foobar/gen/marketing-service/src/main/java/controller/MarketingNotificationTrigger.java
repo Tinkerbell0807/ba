@@ -18,7 +18,7 @@ public class MarketingNotificationTrigger {
     @PostMapping("/triggerNotificationForCustomer")
     public String triggerNotificationForCustomer() {
 		logger.info("triggerNotificationForCustomer executed");
-        // TODO: not yet implemented
+        // TODO: Implement Endpoint
         return "200 OK from triggerNotificationForCustomer";
     }
 }

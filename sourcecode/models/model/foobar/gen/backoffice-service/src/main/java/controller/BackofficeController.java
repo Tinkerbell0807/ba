@@ -18,25 +18,25 @@ public class BackofficeController {
     @GetMapping("/getNotification")
     public String getNotification() {
 		logger.info("getNotification executed");
-        // TODO: not yet implemented
+        // TODO: Implement Endpoint
         return "200 OK from getNotification";
     }
     @GetMapping("/getOrder")
     public String getOrder() {
 		logger.info("getOrder executed");
-        // TODO: not yet implemented
+        // TODO: Implement Endpoint
         return "200 OK from getOrder";
     }
     @GetMapping("/getCheckout")
     public String getCheckout() {
 		logger.info("getCheckout executed");
-        // TODO: not yet implemented
+        // TODO: Implement Endpoint
         return "200 OK from getCheckout";
     }
     @GetMapping("/getCustomer")
     public String getCustomer() {
 		logger.info("getCustomer executed");
-        // TODO: not yet implemented
+        // TODO: Implement Endpoint
         return "200 OK from getCustomer";
     }
 }

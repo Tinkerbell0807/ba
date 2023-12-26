@@ -18,7 +18,7 @@ public class CheckoutController {
     @PostMapping("/processCheckout")
     public String processCheckout() {
 		logger.info("processCheckout executed");
-        // TODO: not yet implemented
+        // TODO: Implement Endpoint
         return "200 OK from processCheckout";
     }
 }

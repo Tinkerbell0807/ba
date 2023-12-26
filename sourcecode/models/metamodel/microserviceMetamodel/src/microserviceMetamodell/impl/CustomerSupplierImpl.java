@@ -15,7 +15,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.CustomerSupplierImpl#getDownstreamComponent <em>Downstream Component</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.CustomerSupplierImpl#getUpstreamComponent <em>Upstream Component</em>}</li>
- *   <li>{@link microserviceMetamodell.impl.CustomerSupplierImpl#getReferencedInterfaces <em>Referenced Interfaces</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.CustomerSupplierImpl#getAffectedInterfaces <em>Affected Interfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,14 +53,14 @@ public class CustomerSupplierImpl extends BoundedContextRelationshipImpl impleme
 	 */
 	protected UpstreamComponent upstreamComponent;
 	/**
-	 * The cached value of the '{@link #getReferencedInterfaces() <em>Referenced Interfaces</em>}' reference list.
+	 * The cached value of the '{@link #getAffectedInterfaces() <em>Affected Interfaces</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReferencedInterfaces()
+	 * @see #getAffectedInterfaces()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Interface> referencedInterfaces;
+	protected EList<Interface> affectedInterfaces;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,11 +171,26 @@ public class CustomerSupplierImpl extends BoundedContextRelationshipImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Interface> getReferencedInterfaces() {
-		if (referencedInterfaces == null) {
-			referencedInterfaces = new EObjectResolvingEList<Interface>(Interface.class, this, MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__REFERENCED_INTERFACES);
+	public EList<Interface> getAffectedInterfaces() {
+		if (affectedInterfaces == null) {
+			affectedInterfaces = new EObjectWithInverseResolvingEList.ManyInverse<Interface>(Interface.class, this, MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES, MicroserviceMetamodellPackage.INTERFACE__REFERENCED_RELATIONSHIPS);
 		}
-		return referencedInterfaces;
+		return affectedInterfaces;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAffectedInterfaces()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -189,6 +205,8 @@ public class CustomerSupplierImpl extends BoundedContextRelationshipImpl impleme
 				return basicSetDownstreamComponent(null, msgs);
 			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT:
 				return basicSetUpstreamComponent(null, msgs);
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES:
+				return ((InternalEList<?>)getAffectedInterfaces()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -205,8 +223,8 @@ public class CustomerSupplierImpl extends BoundedContextRelationshipImpl impleme
 				return getDownstreamComponent();
 			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT:
 				return getUpstreamComponent();
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__REFERENCED_INTERFACES:
-				return getReferencedInterfaces();
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES:
+				return getAffectedInterfaces();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,9 +244,9 @@ public class CustomerSupplierImpl extends BoundedContextRelationshipImpl impleme
 			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT:
 				setUpstreamComponent((UpstreamComponent)newValue);
 				return;
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__REFERENCED_INTERFACES:
-				getReferencedInterfaces().clear();
-				getReferencedInterfaces().addAll((Collection<? extends Interface>)newValue);
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES:
+				getAffectedInterfaces().clear();
+				getAffectedInterfaces().addAll((Collection<? extends Interface>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -248,8 +266,8 @@ public class CustomerSupplierImpl extends BoundedContextRelationshipImpl impleme
 			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT:
 				setUpstreamComponent((UpstreamComponent)null);
 				return;
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__REFERENCED_INTERFACES:
-				getReferencedInterfaces().clear();
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES:
+				getAffectedInterfaces().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -267,8 +285,8 @@ public class CustomerSupplierImpl extends BoundedContextRelationshipImpl impleme
 				return downstreamComponent != null;
 			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT:
 				return upstreamComponent != null;
-			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__REFERENCED_INTERFACES:
-				return referencedInterfaces != null && !referencedInterfaces.isEmpty();
+			case MicroserviceMetamodellPackage.CUSTOMER_SUPPLIER__AFFECTED_INTERFACES:
+				return affectedInterfaces != null && !affectedInterfaces.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

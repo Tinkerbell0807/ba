@@ -2,6 +2,7 @@
  */
 package microserviceMetamodell;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.ModelElement#getElementName <em>Element Name</em>}</li>
+ *   <li>{@link microserviceMetamodell.ModelElement#getReferencedInterfaces <em>Referenced Interfaces</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getModelElement()
@@ -42,5 +44,19 @@ public interface ModelElement extends EObject {
 	 * @generated
 	 */
 	void setElementName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.Interface}.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.Interface#getReferencedElements <em>Referenced Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Referenced Interfaces</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getModelElement_ReferencedInterfaces()
+	 * @see microserviceMetamodell.Interface#getReferencedElements
+	 * @model opposite="referencedElements"
+	 * @generated
+	 */
+	EList<Interface> getReferencedInterfaces();
 
 } // ModelElement

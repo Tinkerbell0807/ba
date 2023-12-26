@@ -21,7 +21,7 @@ public class CheckoutConsumer {
         System.out.println("Received message in group yourGroupId: " + message);
     }
 	
-	private void interfaceForCheckoutRepository(){
+	private void referencedElementsCheckoutRepository(){
 		//TODO: Implement
 	}
 }

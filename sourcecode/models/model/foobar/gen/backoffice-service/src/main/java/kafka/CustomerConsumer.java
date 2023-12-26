@@ -21,7 +21,7 @@ public class CustomerConsumer {
         System.out.println("Received message in group yourGroupId: " + message);
     }
 	
-	private void interfaceForCustomerRepository(){
+	private void referencedElementsCustomerRepository(){
 		//TODO: Implement
 	}
 }

@@ -1101,7 +1101,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCustomerSupplier_ReferencedInterfaces() {
+	public EReference getCustomerSupplier_AffectedInterfaces() {
 		return (EReference)customerSupplierEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1211,6 +1211,15 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 */
 	public EAttribute getModelElement_ElementName() {
 		return (EAttribute)modelElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModelElement_ReferencedInterfaces() {
+		return (EReference)modelElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1533,8 +1542,8 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterface_InterfaceFor() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getInterface_InterfaceName() {
+		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1542,8 +1551,17 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInterface_InterfaceName() {
-		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(1);
+	public EReference getInterface_ReferencedElements() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_ReferencedRelationships() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1753,7 +1771,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		customerSupplierEClass = createEClass(CUSTOMER_SUPPLIER);
 		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__DOWNSTREAM_COMPONENT);
 		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT);
-		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__REFERENCED_INTERFACES);
+		createEReference(customerSupplierEClass, CUSTOMER_SUPPLIER__AFFECTED_INTERFACES);
 
 		boundedContextRelationshipEClass = createEClass(BOUNDED_CONTEXT_RELATIONSHIP);
 		createEAttribute(boundedContextRelationshipEClass, BOUNDED_CONTEXT_RELATIONSHIP__RELATIONSHIP_NAME);
@@ -1768,6 +1786,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__ELEMENT_NAME);
+		createEReference(modelElementEClass, MODEL_ELEMENT__REFERENCED_INTERFACES);
 
 		factorizeableEClass = createEClass(FACTORIZEABLE);
 
@@ -1781,8 +1800,9 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		createEReference(microserviceEClass, MICROSERVICE__CALLED_ENDPOINTS);
 
 		interfaceEClass = createEClass(INTERFACE);
-		createEReference(interfaceEClass, INTERFACE__INTERFACE_FOR);
 		createEAttribute(interfaceEClass, INTERFACE__INTERFACE_NAME);
+		createEReference(interfaceEClass, INTERFACE__REFERENCED_ELEMENTS);
+		createEReference(interfaceEClass, INTERFACE__REFERENCED_RELATIONSHIPS);
 
 		synchronousInterfaceEClass = createEClass(SYNCHRONOUS_INTERFACE);
 		createEReference(synchronousInterfaceEClass, SYNCHRONOUS_INTERFACE__REST_ENDPOINTS);
@@ -1979,7 +1999,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEClass(customerSupplierEClass, CustomerSupplier.class, "CustomerSupplier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCustomerSupplier_DownstreamComponent(), this.getDownstreamComponent(), null, "downstreamComponent", null, 1, 1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCustomerSupplier_UpstreamComponent(), this.getUpstreamComponent(), null, "upstreamComponent", null, 1, 1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCustomerSupplier_ReferencedInterfaces(), this.getInterface(), null, "referencedInterfaces", null, 0, -1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomerSupplier_AffectedInterfaces(), this.getInterface(), this.getInterface_ReferencedRelationships(), "affectedInterfaces", null, 0, -1, CustomerSupplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boundedContextRelationshipEClass, BoundedContextRelationship.class, "BoundedContextRelationship", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoundedContextRelationship_RelationshipName(), ecorePackage.getEString(), "relationshipName", null, 0, 1, BoundedContextRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1994,6 +2014,7 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelElement_ElementName(), ecorePackage.getEString(), "elementName", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelElement_ReferencedInterfaces(), this.getInterface(), this.getInterface_ReferencedElements(), "referencedInterfaces", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(factorizeableEClass, Factorizeable.class, "Factorizeable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2007,8 +2028,9 @@ public class MicroserviceMetamodellPackageImpl extends EPackageImpl implements M
 		initEReference(getMicroservice_CalledEndpoints(), this.getRestEndpoint(), null, "calledEndpoints", null, 0, -1, Microservice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInterface_InterfaceFor(), this.getModelElement(), null, "interfaceFor", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInterface_InterfaceName(), ecorePackage.getEString(), "interfaceName", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterface_ReferencedElements(), this.getModelElement(), this.getModelElement_ReferencedInterfaces(), "referencedElements", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterface_ReferencedRelationships(), this.getCustomerSupplier(), this.getCustomerSupplier_AffectedInterfaces(), "referencedRelationships", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(synchronousInterfaceEClass, SynchronousInterface.class, "SynchronousInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSynchronousInterface_RestEndpoints(), this.getRestEndpoint(), null, "restEndpoints", null, 0, -1, SynchronousInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

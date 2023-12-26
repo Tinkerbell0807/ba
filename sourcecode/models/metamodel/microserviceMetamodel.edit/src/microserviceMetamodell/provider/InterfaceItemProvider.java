@@ -60,32 +60,11 @@ public class InterfaceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInterfaceForPropertyDescriptor(object);
 			addInterfaceNamePropertyDescriptor(object);
+			addReferencedElementsPropertyDescriptor(object);
+			addReferencedRelationshipsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Interface For feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInterfaceForPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Interface_interfaceFor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_interfaceFor_feature", "_UI_Interface_type"),
-				 MicroserviceMetamodellPackage.Literals.INTERFACE__INTERFACE_FOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -106,6 +85,50 @@ public class InterfaceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Referenced Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencedElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Interface_referencedElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_referencedElements_feature", "_UI_Interface_type"),
+				 MicroserviceMetamodellPackage.Literals.INTERFACE__REFERENCED_ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Referenced Relationships feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencedRelationshipsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Interface_referencedRelationships_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_referencedRelationships_feature", "_UI_Interface_type"),
+				 MicroserviceMetamodellPackage.Literals.INTERFACE__REFERENCED_RELATIONSHIPS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

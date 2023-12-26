@@ -398,13 +398,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int MODEL_ELEMENT__ELEMENT_NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_ELEMENT__REFERENCED_INTERFACES = 1;
+
+	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = 1;
+	int MODEL_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Model Element</em>' class.
@@ -433,6 +442,15 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTITY__ELEMENT_NAME = MODEL_ELEMENT__ELEMENT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__REFERENCED_INTERFACES = MODEL_ELEMENT__REFERENCED_INTERFACES;
 
 	/**
 	 * The feature id for the '<em><b>Value Objects</b></em>' containment reference list.
@@ -490,6 +508,15 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int VALUE_OBJECT__ELEMENT_NAME = MODEL_ELEMENT__ELEMENT_NAME;
 
 	/**
+	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_OBJECT__REFERENCED_INTERFACES = MODEL_ELEMENT__REFERENCED_INTERFACES;
+
+	/**
 	 * The feature id for the '<em><b>Referenced Entities</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,6 +570,15 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE__ELEMENT_NAME = MODEL_ELEMENT__ELEMENT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__REFERENCED_INTERFACES = MODEL_ELEMENT__REFERENCED_INTERFACES;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -637,13 +673,22 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int AGGREGATE__ELEMENT_NAME = FACTORIZEABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATE__REFERENCED_INTERFACES = FACTORIZEABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Aggregate Root</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE__AGGREGATE_ROOT = FACTORIZEABLE_FEATURE_COUNT + 1;
+	int AGGREGATE__AGGREGATE_ROOT = FACTORIZEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Aggregate Node</b></em>' containment reference list.
@@ -652,7 +697,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE__AGGREGATE_NODE = FACTORIZEABLE_FEATURE_COUNT + 2;
+	int AGGREGATE__AGGREGATE_NODE = FACTORIZEABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Aggregate</em>' class.
@@ -661,7 +706,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE_FEATURE_COUNT = FACTORIZEABLE_FEATURE_COUNT + 3;
+	int AGGREGATE_FEATURE_COUNT = FACTORIZEABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Aggregate</em>' class.
@@ -690,6 +735,15 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @ordered
 	 */
 	int FACTORY__ELEMENT_NAME = MODEL_ELEMENT__ELEMENT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FACTORY__REFERENCED_INTERFACES = MODEL_ELEMENT__REFERENCED_INTERFACES;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -745,6 +799,15 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPOSITORY__ELEMENT_NAME = MODEL_ELEMENT__ELEMENT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__REFERENCED_INTERFACES = MODEL_ELEMENT__REFERENCED_INTERFACES;
 
 	/**
 	 * The feature id for the '<em><b>Behaviours</b></em>' containment reference list.
@@ -1123,13 +1186,13 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Referenced Interfaces</b></em>' reference list.
+	 * The feature id for the '<em><b>Affected Interfaces</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_SUPPLIER__REFERENCED_INTERFACES = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 2;
+	int CUSTOMER_SUPPLIER__AFFECTED_INTERFACES = BOUNDED_CONTEXT_RELATIONSHIP_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Customer Supplier</em>' class.
@@ -1403,22 +1466,31 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int INTERFACE = 23;
 
 	/**
-	 * The feature id for the '<em><b>Interface For</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE__INTERFACE_FOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Interface Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__INTERFACE_NAME = 1;
+	int INTERFACE__INTERFACE_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__REFERENCED_ELEMENTS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Relationships</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__REFERENCED_RELATIONSHIPS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Interface</em>' class.
@@ -1427,7 +1499,7 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE_FEATURE_COUNT = 2;
+	int INTERFACE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Interface</em>' class.
@@ -1449,15 +1521,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int SYNCHRONOUS_INTERFACE = 24;
 
 	/**
-	 * The feature id for the '<em><b>Interface For</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONOUS_INTERFACE__INTERFACE_FOR = INTERFACE__INTERFACE_FOR;
-
-	/**
 	 * The feature id for the '<em><b>Interface Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1465,6 +1528,24 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYNCHRONOUS_INTERFACE__INTERFACE_NAME = INTERFACE__INTERFACE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNCHRONOUS_INTERFACE__REFERENCED_ELEMENTS = INTERFACE__REFERENCED_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Relationships</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNCHRONOUS_INTERFACE__REFERENCED_RELATIONSHIPS = INTERFACE__REFERENCED_RELATIONSHIPS;
 
 	/**
 	 * The feature id for the '<em><b>Rest Endpoints</b></em>' containment reference list.
@@ -1513,15 +1594,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	int ASYNCHRONOUS_INTERFACE = 25;
 
 	/**
-	 * The feature id for the '<em><b>Interface For</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASYNCHRONOUS_INTERFACE__INTERFACE_FOR = INTERFACE__INTERFACE_FOR;
-
-	/**
 	 * The feature id for the '<em><b>Interface Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1529,6 +1601,24 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @ordered
 	 */
 	int ASYNCHRONOUS_INTERFACE__INTERFACE_NAME = INTERFACE__INTERFACE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCHRONOUS_INTERFACE__REFERENCED_ELEMENTS = INTERFACE__REFERENCED_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Referenced Relationships</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASYNCHRONOUS_INTERFACE__REFERENCED_RELATIONSHIPS = INTERFACE__REFERENCED_RELATIONSHIPS;
 
 	/**
 	 * The feature id for the '<em><b>Interface Role</b></em>' attribute.
@@ -2950,15 +3040,15 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EReference getCustomerSupplier_UpstreamComponent();
 
 	/**
-	 * Returns the meta object for the reference list '{@link microserviceMetamodell.CustomerSupplier#getReferencedInterfaces <em>Referenced Interfaces</em>}'.
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.CustomerSupplier#getAffectedInterfaces <em>Affected Interfaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Referenced Interfaces</em>'.
-	 * @see microserviceMetamodell.CustomerSupplier#getReferencedInterfaces()
+	 * @return the meta object for the reference list '<em>Affected Interfaces</em>'.
+	 * @see microserviceMetamodell.CustomerSupplier#getAffectedInterfaces()
 	 * @see #getCustomerSupplier()
 	 * @generated
 	 */
-	EReference getCustomerSupplier_ReferencedInterfaces();
+	EReference getCustomerSupplier_AffectedInterfaces();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.BoundedContextRelationship <em>Bounded Context Relationship</em>}'.
@@ -3085,6 +3175,17 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModelElement_ElementName();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.ModelElement#getReferencedInterfaces <em>Referenced Interfaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Referenced Interfaces</em>'.
+	 * @see microserviceMetamodell.ModelElement#getReferencedInterfaces()
+	 * @see #getModelElement()
+	 * @generated
+	 */
+	EReference getModelElement_ReferencedInterfaces();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.Factorizeable <em>Factorizeable</em>}'.
@@ -3459,17 +3560,6 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	EClass getInterface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Interface#getInterfaceFor <em>Interface For</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Interface For</em>'.
-	 * @see microserviceMetamodell.Interface#getInterfaceFor()
-	 * @see #getInterface()
-	 * @generated
-	 */
-	EReference getInterface_InterfaceFor();
-
-	/**
 	 * Returns the meta object for the attribute '{@link microserviceMetamodell.Interface#getInterfaceName <em>Interface Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3479,6 +3569,28 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInterface_InterfaceName();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Interface#getReferencedElements <em>Referenced Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Referenced Elements</em>'.
+	 * @see microserviceMetamodell.Interface#getReferencedElements()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_ReferencedElements();
+
+	/**
+	 * Returns the meta object for the reference list '{@link microserviceMetamodell.Interface#getReferencedRelationships <em>Referenced Relationships</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Referenced Relationships</em>'.
+	 * @see microserviceMetamodell.Interface#getReferencedRelationships()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_ReferencedRelationships();
 
 	/**
 	 * Returns the meta object for class '{@link microserviceMetamodell.SynchronousInterface <em>Synchronous Interface</em>}'.
@@ -4243,12 +4355,12 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EReference CUSTOMER_SUPPLIER__UPSTREAM_COMPONENT = eINSTANCE.getCustomerSupplier_UpstreamComponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Referenced Interfaces</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Affected Interfaces</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CUSTOMER_SUPPLIER__REFERENCED_INTERFACES = eINSTANCE.getCustomerSupplier_ReferencedInterfaces();
+		EReference CUSTOMER_SUPPLIER__AFFECTED_INTERFACES = eINSTANCE.getCustomerSupplier_AffectedInterfaces();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.BoundedContextRelationshipImpl <em>Bounded Context Relationship</em>}' class.
@@ -4357,6 +4469,14 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL_ELEMENT__ELEMENT_NAME = eINSTANCE.getModelElement_ElementName();
+
+		/**
+		 * The meta object literal for the '<em><b>Referenced Interfaces</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_ELEMENT__REFERENCED_INTERFACES = eINSTANCE.getModelElement_ReferencedInterfaces();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.Factorizeable <em>Factorizeable</em>}' class.
@@ -4665,20 +4785,28 @@ public interface MicroserviceMetamodellPackage extends EPackage {
 		EClass INTERFACE = eINSTANCE.getInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Interface For</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE__INTERFACE_FOR = eINSTANCE.getInterface_InterfaceFor();
-
-		/**
 		 * The meta object literal for the '<em><b>Interface Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute INTERFACE__INTERFACE_NAME = eINSTANCE.getInterface_InterfaceName();
+
+		/**
+		 * The meta object literal for the '<em><b>Referenced Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__REFERENCED_ELEMENTS = eINSTANCE.getInterface_ReferencedElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Referenced Relationships</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__REFERENCED_RELATIONSHIPS = eINSTANCE.getInterface_ReferencedRelationships();
 
 		/**
 		 * The meta object literal for the '{@link microserviceMetamodell.impl.SynchronousInterfaceImpl <em>Synchronous Interface</em>}' class.

@@ -21,7 +21,7 @@ public class OrderConsumer {
         System.out.println("Received message in group yourGroupId: " + message);
     }
 	
-	private void interfaceForOrderRepository(){
+	private void referencedElementsOrderRepository(){
 		//TODO: Implement
 	}
 }

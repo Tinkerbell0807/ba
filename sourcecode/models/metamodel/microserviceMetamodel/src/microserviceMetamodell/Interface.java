@@ -14,8 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link microserviceMetamodell.Interface#getInterfaceFor <em>Interface For</em>}</li>
  *   <li>{@link microserviceMetamodell.Interface#getInterfaceName <em>Interface Name</em>}</li>
+ *   <li>{@link microserviceMetamodell.Interface#getReferencedElements <em>Referenced Elements</em>}</li>
+ *   <li>{@link microserviceMetamodell.Interface#getReferencedRelationships <em>Referenced Relationships</em>}</li>
  * </ul>
  *
  * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInterface()
@@ -23,18 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Interface extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Interface For</b></em>' reference list.
-	 * The list contents are of type {@link microserviceMetamodell.ModelElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Interface For</em>' reference list.
-	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInterface_InterfaceFor()
-	 * @model
-	 * @generated
-	 */
-	EList<ModelElement> getInterfaceFor();
-
 	/**
 	 * Returns the value of the '<em><b>Interface Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,5 +45,33 @@ public interface Interface extends EObject {
 	 * @generated
 	 */
 	void setInterfaceName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Referenced Elements</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.ModelElement}.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.ModelElement#getReferencedInterfaces <em>Referenced Interfaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Referenced Elements</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInterface_ReferencedElements()
+	 * @see microserviceMetamodell.ModelElement#getReferencedInterfaces
+	 * @model opposite="referencedInterfaces"
+	 * @generated
+	 */
+	EList<ModelElement> getReferencedElements();
+
+	/**
+	 * Returns the value of the '<em><b>Referenced Relationships</b></em>' reference list.
+	 * The list contents are of type {@link microserviceMetamodell.CustomerSupplier}.
+	 * It is bidirectional and its opposite is '{@link microserviceMetamodell.CustomerSupplier#getAffectedInterfaces <em>Affected Interfaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Referenced Relationships</em>' reference list.
+	 * @see microserviceMetamodell.MicroserviceMetamodellPackage#getInterface_ReferencedRelationships()
+	 * @see microserviceMetamodell.CustomerSupplier#getAffectedInterfaces
+	 * @model opposite="affectedInterfaces"
+	 * @generated
+	 */
+	EList<CustomerSupplier> getReferencedRelationships();
 
 } // Interface

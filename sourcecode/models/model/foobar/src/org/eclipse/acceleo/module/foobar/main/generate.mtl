@@ -6,11 +6,13 @@
 [comment]
 	APPLICATION STARTER
 [/comment]
-[file ('/' + microservice.serviceName + '/src/main/java/' +'ApplicationStarter.java', false, 'UTF-8')] 
+[file ('/' + microservice.serviceName + '/src/main/java/app/' +'ApplicationStarter.java', false, 'UTF-8')]
+package app;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class ApplicationStarter {
    public static void main(String['[]'/] args) {
       SpringApplication.run(ApplicationStarter.class, args);
@@ -29,6 +31,10 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    url: jdbc:mysql://localhost:3306/yourdb
+    username: root
+    password: secret
 [/file]
 [comment]
 	BUILD CONFIG
@@ -103,6 +109,9 @@ public class [modelElement.elementName/] {
 package [module.moduleName/];
 
 public class [modelElement.elementName/] {
+
+	//TODO: Implement the objects fields, getters and setters
+
 	public [modelElement.elementName/](){}
 }
 [/file]
@@ -129,6 +138,18 @@ package [module.moduleName/];
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+[for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
+import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
+[/for]
+[if not modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->first().oclIsUndefined()]
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;[/if]
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
+[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+import kafka.[interface.interfaceName/];
+[/if][/if][/for]
+
 
 @Service
 public class [modelElement.elementName/] {
@@ -137,12 +158,31 @@ public class [modelElement.elementName/] {
 [for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
 	private final [element.elementName/] [element.elementName.toLowerFirst()/];
 [/for]
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)][if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+	private final [interface.interfaceName/] [interface.interfaceName.toLowerFirst()/];
+[/if][/if][/for]
+[if not modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->first().oclIsUndefined()]
+    private final WebClient webClient;
+[/if]
 
 	[modelElement.elementName/]([for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
-[element.elementName/] [element.elementName.toLowerFirst()/][if not modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]){
+[element.elementName/] [element.elementName.toLowerFirst()/][if not modelElement.oclAsType(microserviceMetamodell::Service).referencedElements->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)][if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)][if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+,[interface.interfaceName/] [interface.interfaceName.toLowerFirst()/][/if][/if][/for]
+[if not modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->first().oclIsUndefined()]
+,WebClient webClient[/if]){
 [for( element: ModelElement | modelElement.oclAsType(microserviceMetamodell::Service).referencedElements)]
 		this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
 [/for]
+[for( interface: Interface | modelElement.oclAsType(microserviceMetamodell::Service).referencedInterfaces)]
+[if interface.oclIsKindOf(microserviceMetamodell::AsynchronousInterface)]
+[if interface.oclAsType(microserviceMetamodell::AsynchronousInterface).interfaceRole = (microserviceMetamodell::AsynchronousInterfaceRole::PRODUCER)]
+		this.[interface.interfaceName.toLowerFirst()/] = [interface.interfaceName.toLowerFirst()/];
+[/if][/if][/for]
+[if not modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo->first().oclIsUndefined()]
+    	this.webClient = webClient;
+[/if]
 	}
 
 [for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Service).behaviours)]
@@ -152,11 +192,22 @@ public class [modelElement.elementName/] {
 		throw new RuntimeException("NotYetImplemented");
 	}
 [/for]
-}
 
+[for ( restEndpoint: RestEndpoint | modelElement.oclAsType(microserviceMetamodell::Service).sendsRequestTo)]
+    private Mono<String> request[restEndpoint.path.toString().substring(2).toUpperFirst()/]() {
+		logger.info("request[restEndpoint.path.toString().substring(2).toUpperFirst()/] executed");
+        return webClient.[restEndpoint.httpMethod.toString().toLowerCase()/]()
+                .uri("microservice-domain.org[restEndpoint.path/]")
+                .retrieve()
+                .bodyToMono(String.class);
+    }
+[/for]
+}
 [/file]
 [/if]
-[comment] %%%Factory%%% [/comment]
+[comment]
+	FACTORY
+[/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Factory)]
 [file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
@@ -166,16 +217,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class [modelElement.elementName/] {
 		public [modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/] create[modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/](){
+			//TODO: Map Data (Parameters) to Object
 			return new [modelElement.oclAsType(microserviceMetamodell::Factory).factoryFor.oclAsType(microserviceMetamodell::ModelElement).elementName/]();
 		}
 
 		[for ( behaviour: Behaviour | modelElement.oclAsType(microserviceMetamodell::Factory).behaviours)]
-		private void [behaviour.behaviourName/](){}
+		private void [behaviour.behaviourName/](){
+			//TODO:Implement
+		}
         [/for]
 }
 [/file]
 [/if]
-[comment] %%%Repository%%% [/comment]
+[comment]
+	REPOSITORY
+[/comment]
 [if modelElement.oclIsTypeOf(microserviceMetamodell::Repository)]
 [file ('/' + microservice.serviceName + '/src/main/java/' + module.moduleName + '/' + modelElement.elementName + '.java', false, 'UTF-8')] 
 package [module.moduleName/];
@@ -207,7 +263,7 @@ package controller;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-[for( element: ModelElement | interface.interfaceFor)]
+[for( element: ModelElement | interface.referencedElements)]
 import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
 [/for]
 
@@ -215,13 +271,13 @@ import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleNam
 public class [interface.interfaceName/] {
 
     Logger logger = LoggerFactory.getLogger([interface.interfaceName/].class);
-[for( element: ModelElement | interface.interfaceFor)]
+[for( element: ModelElement | interface.referencedElements)]
 	private final [element.elementName/] [element.elementName.toLowerFirst()/];
 [/for]
 
-	[interface.interfaceName/]([for( element: ModelElement | interface.interfaceFor)]
-[element.elementName/] [element.elementName.toLowerFirst()/][if not interface.interfaceFor->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]){
-[for( element: ModelElement | interface.interfaceFor)]
+	[interface.interfaceName/]([for( element: ModelElement | interface.referencedElements)]
+[element.elementName/] [element.elementName.toLowerFirst()/][if not interface.referencedElements->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]){
+[for( element: ModelElement | interface.referencedElements)]
 	this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
 [/for]
 	}
@@ -230,7 +286,7 @@ public class [interface.interfaceName/] {
     @[restEndpoint.httpMethod.toString().toLowerCase().toUpperFirst()/]Mapping("[restEndpoint.path/]")
     public String [restEndpoint.path.toString().substring(2)/]() {
 		logger.info("[restEndpoint.path.toString().substring(2)/] executed");
-        // TODO: not yet implemented
+        // TODO: Implement Endpoint
         return "200 OK from [restEndpoint.path.toString().substring(2)/]";
     }
 [/for]
@@ -249,25 +305,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-[for( element: ModelElement | interface.interfaceFor)]
-import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
-[/for]
 
 @Service
 public class [interface.interfaceName/] {
 
     Logger logger = LoggerFactory.getLogger([interface.interfaceName/].class);
-[for( element: ModelElement | interface.interfaceFor)]
-	private final [element.elementName/] [element.elementName.toLowerFirst()/];
-[/for]
 	private final KafkaTemplate<String, String> kafkaTemplate;
 
-	[interface.interfaceName/]([for( element: ModelElement | interface.interfaceFor)]
-[element.elementName/] [element.elementName.toLowerFirst()/][if not interface.interfaceFor->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for], KafkaTemplate<String,String> kafkaTemplate){
-[for( element: ModelElement | interface.interfaceFor)]
-	this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
-[/for]
-	this.kafkaTemplate = kafkaTemplate;
+	[interface.interfaceName/](KafkaTemplate<String,String> kafkaTemplate){
+		this.kafkaTemplate = kafkaTemplate;
 	}
 
     public void sendMessage(String topic, String message) {
@@ -289,7 +335,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-[for( element: ModelElement | interface.interfaceFor)]
+[for( element: ModelElement | interface.referencedElements)]
 import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleName/].[element.elementName/];
 [/for]
 
@@ -297,13 +343,13 @@ import [element.eContainer().oclAsType(microserviceMetamodell::Module).moduleNam
 public class [interface.interfaceName/] {
 
     Logger logger = LoggerFactory.getLogger([interface.interfaceName/].class);
-[for( element: ModelElement | interface.interfaceFor)]
+[for( element: ModelElement | interface.referencedElements)]
 	private final [element.elementName/] [element.elementName.toLowerFirst()/];
 [/for]
 
-	[interface.interfaceName/]([for( element: ModelElement | interface.interfaceFor)]
-[element.elementName/] [element.elementName.toLowerFirst()/][if not interface.interfaceFor->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]){
-[for( element: ModelElement | interface.interfaceFor)]
+	[interface.interfaceName/]([for( element: ModelElement | interface.referencedElements)]
+[element.elementName/] [element.elementName.toLowerFirst()/][if not interface.referencedElements->last().elementName.equalsIgnoreCase(element.elementName)],[/if][/for]){
+[for( element: ModelElement | interface.referencedElements)]
 	this.[element.elementName.toLowerFirst()/] = [element.elementName.toLowerFirst()/];
 [/for]
 	}
@@ -313,8 +359,8 @@ public class [interface.interfaceName/] {
         System.out.println("Received message in group yourGroupId: " + message);
     }
 	
-[for( element: ModelElement | interface.interfaceFor)]
-	private void interfaceFor[element.elementName/](){
+[for( element: ModelElement | interface.referencedElements)]
+	private void referencedElements[element.elementName/](){
 		//TODO: Implement
 	}
 [/for]

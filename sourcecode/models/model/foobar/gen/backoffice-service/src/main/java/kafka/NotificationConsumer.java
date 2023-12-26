@@ -21,7 +21,7 @@ public class NotificationConsumer {
         System.out.println("Received message in group yourGroupId: " + message);
     }
 	
-	private void interfaceForNotificationRepository(){
+	private void referencedElementsNotificationRepository(){
 		//TODO: Implement
 	}
 }

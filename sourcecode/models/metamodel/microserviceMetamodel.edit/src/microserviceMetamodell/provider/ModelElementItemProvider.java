@@ -61,6 +61,7 @@ public class ModelElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addElementNamePropertyDescriptor(object);
+			addReferencedInterfacesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -83,6 +84,28 @@ public class ModelElementItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Referenced Interfaces feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencedInterfacesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelElement_referencedInterfaces_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_referencedInterfaces_feature", "_UI_ModelElement_type"),
+				 MicroserviceMetamodellPackage.Literals.MODEL_ELEMENT__REFERENCED_INTERFACES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

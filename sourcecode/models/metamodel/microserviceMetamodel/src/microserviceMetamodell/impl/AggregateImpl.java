@@ -6,6 +6,7 @@ import java.util.Collection;
 import microserviceMetamodell.Aggregate;
 import microserviceMetamodell.AggregateNode;
 import microserviceMetamodell.EntityNode;
+import microserviceMetamodell.Interface;
 import microserviceMetamodell.MicroserviceMetamodellPackage;
 import microserviceMetamodell.ModelElement;
 import microserviceMetamodell.Persistable;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getElementName <em>Element Name</em>}</li>
+ *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getReferencedInterfaces <em>Referenced Interfaces</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getAggregateRoot <em>Aggregate Root</em>}</li>
  *   <li>{@link microserviceMetamodell.impl.AggregateImpl#getAggregateNode <em>Aggregate Node</em>}</li>
  * </ul>
@@ -56,6 +59,16 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * @ordered
 	 */
 	protected String elementName = ELEMENT_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferencedInterfaces() <em>Referenced Interfaces</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferencedInterfaces()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Interface> referencedInterfaces;
 
 	/**
 	 * The cached value of the '{@link #getAggregateRoot() <em>Aggregate Root</em>}' containment reference.
@@ -122,6 +135,18 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Interface> getReferencedInterfaces() {
+		if (referencedInterfaces == null) {
+			referencedInterfaces = new EObjectWithInverseResolvingEList.ManyInverse<Interface>(Interface.class, this, MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES, MicroserviceMetamodellPackage.INTERFACE__REFERENCED_ELEMENTS);
+		}
+		return referencedInterfaces;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EntityNode getAggregateRoot() {
 		return aggregateRoot;
 	}
@@ -177,9 +202,26 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferencedInterfaces()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES:
+				return ((InternalEList<?>)getReferencedInterfaces()).basicRemove(otherEnd, msgs);
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
 				return basicSetAggregateRoot(null, msgs);
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_NODE:
@@ -198,6 +240,8 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				return getElementName();
+			case MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES:
+				return getReferencedInterfaces();
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
 				return getAggregateRoot();
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_NODE:
@@ -217,6 +261,10 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				setElementName((String)newValue);
+				return;
+			case MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES:
+				getReferencedInterfaces().clear();
+				getReferencedInterfaces().addAll((Collection<? extends Interface>)newValue);
 				return;
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
 				setAggregateRoot((EntityNode)newValue);
@@ -240,6 +288,9 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				setElementName(ELEMENT_NAME_EDEFAULT);
 				return;
+			case MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES:
+				getReferencedInterfaces().clear();
+				return;
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
 				setAggregateRoot((EntityNode)null);
 				return;
@@ -260,6 +311,8 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		switch (featureID) {
 			case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME:
 				return ELEMENT_NAME_EDEFAULT == null ? elementName != null : !ELEMENT_NAME_EDEFAULT.equals(elementName);
+			case MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES:
+				return referencedInterfaces != null && !referencedInterfaces.isEmpty();
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_ROOT:
 				return aggregateRoot != null;
 			case MicroserviceMetamodellPackage.AGGREGATE__AGGREGATE_NODE:
@@ -278,6 +331,7 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		if (baseClass == ModelElement.class) {
 			switch (derivedFeatureID) {
 				case MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME: return MicroserviceMetamodellPackage.MODEL_ELEMENT__ELEMENT_NAME;
+				case MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES: return MicroserviceMetamodellPackage.MODEL_ELEMENT__REFERENCED_INTERFACES;
 				default: return -1;
 			}
 		}
@@ -299,6 +353,7 @@ public class AggregateImpl extends MinimalEObjectImpl.Container implements Aggre
 		if (baseClass == ModelElement.class) {
 			switch (baseFeatureID) {
 				case MicroserviceMetamodellPackage.MODEL_ELEMENT__ELEMENT_NAME: return MicroserviceMetamodellPackage.AGGREGATE__ELEMENT_NAME;
+				case MicroserviceMetamodellPackage.MODEL_ELEMENT__REFERENCED_INTERFACES: return MicroserviceMetamodellPackage.AGGREGATE__REFERENCED_INTERFACES;
 				default: return -1;
 			}
 		}

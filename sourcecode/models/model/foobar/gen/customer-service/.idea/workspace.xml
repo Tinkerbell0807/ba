@@ -5,97 +5,92 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="010d4d42-b6e5-4121-911b-b2c2d1cdfca2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/WebshopModel.microservicemetamodell" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/WebshopModel.microservicemetamodell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/representations.aird" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/representations.aird" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/AggregateItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/AggregateItemProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/AsynchronousInterfaceItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/AsynchronousInterfaceItemProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/CustomerSupplierItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/CustomerSupplierItemProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/EntityItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/EntityItemProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/FactoryItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/FactoryItemProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/MicroserviceItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/MicroserviceItemProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/MicroserviceMetamodellItemProviderAdapterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/MicroserviceMetamodellItemProviderAdapterFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ModelElementImplementationItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ModelElementImplementationItemProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/InterfaceItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/InterfaceItemProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ModelElementItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ModelElementItemProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/RepositoryItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/RepositoryItemProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ServiceItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ServiceItemProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/SynchronousInterfaceItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/SynchronousInterfaceItemProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ValueObjectItemProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/bin/microserviceMetamodell/provider/ValueObjectItemProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/plugin.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/plugin.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/AggregateItemProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/AggregateItemProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/MicroserviceItemProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/MicroserviceItemProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/MicroserviceMetamodellItemProviderAdapterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/MicroserviceMetamodellItemProviderAdapterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/CustomerSupplierItemProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/CustomerSupplierItemProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/InterfaceItemProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/InterfaceItemProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/ModelElementItemProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/ModelElementItemProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/ServiceItemProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.edit/src/microserviceMetamodell/provider/ServiceItemProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.tests/bin/microserviceMetamodell/tests/ModelElementImplementationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel.tests/bin/microserviceMetamodell/tests/ModelElementImplementationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/CustomerSupplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/CustomerSupplier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/Interface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/Interface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/Microservice.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/Microservice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/MicroserviceMetamodellFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/MicroserviceMetamodellFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/MicroserviceMetamodellPackage$Literals.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/MicroserviceMetamodellPackage$Literals.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/MicroserviceMetamodellPackage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/MicroserviceMetamodellPackage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/ModelElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/ModelElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/Service.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/AggregateImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/AggregateImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/BoundedContextImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/BoundedContextImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/BuildConfigurationImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/BuildConfigurationImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/DeployementAbstractionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/DeployementAbstractionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/AsynchronousInterfaceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/AsynchronousInterfaceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/CustomerSupplierImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/CustomerSupplierImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/EntityImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/EntityImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/FactoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/FactoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/InterfaceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/InterfaceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/MicroserviceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/MicroserviceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/MicroserviceMetamodellFactoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/MicroserviceMetamodellFactoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/MicroserviceMetamodellPackageImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/MicroserviceMetamodellPackageImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ModelElementImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ModelElementImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ModelElementImplementationImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ModelElementImplementationImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/RepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/RepositoryImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/SynchronousInterfaceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/SynchronousInterfaceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/TopicImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/TopicImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ValueObjectImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/impl/ValueObjectImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/util/MicroserviceMetamodellAdapterFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/util/MicroserviceMetamodellAdapterFactory$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/util/MicroserviceMetamodellAdapterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/util/MicroserviceMetamodellAdapterFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/util/MicroserviceMetamodellSwitch.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/bin/microserviceMetamodell/util/MicroserviceMetamodellSwitch.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/model/microserviceMetamodel.ecore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/model/microserviceMetamodel.ecore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/model/microserviceMetamodel.genmodel" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/model/microserviceMetamodel.genmodel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/model/representations.aird" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/model/representations.aird" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/CustomerSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/CustomerSupplier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/Interface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/Interface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/Microservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/Microservice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/MicroserviceMetamodellFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/MicroserviceMetamodellFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/MicroserviceMetamodellPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/MicroserviceMetamodellPackage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/ModelElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/ModelElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/AggregateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/AggregateImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/CustomerSupplierImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/CustomerSupplierImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/InterfaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/InterfaceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/MicroserviceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/MicroserviceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/MicroserviceMetamodellFactoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/MicroserviceMetamodellFactoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/MicroserviceMetamodellPackageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/MicroserviceMetamodellPackageImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/ModelElementImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/ModelElementImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/impl/ServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/util/MicroserviceMetamodellAdapterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/util/MicroserviceMetamodellAdapterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/util/MicroserviceMetamodellSwitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/microserviceMetamodel/src/microserviceMetamodell/util/MicroserviceMetamodellSwitch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutInformationEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutInformationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/8.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/backoffice/DataSearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/src/main/java/backoffice/DataSearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/controller/BackofficeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/src/main/java/controller/BackofficeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/CheckoutConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/CheckoutConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/CustomerConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/CustomerConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/NotificationConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/NotificationConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/OrderConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/OrderConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutBackofficeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutBackofficeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutProcessingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutProcessingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/controller/CheckoutOrderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/order/CheckoutOrderObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/order/CheckoutOrderObjectFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/ApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/application/BackofficeDataService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/checkout/CheckoutInformationEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/checkout/CheckoutInformationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/config/WebClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/config/WebSecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/customer/CustomerEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/customer/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/kafka/CheckoutInformationConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/kafka/CustomerConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/kafka/MarketingNotificationConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/kafka/OrderConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/marketing/MarketingNotificationEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/marketing/MarketingNotificationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/order/OrderEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../customer-service-application/src/main/java/order/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/config/CheckoutInformationProducerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../checkout-service/src/main/java/controller/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/kafka/CheckoutInformationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../checkout-service/src/main/java/kafka/CheckoutInformationProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
@@ -104,38 +99,37 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4169aeef-b495-4508-9a98-6e43f367fada.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6a881520-9bb4-49f2-bc73-dfd8f88b8fbd.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f1cc919-7dca-4e56-941f-82fa31e8c37b.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9af32a7c-7c36-4462-9e22-d6885ce4388d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bf8a15fa-778e-4767-8080-cb1dfc93ea60.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/da0dfb7e-55c0-458f-baae-d9c00170b405.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customer/CustomerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CustomerBonusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CustomerBonusController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerBonusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customer/CustomerBonusService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customer/CustomerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerMarketingObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customer/CustomerMarketingObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customer/CustomerRegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customer/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerRewardObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerRewardObjectFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerRewardService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kafka/CustomerProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kafka/CustomerProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/controller/CustomerRewardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/customer/CustomerEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/customer/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/kafka/CustomerConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/kafka/MarketingNotificationProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/CustomerMarketingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/MarketNotificationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/MarketingNotificationEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/MarketingNotificationFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/customer/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/customer/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/config/NotificationProducerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/controller/MarketingNotificationTrigger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../marketing-service/src/main/java/controller/MarketingNotificationTrigger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/kafka/NotificationProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../marketing-service/src/main/java/kafka/NotificationProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/MarketingNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/MarketingNotification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/config/OrderProducerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/customer/CustomerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/customer/CustomerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/kafka/CustomerConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/kafka/CustomerConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderCreationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/kafka/OrderProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/kafka/OrderProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderProcessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderProcessService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../viewpointSpecification/description/microService.odesign" beforeDir="false" afterPath="$PROJECT_DIR$/../../../viewpointSpecification/description/microService.odesign" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../workspaces/model/SampleModel/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../workspaces/model/SampleModel/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../workspaces/model/SampleModel/SampleModel.microservicemetamodell" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../workspaces/model/SampleModel/representations.aird" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,13 +162,14 @@
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20231225_0002",
+    "com.google.cloudcode.ide_session_index": "20231226_0002",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/home/patrik/Dokumente/Bachelorarbeit/sourcecode/models/model/foobar/gen/backoffice-service",
+    "last_opened_file_path": "/home/patrik/Dokumente/Bachelorarbeit/sourcecode/models/model/foobar/gen/customer-service",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "0f1ac9c2334ecc034a91f7f8b07d2c1d",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -183,7 +178,7 @@
       <module name="customer-service" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
@@ -204,7 +199,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703536636382</updated>
-      <workItem from="1703536638677" duration="4882000" />
+      <workItem from="1703536638677" duration="8480000" />
+      <workItem from="1703546835350" duration="51000" />
     </task>
     <servers />
   </component>
