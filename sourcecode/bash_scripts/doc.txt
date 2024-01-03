@@ -1,0 +1,43 @@
+1. ) Startup Skript or Scale up Nodes
+
+2. ) Get Credentials
+
+https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke?hl=en
+
+3.) Debug Info
+
+gcloud container clusters list
+kubectl cluster-info
+
+4.) IP Sec
+
+curl -4 ifconfig.co
+
+gcloud container clusters update mein-cluster \
+  --zone europe-west1-b \
+  --enable-master-authorized-networks \
+  --master-authorized-networks 141.24.47.242/32
+
+5.) Create nginx container
+
+kubectl create deployment mynginx --image=nginx:latest
+
+kubectl get deployment mynginx --output=wide
+
+kubectl describe deployment mynginx
+
+kubectl get pods
+
+6.) Service für den Pod erzeugen
+kubectl expose deployment mynginx --type=NodePort --port=80
+kubectl get services
+
+7.) Firewall Config
+
+gcloud compute firewall-rules create mynodeport --allow tcp:30372
+
+8.) curl
+
+curl 34.78.137.85:30372
+
+Last.) Destroy Skript Or Scale Down Nodes

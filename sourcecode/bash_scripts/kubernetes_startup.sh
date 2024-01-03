@@ -1,0 +1,1 @@
+gcloud container clusters create mein-cluster --zone europe-west1-b --machine-type e2-micro --num-nodes 1

@@ -5,126 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="018880d8-144d-4c22-85f2-ea4354a45f54" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/representations.aird" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../metamodel/WebshopModel/representations.aird" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/ApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/app/ApplicationStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backoffice-service/src/main/java/app/ApplicationStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/appApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/backoffice/DataSearchService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/checkout/CheckoutEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/checkout/CheckoutRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/config/WebClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/config/WebSecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/controller/BackofficeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/customer/CustomerEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/customer/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/CheckoutConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/CustomerConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/NotificationConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/kafka/OrderConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/notification/NotificationEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/notification/NotificationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/order/OrderEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backoffice-service/src/main/java/order/OrderRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/ApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/app/ApplicationStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../checkout-service/src/main/java/app/ApplicationStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/appApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutBackofficeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/checkout/CheckoutProcessingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/config/WebClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/config/WebSecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/controller/CheckoutController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../checkout-service/src/main/java/kafka/CheckoutInformationProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/007fd783-b4fa-4c00-a6b4-2cb6e78f2526.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4169aeef-b495-4508-9a98-6e43f367fada.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/93e174b6-272e-4173-a242-3a4547ad8a52.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0fd4a22-480b-4c6f-a341-f541262b874e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc75790d-e6fb-47be-ba6e-93e03d880fa3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bf8a15fa-778e-4767-8080-cb1dfc93ea60.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c791bd04-7e95-4523-8596-7e1eee6d4b5e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/da0dfb7e-55c0-458f-baae-d9c00170b405.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec922d26-8fb3-4dd3-ba20-e9ef2ebcb5ae.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/ApplicationStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/ApplicationStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/config/WebClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/WebSecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CustomerBonusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/controller/CustomerBonusController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerBonusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/customer/CustomerBonusService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/customer/CustomerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/customer/CustomerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerMarketingObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/customer/CustomerMarketingObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerRegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/customer/CustomerRegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/customer/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/customer/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kafka/CustomerProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/kafka/CustomerProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/8.2/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../marketing-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/classes/java/main/app/ApplicationStarter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/classes/java/main/config/WebClientConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/classes/java/main/config/WebSecurityConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/classes/java/main/controller/MarketingNotificationTrigger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/classes/java/main/kafka/NotificationProducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/classes/java/main/marketing/MarketingNotification.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/classes/java/main/marketing/NotificationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/config/WebClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/config/WebSecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/controller/MarketingNotificationTrigger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/kafka/NotificationProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/MarketingNotification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../marketing-service/src/main/java/marketing/NotificationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/ApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/app/ApplicationStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/java/app/ApplicationStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/appApplicationStarter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/config/WebClientConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/config/WebSecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/customer/CustomerEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/customer/CustomerFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/customer/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/kafka/CustomerConsumer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/kafka/OrderProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderProcessService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/java/order/OrderRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/org/eclipse/acceleo/module/foobar/main/generate.mtl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +54,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "0f1ac9c2334ecc034a91f7f8b07d2c1d",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -181,7 +63,7 @@
       <module name="customer-service" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
@@ -202,7 +84,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703592400854</updated>
-      <workItem from="1703592401928" duration="964000" />
+      <workItem from="1703592401928" duration="1778000" />
+      <workItem from="1703669779215" duration="28000" />
     </task>
     <servers />
   </component>
