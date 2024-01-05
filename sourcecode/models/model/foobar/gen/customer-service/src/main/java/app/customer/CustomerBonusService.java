@@ -12,9 +12,7 @@ public class CustomerBonusService {
     Logger logger = LoggerFactory.getLogger(CustomerBonusService.class);
     private final WebClient webClient;
 
-    CustomerBonusService
-            (WebClient webClient
-            ) {
+    CustomerBonusService(WebClient webClient) {
         this.webClient = webClient;
     }
 

@@ -1,0 +1,24 @@
+Wie es weiter geht:
+
+1.) Anwendungs Image in Cluster deployen
+
+2.) kafka-Cluster in Cluster deployen
+
+3.) Scripte abstrahieren -> Metamodell
+
+4.) Generierung für Skripte
+
+5.) Metamodell Konzept Runterschreiben
+
+6.) Generierung Runterschreiben
+
+7.) Theorie/Quellen ergänzen
+
+8.) Diskutieren (Dabei das Thema Migration anreisen) - (Acceleo Protected Block - MDE4CPP)
+
+9.) Schluss, Einleitung, Rund machen
+
+~ 7 Arbeitstage
+Realisitsch ? : 2 - 3 Wochen noch
+Prüfung am 14.02
+Spätestens 18.03

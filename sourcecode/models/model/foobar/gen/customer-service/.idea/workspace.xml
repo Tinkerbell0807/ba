@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="018880d8-144d-4c22-85f2-ea4354a45f54" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ec922d26-8fb3-4dd3-ba20-e9ef2ebcb5ae.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/app/customer/CustomerBonusService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/app/customer/CustomerBonusService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/customer/CustomerBonusService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/customer/CustomerBonusService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +57,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "spring.configuration.checksum": "0f1ac9c2334ecc034a91f7f8b07d2c1d",
     "vue.rearranger.settings.migration": "true"
   }
@@ -86,6 +90,7 @@
       <updated>1703592400854</updated>
       <workItem from="1703592401928" duration="1778000" />
       <workItem from="1703669779215" duration="28000" />
+      <workItem from="1704376009378" duration="4139000" />
     </task>
     <servers />
   </component>
